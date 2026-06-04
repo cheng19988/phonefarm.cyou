@@ -18,6 +18,10 @@ npm run db:seed
 npm run dev
 ```
 
+## GitHub
+
+https://github.com/cheng19988/phonefarm.cyou
+
 ## Admin
 
 http://localhost:3000/admin/login — credentials in `.env`

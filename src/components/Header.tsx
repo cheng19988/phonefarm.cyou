@@ -11,6 +11,7 @@ const nav = [
   { href: "/services", label: "Setup Services" },
   { href: "/deployment", label: "Deployment" },
   { href: "/help", label: "Help" },
+  { href: "/support", label: "Support" },
   { href: "/faq", label: "FAQ" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },

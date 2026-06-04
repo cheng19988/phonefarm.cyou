@@ -1,6 +1,9 @@
+import { Suspense } from "react";
 import { prisma } from "@/lib/prisma";
 import { ProductCard } from "@/components/ProductCard";
-import { PRODUCT_CATEGORIES } from "@/lib/constants";
+import { ShopFilters } from "@/components/ShopFilters";
+import { ContactBar } from "@/components/ContactBar";
+import { PRODUCT_CATEGORIES, CURRENCY } from "@/lib/constants";
 import { buildMetadata } from "@/lib/seo";
 import Link from "next/link";
 
@@ -14,13 +17,22 @@ export const metadata = buildMetadata({
 export default async function ProductsPage({
   searchParams,
 }: {
-  searchParams: Promise<{ category?: string }>;
+  searchParams: Promise<{ category?: string; q?: string }>;
 }) {
-  const { category } = await searchParams;
+  const { category, q } = await searchParams;
   const products = await prisma.product.findMany({
     where: {
       published: true,
       ...(category ? { category } : {}),
+      ...(q
+        ? {
+            OR: [
+              { name: { contains: q } },
+              { shortDesc: { contains: q } },
+              { category: { contains: q } },
+            ],
+          }
+        : {}),
     },
     orderBy: { name: "asc" },
   });
@@ -28,8 +40,18 @@ export default async function ProductsPage({
   return (
     <div className="mx-auto max-w-7xl px-4 py-12">
       <h1 className="text-3xl font-bold text-white">Products</h1>
-      <p className="mt-2 text-slate-400">Full hardware catalog for real-device phone farms.</p>
-      <div className="mt-6 flex flex-wrap gap-2">
+      <p className="mt-2 text-slate-400">
+        Full hardware catalog · {CURRENCY.label}
+      </p>
+      <div className="mt-4">
+        <ContactBar />
+      </div>
+      <Suspense>
+        <div className="mt-6">
+          <ShopFilters />
+        </div>
+      </Suspense>
+      <div className="mt-4 flex flex-wrap gap-2">
         <Link
           href="/products"
           className={`rounded-full px-3 py-1 text-sm ${!category ? "bg-cyan-600 text-white" : "border border-slate-700 text-slate-400"}`}
@@ -39,14 +61,15 @@ export default async function ProductsPage({
         {PRODUCT_CATEGORIES.map((c) => (
           <Link
             key={c.slug}
-            href={`/products?category=${c.slug}`}
+            href={`/products?category=${c.slug}${q ? `&q=${encodeURIComponent(q)}` : ""}`}
             className={`rounded-full px-3 py-1 text-sm ${category === c.slug ? "bg-cyan-600 text-white" : "border border-slate-700 text-slate-400"}`}
           >
             {c.name}
           </Link>
         ))}
       </div>
-      <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+      <p className="mt-6 text-sm text-slate-500">{products.length} products</p>
+      <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {products.map((p) => (
           <ProductCard key={p.id} product={p} />
         ))}

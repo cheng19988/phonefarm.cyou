@@ -13,7 +13,8 @@ export function ShopFilters() {
     const next = new URLSearchParams(params.toString());
     if (value) next.set(key, value);
     else next.delete(key);
-    router.push(`/shop?${next.toString()}`);
+    const base = window.location.pathname.startsWith("/products") ? "/products" : "/shop";
+    router.push(`${base}?${next.toString()}`);
   }
 
   return (
@@ -33,7 +34,7 @@ export function ShopFilters() {
       <div className="flex flex-wrap gap-2">
         <button
           type="button"
-          onClick={() => router.push("/shop")}
+          onClick={() => router.push(window.location.pathname.startsWith("/products") ? "/products" : "/shop")}
           className={`rounded-full px-3 py-1 text-sm ${!category ? "bg-cyan-600 text-white" : "border border-slate-700 text-slate-400"}`}
         >
           All

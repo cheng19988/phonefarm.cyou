@@ -1,7 +1,9 @@
 export const HELP_CATEGORIES = [
   { id: "getting-started", name: "Getting Started" },
   { id: "connection", name: "Device Connection" },
+  { id: "network", name: "Network & Router" },
   { id: "control", name: "Control & Group Ops" },
+  { id: "firmware", name: "Firmware & ROM" },
   { id: "troubleshooting", name: "Troubleshooting" },
 ] as const;
 
@@ -82,6 +84,41 @@ export const HELP_ARTICLES = [
     title: "ADB Commands & Script Shortcuts",
     excerpt: "Save repeatable automation without full IDE.",
     body: `Map frequent ADB actions to buttons during Group Control System Setup. Advanced teams use script windows for chained commands with guard timeouts.`,
+  },
+  {
+    slug: "otg-mode-connection-tutorial",
+    category: "connection",
+    title: "Tutorial: Connect Phone Farm in OTG Mode",
+    excerpt: "Step-by-step OTG TCP enablement before LAN scan.",
+    body: `For official ROM boxes: connect USB first, run OTG TCP 5555 shortcut from your mirror tool, then switch to LAN scan on the same subnet. Optimized ROM boxes from Cyou often skip this—verify in your burn-in report.`,
+  },
+  {
+    slug: "large-farm-network-deployment",
+    category: "network",
+    title: "Recommended Network Plan for Large Phone Farms",
+    excerpt: "VLANs, uplinks, and AP placement for 40+ nodes.",
+    body: `Split control PCs and farm subnets, dedicate gigabit switches per rack, cap WiFi mirrors per AP, and document DHCP pools. We provide a network BOM review during Enterprise Deployment packages.`,
+  },
+  {
+    slug: "router-dhcp-pool-limits",
+    category: "network",
+    title: "Router DHCP Pool & Connection Limits",
+    excerpt: "Avoid DHCP exhaustion when scaling devices.",
+    body: `Expand DHCP pools above default consumer limits, reserve IPs for control PCs, and enable per-port isolation where proxies require unique egress paths.`,
+  },
+  {
+    slug: "samsung-farm-rom-guidance",
+    category: "firmware",
+    title: "Samsung Farm ROM Update Guidance",
+    excerpt: "When to flash optimized ROM vs stay on official builds.",
+    body: `Official ROM requires ADB auth files; optimized ROM enables faster LAN mirroring. Cyou ships boxes with documented ROM tier—do not flash unknown images without factory support.`,
+  },
+  {
+    slug: "motherboard-bios-xhci-note",
+    category: "firmware",
+    title: "Workstation BIOS: USB/XHCI Notes",
+    excerpt: "Stability tips for control PCs driving many hubs.",
+    body: `Disable problematic XHCI handoff on legacy boards if USB tree drops nodes. Use powered hubs and separate controllers for 60+ ports.`,
   },
 ] as const;
 
