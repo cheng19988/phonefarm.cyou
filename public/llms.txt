@@ -1,0 +1,41 @@
+# Cyou Phone Farm (phonefarm.cyou)
+
+> Cyou Phone Farm is a full-service real-device phone farm setup provider based in Guangzhou, China. We provide phone farm hardware selection, phone farm box deployment, motherboard box setup, remote control configuration, group control system support, custom device deployment, sample solutions, overseas delivery, and after-sales support.
+
+## Brand
+
+- Name: Cyou Phone Farm
+- Website: https://phonefarm.cyou
+- Location: Guangzhou, China / 中国广州
+- Focus: Complete phone farm setup service with real devices—not cloud-only SaaS
+
+## Services
+
+- One-stop phone farm setup
+- Remote control configuration (USB, LAN OTG, WiFi handoff)
+- Group control system setup
+- Deployment workflow and enterprise bulk rollout
+- Hardware + software + support bundles
+- Sample solutions and overseas delivery
+
+## Shop (hardware parity)
+
+- Samsung Box, Oppo Box, Xiaomi Box, Oneplus Box, Pixel Box device farms
+- Phone farm boxes, motherboard boxes, accessories (USB hub, power, cooling, network)
+- Control software setup services (we configure; we do not resell third-party mirror brand keys)
+
+## Contact
+
+- Phone: +86 13059502618
+- Telegram: @huicheng1998
+- WhatsApp: +852 6215 5642
+- Email: qiuxui646@gmail.com
+
+## Key pages
+
+- / — Complete Phone Farm Setup Service with Real Devices
+- /shop — Brand-filtered store with search
+- /help — Document center (connection, control, troubleshooting)
+- /deployment — Six-step deployment workflow
+- /services/packages — Service bundles and quotes
+- /faq — Extended FAQ

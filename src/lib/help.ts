@@ -1,0 +1,90 @@
+export const HELP_CATEGORIES = [
+  { id: "getting-started", name: "Getting Started" },
+  { id: "connection", name: "Device Connection" },
+  { id: "control", name: "Control & Group Ops" },
+  { id: "troubleshooting", name: "Troubleshooting" },
+] as const;
+
+export const HELP_ARTICLES = [
+  {
+    slug: "what-is-phone-farm",
+    category: "getting-started",
+    title: "What is a Phone Farm?",
+    excerpt: "How real-device farms improve on loose-phone group control.",
+    body: `A phone farm is an integrated chassis of real Android motherboards—without screens or batteries—running under shared power, cooling, and USB/LAN control. Cyou Phone Farm deploys factory-built boxes from Guangzhou with documented network and control policies.`,
+  },
+  {
+    slug: "single-device-single-ip",
+    category: "getting-started",
+    title: "Single Device Single IP Switching",
+    excerpt: "Routing and proxy policies per node for isolation.",
+    body: `Many operators require one IP per device. We document router VLANs, proxy assignment per group, and detection checks after you receive hardware. Contact sales for a topology review before scaling past one box.`,
+  },
+  {
+    slug: "after-purchase-guide",
+    category: "getting-started",
+    title: "Instructions After Receiving Your Phone Farm",
+    excerpt: "Unboxing, burn-in, and first connection checklist.",
+    body: `1. Inspect packaging and PSU labels. 2. Connect control PC and one box via USB. 3. Run device detection. 4. Apply group labels. 5. Open support ticket on Telegram/WhatsApp if any node fails burn-in.`,
+  },
+  {
+    slug: "device-connection-video-guide",
+    category: "getting-started",
+    title: "Device Connection Video Guide",
+    excerpt: "Visual walkthrough for first-time USB and LAN setup.",
+    body: `Watch our Help Center sequence: USB projection → LAN OTG scan → optional WiFi handoff. Cyou Phone Farm provides remote onboarding during Starter or Studio Pro packages. Contact sales for a live screenshare session.`,
+  },
+  {
+    slug: "usb-screen-projection",
+    category: "connection",
+    title: "USB Screen Projection Connection",
+    excerpt: "Connect official and optimized system boxes over USB.",
+    body: `Plug the farm box into a powered USB hub path to the control PC. For official Android builds, we provide ADB authorization file placement instructions during Remote Control Configuration. Optimized/root boxes may skip extra auth steps.`,
+  },
+  {
+    slug: "lan-otg-connection",
+    category: "connection",
+    title: "LAN OTG Screen Projection",
+    excerpt: "Same-router scanning and IP segment adds.",
+    body: `Ensure PC and farm share one router. Official boxes may require USB-first enable of OTG TCP 5555 before WiFi/LAN scan. Optimized boxes often ship with network mirroring enabled—use Add LAN Device and segment scan in your mirror tool.`,
+  },
+  {
+    slug: "usb-to-wifi-handoff",
+    category: "connection",
+    title: "USB Device to WiFi Connection",
+    excerpt: "When to hand off and router capacity guidance.",
+    body: `Right-click a connected device and switch to LAN/WiFi mode to drop the USB cable. Ordinary routers handle ~5–10 mirrors; enterprise APs can exceed 20. Use WiFi handoff sparingly on large motherboard walls to avoid voltage-related drops.`,
+  },
+  {
+    slug: "equipment-status-detection",
+    category: "troubleshooting",
+    title: "Equipment Status Detection",
+    excerpt: "Find offline nodes quickly.",
+    body: `Use the device detection panel in your control software. If a node fails after group sync, re-seat USB, swap hub port, and compare serial in our burn-in sheet. Escalate to Cyou support with the node ID.`,
+  },
+  {
+    slug: "sync-control-batch-ops",
+    category: "control",
+    title: "Sync Control & Batch Operations",
+    excerpt: "Master window, grouping, and one-click select.",
+    body: `Fixed window: one-click select on the left rail controls all selected units. Floating master: use the group control button. Combine with device groups for campaign-level batch taps, APK pushes, and file transfers.`,
+  },
+  {
+    slug: "batch-apk-install",
+    category: "control",
+    title: "Batch APK Installation",
+    excerpt: "Multi-select install workflow.",
+    body: `Select target devices → batch install → choose APK set. Failed installs usually indicate incompatible APK splits—test one APK on a single node before fleet push.`,
+  },
+  {
+    slug: "adb-scripts-shortcuts",
+    category: "control",
+    title: "ADB Commands & Script Shortcuts",
+    excerpt: "Save repeatable automation without full IDE.",
+    body: `Map frequent ADB actions to buttons during Group Control System Setup. Advanced teams use script windows for chained commands with guard timeouts.`,
+  },
+] as const;
+
+export function getHelpArticle(slug: string) {
+  return HELP_ARTICLES.find((a) => a.slug === slug);
+}
