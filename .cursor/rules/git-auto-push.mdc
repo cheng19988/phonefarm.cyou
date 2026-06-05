@@ -1,0 +1,15 @@
+---
+description: Auto commit and push after completing tasks
+alwaysApply: true
+---
+
+# Git: auto commit and push
+
+After finishing a task that changes code or assets:
+
+1. Commit with a clear message (only when there are real changes).
+2. Push to `origin main` on `https://github.com/cheng19988/phonefarm.cyou.git` without waiting for the user to ask.
+3. If push fails (timeout, proxy, connection reset), retry up to 5 times with `git -c http.proxy= -c https.proxy= push origin main`, waiting a few seconds between attempts.
+4. Briefly tell the user the push result (success or still blocked after retries).
+
+Do not force-push. Do not update git config.
