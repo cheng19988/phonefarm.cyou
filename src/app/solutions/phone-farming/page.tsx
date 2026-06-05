@@ -4,19 +4,35 @@ import { prisma } from "@/lib/prisma";
 import { ProductCard } from "@/components/ProductCard";
 import { ContactForm } from "@/components/ContactForm";
 import { ContactBar } from "@/components/ContactBar";
+import { DeploymentTimeline } from "@/components/DeploymentTimeline";
 import { IMAGES } from "@/lib/images";
+import { SITE, TRUST_POINTS } from "@/lib/constants";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
-  title: "Phone Farming Solution for Professional Teams",
+  title: "Enterprise Phone Farm Solution",
   description:
-    "Factory-built phone farm boxes—20 nodes per chassis, OTG/USB control, 24/7 Samsung motherboard clusters for QA and automation teams.",
+    "Real-device phone farm solution from Guangzhou: hardware, control software configuration, burn-in, export, and remote support for QA and enterprise device labs.",
   path: "/solutions/phone-farming",
 });
 
+const SOLUTION_CATEGORIES = [
+  "samsung-box",
+  "xiaomi-box",
+  "oppo-box",
+  "oneplus-box",
+  "pixel-box",
+  "motherboard-box",
+  "usb-hub",
+  "network-equipment",
+  "control-software",
+  "service-package",
+] as const;
+
 export default async function PhoneFarmingSolutionPage() {
   const products = await prisma.product.findMany({
-    where: { published: true, category: { in: ["phone-farm-box", "android-phone-farm", "motherboard-box"] } },
+    where: { published: true, category: { in: [...SOLUTION_CATEGORIES] } },
+    orderBy: [{ category: "asc" }, { priceUsd: "asc" }],
     take: 12,
   });
 
@@ -24,50 +40,40 @@ export default async function PhoneFarmingSolutionPage() {
     <div>
       <section className="relative border-b border-slate-800 py-20">
         <div className="absolute inset-0">
-          <Image src={IMAGES.heroAlt} alt="Phone farming solution" fill className="object-cover opacity-25" />
-          <div className="absolute inset-0 bg-slate-950/85" />
+          <Image src={IMAGES.controlScene} alt="Phone farm control workspace" fill className="object-cover opacity-20" />
+          <div className="absolute inset-0 bg-slate-950/90" />
         </div>
         <div className="relative mx-auto max-w-7xl px-4">
-          <h1 className="text-4xl font-bold text-white">Phone Farming Solution</h1>
-          <p className="mt-4 max-w-2xl text-lg text-slate-300">
-            Run and manage many real Android devices for testing, content workflows, and legitimate multi-device
-            operations—not messy hobby rigs.
+          <h1 className="text-4xl font-bold text-white">Enterprise phone farm solution</h1>
+          <p className="mt-4 max-w-3xl text-lg text-slate-300">
+            {SITE.name} supplies real Android motherboard farms from Guangzhou for QA device labs, multi-device operations,
+            remote device management, and enterprise deployment programs—not cloud-only shortcuts.
           </p>
-          <div className="mt-6 flex gap-3">
-            <Link href="/shop" className="rounded-lg bg-cyan-600 px-5 py-2 text-white hover:bg-cyan-500">
-              Build Your Setup
+          <div className="mt-6 flex flex-wrap gap-3">
+            <Link href="/contact" className="rounded-lg bg-cyan-600 px-5 py-2 text-white hover:bg-cyan-500">
+              Request solution quote
             </Link>
-            <Link href="/contact" className="rounded-lg border border-slate-600 px-5 py-2 text-white">
-              Custom Plan
+            <Link href="/shop" className="rounded-lg border border-slate-600 px-5 py-2 text-white">
+              Browse hardware
             </Link>
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-16">
-        <h2 className="text-2xl font-bold text-white">1 Phone Farm Box = 20 Mobile Devices</h2>
-        <p className="mt-4 text-slate-400">
-          Battery-free boards in an industrial chassis with centralized power, quad-fan cooling, and USB/OTG paths.
-        </p>
-        <div className="mt-8 grid gap-6 md:grid-cols-3">
-          {[
-            { t: "OTG / USB Mode", d: "One-click grouped control from your PC." },
-            { t: "Motherboard Box 24/7", d: "Samsung-class nodes without screens or batteries." },
-            { t: "Enterprise Scaling", d: "Modular boxes stack into audit-ready racks." },
-          ].map((x) => (
-            <div key={x.t} className="rounded-xl border border-slate-800 p-5">
-              <h3 className="font-semibold text-cyan-400">{x.t}</h3>
-              <p className="mt-2 text-sm text-slate-400">{x.d}</p>
-            </div>
-          ))}
-        </div>
+      <section className="mx-auto max-w-7xl px-4 py-14">
+        <h2 className="text-2xl font-bold text-white">What we deliver</h2>
+        <ul className="mt-6 grid gap-4 md:grid-cols-2 text-slate-400">
+          <li className="rounded-xl border border-slate-800 p-5">Factory-assembled 20-node chassis with burn-in serial sheet</li>
+          <li className="rounded-xl border border-slate-800 p-5">USB mirroring and LAN OTG control configuration</li>
+          <li className="rounded-xl border border-slate-800 p-5">Group control policies, batch APK workflows, operator handover</li>
+          <li className="rounded-xl border border-slate-800 p-5">Export packing, express freight, and WhatsApp/Telegram support</li>
+        </ul>
       </section>
 
-      <section className="border-t border-slate-800 bg-slate-900/30 py-16">
+      <section className="border-t border-slate-800 bg-slate-900/20 py-14">
         <div className="mx-auto max-w-7xl px-4">
-          <h2 className="text-2xl font-bold text-white">Choose Your Phone Farm Box</h2>
-          <ContactBar />
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          <h2 className="text-2xl font-bold text-white">Recommended hardware</h2>
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {products.map((p) => (
               <ProductCard key={p.id} product={p} />
             ))}
@@ -75,16 +81,30 @@ export default async function PhoneFarmingSolutionPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-16">
-        <h2 className="text-2xl font-bold text-white">Why Professionals Choose Cyou Phone Farm</h2>
-        <ul className="mt-6 space-y-3 text-slate-400">
-          <li>Safe 24/7 operations with centralized power and cooling</li>
-          <li>Batch control and Appium-ready device farms</li>
-          <li>Compliant scaling with standardized chassis documentation</li>
-        </ul>
-        <div className="mt-10 max-w-xl">
-          <h3 className="text-lg font-semibold text-white">Get Deployment Kit</h3>
-          <ContactForm source="phone-farming" />
+      <section className="mx-auto max-w-7xl px-4 py-14">
+        <h2 className="text-2xl font-bold text-white">Rollout timeline</h2>
+        <DeploymentTimeline />
+      </section>
+
+      <section className="border-t border-slate-800 py-14">
+        <div className="mx-auto max-w-7xl px-4">
+          <h2 className="text-2xl font-bold text-white">Trust &amp; support</h2>
+          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {TRUST_POINTS.slice(0, 4).map((t) => (
+              <div key={t.title} className="rounded-xl border border-slate-800 p-4 text-sm">
+                <h3 className="font-semibold text-white">{t.title}</h3>
+                <p className="mt-2 text-slate-400">{t.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-4 py-14">
+        <ContactBar />
+        <div className="mt-8 max-w-xl">
+          <h2 className="text-xl font-bold text-white">Discuss your deployment</h2>
+          <ContactForm source="solution-phone-farming" />
         </div>
       </section>
     </div>

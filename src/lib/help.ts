@@ -1,3 +1,5 @@
+import { HELP_EXPANDED } from "./help-expanded";
+
 export const HELP_CATEGORIES = [
   { id: "getting-started", name: "Getting Started" },
   { id: "connection", name: "Device Connection" },
@@ -123,5 +125,8 @@ export const HELP_ARTICLES = [
 ] as const;
 
 export function getHelpArticle(slug: string) {
-  return HELP_ARTICLES.find((a) => a.slug === slug);
+  const article = HELP_ARTICLES.find((a) => a.slug === slug);
+  if (!article) return undefined;
+  const expanded = HELP_EXPANDED[slug];
+  return expanded ? { ...article, body: expanded } : article;
 }

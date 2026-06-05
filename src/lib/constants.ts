@@ -23,7 +23,8 @@ export const CONTACT = {
 export const CURRENCY = {
   code: "USD",
   symbol: "$",
-  label: "USD list prices · final quote via Telegram, WhatsApp, or email",
+  label:
+    "Reference prices in USD · Bulk orders and custom configurations are quoted by sales.",
 } as const;
 
 export const PAYMENT = {
@@ -72,34 +73,114 @@ export const PRODUCT_CATEGORIES = [
 
 export const CONTROL_SOFTWARE_OPTIONS = [
   {
-    slug: "cyou-mirror",
-    name: "Cyou Mirror Workspace (Free Tier Setup)",
-    desc: "Our team configures the free mirror workspace for USB and LAN OTG fleets—authorization paths, grouping, and batch controls.",
+    slug: "usb-mirroring",
+    name: "USB mirroring setup",
+    desc: "Powered hub paths, ADB authorization, and per-node labels on your control PC.",
   },
   {
-    slug: "pro-mirror",
-    name: "Professional Mirror Suite Setup",
-    desc: "Stable commercial mirror stack installation, shortcuts, and multi-group layouts for agency-scale operations.",
+    slug: "lan-otg",
+    name: "LAN OTG configuration",
+    desc: "Subnet planning, TCP 5555 enablement, and scan policies for same-router fleets.",
   },
   {
-    slug: "cost-effective-cloud-bridge",
-    name: "Cost-Effective Cloud Bridge Setup",
-    desc: "Hybrid guidance when you need subscription-based cloud seats alongside real devices—we wire policies, not resell third-party keys.",
+    slug: "device-grouping",
+    name: "Device grouping",
+    desc: "Campaign groups, master window rules, and operator permissions.",
   },
   {
-    slug: "enterprise-control-stack",
-    name: "Enterprise Control Stack",
-    desc: "Multi-vendor toolchains unified under one deployment playbook with audit-friendly device labeling.",
+    slug: "batch-apk",
+    name: "Batch APK installation",
+    desc: "Test-on-one-node workflow, split APK handling, and rollback notes.",
+  },
+  {
+    slug: "control-pc-layout",
+    name: "Control PC layout",
+    desc: "Monitor tiling, USB controller separation, and backup workstation guidance.",
+  },
+  {
+    slug: "operator-handover",
+    name: "Operator handover",
+    desc: "Runbook, escalation path, and spare-parts list for your team.",
   },
 ] as const;
 
+export const CONTROL_SOFTWARE_DISCLAIMER =
+  "We configure the control environment selected by the customer. We do not resell third-party software licenses unless explicitly agreed in writing.";
+
 export const DEPLOYMENT_STEPS = [
-  { step: 1, title: "Discovery & Device Selection", desc: "Workload, app matrix, Android version, and per-node storage targets." },
-  { step: 2, title: "Hardware Configuration", desc: "Box model, PSU, cooling, USB hub tier, and rack layout from Guangzhou factory." },
-  { step: 3, title: "Remote Control Configuration", desc: "USB, LAN OTG, WiFi handoff, mirroring groups, and operator workstations." },
-  { step: 4, title: "Group Control System Setup", desc: "Device groups, sync control rules, batch APK/file policies, ADB shortcuts." },
-  { step: 5, title: "Burn-in & Delivery", desc: "Stress test, export packing, customs docs, and overseas logistics." },
-  { step: 6, title: "Handover & After-sales", desc: "Runbooks, spare parts list, Telegram/WhatsApp support channel, and upgrade path." },
+  { step: 1, title: "Requirement confirmation", desc: "Device count, app matrix, Android targets, control method, and export destination." },
+  { step: 2, title: "Device selection", desc: "SoC tier, RAM/storage, chassis density, and accessory BOM from Guangzhou engineering." },
+  { step: 3, title: "Hardware assembly", desc: "Motherboard tray build, PSU, cooling, USB topology, and factory labeling." },
+  { step: 4, title: "Control software setup", desc: "USB mirroring, LAN OTG, grouping, batch APK policy, and operator PC layout." },
+  { step: 5, title: "Burn-in test and packing", desc: "24–48h stress run, serial sheet, export carton, and commercial invoice prep." },
+  { step: 6, title: "Handover and support", desc: "Remote walkthrough, runbook, spare-parts list, and WhatsApp/Telegram after-sales channel." },
+] as const;
+
+export const CONTROL_SETUP_SERVICES = [
+  {
+    slug: "control-onboarding",
+    name: "Control Software Onboarding",
+    desc: "Map your chosen mirror tool to USB paths, operator accounts, and device groups.",
+  },
+  {
+    slug: "remote-mirror-workspace",
+    name: "Remote Mirror Workspace Setup",
+    desc: "Workstation layout, window tiling, LAN scan ranges, and handover checklist.",
+  },
+  {
+    slug: "group-control-policy",
+    name: "Group Control Policy Configuration",
+    desc: "Batch APK rules, file push folders, ADB shortcuts, and campaign-based grouping.",
+  },
+  {
+    slug: "annual-maintenance",
+    name: "Annual Maintenance Support",
+    desc: "Quarterly health review, fan/PSU guidance, and control-stack update planning.",
+  },
+] as const;
+
+export const TRUST_POINTS = [
+  { title: "Guangzhou facility", desc: "Assembly, burn-in, and export packing under one roof since 2017." },
+  { title: "Assembly & burn-in testing", desc: "Each node logged on a serial sheet before shipment." },
+  { title: "Export packing", desc: "Reinforced cartons, foam, and commercial invoice support for overseas buyers." },
+  { title: "Remote setup support", desc: "Screenshare onboarding for first connection and grouping." },
+  { title: "MOQ policy", desc: "Single-box and sample units available; bulk pricing from 5+ boxes." },
+  { title: "Warranty policy", desc: "90-day hardware defect coverage; extended options for enterprise contracts." },
+  { title: "Spare parts support", desc: "Fans, PSU, USB hubs, and trays stocked for RMA and expansion." },
+  { title: "After-sales channel", desc: "WhatsApp and Telegram response during US/EU-friendly hours." },
+] as const;
+
+export const PRODUCT_INFO_TOPICS = [
+  {
+    title: "What is a phone farm?",
+    body: "A chassis of real Android motherboards—no screens or batteries—sharing power, cooling, and a centralized USB/LAN control path. Built for professional multi-device operations, not consumer handset resale.",
+  },
+  {
+    title: "Real device vs emulator",
+    body: "Physical boards match production SoC, sensors, and storage behavior. Emulators are useful for early dev but diverge under QA, compatibility testing, and enterprise device-lab workflows.",
+  },
+  {
+    title: "Real device vs cloud phone",
+    body: "Cloud seats are recurring and shared infrastructure. Real-device farms give you local control, predictable latency, and hardware you can audit—hybrid setups are documented when you already use cloud tools.",
+  },
+  {
+    title: "When to choose motherboard boxes",
+    body: "Choose a boxed farm when you need 20+ nodes per rack, stable thermals, and factory burn-in. Loose boards only make sense for small pilots with bench power.",
+  },
+  {
+    title: "Network & control workstation",
+    body: "Plan a dedicated control PC with powered USB hubs, gigabit switching, and DHCP pools sized for your node count before scaling past one chassis.",
+  },
+] as const;
+
+export const HOME_SECTIONS = [
+  { slug: "samsung-box", name: "Samsung Box" },
+  { slug: "xiaomi-box", name: "Xiaomi Box" },
+  { slug: "oppo-box", name: "OPPO Box" },
+  { slug: "oneplus-box", name: "OnePlus Box" },
+  { slug: "pixel-box", name: "Pixel Box" },
+  { slug: "usb-hub", name: "Accessories", categories: ["usb-hub", "power-supply", "cooling-solution", "network-equipment", "motherboard-box"] },
+  { slug: "control-software", name: "Control Software Setup", categories: ["control-software", "mirror-vip"] },
 ] as const;
 
 export const SERVICE_PACKAGES = [

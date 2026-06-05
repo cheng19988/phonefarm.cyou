@@ -2,10 +2,13 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import { ProductActions } from "@/components/ProductActions";
+import { ProductInquiryPanel } from "@/components/ProductInquiryPanel";
 import { ContactBar } from "@/components/ContactBar";
 import { JsonLd } from "@/components/JsonLd";
 import { productJsonLd, breadcrumbJsonLd, buildMetadata } from "@/lib/seo";
 import { FaqAccordion } from "@/components/FaqAccordion";
+import { getProductProfile } from "@/lib/productProfiles";
+import { formatReferencePrice } from "@/lib/pricing";
 
 function parseJson<T>(raw: string, fallback: T): T {
   try {
@@ -19,9 +22,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const product = await prisma.product.findUnique({ where: { slug } });
   if (!product) return {};
+  const profile = getProductProfile(slug);
   return buildMetadata({
     title: product.name,
-    description: product.shortDesc,
+    description: profile?.intro ?? product.shortDesc,
     path: `/products/${slug}`,
     image: product.imageHero,
   });
@@ -36,14 +40,15 @@ export default async function ProductDetailPage({
   const product = await prisma.product.findUnique({ where: { slug } });
   if (!product) notFound();
 
+  const profile = getProductProfile(slug);
+  const baseSpecs = parseJson<Record<string, string>>(product.specs, {});
+  const { listPriceUsd: _drop, ...specs } = baseSpecs as Record<string, string> & { listPriceUsd?: number };
+  const specTable = profile ? { ...specs, ...profile.specOverrides } : specs;
+  const intro = profile?.intro ?? product.description;
+  const included = profile?.included ?? parseJson<string[]>(product.delivery, []);
+  const recommended = profile?.recommendedFor ?? parseJson<string[]>(product.scenarios, []);
+  const faq = profile?.faq ?? parseJson<{ q: string; a: string }[]>(product.faq, []);
   const features = parseJson<string[]>(product.features, []);
-  const specs = parseJson<Record<string, string>>(product.specs, {});
-  const scenarios = parseJson<string[]>(product.scenarios, []);
-  const accessories = parseJson<string[]>(product.accessories, []);
-  const delivery = parseJson<string[]>(product.delivery, []);
-  const maintenance = parseJson<string[]>(product.maintenance, []);
-  const miniFaq = parseJson<{ q: string; a: string }[]>(product.faq, []);
-  const listPrice = (specs as { listPriceUsd?: number }).listPriceUsd;
   const inStock = product.stock > 0;
 
   return (
@@ -52,7 +57,7 @@ export default async function ProductDetailPage({
         data={[
           productJsonLd({
             name: product.name,
-            description: product.shortDesc,
+            description: intro.slice(0, 160),
             slug: product.slug,
             priceUsd: product.priceUsd,
             stock: product.stock,
@@ -65,81 +70,80 @@ export default async function ProductDetailPage({
           ]),
         ]}
       />
-      <div className="grid gap-10 lg:grid-cols-2">
-        <div className="relative aspect-square overflow-hidden rounded-xl border border-slate-800">
-          <Image src={product.imageDetail} alt={product.name} fill className="object-cover" priority />
-        </div>
-        <div>
-          <p className="text-sm uppercase text-cyan-500">{product.category.replace(/-/g, " ")}</p>
-          <h1 className="mt-2 text-3xl font-bold text-white">{product.name}</h1>
-          <p className="mt-4 text-slate-400">{product.shortDesc}</p>
-          <div className="mt-4">
-            {product.priceUsd > 0 ? (
-              <div className="flex items-baseline gap-3">
-                <p className="text-3xl font-bold text-white">${product.priceUsd.toFixed(2)}</p>
-                {listPrice && (
-                  <p className="text-xl text-slate-500 line-through">${listPrice.toFixed(2)}</p>
-                )}
+      <div className="grid gap-10 lg:grid-cols-3">
+        <div className="lg:col-span-2">
+          <div className="grid gap-10 md:grid-cols-2">
+            <div className="relative aspect-square overflow-hidden rounded-xl border border-slate-800">
+              <Image src={product.imageDetail} alt={product.name} fill className="object-cover" priority />
+            </div>
+            <div>
+              <p className="text-sm uppercase text-cyan-500">{product.category.replace(/-/g, " ")}</p>
+              <h1 className="mt-2 text-3xl font-bold text-white">{product.name}</h1>
+              <p className="mt-4 text-slate-400">{product.shortDesc}</p>
+              <div className="mt-4">
+                <p className="text-xs uppercase tracking-wide text-slate-500">Reference price</p>
+                <p className="text-3xl font-bold text-white">{formatReferencePrice(product.priceUsd)}</p>
+                <p className="mt-1 text-sm text-slate-500">Bulk quote available · sales confirms final invoice</p>
               </div>
-            ) : (
-              <p className="text-2xl font-bold text-amber-400">Contact for Quote</p>
+              <div className="mt-6">
+                <ProductActions
+                  productId={product.id}
+                  slug={product.slug}
+                  name={product.name}
+                  imageCard={product.imageCard}
+                  priceUsd={product.priceUsd}
+                  inStock={inStock}
+                />
+              </div>
+              <div className="mt-6">
+                <ContactBar />
+              </div>
+            </div>
+          </div>
+
+          <div className="prose-farm mt-12">
+            <h2>Overview</h2>
+            <p>{intro}</p>
+            {!profile && (
+              <>
+                <h2>Key features</h2>
+                <ul>{features.map((f) => <li key={f}>{f}</li>)}</ul>
+              </>
             )}
-            <p className={`text-sm ${inStock ? "text-emerald-400" : "text-red-400"}`}>
-              {inStock ? `${product.stock} in stock` : "Out of stock — contact for lead time"}
-            </p>
+            <h2>Specification table</h2>
+            <div className="overflow-x-auto rounded-xl border border-slate-800 not-prose">
+              <table className="w-full text-sm text-left">
+                <tbody>
+                  {Object.entries(specTable)
+                    .filter(([k]) => k !== "listPriceUsd")
+                    .map(([k, v]) => (
+                      <tr key={k} className="border-b border-slate-800">
+                        <th className="px-4 py-2 text-slate-300">{k}</th>
+                        <td className="px-4 py-2 text-slate-400">{v}</td>
+                      </tr>
+                    ))}
+                </tbody>
+              </table>
+            </div>
+            <h2>What is included</h2>
+            <ul>{included.map((item) => <li key={item}>{item}</li>)}</ul>
+            <h2>Recommended for</h2>
+            <ul>{recommended.map((item) => <li key={item}>{item}</li>)}</ul>
           </div>
-          <div className="mt-6">
-            <ProductActions
-              productId={product.id}
-              slug={product.slug}
-              name={product.name}
-              imageCard={product.imageCard}
-              priceUsd={product.priceUsd}
-              inStock={inStock}
-            />
-          </div>
-          <div className="mt-6">
-            <ContactBar />
-          </div>
+
+          {faq.length > 0 && (
+            <section className="mt-12">
+              <h2 className="text-xl font-bold text-white">Product FAQ</h2>
+              <div className="mt-4 max-w-3xl">
+                <FaqAccordion items={faq} />
+              </div>
+            </section>
+          )}
+        </div>
+        <div className="lg:col-span-1">
+          <ProductInquiryPanel productSlug={product.slug} productName={product.name} />
         </div>
       </div>
-
-      <div className="prose-farm mt-16 max-w-4xl">
-        <h2>Product Introduction</h2>
-        <p>{product.description}</p>
-        <h2>Key Features</h2>
-        <ul>{features.map((f) => <li key={f}>{f}</li>)}</ul>
-        <h2>Technical Parameters</h2>
-        <div className="overflow-x-auto rounded-xl border border-slate-800">
-          <table className="w-full text-sm text-left">
-            <tbody>
-              {Object.entries(specs).map(([k, v]) => (
-                <tr key={k} className="border-b border-slate-800">
-                  <th className="px-4 py-2 text-slate-300">{k}</th>
-                  <td className="px-4 py-2 text-slate-400">{v}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        <h2>Use Cases</h2>
-        <ul>{scenarios.map((s) => <li key={s}>{s}</li>)}</ul>
-        <h2>Accessories</h2>
-        <ul>{accessories.map((a) => <li key={a}>{a}</li>)}</ul>
-        <h2>Delivery Package</h2>
-        <ul>{delivery.map((d) => <li key={d}>{d}</li>)}</ul>
-        <h2>Maintenance</h2>
-        <ul>{maintenance.map((m) => <li key={m}>{m}</li>)}</ul>
-      </div>
-
-      {miniFaq.length > 0 && (
-        <section className="mt-12 max-w-3xl">
-          <h2 className="text-xl font-bold text-white">Product FAQ</h2>
-          <div className="mt-4">
-            <FaqAccordion items={miniFaq} />
-          </div>
-        </section>
-      )}
     </div>
   );
 }

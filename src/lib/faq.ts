@@ -57,7 +57,7 @@ export const FAQ_ITEMS = [
   },
   {
     q: "How to pay?",
-    a: "USD list prices; checkout supports USDT TRC20 (min 10 USDT, 30-minute window). Enterprise wire/quote available.",
+    a: "USD reference prices on the site. Sales confirms final invoice, MOQ, and payment method (wire, USDT, or other agreed channels) before you pay.",
   },
   {
     q: "How to contact sales?",

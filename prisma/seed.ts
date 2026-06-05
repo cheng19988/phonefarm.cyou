@@ -24,6 +24,7 @@ function body(short: string, listPriceUsd?: number) {
       nodes: "20 per standard box",
       cooling: "4 fans",
       power: "450–550W adaptive",
+      recommendedWorkload: "QA device lab · app compatibility testing · remote device management",
       ...(listPriceUsd ? { listPriceUsd } : {}),
     }),
     scenarios: JSON.stringify(["Multi-account ops", "QA device farm", "Marketing verification", "App automation"]),
@@ -71,10 +72,10 @@ const catalog: SeedProduct[] = [
   { slug: "pixel-5-farm-8-128", name: "Pixel 5 Farm 8+128", category: "pixel-box", shortDesc: "CPU: Snapdragon 765 · 8G+128G · Android 13", priceUsd: 1280, stock: 5, img: 5 },
   { slug: "pixel-6-farm-8-128", name: "Pixel 6 Farm 8+128", category: "pixel-box", shortDesc: "CPU: Google Tensor · 8G+128G · Android 16", priceUsd: 1860, stock: 4, img: 0 },
   { slug: "pixel-7-pro-farm-12-128", name: "Pixel 7 Pro Farm 12+128", category: "pixel-box", shortDesc: "CPU: Google Tensor · 8G+128G · Android 16", priceUsd: 2540, stock: 2, img: 1 },
-  // Mirror Software VIP — setup services (reference price structure, our branding)
-  { slug: "mirror-setup-basic-renewal", name: "Mirror Workspace Renewal Setup", category: "mirror-vip", shortDesc: "Use after VIP expires — remote renewal onboarding.", priceUsd: 8, stock: 99, img: 2, list: 88 },
-  { slug: "mirror-setup-cloud-bridge", name: "Cloud Bridge Control Setup", category: "mirror-vip", shortDesc: "Top-rated hybrid bridge configuration service.", priceUsd: 5, stock: 99, img: 3, list: 99 },
-  { slug: "mirror-setup-annual-pro", name: "Annual Pro Control Setup", category: "mirror-vip", shortDesc: "360-day control stack mapping and group policies.", priceUsd: 10, stock: 99, img: 4, list: 266 },
+  // Control software setup services (not CDKEY resale)
+  { slug: "mirror-setup-basic-renewal", name: "Control Software Onboarding", category: "mirror-vip", shortDesc: "Remote onboarding for customer-selected mirror workspace · USB + grouping baseline.", priceUsd: 350, stock: 99, img: 2 },
+  { slug: "mirror-setup-cloud-bridge", name: "Remote Mirror Workspace Setup", category: "mirror-vip", shortDesc: "Multi-monitor layout, LAN scan ranges, operator accounts, handover checklist.", priceUsd: 450, stock: 99, img: 3 },
+  { slug: "mirror-setup-annual-pro", name: "Annual Maintenance Support", category: "mirror-vip", shortDesc: "Quarterly health review, fan/PSU guidance, control-stack update planning.", priceUsd: 890, stock: 99, img: 4 },
   { slug: "group-control-onboarding", name: "Group Control Onboarding", category: "control-software", shortDesc: "Sync control, batch APK, ADB script map for one farm.", priceUsd: 350, stock: 40, img: 5 },
   // Service packages
   { slug: "package-starter-setup", name: "Starter Setup Package", category: "service-package", shortDesc: "Box consult + remote baseline + 7-day support.", priceUsd: 350, stock: 50, img: 0 },

@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { DEPLOYMENT_STEPS, SITE } from "@/lib/constants";
+import { SITE } from "@/lib/constants";
 import { ContactForm } from "@/components/ContactForm";
+import { DeploymentTimeline } from "@/components/DeploymentTimeline";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
@@ -17,19 +18,7 @@ export default function DeploymentPage() {
       <p className="mt-2 max-w-3xl text-slate-400">
         How {SITE.name} delivers full-service phone farm projects from {SITE.location}.
       </p>
-      <ol className="mt-12 space-y-8">
-        {DEPLOYMENT_STEPS.map((s) => (
-          <li key={s.step} className="flex gap-6 rounded-xl border border-slate-800 p-6">
-            <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-cyan-600 text-lg font-bold text-white">
-              {s.step}
-            </span>
-            <div>
-              <h2 className="text-xl font-semibold text-white">{s.title}</h2>
-              <p className="mt-2 text-slate-400">{s.desc}</p>
-            </div>
-          </li>
-        ))}
-      </ol>
+      <DeploymentTimeline />
       <div className="mt-12 flex gap-4">
         <Link href="/services" className="text-cyan-400 hover:underline">All services</Link>
         <Link href="/services/packages" className="text-cyan-400 hover:underline">Service packages →</Link>

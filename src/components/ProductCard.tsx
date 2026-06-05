@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { formatReferencePrice, parseSpecs, typicalUseCase } from "@/lib/pricing";
 
 type Product = {
   slug: string;
@@ -12,20 +13,9 @@ type Product = {
   specs?: string;
 };
 
-function listPriceFromSpecs(specs?: string): number | null {
-  if (!specs) return null;
-  try {
-    const v = (JSON.parse(specs) as { listPriceUsd?: number }).listPriceUsd;
-    return v && v > 0 ? v : null;
-  } catch {
-    return null;
-  }
-}
-
 export function ProductCard({ product }: { product: Product }) {
-  const inStock = product.stock > 0;
-  const isQuote = product.priceUsd <= 0;
-  const listPrice = listPriceFromSpecs(product.specs);
+  const specs = parseSpecs(product.specs);
+  const useCase = typicalUseCase(product.specs);
 
   return (
     <article className="flex flex-col overflow-hidden rounded-xl border border-slate-800 bg-slate-900/60">
@@ -45,36 +35,32 @@ export function ProductCard({ product }: { product: Product }) {
             {product.name}
           </Link>
         </h3>
-        <p className="mt-2 flex-1 text-sm text-slate-400 line-clamp-2">{product.shortDesc}</p>
-        <div className="mt-3 flex items-center justify-between">
-          <div>
-            {isQuote ? (
-              <span className="font-semibold text-amber-400">Quote</span>
-            ) : (
-              <div className="flex items-baseline gap-2">
-                <span className="text-lg font-bold text-white">${product.priceUsd.toFixed(2)}</span>
-                {listPrice && (
-                  <span className="text-sm text-slate-500 line-through">${listPrice.toFixed(2)}</span>
-                )}
-              </div>
-            )}
-            <p className={`text-xs ${inStock ? "text-emerald-400" : "text-red-400"}`}>
-              {inStock ? `${product.stock} in stock` : "Out of stock"}
-            </p>
-          </div>
+        <p className="mt-2 text-sm text-slate-400 line-clamp-2">{product.shortDesc}</p>
+        <ul className="mt-2 space-y-0.5 text-xs text-slate-500">
+          {specs.CPU && <li>CPU: {specs.CPU}</li>}
+          {specs.RAM && <li>RAM / storage: {specs.RAM}</li>}
+          {specs.Android && <li>Android: {specs.Android}</li>}
+        </ul>
+        <p className="mt-2 text-xs text-slate-400 line-clamp-2">
+          <span className="text-slate-500">Typical use: </span>
+          {useCase}
+        </p>
+        <div className="mt-3">
+          <p className="text-xs uppercase tracking-wide text-slate-500">Reference price</p>
+          <p className="text-lg font-bold text-white">{formatReferencePrice(product.priceUsd)}</p>
         </div>
         <div className="mt-3 flex gap-2">
-          <Link
-            href={`/products/${product.slug}`}
-            className="flex-1 rounded-lg border border-slate-600 py-2 text-center text-sm font-medium text-slate-200 hover:border-cyan-500"
-          >
-            View details
-          </Link>
           <Link
             href={`/contact?product=${product.slug}`}
             className="flex-1 rounded-lg bg-cyan-600 py-2 text-center text-sm font-medium text-white hover:bg-cyan-500"
           >
-            {isQuote ? "Get quote" : "Request quote"}
+            Request Quote
+          </Link>
+          <Link
+            href={`/products/${product.slug}`}
+            className="rounded-lg border border-slate-600 px-3 py-2 text-sm text-slate-300 hover:border-cyan-500"
+          >
+            Details
           </Link>
         </div>
       </div>

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { SERVICES, SITE, CONTROL_SOFTWARE_OPTIONS } from "@/lib/constants";
+import { SERVICES, SITE, CONTROL_SOFTWARE_OPTIONS, CONTROL_SOFTWARE_DISCLAIMER } from "@/lib/constants";
 import { IMAGES } from "@/lib/images";
 import { ContactBar } from "@/components/ContactBar";
 import { ContactForm } from "@/components/ContactForm";
@@ -41,7 +41,8 @@ export default function ServicesPage() {
         ))}
       </div>
       <section className="mt-16">
-        <h2 className="text-xl font-bold text-white">Control stack options we configure</h2>
+        <p className="mt-4 text-sm text-slate-500">{CONTROL_SOFTWARE_DISCLAIMER}</p>
+        <h2 className="mt-8 text-xl font-bold text-white">Control stack options we configure</h2>
         <ul className="mt-4 space-y-3 text-slate-400">
           {CONTROL_SOFTWARE_OPTIONS.map((o) => (
             <li key={o.slug}>

@@ -2,7 +2,7 @@ import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
   title: "Shopping Cart",
-  description: "Review phone farm devices and setup services before USDT checkout.",
+  description: "Request a quote for phone farm devices and setup services from Cyou Phone Farm.",
   path: "/cart",
 });
 
