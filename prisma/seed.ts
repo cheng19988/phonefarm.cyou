@@ -1,6 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcryptjs";
 import { IMAGES } from "../src/lib/images";
+import { parseShortDescHardware } from "../src/lib/pricing";
 
 const prisma = new PrismaClient();
 const cards = IMAGES.productCards;
@@ -9,6 +10,17 @@ const detail = (i: number) =>
   pick(i).replace("card_800x800", "detail_1200x900").replace("/card_800x800/", "/detail_1200x900/");
 
 function body(short: string) {
+  const hw = parseShortDescHardware(short);
+  const specs: Record<string, string> = {
+    nodes: "20 per standard box",
+    cooling: "4 fans",
+    power: "450–550W adaptive",
+    recommendedWorkload: "QA device lab · app compatibility testing · remote device management",
+  };
+  if (hw.cpu) specs.CPU = hw.cpu;
+  if (hw.ram) specs.RAM = hw.ram;
+  if (hw.android) specs.Android = hw.android;
+
   return {
     description: `${short} Supplied and configured by Cyou Phone Farm, Guangzhou. Includes deployment checklist and support channel setup.`,
     features: JSON.stringify([
@@ -17,15 +29,7 @@ function body(short: string) {
       "USB + OTG control path",
       "Compatible with remote control setup service",
     ]),
-    specs: JSON.stringify({
-      CPU: "See title",
-      RAM: "See title",
-      Android: "See title",
-      nodes: "20 per standard box",
-      cooling: "4 fans",
-      power: "450–550W adaptive",
-      recommendedWorkload: "QA device lab · app compatibility testing · remote device management",
-    }),
+    specs: JSON.stringify(specs),
     scenarios: JSON.stringify([
       "App QA testing",
       "Device compatibility lab",

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { formatReferencePrice, parseSpecs, typicalUseCase } from "@/lib/pricing";
+import { formatReferencePrice, productCardHardwareSpecs, typicalUseCase } from "@/lib/pricing";
 import { isServiceCatalogItem, publicCategoryLabel } from "@/lib/catalog";
 
 type Product = {
@@ -14,7 +14,7 @@ type Product = {
 };
 
 export function ProductCard({ product }: { product: Product }) {
-  const specs = parseSpecs(product.specs);
+  const specs = productCardHardwareSpecs(product);
   const useCase = typicalUseCase(product.specs);
   const service = isServiceCatalogItem(product.category);
 
@@ -39,11 +39,11 @@ export function ProductCard({ product }: { product: Product }) {
           </Link>
         </h3>
         <p className="mt-2 text-sm text-slate-400 line-clamp-2">{product.shortDesc}</p>
-        {!service && (
+        {!service && (specs.cpu || specs.ram || specs.android) && (
           <ul className="mt-2 space-y-0.5 text-xs text-slate-500">
-            {specs.CPU && <li>CPU: {specs.CPU}</li>}
-            {specs.RAM && <li>RAM / storage: {specs.RAM}</li>}
-            {specs.Android && <li>Android: {specs.Android}</li>}
+            {specs.cpu && <li>CPU: {specs.cpu}</li>}
+            {specs.ram && <li>RAM / storage: {specs.ram}</li>}
+            {specs.android && <li>{specs.android}</li>}
           </ul>
         )}
         {!service && (

@@ -1,5 +1,6 @@
 import { BUYER_TRUST_ITEMS } from "@/lib/delivery";
-import { ImagePlaceholderCard } from "./ImagePlaceholderCard";
+import { HOME_TRUST_PHOTOS } from "@/lib/images";
+import { FacilityPhoto } from "./FacilityPhoto";
 
 export function BuyerTrustSection({ siteName }: { siteName: string }) {
   return (
@@ -19,9 +20,9 @@ export function BuyerTrustSection({ siteName }: { siteName: string }) {
           ))}
         </div>
         <div className="mt-10 grid gap-6 md:grid-cols-3">
-          <ImagePlaceholderCard label="factory assembly bench" />
-          <ImagePlaceholderCard label="pre-shipment testing" />
-          <ImagePlaceholderCard label="export packing" />
+          {HOME_TRUST_PHOTOS.map((photo) => (
+            <FacilityPhoto key={photo.label} src={photo.src} alt={photo.alt} label={photo.label} />
+          ))}
         </div>
       </div>
     </section>

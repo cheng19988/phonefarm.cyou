@@ -9,7 +9,7 @@ import { productJsonLd, breadcrumbJsonLd, buildMetadata } from "@/lib/seo";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { getProductProfile } from "@/lib/productProfiles";
 import { getProductSummary } from "@/lib/productSummaries";
-import { formatReferencePrice } from "@/lib/pricing";
+import { buildPublicSpecTable, formatReferencePrice } from "@/lib/pricing";
 import { isServiceCatalogItem, publicCategoryLabel } from "@/lib/catalog";
 import { QuotationDeliveryNotes } from "@/components/QuotationDeliveryNotes";
 
@@ -46,9 +46,11 @@ export default async function ProductDetailPage({
 
   const profile = getProductProfile(slug);
   const summary = getProductSummary(slug);
-  const baseSpecs = parseJson<Record<string, string>>(product.specs, {});
-  const { listPriceUsd: _drop, ...specs } = baseSpecs as Record<string, string> & { listPriceUsd?: number };
-  const specTable = profile ? { ...specs, ...profile.specOverrides } : specs;
+  const specTable = buildPublicSpecTable(
+    product.shortDesc,
+    product.specs,
+    profile?.specOverrides
+  );
   const intro = profile?.intro ?? summary?.summary ?? product.description;
   const included = profile?.included ?? parseJson<string[]>(product.delivery, []);
   const recommended =

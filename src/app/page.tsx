@@ -20,7 +20,8 @@ import {
   HOME_SECTIONS,
   CONTACT,
 } from "@/lib/constants";
-import { IMAGES } from "@/lib/images";
+import { FACILITY_GALLERY, IMAGES } from "@/lib/images";
+import { FacilityPhoto } from "@/components/FacilityPhoto";
 import { buildMetadata, faqPageJsonLd } from "@/lib/seo";
 import { isServiceCatalogItem } from "@/lib/catalog";
 
@@ -211,18 +212,8 @@ export default async function HomePage() {
       <section className="mx-auto max-w-7xl px-4 py-12">
         <h2 className="text-2xl font-bold text-white">Guangzhou facility</h2>
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {(
-            [
-              ["office", "Office"],
-              ["front", "Reception"],
-              ["meeting", "Project review room"],
-              ["production", "Assembly floor"],
-              ["warehouse", "Warehouse"],
-            ] as const
-          ).map(([key, label]) => (
-            <div key={key} className="relative aspect-[4/3] overflow-hidden rounded-xl border border-slate-800">
-              <Image src={IMAGES.company[key]} alt={`${SITE.name} ${label}`} fill className="object-cover" />
-            </div>
+          {FACILITY_GALLERY.map((photo) => (
+            <FacilityPhoto key={photo.key} src={photo.src} alt={photo.alt} label={photo.label} />
           ))}
         </div>
       </section>

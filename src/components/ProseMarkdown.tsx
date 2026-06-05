@@ -1,3 +1,4 @@
+import { ContentImage } from "./ContentImage";
 import { ImagePlaceholderCard } from "./ImagePlaceholderCard";
 
 function headingId(title: string) {
@@ -13,6 +14,14 @@ function renderBlock(line: string, key: string | number) {
 
   if (trimmed.startsWith("[Image placeholder:")) {
     return <ImagePlaceholderCard key={key} label={trimmed} />;
+  }
+
+  if (trimmed.startsWith("[Image:")) {
+    const inner = trimmed.slice(7, -1);
+    const [src, alt, caption] = inner.split("|").map((part) => part.trim());
+    if (src) {
+      return <ContentImage key={key} src={src} alt={alt || ""} caption={caption} />;
+    }
   }
 
   if (/^\d+\.\s/.test(trimmed)) {

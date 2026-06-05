@@ -1,7 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 import { SITE, CONTACT } from "@/lib/constants";
-import { IMAGES } from "@/lib/images";
+import { FACILITY_GALLERY } from "@/lib/images";
+import { FacilityPhoto } from "@/components/FacilityPhoto";
 import { ContactBar } from "@/components/ContactBar";
 import { DeliverySopSection } from "@/components/DeliverySopSection";
 import { buildMetadata } from "@/lib/seo";
@@ -98,18 +98,8 @@ export default function AboutPage() {
         Assembly, burn-in, and export packing are coordinated from our Guangzhou operation.
       </p>
       <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {(
-          [
-            ["office", "Office"],
-            ["front", "Reception"],
-            ["meeting", "Project review room"],
-            ["production", "Assembly floor"],
-            ["warehouse", "Warehouse"],
-          ] as const
-        ).map(([key, label]) => (
-          <div key={key} className="relative aspect-[4/3] overflow-hidden rounded-xl border border-slate-800">
-            <Image src={IMAGES.company[key]} alt={`${SITE.name} ${label}`} fill className="object-cover" />
-          </div>
+        {FACILITY_GALLERY.map((photo) => (
+          <FacilityPhoto key={photo.key} src={photo.src} alt={photo.alt} label={photo.label} />
         ))}
       </div>
     </div>

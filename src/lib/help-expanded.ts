@@ -92,9 +92,9 @@ Step-by-step Instructions
 
 10. Export a connection log screenshot for your change-management ticket when USB projection is approved for production test windows.
 
-[Image placeholder: USB connection diagram from farm box to powered hub to control PC]
+[Image: /images/hero_1600x900/phonefarm.cyou-accessories-networkdevice-cablesaccessoriesshowcase-e6cc8-hero_1600x900.webp|USB topology from farm box through powered hub to control PC|Typical USB path: chassis uplink → powered industrial hub → dedicated host controller on the control PC.]
 
-[Image placeholder: Mirror tool device panel with serial highlighted]
+[Image: /images/hero_1600x900/phonefarm.cyou-service-scenes-moderndevicemanagementcontrol-ae6b9-hero_1600x900.webp|Control PC device panel with node serial visible|Mirror tool device panel after detection — match serial to the burn-in sheet before scaling.]
 
 Common Problems
 
@@ -151,9 +151,9 @@ Step-by-step Instructions
 
 10. Log IP address, serial, and access point name in your configuration management database for audit trails.
 
-[Image placeholder: LAN topology with router, switch, farm rack, and control PC]
+[Image: /images/hero_1600x900/phonefarm.cyou-accessories-networkdevice-accessories-36665-hero_1600x900.webp|LAN OTG topology with router, switch, farm rack, and control PC|Farm VLAN: router or switch → rack Ethernet → control PC on the same logical subnet for discovery.]
 
-[Image placeholder: Segment scan dialog with subnet field]
+[Image: /images/hero_1600x900/phonefarm.cyou-service-scenes-modernitcontrolcenter-f225e-hero_1600x900.webp|LAN segment scan on the control workstation|Segment scan dialog — narrow the range to the farm subnet before scanning large office networks.]
 
 Common Problems
 
