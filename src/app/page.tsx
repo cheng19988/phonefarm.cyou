@@ -13,7 +13,7 @@ import {
   CONTROL_SOFTWARE_OPTIONS,
   DEPLOYMENT_STEPS,
   SERVICE_PACKAGES,
-  GLOBAL_STATS,
+  SHIPPING_REGIONS,
   SERVICES,
 } from "@/lib/constants";
 import { IMAGES } from "@/lib/images";
@@ -73,7 +73,7 @@ export default async function HomePage() {
       </section>
 
       <section className="mx-auto max-w-7xl px-4 py-12">
-        <h2 className="text-2xl font-bold text-white">Product Information</h2>
+        <h2 className="text-2xl font-bold text-white">Phone farm basics</h2>
         <div className="mt-6 grid gap-6 lg:grid-cols-2">
           <div className="rounded-xl border border-slate-800 p-6">
             <h3 className="text-lg font-semibold text-cyan-400">What is a Phone Farm?</h3>
@@ -215,35 +215,36 @@ export default async function HomePage() {
       </section>
 
       <section className="mx-auto max-w-7xl px-4 py-16">
-        <h2 className="text-2xl font-bold text-white">Global Deployment Activity</h2>
-        <div className="mt-6 overflow-x-auto rounded-xl border border-slate-800">
-          <table className="w-full text-sm text-left">
-            <thead className="bg-slate-900 text-slate-400">
-              <tr>
-                <th className="px-4 py-3">Country / Region</th>
-                <th className="px-4 py-3">Orders</th>
-                <th className="px-4 py-3">Trend</th>
-              </tr>
-            </thead>
-            <tbody>
-              {GLOBAL_STATS.map((row) => (
-                <tr key={row.country} className="border-t border-slate-800">
-                  <td className="px-4 py-3 text-white">{row.country}</td>
-                  <td className="px-4 py-3">{row.orders.toLocaleString()}</td>
-                  <td className="px-4 py-3 text-emerald-400">{row.trend}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+        <h2 className="text-2xl font-bold text-white">Export &amp; Support Coverage</h2>
+        <p className="mt-2 max-w-2xl text-slate-400">
+          DHL, FedEx, and UPS shipments from Guangzhou with remote onboarding in US and EU time zones.
+        </p>
+        <ul className="mt-6 flex flex-wrap gap-2">
+          {SHIPPING_REGIONS.map((region) => (
+            <li
+              key={region}
+              className="rounded-full border border-slate-700 bg-slate-900/60 px-4 py-2 text-sm text-slate-300"
+            >
+              {region}
+            </li>
+          ))}
+        </ul>
       </section>
 
       <section className="mx-auto max-w-7xl px-4 py-12">
         <h2 className="text-2xl font-bold text-white">Guangzhou Facilities</h2>
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {Object.entries(IMAGES.company).map(([key, src]) => (
+          {(
+            [
+              ["office", "Office"],
+              ["front", "Reception"],
+              ["meeting", "Project review room"],
+              ["production", "Assembly floor"],
+              ["warehouse", "Warehouse"],
+            ] as const
+          ).map(([key, label]) => (
             <div key={key} className="relative aspect-[4/3] overflow-hidden rounded-xl border border-slate-800">
-              <Image src={src} alt={`Facility ${key}`} fill className="object-cover" />
+              <Image src={IMAGES.company[key]} alt={`${SITE.name} ${label}`} fill className="object-cover" />
             </div>
           ))}
         </div>

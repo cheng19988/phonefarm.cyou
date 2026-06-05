@@ -9,7 +9,7 @@ import { CURRENCY } from "@/lib/constants";
 export const metadata = buildMetadata({
   title: "Shop — Phone Farm Devices & Setup Services",
   description:
-    "Samsung, Oppo, Xiaomi, OnePlus, Pixel phone farm boxes plus control setup services. USD pricing, USDT checkout.",
+    "Samsung, Oppo, Xiaomi, OnePlus, and Pixel phone farm boxes plus control setup services from Guangzhou.",
   path: "/shop",
 });
 

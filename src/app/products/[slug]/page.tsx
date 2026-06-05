@@ -60,7 +60,7 @@ export default async function ProductDetailPage({
           }),
           breadcrumbJsonLd([
             { name: "Home", path: "/" },
-            { name: "Products", path: "/products" },
+            { name: "Shop", path: "/shop" },
             { name: product.name, path: `/products/${product.slug}` },
           ]),
         ]}

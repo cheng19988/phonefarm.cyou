@@ -7,7 +7,7 @@ export const SITE = {
   locationZh: "中国广州",
   since: 2017,
   intro:
-    "Cyou Phone Farm is a Guangzhou-based full-service phone farm setup provider. We help clients choose real-device phone farm hardware, configure remote control systems, deploy group control environments, and maintain phone farm projects for teams and enterprise customers.",
+    "Guangzhou factory team shipping real-device phone farm boxes since 2017. We size hardware, configure remote and group control, and support overseas rollout—not just a parts list.",
 } as const;
 
 export const CONTACT = {
@@ -23,7 +23,7 @@ export const CONTACT = {
 export const CURRENCY = {
   code: "USD",
   symbol: "$",
-  label: "Prices in USD · Pay with USDT (TRC20) at checkout",
+  label: "USD list prices · final quote via Telegram, WhatsApp, or email",
 } as const;
 
 export const PAYMENT = {
@@ -171,19 +171,22 @@ export const SERVICES = [
   },
 ] as const;
 
-export const GLOBAL_STATS = [
-  { country: "United States", orders: 3223, trend: "+12.3%" },
-  { country: "Russia", orders: 2439, trend: "+11.33%" },
-  { country: "Dominican Republic", orders: 815, trend: "+7.25%" },
-  { country: "Spain", orders: 686, trend: "+5.83%" },
-  { country: "Germany", orders: 636, trend: "+5.15%" },
-  { country: "United Kingdom", orders: 599, trend: "+5.03%" },
-  { country: "France", orders: 574, trend: "+4.89%" },
-  { country: "Poland", orders: 537, trend: "+4.67%" },
-  { country: "Norway", orders: 507, trend: "+4.48%" },
-  { country: "Ukraine", orders: 508, trend: "+4.47%" },
-  { country: "Mexico", orders: 500, trend: "+4.46%" },
-  { country: "Slovakia", orders: 489, trend: "+4.43%" },
+/** Regions we regularly export to — no fabricated order counts. */
+export const SHIPPING_REGIONS = [
+  "United States",
+  "United Kingdom",
+  "Germany",
+  "France",
+  "Spain",
+  "Poland",
+  "Mexico",
+  "Russia",
+  "Ukraine",
+  "Norway",
+  "Slovakia",
+  "Dominican Republic",
+  "Southeast Asia",
+  "Middle East",
 ] as const;
 
 export const MIRROR_VIP_PRODUCTS = [

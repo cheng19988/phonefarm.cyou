@@ -37,12 +37,13 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <h3 className="font-semibold text-white">Account & Legal</h3>
+            <h3 className="font-semibold text-white">Company</h3>
             <ul className="mt-3 space-y-2 text-sm">
+              <li><Link href="/about" className="hover:text-cyan-400">About</Link></li>
+              <li><Link href="/contact" className="hover:text-cyan-400">Contact</Link></li>
+              <li><Link href="/blog" className="hover:text-cyan-400">Insights</Link></li>
               <li><Link href="/privacy" className="hover:text-cyan-400">Privacy</Link></li>
               <li><Link href="/terms" className="hover:text-cyan-400">Terms</Link></li>
-              <li><Link href="/login" className="hover:text-cyan-400">Login</Link></li>
-              <li><Link href="/account/orders" className="hover:text-cyan-400">Orders</Link></li>
             </ul>
           </div>
         </div>

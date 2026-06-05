@@ -1,24 +1,20 @@
 import Link from "next/link";
 import { ContactBar } from "./ContactBar";
-import { CartLink } from "./CartLink";
 import { SiteBar } from "./SiteBar";
 import { SITE, SHOP_BRANDS } from "@/lib/constants";
-import { getSession } from "@/lib/auth";
 
 const nav = [
   { href: "/", label: "Home" },
   { href: "/shop", label: "Shop" },
-  { href: "/services", label: "Setup Services" },
+  { href: "/services", label: "Services" },
   { href: "/deployment", label: "Deployment" },
   { href: "/help", label: "Help" },
-  { href: "/support", label: "Support" },
   { href: "/faq", label: "FAQ" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];
 
-export async function Header() {
-  const session = await getSession();
+export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-slate-800 bg-slate-950/95 backdrop-blur">
       <div className="hidden lg:block border-b border-slate-800/80 bg-slate-900/80 px-4 py-2">
@@ -47,19 +43,12 @@ export async function Header() {
           <Link href="/services/packages" className="hidden sm:inline text-amber-400 hover:text-amber-300">
             Packages
           </Link>
-          <CartLink />
-          <Link href="/shop" className="rounded-lg bg-cyan-600 px-3 py-2 font-medium text-white hover:bg-cyan-500">
-            Shop
+          <Link href="/shop" className="hidden sm:inline text-slate-300 hover:text-white">
+            Catalog
           </Link>
-          {session ? (
-            <Link href="/account/orders" className="text-slate-300 hover:text-white">
-              Orders
-            </Link>
-          ) : (
-            <Link href="/login" className="text-slate-300 hover:text-white">
-              Login
-            </Link>
-          )}
+          <Link href="/contact" className="rounded-lg bg-cyan-600 px-3 py-2 font-medium text-white hover:bg-cyan-500">
+            Get Quote
+          </Link>
         </div>
       </div>
       <div className="hidden lg:block border-t border-slate-800/60 bg-slate-900/50">

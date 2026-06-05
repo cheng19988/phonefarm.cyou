@@ -22,7 +22,7 @@ export default function HardwareSelectionPage() {
           </Link>
         ))}
       </div>
-      <Link href="/products" className="mt-8 inline-block rounded-lg bg-cyan-600 px-5 py-2 text-white">
+      <Link href="/shop" className="mt-8 inline-block rounded-lg bg-cyan-600 px-5 py-2 text-white">
         View product catalog
       </Link>
     </div>

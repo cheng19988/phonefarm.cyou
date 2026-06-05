@@ -66,15 +66,15 @@ export function ProductCard({ product }: { product: Product }) {
         <div className="mt-3 flex gap-2">
           <Link
             href={`/products/${product.slug}`}
-            className="flex-1 rounded-lg bg-cyan-600 py-2 text-center text-sm font-medium text-white hover:bg-cyan-500"
+            className="flex-1 rounded-lg border border-slate-600 py-2 text-center text-sm font-medium text-slate-200 hover:border-cyan-500"
           >
-            {isQuote ? "Get Quote" : "Add to Cart"}
+            View details
           </Link>
           <Link
             href={`/contact?product=${product.slug}`}
-            className="rounded-lg border border-slate-600 px-3 py-2 text-sm text-slate-300 hover:border-cyan-500"
+            className="flex-1 rounded-lg bg-cyan-600 py-2 text-center text-sm font-medium text-white hover:bg-cyan-500"
           >
-            Contact
+            {isQuote ? "Get quote" : "Request quote"}
           </Link>
         </div>
       </div>
