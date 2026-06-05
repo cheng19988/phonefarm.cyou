@@ -29,7 +29,7 @@ export default function TermsPage() {
       <h2>3. Orders and payment</h2>
       <p>
         Orders are confirmed after sales acceptance and receipt of payment per the proforma invoice. We accept methods
-        stated on the invoice (bank transfer, USDT, or other agreed channels). Title passes upon full payment unless
+        stated on the proforma invoice (bank transfer or other agreed B2B channels). Title passes upon full payment unless
         credit terms are signed separately.
       </p>
 

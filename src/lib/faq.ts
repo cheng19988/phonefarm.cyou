@@ -57,7 +57,7 @@ export const FAQ_ITEMS = [
   },
   {
     q: "How to pay?",
-    a: "USD reference prices on the site. Sales confirms final invoice, MOQ, and payment method (wire, USDT, or other agreed channels) before you pay.",
+    a: "USD reference prices on the site. Sales confirms the proforma invoice, MOQ, lead time, and agreed payment method before you pay.",
   },
   {
     q: "How to contact sales?",

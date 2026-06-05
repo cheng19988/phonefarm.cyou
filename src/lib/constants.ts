@@ -85,7 +85,7 @@ export const CONTROL_SOFTWARE_OPTIONS = [
   {
     slug: "device-grouping",
     name: "Device grouping",
-    desc: "Campaign groups, master window rules, and operator permissions.",
+    desc: "Test groups, master window rules, and operator permissions.",
   },
   {
     slug: "batch-apk",
