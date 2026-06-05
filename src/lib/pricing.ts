@@ -12,11 +12,24 @@ export function parseSpecs(specs?: string): Record<string, string> {
   }
 }
 
-const PLACEHOLDER_SPEC = /^(see title|see product title|n\/a|tbd|unknown|—|-)$/i;
+const PLACEHOLDER_SPEC = /^(see\s*title|see\s*product\s*title|n\/a|tbd|unknown|—|-)$/i;
 
 export function isDisplayableSpecValue(value?: string): boolean {
   if (!value?.trim()) return false;
-  return !PLACEHOLDER_SPEC.test(value.trim());
+  const normalized = value.trim();
+  if (PLACEHOLDER_SPEC.test(normalized)) return false;
+  if (/^see\s+title/i.test(normalized)) return false;
+  return true;
+}
+
+function cleanHardwareSpec(value?: string): string | undefined {
+  if (!isDisplayableSpecValue(value)) return undefined;
+  return value!.trim();
+}
+
+/** shortDesc already shows CPU · RAM · Android — skip duplicate bullets on cards. */
+export function shortDescIncludesHardwareSpecs(shortDesc: string): boolean {
+  return /CPU:/i.test(shortDesc) && /\d+\s*G\s*\+\s*\d+\s*G/i.test(shortDesc) && /Android\s*[\d./]+/i.test(shortDesc);
 }
 
 /** Parse CPU / RAM / Android from catalog shortDesc lines. */
@@ -41,10 +54,17 @@ export function productCardHardwareSpecs(product: { shortDesc: string; specs?: s
   const fromJson = parseSpecs(product.specs);
 
   return {
-    cpu: isDisplayableSpecValue(fromJson.CPU) ? fromJson.CPU : fromShort.cpu,
-    ram: isDisplayableSpecValue(fromJson.RAM) ? fromJson.RAM : fromShort.ram,
-    android: isDisplayableSpecValue(fromJson.Android) ? fromJson.Android : fromShort.android,
+    cpu: cleanHardwareSpec(isDisplayableSpecValue(fromJson.CPU) ? fromJson.CPU : fromShort.cpu),
+    ram: cleanHardwareSpec(isDisplayableSpecValue(fromJson.RAM) ? fromJson.RAM : fromShort.ram),
+    android: cleanHardwareSpec(
+      isDisplayableSpecValue(fromJson.Android) ? fromJson.Android : fromShort.android
+    ),
   };
+}
+
+export function hasProductCardHardwareSpecs(product: { shortDesc: string; specs?: string }): boolean {
+  const { cpu, ram, android } = productCardHardwareSpecs(product);
+  return Boolean(cpu || ram || android);
 }
 
 export function buildPublicSpecTable(

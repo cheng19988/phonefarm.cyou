@@ -52,6 +52,17 @@ export function isServiceCatalogItem(category: string): boolean {
   return slug === "mirror-vip" || slug === "control-software" || slug === "service-package";
 }
 
+export function isAccessoryCatalogItem(category: string): boolean {
+  const slug = normalizeCategorySlug(category);
+  return (
+    slug === "motherboard-box" ||
+    slug === "usb-hub" ||
+    slug === "power-supply" ||
+    slug === "cooling-solution" ||
+    slug === "network-equipment"
+  );
+}
+
 export function isControlSoftwareCategory(category: string): boolean {
   const slug = normalizeCategorySlug(category);
   return slug === "mirror-vip" || slug === "control-software";
