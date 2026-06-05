@@ -22,6 +22,7 @@ import {
 } from "@/lib/constants";
 import { IMAGES } from "@/lib/images";
 import { buildMetadata, faqPageJsonLd } from "@/lib/seo";
+import { isServiceCatalogItem } from "@/lib/catalog";
 
 export const metadata = buildMetadata({
   title: "Complete Phone Farm Setup Service with Real Devices",
@@ -30,18 +31,20 @@ export const metadata = buildMetadata({
 });
 
 async function productsForSection(section: (typeof HOME_SECTIONS)[number]) {
-  if ("categories" in section && section.categories) {
-    return prisma.product.findMany({
-      where: { published: true, category: { in: [...section.categories] } },
-      take: 4,
-      orderBy: { priceUsd: "asc" },
-    });
-  }
-  return prisma.product.findMany({
-    where: { published: true, category: section.slug },
-    take: 4,
-    orderBy: { priceUsd: "asc" },
-  });
+  const rows =
+    "categories" in section && section.categories
+      ? await prisma.product.findMany({
+          where: { published: true, category: { in: [...section.categories] } },
+          take: 8,
+          orderBy: { priceUsd: "asc" },
+        })
+      : await prisma.product.findMany({
+          where: { published: true, category: section.slug },
+          take: 8,
+          orderBy: { priceUsd: "asc" },
+        });
+
+  return rows.filter((p) => !isServiceCatalogItem(p.category)).slice(0, 4);
 }
 
 export default async function HomePage() {

@@ -60,7 +60,7 @@ export const PRODUCT_CATEGORIES = [
   { slug: "phone-farm-box", name: "Phone Farm Box" },
   { slug: "motherboard-box", name: "Motherboard Box" },
   { slug: "phone-farm-device", name: "Phone Farm Device" },
-  { slug: "control-software", name: "Control Software Setup" },
+  { slug: "control-software", name: "Control software services" },
   { slug: "service-package", name: "Service Package" },
   { slug: "accessories", name: "Accessories" },
   { slug: "usb-hub", name: "USB Hub" },
@@ -105,7 +105,7 @@ export const CONTROL_SOFTWARE_OPTIONS = [
 ] as const;
 
 export const CONTROL_SOFTWARE_DISCLAIMER =
-  "We configure the control environment selected by the customer. We do not resell third-party software licenses or CDKEYs unless explicitly agreed in writing.";
+  "We configure the control environment selected by the customer. We do not resell third-party software licenses unless explicitly agreed in writing.";
 
 export const DEPLOYMENT_STEPS = [
   { step: 1, title: "Requirement confirmation", desc: "Device count, app matrix, Android targets, control method, and export destination." },

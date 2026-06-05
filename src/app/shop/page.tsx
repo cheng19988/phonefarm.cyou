@@ -4,7 +4,12 @@ import { ProductCard } from "@/components/ProductCard";
 import { ContactBar } from "@/components/ContactBar";
 import { ShopFilters } from "@/components/ShopFilters";
 import { buildMetadata } from "@/lib/seo";
-import { publicCategoryLabel } from "@/lib/catalog";
+import {
+  CONTROL_SOFTWARE_SERVICES_SECTION,
+  isControlSoftwareCategory,
+  normalizeCategorySlug,
+  publicCategoryLabel,
+} from "@/lib/catalog";
 
 const SECTION_LABEL_OVERRIDES: Record<string, string> = {
   "samsung-box": "Samsung phone farm boxes",
@@ -17,13 +22,19 @@ const SECTION_LABEL_OVERRIDES: Record<string, string> = {
   "power-supply": "Power supplies",
   "cooling-solution": "Cooling kits",
   "network-equipment": "Network equipment",
-  "mirror-vip": "Control software setup services",
-  "control-software": "Control software setup services",
   "service-package": "Setup service packages",
 };
 
+function shopGroupKey(category: string) {
+  if (isControlSoftwareCategory(category)) return "control-software-services";
+  return normalizeCategorySlug(category);
+}
+
 function sectionLabel(category: string) {
-  return SECTION_LABEL_OVERRIDES[category] ?? publicCategoryLabel(category);
+  if (category === "control-software-services") return CONTROL_SOFTWARE_SERVICES_SECTION;
+  const slug = normalizeCategorySlug(category);
+  if (isControlSoftwareCategory(slug)) return CONTROL_SOFTWARE_SERVICES_SECTION;
+  return SECTION_LABEL_OVERRIDES[slug] ?? publicCategoryLabel(slug);
 }
 
 export const metadata = buildMetadata({
@@ -57,7 +68,8 @@ export default async function ShopPage({
   });
 
   const grouped = products.reduce<Record<string, typeof products>>((acc, p) => {
-    (acc[p.category] ??= []).push(p);
+    const key = shopGroupKey(p.category);
+    (acc[key] ??= []).push(p);
     return acc;
   }, {});
 
