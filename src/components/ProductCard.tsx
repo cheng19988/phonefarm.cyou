@@ -1,13 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import {
-  formatReferencePrice,
-  hasProductCardHardwareSpecs,
-  productCardHardwareSpecs,
-  shortDescIncludesHardwareSpecs,
-  typicalUseCase,
-} from "@/lib/pricing";
-import { isAccessoryCatalogItem, isServiceCatalogItem, publicCategoryLabel } from "@/lib/catalog";
+import { formatReferencePrice, typicalUseCase } from "@/lib/pricing";
+import { isServiceCatalogItem, publicCategoryLabel } from "@/lib/catalog";
 
 type Product = {
   slug: string;
@@ -22,13 +16,6 @@ type Product = {
 export function ProductCard({ product }: { product: Product }) {
   const useCase = typicalUseCase(product.specs);
   const service = isServiceCatalogItem(product.category);
-  const accessory = isAccessoryCatalogItem(product.category);
-  const specs = productCardHardwareSpecs(product);
-  const showHardwareBullets =
-    !service &&
-    !accessory &&
-    !shortDescIncludesHardwareSpecs(product.shortDesc) &&
-    hasProductCardHardwareSpecs(product);
 
   return (
     <article className="flex flex-col overflow-hidden rounded-xl border border-slate-800 bg-slate-900/60">
@@ -51,13 +38,6 @@ export function ProductCard({ product }: { product: Product }) {
           </Link>
         </h3>
         <p className="mt-2 text-sm text-slate-400 line-clamp-2">{product.shortDesc}</p>
-        {showHardwareBullets && (
-          <ul className="mt-2 space-y-0.5 text-xs text-slate-500">
-            {specs.cpu ? <li>CPU: {specs.cpu}</li> : null}
-            {specs.ram ? <li>RAM / storage: {specs.ram}</li> : null}
-            {specs.android ? <li>{specs.android}</li> : null}
-          </ul>
-        )}
         {!service && (
           <p className="mt-2 text-xs text-slate-400 line-clamp-2">
             <span className="text-slate-500">Typical configuration: </span>
