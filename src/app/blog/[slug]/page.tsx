@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getPost, BLOG_POSTS } from "@/lib/blog";
+import { getPost, BLOG_POSTS, hasFullBlogBody } from "@/lib/blog";
 import { BLOG_BODIES } from "@/lib/blog-bodies";
 import { buildMetadata, breadcrumbJsonLd } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
@@ -15,7 +15,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const post = getPost(slug);
   if (!post) return {};
-  return buildMetadata({ title: post.title, description: post.excerpt, path: `/blog/${slug}` });
+  return buildMetadata({
+    title: post.title,
+    description: post.excerpt,
+    path: `/blog/${slug}`,
+    noIndex: !hasFullBlogBody(slug),
+  });
 }
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -39,7 +44,10 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
       ) : (
         <div className="prose-farm mt-8">
           <p>{post.excerpt}</p>
-          <p className="text-slate-500">Full article coming soon.</p>
+          <p className="text-slate-500">
+            This draft is not published for indexing.{" "}
+            <Link href="/contact" className="text-cyan-400 hover:underline">Contact sales</Link> for deployment guidance.
+          </p>
         </div>
       )}
       <p className="mt-8 text-slate-400">

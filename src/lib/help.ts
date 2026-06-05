@@ -20,9 +20,9 @@ export const HELP_ARTICLES = [
   {
     slug: "single-device-single-ip",
     category: "getting-started",
-    title: "Single Device Single IP Switching",
-    excerpt: "Routing and proxy policies per node for isolation.",
-    body: `Many operators require one IP per device. We document router VLANs, proxy assignment per group, and detection checks after you receive hardware. Contact sales for a topology review before scaling past one box.`,
+    title: "Per-Device Network Isolation",
+    excerpt: "VLAN and egress policies per device group for lab isolation.",
+    body: `Enterprise test plans often require one egress IP per device group. We document router VLANs, documented proxy assignment per group, and connectivity validation after you receive hardware. Contact sales for a topology review before scaling past one box.`,
   },
   {
     slug: "after-purchase-guide",

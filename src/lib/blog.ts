@@ -1,3 +1,5 @@
+import { BLOG_BODIES } from "./blog-bodies";
+
 export const BLOG_POSTS = [
   {
     slug: "phone-farm-box-crashes-lessons",
@@ -65,6 +67,13 @@ export const BLOG_POSTS = [
   },
 ] as const;
 
+/** Posts with full article bodies — listed on /blog and included in sitemap. */
+export const PUBLISHED_BLOG_POSTS = BLOG_POSTS.filter((p) => Boolean(BLOG_BODIES[p.slug]));
+
 export function getPost(slug: string) {
   return BLOG_POSTS.find((p) => p.slug === slug);
+}
+
+export function hasFullBlogBody(slug: string) {
+  return Boolean(BLOG_BODIES[slug]);
 }

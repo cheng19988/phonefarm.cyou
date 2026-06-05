@@ -6,6 +6,7 @@ import { buildMetadata, breadcrumbJsonLd } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
 import { ContactBar } from "@/components/ContactBar";
 import { ProseMarkdown } from "@/components/ProseMarkdown";
+import { HelpTableOfContents } from "@/components/HelpTableOfContents";
 
 export async function generateStaticParams() {
   return HELP_ARTICLES.map((a) => ({ slug: a.slug }));
@@ -36,7 +37,10 @@ export default async function HelpArticlePage({ params }: { params: Promise<{ sl
       <h1 className="mt-4 text-3xl font-bold text-white">{article.title}</h1>
       <p className="mt-2 text-slate-400">{article.excerpt}</p>
       {isExpanded ? (
-        <ProseMarkdown content={article.body} />
+        <>
+          <HelpTableOfContents content={article.body} />
+          <ProseMarkdown content={article.body} />
+        </>
       ) : (
         <p className="mt-6 whitespace-pre-line text-slate-400 leading-relaxed">{article.body}</p>
       )}

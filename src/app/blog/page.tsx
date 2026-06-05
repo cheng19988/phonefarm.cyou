@@ -1,20 +1,23 @@
 import Link from "next/link";
-import { BLOG_POSTS } from "@/lib/blog";
+import { PUBLISHED_BLOG_POSTS } from "@/lib/blog";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
-  title: "Phone Farm Blog & Guides",
-  description: "Hardware selection, setup tutorials, and application guides for phone farm operators.",
+  title: "Phone Farm Insights",
+  description:
+    "Hardware selection, cooling, network planning, QA testing, and deployment guides for enterprise device labs.",
   path: "/blog",
 });
 
 export default function BlogPage() {
   return (
     <div className="mx-auto max-w-7xl px-4 py-12">
-      <h1 className="text-3xl font-bold text-white">Blog & Guides</h1>
-      <p className="mt-2 text-slate-400">Practical guides for studios, agencies, and QA teams.</p>
+      <h1 className="text-3xl font-bold text-white">Insights</h1>
+      <p className="mt-2 text-slate-400">
+        Deployment guides for hardware selection, cooling, network planning, and device stability testing.
+      </p>
       <div className="mt-10 grid gap-6 md:grid-cols-2">
-        {BLOG_POSTS.map((post) => (
+        {PUBLISHED_BLOG_POSTS.map((post) => (
           <article key={post.slug} className="rounded-xl border border-slate-800 p-6">
             <p className="text-xs text-cyan-500">{post.category} · {post.date}</p>
             <h2 className="mt-2 text-xl font-semibold text-white">

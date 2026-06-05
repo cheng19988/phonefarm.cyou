@@ -7,7 +7,6 @@ type Product = {
   name: string;
   shortDesc: string;
   priceUsd: number;
-  stock: number;
   imageCard: string;
   category: string;
   specs?: string;
@@ -42,11 +41,11 @@ export function ProductCard({ product }: { product: Product }) {
           {specs.Android && <li>Android: {specs.Android}</li>}
         </ul>
         <p className="mt-2 text-xs text-slate-400 line-clamp-2">
-          <span className="text-slate-500">Typical use: </span>
+          <span className="text-slate-500">Typical configuration: </span>
           {useCase}
         </p>
         <div className="mt-3">
-          <p className="text-xs uppercase tracking-wide text-slate-500">Reference price</p>
+          <p className="text-xs uppercase tracking-wide text-slate-500">From price</p>
           <p className="text-lg font-bold text-white">{formatReferencePrice(product.priceUsd)}</p>
         </div>
         <div className="mt-3 flex gap-2">

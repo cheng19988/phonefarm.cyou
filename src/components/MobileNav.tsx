@@ -23,17 +23,26 @@ export function MobileNav() {
     <div className="xl:hidden">
       <button
         type="button"
-        aria-label="Open menu"
+        aria-label={open ? "Close menu" : "Open menu"}
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
         className="rounded-lg border border-slate-700 px-3 py-2 text-slate-200"
       >
-        Menu
+        {open ? "Close" : "Menu"}
       </button>
       {open && (
-        <div className="absolute left-0 right-0 top-full z-50 border-b border-slate-800 bg-slate-950 shadow-xl">
+        <div className="absolute left-0 right-0 top-full z-50 max-h-[calc(100vh-4rem)] overflow-y-auto border-b border-slate-800 bg-slate-950 shadow-xl">
           <nav className="mx-auto max-w-7xl px-4 py-4">
-            <p className="text-xs font-medium uppercase tracking-wide text-slate-500">{SITE.name}</p>
+            <div className="flex items-center justify-between">
+              <p className="text-xs font-medium uppercase tracking-wide text-slate-500">{SITE.name}</p>
+              <button
+                type="button"
+                onClick={() => setOpen(false)}
+                className="text-sm text-slate-400 hover:text-white"
+              >
+                Close
+              </button>
+            </div>
             <ul className="mt-3 space-y-1">
               {links.map((item) => (
                 <li key={item.href}>

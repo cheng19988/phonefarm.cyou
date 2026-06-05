@@ -10,7 +10,6 @@ export function ProductActions({
   name: string;
   imageCard: string;
   priceUsd: number;
-  inStock: boolean;
 }) {
   const inquiry = `/contact?product=${encodeURIComponent(slug)}`;
   const wa = `${CONTACT.whatsappUrl}?text=${encodeURIComponent(`Hi, I'd like a quote for ${name} (${slug}).`)}`;

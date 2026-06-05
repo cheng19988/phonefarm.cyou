@@ -1,3 +1,10 @@
+function headingId(title: string) {
+  return title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+}
+
 /** Renders simple ## headings and paragraphs from markdown-style strings. */
 export function ProseMarkdown({ content }: { content: string }) {
   const sections = content.split(/\n(?=## )/);
@@ -13,7 +20,7 @@ export function ProseMarkdown({ content }: { content: string }) {
           const body = nl === -1 ? "" : trimmed.slice(nl + 1);
           return (
             <section key={i}>
-              <h2>{title}</h2>
+              <h2 id={headingId(title)}>{title}</h2>
               {body.split(/\n\n+/).map((p, j) => {
                 const line = p.trim();
                 if (!line) return null;

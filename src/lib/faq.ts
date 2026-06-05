@@ -17,7 +17,7 @@ export const FAQ_ITEMS = [
   },
   {
     q: "Real device phone farm vs emulator?",
-    a: "Emulators diverge from production devices. Our farms use physical boards for QA, marketing verification, and automation that must match end-user hardware.",
+    a: "Emulators diverge from production devices. Our farms use physical boards for app QA testing, device compatibility validation, and automation that must match end-user hardware.",
   },
   {
     q: "Android phone farm vs iPhone phone farm?",

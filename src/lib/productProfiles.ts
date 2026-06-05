@@ -3,6 +3,7 @@ export type ProductProfile = {
   specOverrides: Record<string, string>;
   included: string[];
   recommendedFor: string[];
+  setupNotes: string;
   faq: { q: string; a: string }[];
 };
 
@@ -35,6 +36,8 @@ export const PRODUCT_PROFILES: Record<string, ProductProfile> = {
       "Enterprise pilot programs before scaling to S10/S22 tiers",
       "App compatibility testing across Android 9 baseline",
     ],
+    setupNotes:
+      "Mount chassis with rear exhaust clearance, connect powered USB hub to a dedicated host controller, run factory burn-in sheet before grouping nodes, and label each slot to match your control software map.",
     faq: [
       { q: "What is the MOQ?", a: "Single box available. Bulk pricing typically from 5 units." },
       { q: "Lead time?", a: "7–12 business days after payment confirmation for standard config." },
@@ -71,6 +74,8 @@ export const PRODUCT_PROFILES: Record<string, ProductProfile> = {
       "Enterprise device lab expansion",
       "Remote device management at studio scale",
     ],
+    setupNotes:
+      "Use 500W PSU tier, enable LAN OTG only after USB baseline is stable, configure group labels before batch APK pushes, and schedule quarterly fan cleaning for 24/7 QA loads.",
     faq: [
       { q: "MOQ?", a: "One box; volume discounts from 5+ units." },
       { q: "Lead time?", a: "10–14 business days standard." },
@@ -107,8 +112,10 @@ export const PRODUCT_PROFILES: Record<string, ProductProfile> = {
       "High-density remote device management",
       "Teams replacing aging S10 fleets",
     ],
+    setupNotes:
+      "Deploy with 550W adaptive PSU and premium fan kit, keep ambient below 28°C where possible, wire control PC on gigabit Ethernet for LAN mirror, and document Android 14 branch per node on burn-in sheet.",
     faq: [
-      { q: "MOQ?", a: "Single unit; lead time longer when stock is low." },
+      { q: "MOQ?", a: "Single unit; lead time varies with board supply." },
       { q: "Lead time?", a: "14–21 business days depending on board supply." },
       { q: "Why S22 over S10?", a: "Newer Android, faster SoC, better future-proofing for app matrices." },
       { q: "Thermal design?", a: "Premium fan kit; we recommend rack airflow above 25°C ambient." },
@@ -131,6 +138,8 @@ export const PRODUCT_PROFILES: Record<string, ProductProfile> = {
     },
     included: ["Chassis", "PSU", "cooling", "burn-in sheet", "packing", "setup guide"],
     recommendedFor: ["QA device lab", "App compatibility testing", "Remote device management pilots"],
+    setupNotes:
+      "Confirm MIUI branch with sales before grouping, use standard quad-fan layout, map USB ports 1–20 to node IDs, and run a 24h stability script before production QA scheduling.",
     faq: [
       { q: "MOQ?", a: "1 box." },
       { q: "Lead time?", a: "7–12 days." },
@@ -155,6 +164,8 @@ export const PRODUCT_PROFILES: Record<string, ProductProfile> = {
     },
     included: ["Chassis", "PSU", "cooling", "burn-in", "export pack", "remote onboarding"],
     recommendedFor: ["App compatibility testing", "Multi-device operations", "Enterprise device deployment"],
+    setupNotes:
+      "Validate ColorOS build against your app matrix, connect via USB first then enable LAN OTG scan range, and separate test groups by ROM branch to avoid mixed-tier installs.",
     faq: [
       { q: "MOQ?", a: "1 unit." },
       { q: "Lead time?", a: "10–14 days." },
@@ -179,6 +190,8 @@ export const PRODUCT_PROFILES: Record<string, ProductProfile> = {
     },
     included: ["Chassis", "PSU", "cooling", "burn-in", "packing", "remote setup"],
     recommendedFor: ["QA testing", "Enterprise device lab", "Remote device management"],
+    setupNotes:
+      "888-class nodes need strong intake airflow—avoid stacking boxes without clearance, use powered hub per 20 nodes, and pin OxygenOS-class image version in your CMDB before wide APK rollout.",
     faq: [
       { q: "MOQ?", a: "1 box." },
       { q: "Lead time?", a: "12–16 days." },
@@ -203,6 +216,8 @@ export const PRODUCT_PROFILES: Record<string, ProductProfile> = {
     },
     included: ["Pixel 5 chassis", "PSU", "cooling", "burn-in", "export carton", "setup guide"],
     recommendedFor: ["App compatibility testing on Pixel images", "Enterprise device lab", "QA automation"],
+    setupNotes:
+      "Register Pixel build fingerprints in your test plan, keep USB cables under 1m on mirror paths, and run Google Play services smoke test on canary nodes before fleet-wide validation.",
     faq: [
       { q: "MOQ?", a: "1 unit." },
       { q: "Lead time?", a: "14–18 days (board supply dependent)." },
@@ -225,6 +240,8 @@ export const PRODUCT_PROFILES: Record<string, ProductProfile> = {
     },
     included: ["Metal chassis", "Cooling mounts", "Label sheet", "Assembly guide"],
     recommendedFor: ["Farm expansion", "Spare tray inventory", "Custom board programs"],
+    setupNotes:
+      "Torque board mounts per assembly guide, install PSU and fans before inserting boards, label slots before powering on, and request assembly service from Guangzhou if mixing board generations.",
     faq: [
       { q: "MOQ?", a: "1 chassis." },
       { q: "Lead time?", a: "5–8 days." },
@@ -245,6 +262,8 @@ export const PRODUCT_PROFILES: Record<string, ProductProfile> = {
     },
     included: ["Hub", "power adapter", "mounting notes"],
     recommendedFor: ["USB mirroring farms", "Control workstation upgrades"],
+    setupNotes:
+      "Connect hub to dedicated USB root controller, use short shielded cables, document port-to-node map on chassis label, and avoid daisy-chaining consumer hubs on mirror paths.",
     faq: [
       { q: "MOQ?", a: "1 unit." },
       { q: "Lead time?", a: "3–7 days." },
@@ -264,6 +283,8 @@ export const PRODUCT_PROFILES: Record<string, ProductProfile> = {
     },
     included: ["Router or switch tier per quote", "Cabling baseline", "IP plan template"],
     recommendedFor: ["LAN OTG deployments", "Multi-box enterprise sites"],
+    setupNotes:
+      "Wire control PC on same subnet as farm VLAN, expand DHCP pool before adding nodes, maintain updated port map diagram, and review proxy egress policy with sales if tests require regional IP separation.",
     faq: [
       { q: "MOQ?", a: "1 kit." },
       { q: "Lead time?", a: "5–10 days." },

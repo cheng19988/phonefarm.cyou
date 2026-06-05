@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 import { SITE } from "@/lib/constants";
-import { BLOG_POSTS } from "@/lib/blog";
+import { PUBLISHED_BLOG_POSTS } from "@/lib/blog";
 import { HELP_ARTICLES } from "@/lib/help";
 import { prisma } from "@/lib/prisma";
 
@@ -9,12 +9,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticRoutes = [
     "",
     "/shop",
-    "/cart",
     "/services",
     "/services/packages",
     "/deployment",
     "/help",
-    "/support",
     "/solutions/phone-farming",
     "/about",
     "/faq",
@@ -30,7 +28,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   try {
     products = await prisma.product.findMany({ select: { slug: true, updatedAt: true } });
   } catch {
-    // Build/deploy may run before DB is ready; static routes still ship.
+    // Static routes still ship if DB unavailable at build time.
   }
 
   return [
@@ -46,7 +44,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "weekly" as const,
       priority: 0.7,
     })),
-    ...BLOG_POSTS.map((p) => ({
+    ...PUBLISHED_BLOG_POSTS.map((p) => ({
       url: `${base}/blog/${p.slug}`,
       lastModified: new Date(p.date),
       changeFrequency: "monthly" as const,

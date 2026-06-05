@@ -5,11 +5,13 @@ export function buildMetadata({
   description,
   path = "",
   image,
+  noIndex = false,
 }: {
   title: string;
   description: string;
   path?: string;
   image?: string;
+  noIndex?: boolean;
 }) {
   const url = `${SITE.url}${path}`;
   const ogImage = image || `${SITE.url}/images/hero_1600x900/phonefarm.cyou-product-box-2025-10-25-11-21-img-0547-4b35a-hero_1600x900.webp`;
@@ -17,6 +19,7 @@ export function buildMetadata({
     title: `${title} | ${SITE.name}`,
     description,
     alternates: { canonical: url },
+    robots: noIndex ? { index: false, follow: false } : { index: true, follow: true },
     openGraph: {
       title,
       description,
@@ -28,6 +31,10 @@ export function buildMetadata({
     },
     twitter: { card: "summary_large_image" as const, title, description, images: [ogImage] },
   };
+}
+
+export function buildNoIndexMetadata(title: string, description: string, path: string) {
+  return buildMetadata({ title, description, path, noIndex: true });
 }
 
 export function organizationJsonLd() {
@@ -58,7 +65,6 @@ export function productJsonLd(product: {
   description: string;
   slug: string;
   priceUsd: number;
-  stock: number;
   image: string;
 }) {
   return {
@@ -73,11 +79,11 @@ export function productJsonLd(product: {
       "@type": "Offer",
       url: `${SITE.url}/products/${product.slug}`,
       priceCurrency: "USD",
-      price: product.priceUsd,
-      availability:
-        product.stock > 0
-          ? "https://schema.org/InStock"
-          : "https://schema.org/OutOfStock",
+      price: product.priceUsd || undefined,
+      availability: "https://schema.org/PreOrder",
+      priceValidUntil: new Date(new Date().setFullYear(new Date().getFullYear() + 1))
+        .toISOString()
+        .slice(0, 10),
     },
   };
 }

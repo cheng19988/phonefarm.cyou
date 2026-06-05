@@ -8,6 +8,7 @@ import { JsonLd } from "@/components/JsonLd";
 import { productJsonLd, breadcrumbJsonLd, buildMetadata } from "@/lib/seo";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { getProductProfile } from "@/lib/productProfiles";
+import { getProductSummary } from "@/lib/productSummaries";
 import { formatReferencePrice } from "@/lib/pricing";
 
 function parseJson<T>(raw: string, fallback: T): T {
@@ -23,9 +24,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const product = await prisma.product.findUnique({ where: { slug } });
   if (!product) return {};
   const profile = getProductProfile(slug);
+  const summary = getProductSummary(slug);
   return buildMetadata({
     title: product.name,
-    description: profile?.intro ?? product.shortDesc,
+    description: profile?.intro ?? summary?.summary ?? product.shortDesc,
     path: `/products/${slug}`,
     image: product.imageHero,
   });
@@ -41,18 +43,22 @@ export default async function ProductDetailPage({
   if (!product) notFound();
 
   const profile = getProductProfile(slug);
+  const summary = getProductSummary(slug);
   const baseSpecs = parseJson<Record<string, string>>(product.specs, {});
   const { listPriceUsd: _drop, ...specs } = baseSpecs as Record<string, string> & { listPriceUsd?: number };
   const specTable = profile ? { ...specs, ...profile.specOverrides } : specs;
-  const intro = profile?.intro ?? product.description;
+  const intro = profile?.intro ?? summary?.summary ?? product.description;
   const included = profile?.included ?? parseJson<string[]>(product.delivery, []);
-  const recommended = profile?.recommendedFor ?? parseJson<string[]>(product.scenarios, []);
+  const recommended =
+    profile?.recommendedFor ??
+    (summary ? [summary.bestFor] : parseJson<string[]>(product.scenarios, []));
+  const setupNotes = profile?.setupNotes ?? summary?.hardwareNote;
+  const quoteNote = summary?.quoteNote;
   const faq = profile?.faq ?? parseJson<{ q: string; a: string }[]>(product.faq, []);
   const features = parseJson<string[]>(product.features, []);
-  const inStock = product.stock > 0;
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-12">
+    <div className="mx-auto max-w-7xl px-4 py-12 pb-24 lg:pb-12">
       <JsonLd
         data={[
           productJsonLd({
@@ -60,7 +66,6 @@ export default async function ProductDetailPage({
             description: intro.slice(0, 160),
             slug: product.slug,
             priceUsd: product.priceUsd,
-            stock: product.stock,
             image: product.imageHero,
           }),
           breadcrumbJsonLd([
@@ -92,7 +97,6 @@ export default async function ProductDetailPage({
                   name={product.name}
                   imageCard={product.imageCard}
                   priceUsd={product.priceUsd}
-                  inStock={inStock}
                 />
               </div>
               <div className="mt-6">
@@ -104,7 +108,13 @@ export default async function ProductDetailPage({
           <div className="prose-farm mt-12">
             <h2>Overview</h2>
             <p>{intro}</p>
-            {!profile && (
+            {quoteNote && (
+              <>
+                <h2>Quote note</h2>
+                <p>{quoteNote}</p>
+              </>
+            )}
+            {!profile && features.length > 0 && (
               <>
                 <h2>Key features</h2>
                 <ul>{features.map((f) => <li key={f}>{f}</li>)}</ul>
@@ -129,11 +139,17 @@ export default async function ProductDetailPage({
             <ul>{included.map((item) => <li key={item}>{item}</li>)}</ul>
             <h2>Recommended for</h2>
             <ul>{recommended.map((item) => <li key={item}>{item}</li>)}</ul>
+            {setupNotes && (
+              <>
+                <h2>Setup notes</h2>
+                <p>{setupNotes}</p>
+              </>
+            )}
           </div>
 
           {faq.length > 0 && (
             <section className="mt-12">
-              <h2 className="text-xl font-bold text-white">Product FAQ</h2>
+              <h2 className="text-xl font-bold text-white">MOQ / lead time / warranty FAQ</h2>
               <div className="mt-4 max-w-3xl">
                 <FaqAccordion items={faq} />
               </div>

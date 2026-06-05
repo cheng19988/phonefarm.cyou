@@ -27,7 +27,12 @@ function body(short: string, listPriceUsd?: number) {
       recommendedWorkload: "QA device lab · app compatibility testing · remote device management",
       ...(listPriceUsd ? { listPriceUsd } : {}),
     }),
-    scenarios: JSON.stringify(["Multi-account ops", "QA device farm", "Marketing verification", "App automation"]),
+    scenarios: JSON.stringify([
+      "App QA testing",
+      "Device compatibility lab",
+      "Enterprise device fleet",
+      "Remote device management",
+    ]),
     accessories: JSON.stringify(["PSU", "USB hub", "Cooling fans"]),
     delivery: JSON.stringify(["Export carton", "Quick-start guide", "Label sheet"]),
     maintenance: JSON.stringify(["Fan cleaning quarterly", "Remote support via Telegram/WhatsApp"]),
