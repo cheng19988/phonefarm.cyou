@@ -1,0 +1,9 @@
+{
+  "build": {
+    "env": {
+      "DATABASE_URL": "file:./vercel.db",
+      "JWT_SECRET": "set-a-strong-secret-in-vercel-dashboard",
+      "SITE_URL": "https://phonefarm.cyou"
+    }
+  }
+}

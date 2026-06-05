@@ -27,7 +27,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     "/terms",
   ];
 
-  const products = await prisma.product.findMany({ select: { slug: true, updatedAt: true } });
+  let products: { slug: string; updatedAt: Date }[] = [];
+  try {
+    products = await prisma.product.findMany({ select: { slug: true, updatedAt: true } });
+  } catch {
+    // Build/deploy may run before DB is ready; static routes still ship.
+  }
 
   return [
     ...staticRoutes.map((path) => ({
