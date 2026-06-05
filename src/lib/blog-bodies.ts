@@ -265,7 +265,7 @@ Do not assume vertical stacking without manufacturer approval. Unapproved stacki
 
 Separate networks for device traffic, operator workstations, and guest access. VLAN design prevents accidental exposure of staging devices to untrusted networks—a common enterprise audit finding.
 
-For teams simulating geo-specific app behavior, use legal, documented proxy or VPN policies aligned with app terms of service and client contracts. Cyou Phone Farm does not configure evasion tools; we configure stable network paths for legitimate testing and operations.
+For teams simulating geo-specific app behavior, use legal, documented network routing policies aligned with app terms of service and client contracts. Cyou Phone Farm does not configure evasion tools; we configure stable network paths for legitimate testing and operations.
 
 Document IP allocation, DNS, and bandwidth per node for internal runbooks. Video-heavy mirroring consumes LAN bandwidth; ten gigabit backbones between control PC and switches help at sixty-plus mirrored nodes.
 

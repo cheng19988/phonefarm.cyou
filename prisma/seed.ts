@@ -8,7 +8,7 @@ const pick = (i: number) => cards[i % cards.length];
 const detail = (i: number) =>
   pick(i).replace("card_800x800", "detail_1200x900").replace("/card_800x800/", "/detail_1200x900/");
 
-function body(short: string, listPriceUsd?: number) {
+function body(short: string) {
   return {
     description: `${short} Supplied and configured by Cyou Phone Farm, Guangzhou. Includes deployment checklist and support channel setup.`,
     features: JSON.stringify([
@@ -25,7 +25,6 @@ function body(short: string, listPriceUsd?: number) {
       cooling: "4 fans",
       power: "450–550W adaptive",
       recommendedWorkload: "QA device lab · app compatibility testing · remote device management",
-      ...(listPriceUsd ? { listPriceUsd } : {}),
     }),
     scenarios: JSON.stringify([
       "App QA testing",
@@ -48,7 +47,6 @@ type SeedProduct = {
   priceUsd: number;
   stock: number;
   img: number;
-  list?: number;
 };
 
 const catalog: SeedProduct[] = [
@@ -106,9 +104,17 @@ async function main() {
   await prisma.product.deleteMany({ where: { slug: { notIn: slugs } } });
 
   for (const p of catalog) {
+    const content = body(p.shortDesc);
     await prisma.product.upsert({
       where: { slug: p.slug },
-      update: { priceUsd: p.priceUsd, stock: p.stock, category: p.category },
+      update: {
+        name: p.name,
+        category: p.category,
+        shortDesc: p.shortDesc,
+        priceUsd: p.priceUsd,
+        stock: p.stock,
+        ...content,
+      },
       create: {
         slug: p.slug,
         name: p.name,
@@ -119,7 +125,7 @@ async function main() {
         imageCard: pick(p.img),
         imageHero: IMAGES.hero,
         imageDetail: detail(p.img),
-        ...body(p.shortDesc, p.list),
+        ...content,
       },
     });
   }

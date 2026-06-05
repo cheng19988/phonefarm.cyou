@@ -10,6 +10,7 @@ import { FaqAccordion } from "@/components/FaqAccordion";
 import { getProductProfile } from "@/lib/productProfiles";
 import { getProductSummary } from "@/lib/productSummaries";
 import { formatReferencePrice } from "@/lib/pricing";
+import { isServiceCatalogItem, publicCategoryLabel } from "@/lib/catalog";
 import { QuotationDeliveryNotes } from "@/components/QuotationDeliveryNotes";
 
 function parseJson<T>(raw: string, fallback: T): T {
@@ -83,13 +84,17 @@ export default async function ProductDetailPage({
               <Image src={product.imageDetail} alt={product.name} fill className="object-cover" priority />
             </div>
             <div>
-              <p className="text-sm uppercase text-cyan-500">{product.category.replace(/-/g, " ")}</p>
+              <p className="text-sm uppercase text-cyan-500">{publicCategoryLabel(product.category)}</p>
               <h1 className="mt-2 text-3xl font-bold text-white">{product.name}</h1>
               <p className="mt-4 text-slate-400">{product.shortDesc}</p>
               <div className="mt-4">
-                <p className="text-xs uppercase tracking-wide text-slate-500">Reference price</p>
+                <p className="text-xs uppercase tracking-wide text-slate-500">
+                  {isServiceCatalogItem(product.category) ? "Service quote" : "Reference price"}
+                </p>
                 <p className="text-3xl font-bold text-white">{formatReferencePrice(product.priceUsd)}</p>
-                <p className="mt-1 text-sm text-slate-500">Bulk quote available · sales confirms final invoice</p>
+                <p className="mt-1 text-sm text-slate-500">
+                  Bulk quote available · availability confirmed by sales · configuration confirmed before invoice
+                </p>
               </div>
               <div className="mt-6">
                 <ProductActions

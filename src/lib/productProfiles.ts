@@ -200,7 +200,7 @@ export const PRODUCT_PROFILES: Record<string, ProductProfile> = {
   },
   "oneplus-9-pro-farm-8-128": {
     intro:
-      "OnePlus 9 Pro farm for high-performance QA fleets. Snapdragon 888, 8G+128G, Android 14—when your matrix needs fast SoC and near-stock OxygenOS-class images.",
+      "OnePlus 9 Pro farm for high-performance QA fleets. Snapdragon 888, 8G+128G, Android 14—when your matrix needs fast SoC and standard OxygenOS-class images.",
     specOverrides: {
       Model: "OnePlus 9 Pro Farm 8+128",
       CPU: "Snapdragon 888",
@@ -322,7 +322,7 @@ export const PRODUCT_PROFILES: Record<string, ProductProfile> = {
     included: ["Router or switch tier per quote", "Cabling baseline", "IP plan template"],
     recommendedFor: ["LAN OTG deployments", "Multi-box enterprise sites"],
     setupNotes:
-      "Wire control PC on same subnet as farm VLAN, expand DHCP pool before adding nodes, maintain updated port map diagram, and review proxy egress policy with sales if tests require regional IP separation.",
+      "Wire control PC on same subnet as farm VLAN, expand DHCP pool before adding nodes, maintain updated port map diagram, and review regional routing requirements with sales if tests require geographic separation.",
     quotationDelivery: {
       leadTime: "Commonly quoted at 5–10 business days; switch tier confirmed per site size.",
       remoteSetup: "IP plan template and remote network BOM review included with Enterprise packages.",

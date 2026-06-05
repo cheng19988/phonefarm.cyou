@@ -49,11 +49,11 @@ export const FAQ_ITEMS = [
   },
   {
     q: "Can I buy a sample?",
-    a: "Yes—order a box online or request a Sample Solution package for evaluation.",
+    a: "Yes—request a sample box quote or a Sample Solution package for evaluation.",
   },
   {
     q: "How long is delivery time?",
-    a: "In-stock SKUs: 3–10 days processing plus transit. Custom builds: 15–30 days.",
+    a: "Standard configurations: commonly 7–21 business days after order confirmation, plus transit. Custom builds: 15–30 days depending on scope.",
   },
   {
     q: "How to pay?",
@@ -68,7 +68,7 @@ export const FAQ_ITEMS = [
     a: "See Help Center articles for USB projection, LAN OTG, and USB-to-WiFi handoff—we walk through during onboarding.",
   },
   {
-    q: "Do you sell third-party mirror CDKEYs?",
-    a: "We sell setup and configuration services for control software. Customers may use their own licensed tools; we do not resell Laixi/CloudPhone/WhiteTiger keys.",
+    q: "Do you sell third-party control software licenses?",
+    a: "We provide setup and configuration services for control software. Customers use their own licensed tools—we do not resell third-party license keys unless explicitly agreed in writing.",
   },
 ] as const;

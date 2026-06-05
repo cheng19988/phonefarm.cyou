@@ -68,7 +68,7 @@ export const PRODUCT_CATEGORIES = [
   { slug: "cooling-solution", name: "Cooling" },
   { slug: "network-equipment", name: "Network Equipment" },
   { slug: "remote-control-setup", name: "Remote Control Setup" },
-  { slug: "mirror-vip", name: "Mirror Software VIP" },
+  { slug: "mirror-vip", name: "Control Software Setup" },
 ] as const;
 
 export const CONTROL_SOFTWARE_OPTIONS = [
@@ -105,7 +105,7 @@ export const CONTROL_SOFTWARE_OPTIONS = [
 ] as const;
 
 export const CONTROL_SOFTWARE_DISCLAIMER =
-  "We configure the control environment selected by the customer. We do not resell third-party software licenses unless explicitly agreed in writing.";
+  "We configure the control environment selected by the customer. We do not resell third-party software licenses or CDKEYs unless explicitly agreed in writing.";
 
 export const DEPLOYMENT_STEPS = [
   { step: 1, title: "Requirement confirmation", desc: "Device count, app matrix, Android targets, control method, and export destination." },
@@ -118,24 +118,34 @@ export const DEPLOYMENT_STEPS = [
 
 export const CONTROL_SETUP_SERVICES = [
   {
-    slug: "control-onboarding",
-    name: "Control Software Onboarding",
-    desc: "Map your chosen mirror tool to USB paths, operator accounts, and device groups.",
+    slug: "group-control-onboarding",
+    name: "Group Control Onboarding",
+    desc: "Device groups, sync control baseline, and operator handover for one farm.",
+    priceFrom: 350,
   },
   {
-    slug: "remote-mirror-workspace",
-    name: "Remote Mirror Workspace Setup",
-    desc: "Workstation layout, window tiling, LAN scan ranges, and handover checklist.",
+    slug: "usb-lan-control-setup",
+    name: "USB / LAN OTG Control Setup",
+    desc: "Powered USB paths, LAN scan ranges, ADB authorization, and connectivity checks.",
+    priceFrom: 350,
   },
   {
-    slug: "group-control-policy",
-    name: "Group Control Policy Configuration",
-    desc: "Batch APK rules, file push folders, ADB shortcuts, and test-group labeling.",
+    slug: "control-workstation-layout",
+    name: "Control Workstation Layout",
+    desc: "Multi-monitor tiling, USB controller separation, and backup workstation guidance.",
+    priceFrom: 450,
+  },
+  {
+    slug: "batch-apk-deployment-setup",
+    name: "Batch APK Deployment Setup",
+    desc: "Canary install workflow, test-group rollout rules, and rollback checklist.",
+    priceFrom: 350,
   },
   {
     slug: "annual-maintenance",
     name: "Annual Maintenance Support",
     desc: "Quarterly health review, fan/PSU guidance, and control-stack update planning.",
+    priceFrom: 890,
   },
 ] as const;
 
@@ -168,7 +178,11 @@ export const PRODUCT_INFO_TOPICS = [
     body: "Choose a boxed farm when you need 20+ nodes per rack, stable thermals, and factory burn-in. Loose boards only make sense for small pilots with bench power.",
   },
   {
-    title: "Network & control workstation",
+    title: "Network segmentation for device labs",
+    body: "For QA labs and enterprise device fleets, we help plan network segmentation, device grouping, and connectivity documentation so each test group can be managed clearly.",
+  },
+  {
+    title: "Connectivity planning",
     body: "Plan a dedicated control PC with powered USB hubs, gigabit switching, and DHCP pools sized for your node count before scaling past one chassis.",
   },
 ] as const;
@@ -180,7 +194,6 @@ export const HOME_SECTIONS = [
   { slug: "oneplus-box", name: "OnePlus Box" },
   { slug: "pixel-box", name: "Pixel Box" },
   { slug: "usb-hub", name: "Accessories", categories: ["usb-hub", "power-supply", "cooling-solution", "network-equipment", "motherboard-box"] },
-  { slug: "control-software", name: "Control Software Setup", categories: ["control-software", "mirror-vip"] },
 ] as const;
 
 export const SERVICE_PACKAGES = [
@@ -270,26 +283,3 @@ export const SHIPPING_REGIONS = [
   "Middle East",
 ] as const;
 
-export const MIRROR_VIP_PRODUCTS = [
-  {
-    slug: "mirror-setup-basic-renewal",
-    name: "Mirror Workspace Renewal Setup",
-    shortDesc: "Renewal configuration after VIP expiry — remote onboarding.",
-    priceUsd: 8,
-    listPriceUsd: 88,
-  },
-  {
-    slug: "mirror-setup-cloud-bridge",
-    name: "Cloud Bridge Control Setup",
-    shortDesc: "Top-rated hybrid bridge configuration for multi-device teams.",
-    priceUsd: 5,
-    listPriceUsd: 99,
-  },
-  {
-    slug: "mirror-setup-annual-pro",
-    name: "Annual Pro Control Setup",
-    shortDesc: "360-day control stack mapping, groups, and script shortcuts.",
-    priceUsd: 10,
-    listPriceUsd: 266,
-  },
-] as const;

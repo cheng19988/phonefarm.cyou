@@ -86,10 +86,10 @@ export const PRODUCT_SUMMARIES: Record<string, ProductSummary> = {
     quoteNote: "Quote on request when list shows reference pricing only.",
   },
   "mirror-setup-basic-renewal": {
-    summary: "Remote onboarding for your chosen mirror workspace—USB paths, device discovery, and operator handover.",
+    summary: "Remote onboarding for your chosen control workspace—USB paths, device discovery, and operator handover.",
     bestFor: "First-time buyers connecting a single 20-node box to a control PC.",
     hardwareNote: "Service assumes hardware already passed factory burn-in.",
-    quoteNote: "Book after hardware ETA; include control PC OS and mirror tool name.",
+    quoteNote: "From $350 reference · book after hardware ETA; include control PC OS and tool name.",
   },
   "mirror-setup-cloud-bridge": {
     summary: "Multi-monitor layout, LAN scan ranges, and operator accounts for studio-scale control workstations.",

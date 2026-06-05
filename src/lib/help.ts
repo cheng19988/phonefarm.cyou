@@ -21,9 +21,9 @@ export const HELP_ARTICLES = [
   {
     slug: "single-device-single-ip",
     category: "getting-started",
-    title: "Per-Device Network Isolation",
-    excerpt: "VLAN and egress policies per device group for lab isolation.",
-    body: `Enterprise test plans often require one egress IP per device group. We document router VLANs, documented proxy assignment per group, and connectivity validation after you receive hardware. Contact sales for a topology review before scaling past one box.`,
+    title: "Network Segmentation for Device Labs",
+    excerpt: "Device grouping and connectivity planning for QA labs and enterprise fleets.",
+    body: `For QA labs and enterprise device fleets, we help plan network segmentation, device grouping, and connectivity documentation so each test group can be managed clearly. Contact sales for a topology review before scaling past one box.`,
   },
   {
     slug: "after-purchase-guide",

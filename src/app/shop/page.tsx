@@ -4,8 +4,9 @@ import { ProductCard } from "@/components/ProductCard";
 import { ContactBar } from "@/components/ContactBar";
 import { ShopFilters } from "@/components/ShopFilters";
 import { buildMetadata } from "@/lib/seo";
+import { publicCategoryLabel } from "@/lib/catalog";
 
-const CATEGORY_LABELS: Record<string, string> = {
+const SECTION_LABEL_OVERRIDES: Record<string, string> = {
   "samsung-box": "Samsung phone farm boxes",
   "oppo-box": "Oppo phone farm boxes",
   "xiaomi-box": "Xiaomi phone farm boxes",
@@ -16,10 +17,14 @@ const CATEGORY_LABELS: Record<string, string> = {
   "power-supply": "Power supplies",
   "cooling-solution": "Cooling kits",
   "network-equipment": "Network equipment",
-  "mirror-vip": "Control software services",
-  "control-software": "Control software services",
+  "mirror-vip": "Control software setup services",
+  "control-software": "Control software setup services",
   "service-package": "Setup service packages",
 };
+
+function sectionLabel(category: string) {
+  return SECTION_LABEL_OVERRIDES[category] ?? publicCategoryLabel(category);
+}
 
 export const metadata = buildMetadata({
   title: "Phone Farm Devices & Motherboard Boxes",
@@ -81,7 +86,7 @@ export default async function ShopPage({
           {Object.entries(grouped).map(([cat, items]) => (
             <section key={cat}>
               <h2 className="text-xl font-semibold text-white">
-                {CATEGORY_LABELS[cat] ?? cat.replace(/-/g, " ")}
+                {sectionLabel(cat)}
               </h2>
               <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
                 {items.map((p) => (

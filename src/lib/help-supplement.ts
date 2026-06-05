@@ -24,17 +24,17 @@ Message WhatsApp or Telegram with your node count, control method, and burn-in s
 - /help/usb-screen-projection
 - /contact`,
 
-  "single-device-single-ip": `Per-Device Network Isolation
+  "single-device-single-ip": `Network Segmentation for Device Labs
 
 ## Before You Start
-Enterprise test plans sometimes require unique egress IP per device group—not per consumer app account. Document your legal network policy before scaling past one chassis. Cyou Phone Farm supplies hardware and topology guidance; your IT team owns proxy contracts and compliance.
+Enterprise test plans often require clear network boundaries between device groups. Document your lawful connectivity policy before scaling past one chassis. Cyou Phone Farm supplies hardware and topology guidance; your IT team owns routing contracts and compliance.
 
 ## Required Equipment
-Managed router or firewall with VLAN support, documented DHCP pools, optional enterprise proxy or SD-WAN appliance, gigabit switch with port map, and control PC on wired Ethernet.
+Managed router or firewall with VLAN support, documented DHCP pools, optional enterprise SD-WAN appliance, gigabit switch with port map, and control PC on wired Ethernet.
 
 ## Step-by-Step Instructions
 1. Define device groups that mirror your test matrix (app branch, region, or build channel).
-2. Assign each group a VLAN or proxy policy approved by your security team.
+2. Assign each group a VLAN or documented routing policy approved by your security team.
 3. Label nodes physically and in control software to match the policy map.
 4. Run connectivity validation from each group before scheduling overnight QA.
 5. Store the topology diagram in your CMDB for auditor review.
@@ -42,7 +42,7 @@ Managed router or firewall with VLAN support, documented DHCP pools, optional en
 ## Troubleshooting Checklist
 - Cross-VLAN discovery fails: mirror tools may need Layer-2 adjacency—add a controlled relay or keep discovery VLAN flat.
 - DHCP exhaustion: expand pools before adding the fortieth node.
-- Asymmetric routing breaks proxy tests: document hairpin rules on the firewall.
+- Asymmetric routing breaks lab tests: document hairpin rules on the firewall.
 
 ## When to Contact Support
 Request a topology review from sales before multi-box expansion. Include destination country and target node count.
@@ -201,7 +201,7 @@ Managed router or firewall, spreadsheet for IP map, gigabit switch, and optional
 1. Count all farm nodes, control PCs, APs, and management interfaces.
 2. Expand DHCP pool beyond defaults—reserve IPs for control workstations.
 3. Document static leases for critical gear when required.
-4. Enable per-port isolation only where proxy policy demands it.
+4. Enable per-port isolation only where your security policy demands it.
 5. Test lease renewal after a full-box reboot storm.
 
 ## Troubleshooting Checklist

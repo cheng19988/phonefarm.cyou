@@ -29,7 +29,7 @@ Step-by-step Instructions
 
 8. Repeat steps 3 through 7 for each additional box, adding one unit at a time. After every fifth node, pause and verify hub temperature and voltage drop.
 
-9. Create device groups that mirror your test plan—by app under test, OS branch, or regional proxy policy. Apply group labels before you invite additional operators to the control session.
+9. Create device groups that mirror your test plan—by app under test, OS branch, or regional test routing policy. Apply group labels before you invite additional operators to the control session.
 
 10. Schedule a remote onboarding call with Cyou Phone Farm Guangzhou support if any node fails burn-in or if detection counts disagree with the packing list.
 
@@ -312,7 +312,7 @@ Inventory total node count, control PC count, mirror concurrency target, and per
 
 Required Equipment
 
-Managed gigabit switches per rack with documented port maps, enterprise access points with adjustable client limits and isolation controls, router or firewall with expanded DHCP pools and optional VLAN routing, dedicated control PC workstations on wired Ethernet, UPS for switches and racks where power flicker is common, cable management with labeled Cat6 home runs, and logical network diagram maintained in your CMDB. Proxy or SD-WAN gear belongs in a documented egress layer—not ad hoc USB tethering.
+Managed gigabit switches per rack with documented port maps, enterprise access points with adjustable client limits and isolation controls, router or firewall with expanded DHCP pools and optional VLAN routing, dedicated control PC workstations on wired Ethernet, UPS for switches and racks where power flicker is common, cable management with labeled Cat6 home runs, and logical network diagram maintained in your CMDB. Enterprise egress routing or SD-WAN gear belongs in a documented layer—not ad hoc USB tethering.
 
 Step-by-step Instructions
 
@@ -330,7 +330,7 @@ Step-by-step Instructions
 
 7. Configure DNS and NTP for farm VLAN so TLS-heavy app tests do not fail certificate validation due to clock skew.
 
-8. Document proxy assignment per group if your test plan requires unique egress IP; align with single-device single-IP policies documented in the help center.
+8. Document documented egress routing per group if your test plan requires unique egress IP; align with network segmentation policies documented in the help center.
 
 9. Schedule maintenance windows for firmware and ROM updates rack-by-rack, never site-wide at once.
 
@@ -346,7 +346,7 @@ Step-by-step Instructions
 
 Common Problems
 
-DHCP exhaustion after scale-up: pool left at consumer defaults—expand before adding the fortieth node. Broadcast storm during segment scan: scan bounded /24 instead of entire corporate /16. WiFi mirror flapping: too many devices per AP or power save enabled on test SSID—disable client power save for lab SSID. Cross-VLAN discovery fails: mirror tool expects Layer-2 adjacency—add controlled relay or keep discovery VLAN flat. Asymmetric routing breaks proxy tests: document hairpin rules on firewall. Control PC on WiFi while farm on wired VLAN: discovery jitter under load—wire all control workstations. Spanning tree reconvergence during power blip: enable portfast only on end-device ports per vendor best practice, never on inter-switch trunks without design review.
+DHCP exhaustion after scale-up: pool left at consumer defaults—expand before adding the fortieth node. Broadcast storm during segment scan: scan bounded /24 instead of entire corporate /16. WiFi mirror flapping: too many devices per AP or power save enabled on test SSID—disable client power save for lab SSID. Cross-VLAN discovery fails: mirror tool expects Layer-2 adjacency—add controlled relay or keep discovery VLAN flat. Asymmetric routing breaks routing tests: document hairpin rules on firewall. Control PC on WiFi while farm on wired VLAN: discovery jitter under load—wire all control workstations. Spanning tree reconvergence during power blip: enable portfast only on end-device ports per vendor best practice, never on inter-switch trunks without design review.
 
 Troubleshooting Checklist
 
@@ -356,7 +356,7 @@ Troubleshooting Checklist
 - WiFi mirror count per AP within approved cap.
 - Control PCs on wired Ethernet to Control VLAN.
 - NTP synchronized on nodes and control PCs.
-- Proxy map aligned with device groups.
+- Egress routing map aligned with device groups.
 - Staging and production IP ranges non-overlapping.
 - Storm control enabled on managed switches.
 - Enterprise BOM review completed with Cyou if applicable.

@@ -135,11 +135,15 @@ export default async function HomePage() {
       <section className="mx-auto max-w-7xl px-4 py-16">
         <h2 className="text-2xl font-bold text-white">Control Software Setup &amp; Remote Management Configuration</h2>
         <p className="mt-2 max-w-3xl text-slate-400">{CONTROL_SOFTWARE_DISCLAIMER}</p>
-        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {CONTROL_SETUP_SERVICES.map((s) => (
             <div key={s.slug} className="rounded-xl border border-slate-800 p-5">
               <h3 className="font-semibold text-white">{s.name}</h3>
               <p className="mt-2 text-sm text-slate-400">{s.desc}</p>
+              <p className="mt-3 text-sm font-medium text-cyan-400">
+                {s.priceFrom > 0 ? `From $${s.priceFrom}` : "Custom quote"}
+              </p>
+              <p className="mt-1 text-xs text-slate-500">Contact sales · configuration confirmed before invoice</p>
               <Link href="/contact" className="mt-4 inline-block text-sm text-cyan-400 hover:underline">
                 Request service quote →
               </Link>

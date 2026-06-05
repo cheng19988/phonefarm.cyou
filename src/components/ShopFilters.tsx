@@ -48,7 +48,9 @@ export function ShopFilters() {
             {b.name}
           </button>
         ))}
-        {PRODUCT_CATEGORIES.filter((c) => !SHOP_BRANDS.some((b) => b.slug === c.slug)).slice(0, 5).map((c) => (
+        {PRODUCT_CATEGORIES.filter(
+          (c) => !SHOP_BRANDS.some((b) => b.slug === c.slug) && c.slug !== "mirror-vip"
+        ).slice(0, 5).map((c) => (
           <button
             key={c.slug}
             type="button"
