@@ -75,7 +75,7 @@ export default function ServicePackagesPage() {
         Direct line: {CONTACT.telegram} · {CONTACT.whatsapp} · {CONTACT.email}
       </p>
       <div className="mt-8 max-w-xl">
-        <ContactForm source="packages" />
+        <ContactForm source="packages" variant="full" />
       </div>
     </div>
   );

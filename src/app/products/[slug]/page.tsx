@@ -10,6 +10,7 @@ import { FaqAccordion } from "@/components/FaqAccordion";
 import { getProductProfile } from "@/lib/productProfiles";
 import { getProductSummary } from "@/lib/productSummaries";
 import { formatReferencePrice } from "@/lib/pricing";
+import { QuotationDeliveryNotes } from "@/components/QuotationDeliveryNotes";
 
 function parseJson<T>(raw: string, fallback: T): T {
   try {
@@ -146,6 +147,8 @@ export default async function ProductDetailPage({
               </>
             )}
           </div>
+
+          <QuotationDeliveryNotes notes={profile?.quotationDelivery} />
 
           {faq.length > 0 && (
             <section className="mt-12">

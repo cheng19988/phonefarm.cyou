@@ -5,6 +5,8 @@ function headingId(title: string) {
     .replace(/(^-|-$)/g, "");
 }
 
+import { ImagePlaceholderCard } from "./ImagePlaceholderCard";
+
 /** Renders simple ## headings and paragraphs from markdown-style strings. */
 export function ProseMarkdown({ content }: { content: string }) {
   const sections = content.split(/\n(?=## )/);
@@ -45,11 +47,7 @@ export function ProseMarkdown({ content }: { content: string }) {
                   );
                 }
                 if (line.startsWith("[Image placeholder:")) {
-                  return (
-                    <p key={j} className="rounded-lg border border-dashed border-slate-700 bg-slate-900/50 px-4 py-8 text-center text-sm text-slate-500">
-                      {line}
-                    </p>
-                  );
+                  return <ImagePlaceholderCard key={j} label={line} />;
                 }
                 return <p key={j}>{line}</p>;
               })}

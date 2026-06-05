@@ -7,6 +7,8 @@ import { FaqAccordion } from "@/components/FaqAccordion";
 import { ContactForm } from "@/components/ContactForm";
 import { JsonLd } from "@/components/JsonLd";
 import { DeploymentTimeline } from "@/components/DeploymentTimeline";
+import { BuyerTrustSection } from "@/components/BuyerTrustSection";
+import { DeliverySopSection } from "@/components/DeliverySopSection";
 import { FAQ_ITEMS } from "@/lib/faq";
 import {
   SITE,
@@ -14,7 +16,6 @@ import {
   CONTROL_SOFTWARE_DISCLAIMER,
   CONTROL_SETUP_SERVICES,
   PRODUCT_INFO_TOPICS,
-  TRUST_POINTS,
   SHIPPING_REGIONS,
   HOME_SECTIONS,
   CONTACT,
@@ -155,19 +156,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="border-t border-slate-800 bg-slate-900/30 py-16">
-        <div className="mx-auto max-w-7xl px-4">
-          <h2 className="text-2xl font-bold text-white">Why buyers work with {SITE.name}</h2>
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {TRUST_POINTS.map((t) => (
-              <div key={t.title} className="rounded-xl border border-slate-800 p-5">
-                <h3 className="font-semibold text-white">{t.title}</h3>
-                <p className="mt-2 text-sm text-slate-400">{t.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <BuyerTrustSection siteName={SITE.name} />
 
       <section className="mx-auto max-w-7xl px-4 py-16">
         <h2 className="text-2xl font-bold text-white">Export capability &amp; logistics</h2>
@@ -200,12 +189,15 @@ export default async function HomePage() {
 
       <section className="border-t border-slate-800 py-16">
         <div className="mx-auto max-w-7xl px-4">
-          <h2 className="text-2xl font-bold text-white">Deployment workflow</h2>
-          <p className="mt-2 text-slate-400">How we deliver hardware, control setup, and handover from Guangzhou.</p>
-          <DeploymentTimeline />
-          <Link href="/deployment" className="mt-6 inline-block text-cyan-400 hover:underline">
-            Full deployment page →
-          </Link>
+          <DeliverySopSection id="delivery-sop" />
+          <div className="mt-16">
+            <h2 className="text-2xl font-bold text-white">Deployment workflow</h2>
+            <p className="mt-2 text-slate-400">Six-stage rollout from discovery to after-sales support.</p>
+            <DeploymentTimeline />
+            <Link href="/deployment" className="mt-6 inline-block text-cyan-400 hover:underline">
+              Full deployment page →
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -240,12 +232,14 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="bg-cyan-950/20 py-16">
+      <section className="bg-cyan-950/20 py-16 pb-24 lg:pb-16">
         <div className="mx-auto max-w-7xl px-4">
-          <h2 className="text-2xl font-bold text-white">Request setup quote</h2>
-          <p className="mt-2 text-slate-400">Device quantity, country, preferred model — we reply within 24 hours.</p>
+          <h2 className="text-2xl font-bold text-white">Request a quotation</h2>
+          <p className="mt-2 text-slate-400">
+            Share quantity, destination, and control method — sales replies with MOQ, lead time, and setup scope.
+          </p>
           <div className="mt-8 max-w-xl">
-            <ContactForm source="home-cta" />
+            <ContactForm source="home-cta" variant="compact" />
           </div>
         </div>
       </section>

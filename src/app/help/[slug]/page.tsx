@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getHelpArticle, HELP_ARTICLES } from "@/lib/help";
 import { HELP_EXPANDED } from "@/lib/help-expanded";
+import { HELP_SUPPLEMENT } from "@/lib/help-supplement";
 import { buildMetadata, breadcrumbJsonLd } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
 import { ContactBar } from "@/components/ContactBar";
@@ -23,7 +24,7 @@ export default async function HelpArticlePage({ params }: { params: Promise<{ sl
   const { slug } = await params;
   const article = getHelpArticle(slug);
   if (!article) notFound();
-  const isExpanded = Boolean(HELP_EXPANDED[slug]);
+  const isRich = Boolean(HELP_EXPANDED[slug] || HELP_SUPPLEMENT[slug]);
 
   return (
     <article className="mx-auto max-w-3xl px-4 py-12">
@@ -36,7 +37,7 @@ export default async function HelpArticlePage({ params }: { params: Promise<{ sl
       <Link href="/help" className="text-sm text-cyan-400 hover:underline">← Document Center</Link>
       <h1 className="mt-4 text-3xl font-bold text-white">{article.title}</h1>
       <p className="mt-2 text-slate-400">{article.excerpt}</p>
-      {isExpanded ? (
+      {isRich ? (
         <>
           <HelpTableOfContents content={article.body} />
           <ProseMarkdown content={article.body} />

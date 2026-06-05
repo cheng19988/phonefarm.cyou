@@ -77,13 +77,19 @@ export function productJsonLd(product: {
     brand: { "@type": "Brand", name: SITE.name },
     offers: {
       "@type": "Offer",
-      url: `${SITE.url}/products/${product.slug}`,
+      url: `${SITE.url}/contact?product=${encodeURIComponent(product.slug)}`,
       priceCurrency: "USD",
       price: product.priceUsd || undefined,
-      availability: "https://schema.org/PreOrder",
-      priceValidUntil: new Date(new Date().setFullYear(new Date().getFullYear() + 1))
-        .toISOString()
-        .slice(0, 10),
+      availability: "https://schema.org/LimitedAvailability",
+      description:
+        "B2B reference price. Request quotation for MOQ, lead time, shipping, and setup scope.",
+      seller: { "@type": "Organization", name: SITE.name },
+      priceSpecification: {
+        "@type": "UnitPriceSpecification",
+        priceCurrency: "USD",
+        price: product.priceUsd || undefined,
+        description: "Indicative reference price — final quote confirmed by sales",
+      },
     },
   };
 }

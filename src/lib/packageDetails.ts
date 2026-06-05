@@ -23,7 +23,7 @@ export const PACKAGE_DETAILS = [
     timeline: "1–2 weeks including hardware coordination",
     supportPeriod: "30 days",
     notIncluded: ["Enterprise SLA", "Dedicated rack networking on-site"],
-    bestFor: "Studios running 40–80 nodes with campaign-based grouping",
+    bestFor: "Studios running 40–80 nodes with test-group labeling and batch APK policies",
   },
   {
     slug: "enterprise-deploy",

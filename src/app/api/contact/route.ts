@@ -10,15 +10,33 @@ const schema = z.object({
   phone: z.string().optional(),
   deviceQuantity: z.string().optional(),
   productInterest: z.string().optional(),
+  controlMethod: z.string().optional(),
+  useCase: z.string().optional(),
   budget: z.string().optional(),
   message: z.string().optional(),
   source: z.string().optional(),
 });
 
+function composeMessage(body: z.infer<typeof schema>) {
+  const parts: string[] = [];
+  if (body.controlMethod) parts.push(`Preferred control method: ${body.controlMethod}`);
+  if (body.useCase) parts.push(`Use case: ${body.useCase}`);
+  if (body.message?.trim()) parts.push(body.message.trim());
+  return parts.join("\n\n") || undefined;
+}
+
 export async function POST(req: Request) {
   try {
-    const body = schema.parse(await req.json());
-    await prisma.contactSubmission.create({ data: body });
+    const parsed = schema.parse(await req.json());
+    const { controlMethod, useCase, ...body } = parsed;
+    void controlMethod;
+    void useCase;
+    await prisma.contactSubmission.create({
+      data: {
+        ...body,
+        message: composeMessage(parsed),
+      },
+    });
     return NextResponse.json({ ok: true });
   } catch {
     return NextResponse.json({ error: "Invalid submission" }, { status: 400 });

@@ -31,10 +31,14 @@ export function ProductInquiryPanel({
           Full quote form
         </Link>
       </div>
-      <div className="mt-4 hidden lg:block">
-        <ContactForm defaultProduct={productSlug} source={`product-${productSlug}`} />
+      <div className="mt-4 hidden sm:block">
+        <ContactForm
+          defaultProduct={productSlug}
+          source={`product-${productSlug}`}
+          variant="compact"
+        />
       </div>
-      <p className="mt-3 text-xs text-slate-500 lg:hidden">
+      <p className="mt-3 text-xs text-slate-500 sm:hidden">
         Prefer a short message? Use WhatsApp above. The full form is on the contact page.
       </p>
     </aside>

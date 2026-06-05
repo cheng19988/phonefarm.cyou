@@ -1,9 +1,12 @@
+import type { QuotationDelivery } from "./delivery";
+
 export type ProductProfile = {
   intro: string;
   specOverrides: Record<string, string>;
   included: string[];
   recommendedFor: string[];
   setupNotes: string;
+  quotationDelivery?: Partial<QuotationDelivery>;
   faq: { q: string; a: string }[];
 };
 
@@ -38,6 +41,11 @@ export const PRODUCT_PROFILES: Record<string, ProductProfile> = {
     ],
     setupNotes:
       "Mount chassis with rear exhaust clearance, connect powered USB hub to a dedicated host controller, run factory burn-in sheet before grouping nodes, and label each slot to match your control software map.",
+    quotationDelivery: {
+      moq: "Single 20-node box available. Bulk pricing typically from 5 units.",
+      leadTime: "Commonly quoted at 7–12 business days after order confirmation for standard S8 config.",
+      accessories: "450W PSU, quad-fan kit, and 20-port USB hub quoted per control path.",
+    },
     faq: [
       { q: "What is the MOQ?", a: "Single box available. Bulk pricing typically from 5 units." },
       { q: "Lead time?", a: "7–12 business days after payment confirmation for standard config." },
@@ -76,6 +84,10 @@ export const PRODUCT_PROFILES: Record<string, ProductProfile> = {
     ],
     setupNotes:
       "Use 500W PSU tier, enable LAN OTG only after USB baseline is stable, configure group labels before batch APK pushes, and schedule quarterly fan cleaning for 24/7 QA loads.",
+    quotationDelivery: {
+      leadTime: "Commonly quoted at 10–14 business days for standard S10 configuration.",
+      accessories: "500W PSU, enhanced fan kit, USB hub, and optional gigabit LAN kit.",
+    },
     faq: [
       { q: "MOQ?", a: "One box; volume discounts from 5+ units." },
       { q: "Lead time?", a: "10–14 business days standard." },
@@ -114,6 +126,10 @@ export const PRODUCT_PROFILES: Record<string, ProductProfile> = {
     ],
     setupNotes:
       "Deploy with 550W adaptive PSU and premium fan kit, keep ambient below 28°C where possible, wire control PC on gigabit Ethernet for LAN mirror, and document Android 14 branch per node on burn-in sheet.",
+    quotationDelivery: {
+      leadTime: "Often quoted at 14–21 business days depending on Gen1 board supply.",
+      accessories: "550W adaptive PSU, premium fan kit, and network kit for LAN OTG sites.",
+    },
     faq: [
       { q: "MOQ?", a: "Single unit; lead time varies with board supply." },
       { q: "Lead time?", a: "14–21 business days depending on board supply." },
@@ -140,6 +156,9 @@ export const PRODUCT_PROFILES: Record<string, ProductProfile> = {
     recommendedFor: ["QA device lab", "App compatibility testing", "Remote device management pilots"],
     setupNotes:
       "Confirm MIUI branch with sales before grouping, use standard quad-fan layout, map USB ports 1–20 to node IDs, and run a 24h stability script before production QA scheduling.",
+    quotationDelivery: {
+      leadTime: "Commonly quoted at 7–12 business days for MIX 2 tier.",
+    },
     faq: [
       { q: "MOQ?", a: "1 box." },
       { q: "Lead time?", a: "7–12 days." },
@@ -166,6 +185,9 @@ export const PRODUCT_PROFILES: Record<string, ProductProfile> = {
     recommendedFor: ["App compatibility testing", "Multi-device operations", "Enterprise device deployment"],
     setupNotes:
       "Validate ColorOS build against your app matrix, connect via USB first then enable LAN OTG scan range, and separate test groups by ROM branch to avoid mixed-tier installs.",
+    quotationDelivery: {
+      leadTime: "Commonly quoted at 10–14 business days for Find X2 tier.",
+    },
     faq: [
       { q: "MOQ?", a: "1 unit." },
       { q: "Lead time?", a: "10–14 days." },
@@ -192,6 +214,10 @@ export const PRODUCT_PROFILES: Record<string, ProductProfile> = {
     recommendedFor: ["QA testing", "Enterprise device lab", "Remote device management"],
     setupNotes:
       "888-class nodes need strong intake airflow—avoid stacking boxes without clearance, use powered hub per 20 nodes, and pin OxygenOS-class image version in your CMDB before wide APK rollout.",
+    quotationDelivery: {
+      leadTime: "Commonly quoted at 12–16 business days for 888-class boards.",
+      accessories: "Premium cooling and 500W+ PSU tier recommended for continuous QA load.",
+    },
     faq: [
       { q: "MOQ?", a: "1 box." },
       { q: "Lead time?", a: "12–16 days." },
@@ -218,6 +244,9 @@ export const PRODUCT_PROFILES: Record<string, ProductProfile> = {
     recommendedFor: ["App compatibility testing on Pixel images", "Enterprise device lab", "QA automation"],
     setupNotes:
       "Register Pixel build fingerprints in your test plan, keep USB cables under 1m on mirror paths, and run Google Play services smoke test on canary nodes before fleet-wide validation.",
+    quotationDelivery: {
+      leadTime: "Commonly quoted at 14–18 business days; Pixel board supply varies.",
+    },
     faq: [
       { q: "MOQ?", a: "1 unit." },
       { q: "Lead time?", a: "14–18 days (board supply dependent)." },
@@ -242,6 +271,11 @@ export const PRODUCT_PROFILES: Record<string, ProductProfile> = {
     recommendedFor: ["Farm expansion", "Spare tray inventory", "Custom board programs"],
     setupNotes:
       "Torque board mounts per assembly guide, install PSU and fans before inserting boards, label slots before powering on, and request assembly service from Guangzhou if mixing board generations.",
+    quotationDelivery: {
+      moq: "Single chassis; boards and PSU quoted separately unless bundled.",
+      leadTime: "Commonly quoted at 5–8 business days for empty tray.",
+      packing: "Lighter export carton than full farms; foam bracing for metal frame.",
+    },
     faq: [
       { q: "MOQ?", a: "1 chassis." },
       { q: "Lead time?", a: "5–8 days." },
@@ -264,6 +298,10 @@ export const PRODUCT_PROFILES: Record<string, ProductProfile> = {
     recommendedFor: ["USB mirroring farms", "Control workstation upgrades"],
     setupNotes:
       "Connect hub to dedicated USB root controller, use short shielded cables, document port-to-node map on chassis label, and avoid daisy-chaining consumer hubs on mirror paths.",
+    quotationDelivery: {
+      leadTime: "Commonly quoted at 3–7 business days when shipped standalone.",
+      packing: "Compact export carton; often bundled inside farm shipment.",
+    },
     faq: [
       { q: "MOQ?", a: "1 unit." },
       { q: "Lead time?", a: "3–7 days." },
@@ -285,6 +323,10 @@ export const PRODUCT_PROFILES: Record<string, ProductProfile> = {
     recommendedFor: ["LAN OTG deployments", "Multi-box enterprise sites"],
     setupNotes:
       "Wire control PC on same subnet as farm VLAN, expand DHCP pool before adding nodes, maintain updated port map diagram, and review proxy egress policy with sales if tests require regional IP separation.",
+    quotationDelivery: {
+      leadTime: "Commonly quoted at 5–10 business days; switch tier confirmed per site size.",
+      remoteSetup: "IP plan template and remote network BOM review included with Enterprise packages.",
+    },
     faq: [
       { q: "MOQ?", a: "1 kit." },
       { q: "Lead time?", a: "5–10 days." },

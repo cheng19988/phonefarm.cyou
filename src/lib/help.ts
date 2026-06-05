@@ -1,4 +1,5 @@
 import { HELP_EXPANDED } from "./help-expanded";
+import { HELP_SUPPLEMENT } from "./help-supplement";
 
 export const HELP_CATEGORIES = [
   { id: "getting-started", name: "Getting Started" },
@@ -71,7 +72,7 @@ export const HELP_ARTICLES = [
     category: "control",
     title: "Sync Control & Batch Operations",
     excerpt: "Master window, grouping, and one-click select.",
-    body: `Fixed window: one-click select on the left rail controls all selected units. Floating master: use the group control button. Combine with device groups for campaign-level batch taps, APK pushes, and file transfers.`,
+    body: `Fixed window: one-click select on the left rail controls all selected units. Floating master: use the group control button. Combine with device groups for test-group batch taps, APK pushes, and file transfers.`,
   },
   {
     slug: "batch-apk-install",
@@ -128,5 +129,8 @@ export function getHelpArticle(slug: string) {
   const article = HELP_ARTICLES.find((a) => a.slug === slug);
   if (!article) return undefined;
   const expanded = HELP_EXPANDED[slug];
-  return expanded ? { ...article, body: expanded } : article;
+  const supplement = HELP_SUPPLEMENT[slug];
+  if (expanded) return { ...article, body: expanded };
+  if (supplement) return { ...article, body: supplement };
+  return article;
 }

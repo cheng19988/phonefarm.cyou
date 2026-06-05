@@ -37,7 +37,7 @@ export const FAQ_ITEMS = [
   },
   {
     q: "Do you support group control system configuration?",
-    a: "Yes—sync control, batch APK, file push, ADB shortcuts, and device groups by campaign.",
+    a: "Yes—sync control, batch APK, file push, ADB shortcuts, and device groups by test matrix.",
   },
   {
     q: "Do you support overseas shipping?",

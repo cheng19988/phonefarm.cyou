@@ -17,7 +17,7 @@ export default async function ContactPage({
 }) {
   const { product } = await searchParams;
   return (
-    <div className="mx-auto max-w-7xl px-4 py-12">
+    <div className="mx-auto max-w-7xl px-4 py-12 pb-24 lg:pb-12">
       <h1 className="text-3xl font-bold text-white">Contact Sales</h1>
       <p className="mt-2 text-slate-400">
         Tell us your device count and product interest—we reply from {SITE.location} within 24 hours.
@@ -32,7 +32,7 @@ export default async function ContactPage({
         <ContactBar />
       </div>
       <div className="mt-10 max-w-xl">
-        <ContactForm defaultProduct={product || ""} source="contact" />
+        <ContactForm defaultProduct={product || ""} source="contact" variant="full" />
       </div>
     </div>
   );

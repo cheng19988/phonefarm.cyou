@@ -54,7 +54,7 @@ export default function ServicesPage() {
       <section className="mt-16 rounded-2xl border border-slate-800 bg-slate-900/40 p-8">
         <h2 className="text-xl font-bold text-white">Discuss your project</h2>
         <div className="mt-6 max-w-xl">
-          <ContactForm source="services" />
+          <ContactForm source="services" variant="full" />
         </div>
       </section>
     </div>

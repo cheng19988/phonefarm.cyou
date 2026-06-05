@@ -130,7 +130,7 @@ export const CONTROL_SETUP_SERVICES = [
   {
     slug: "group-control-policy",
     name: "Group Control Policy Configuration",
-    desc: "Batch APK rules, file push folders, ADB shortcuts, and campaign-based grouping.",
+    desc: "Batch APK rules, file push folders, ADB shortcuts, and test-group labeling.",
   },
   {
     slug: "annual-maintenance",
@@ -218,7 +218,7 @@ export const SERVICES = [
   {
     slug: "group-control-system-setup",
     title: "Group Control System Setup",
-    desc: "Sync control, batch APK install, file push, ADB scripts, and device grouping by campaign.",
+    desc: "Sync control, batch APK install, file push, ADB scripts, and device grouping by test matrix.",
   },
   {
     slug: "deployment-workflow",

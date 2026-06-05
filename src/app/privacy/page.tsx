@@ -23,7 +23,7 @@ export default function PrivacyPage() {
       <h2>2. Information we collect</h2>
       <ul>
         <li>Contact details you provide: name, email, phone, country, messaging handles (WhatsApp/Telegram).</li>
-        <li>Project details: device quantity, product interest, budget, and free-text messages.</li>
+        <li>Project details: device quantity, product interest, control method, use case, and free-text messages.</li>
         <li>Account data if you register: email and hashed password.</li>
         <li>Order references: product SKUs, quantities, and payment transaction hashes you voluntarily submit.</li>
         <li>Technical logs: IP address, browser type, and pages visited (standard server logs).</li>
