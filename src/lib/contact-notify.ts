@@ -1,3 +1,5 @@
+import { SITE } from "./constants";
+
 type ContactPayload = {
   name: string;
   email: string;
@@ -12,7 +14,8 @@ type ContactPayload = {
 
 function formatContactText(data: ContactPayload): string {
   const lines = [
-    "New inquiry — phonefarm.cyou",
+    `New inquiry — ${SITE.url}`,
+    `Website: ${SITE.domain}`,
     `Name: ${data.name}`,
     `Email: ${data.email}`,
     data.country ? `Country: ${data.country}` : null,
@@ -33,7 +36,12 @@ export async function notifyContactSubmission(data: ContactPayload): Promise<voi
     await fetch(webhook, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ type: "contact_submission", ...data }),
+      body: JSON.stringify({
+        type: "contact_submission",
+        site: SITE.url,
+        siteHost: SITE.domain,
+        ...data,
+      }),
     }).catch(() => undefined);
   }
 

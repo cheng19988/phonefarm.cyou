@@ -41,8 +41,8 @@ export default function AboutPage() {
         <p>
           Every project follows a practical sequence: requirement confirmation, hardware preparation, connectivity and
           thermal checks, export packing, and remote handover with a troubleshooting checklist. We confirm scope in
-          writing before you pay a proforma invoice—reference prices on the website are starting points, not checkout
-          totals.
+          writing before you pay a proforma invoice—reference prices on the website are starting points, not final
+          payment totals.
         </p>
       </div>
 
@@ -54,10 +54,10 @@ export default function AboutPage() {
         <h2>What we do not do</h2>
         <p>We supply hardware and lawful setup guidance for professional device management and testing. We do not:</p>
         <ul>
-          <li>Provide fraud services or fake engagement programs</li>
-          <li>Sell fake traffic, ad-click, or app-install manipulation tools</li>
+          <li>Provide fraud services or inauthentic audience manipulation programs</li>
+          <li>Sell artificial traffic, ad-click, or app-install manipulation tools</li>
           <li>Provide platform bypass, ban-avoidance, or risk-control evasion services</li>
-          <li>Market passive-income, rewards-app, or social-media manipulation schemes</li>
+          <li>Market get-rich-quick, rewards-app, or social-media manipulation schemes</li>
         </ul>
         <p>
           If your use case cannot be described as app QA testing, compatibility testing, enterprise device fleet

@@ -58,7 +58,7 @@ export default function TermsPage() {
       <p>
         Customer agrees to use hardware and services for lawful B2B purposes including app QA testing, mobile device
         labs, compatibility testing, enterprise device fleet management, and remote device management. We do not provide
-        fraud services, fake engagement, ad-click manipulation, platform bypass tools, or social-media manipulation
+        fraud services, inauthentic engagement manipulation, ad-click manipulation, platform bypass tools, or social-media manipulation
         programs. We may refuse or cancel orders that violate export control, applicable law, or these use boundaries.
       </p>
 

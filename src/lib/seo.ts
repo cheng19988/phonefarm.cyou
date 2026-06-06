@@ -16,7 +16,7 @@ export function buildMetadata({
   const url = `${SITE.url}${path}`;
   const ogImage = image || `${SITE.url}/images/hero_1600x900/phonefarm.cyou-product-box-2025-10-25-11-21-img-0547-4b35a-hero_1600x900.webp`;
   return {
-    title: `${title} | ${SITE.name}`,
+    title,
     description,
     alternates: { canonical: url },
     robots: noIndex ? { index: false, follow: false } : { index: true, follow: true },

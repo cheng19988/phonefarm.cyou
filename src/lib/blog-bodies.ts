@@ -349,7 +349,7 @@ Never save on powered USB hubs or mains cabling. A $30 passive splitter costs mo
 
 ## Quote Path
 
-Browse reference prices at phonefarm.cyou/shop and submit device count plus destination country at phonefarm.cyou/contact for a proforma that includes export packing—not checkout totals.`,
+Browse reference prices at phonefarm.cyou/shop and submit device count plus destination country at phonefarm.cyou/contact for a proforma that includes export packing—not final payment totals.`,
 
   "adb-shortcuts-setup": `## ADB Command Shortcuts for Phone Farm Operators
 
@@ -376,7 +376,7 @@ Studio Pro packages include a starter shortcut map aligned to your mirror tool. 
 
   "phone-farming-profitable-2026": `## Is Phone Farming Still Viable in 2026 for Real Businesses?
 
-Phone farming as a legitimate B2B practice—QA labs, device compatibility matrices, enterprise MDM staging, and authorized client app testing on owned hardware—remains viable when buyers treat farms as infrastructure. Passive-income schemes and platform manipulation are not services Cyou Phone Farm supports.
+Phone farming as a legitimate B2B practice—QA labs, device compatibility matrices, enterprise MDM staging, and authorized client app testing on owned hardware—remains viable when buyers treat farms as infrastructure. Get-rich-quick schemes and platform manipulation are not services Cyou Phone Farm supports.
 
 ## Where Real Hardware Still Wins
 
