@@ -5,7 +5,7 @@
 ## Brand
 
 - Name: Cyou Phone Farm
-- Website: https://phonefarm.cyou
+- Website: https://www.phonefarm.cyou
 - Location: Guangzhou, China / 中国广州
 - Focus: Complete phone farm setup service with real devices—not cloud-only SaaS
 

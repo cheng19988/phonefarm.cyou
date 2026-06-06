@@ -2,7 +2,7 @@ export const SITE = {
   name: "Cyou Phone Farm",
   tagline: "Complete Phone Farm Setup Service with Real Devices",
   domain: "phonefarm.cyou",
-  url: process.env.SITE_URL || "https://phonefarm.cyou",
+  url: process.env.SITE_URL || "https://www.phonefarm.cyou",
   location: "Guangzhou, China",
   locationZh: "中国广州",
   since: 2017,

@@ -4,12 +4,25 @@ import { useEffect, useState } from "react";
 
 type Tab = "orders" | "products" | "users" | "contacts";
 
+type ContactRow = {
+  id: string;
+  createdAt: string;
+  name: string;
+  email: string;
+  country?: string | null;
+  messaging?: string | null;
+  deviceQuantity?: string | null;
+  productInterest?: string | null;
+  message?: string | null;
+  source?: string | null;
+};
+
 export function AdminDashboard() {
   const [tab, setTab] = useState<Tab>("orders");
   const [orders, setOrders] = useState<unknown[]>([]);
   const [products, setProducts] = useState<{ id: string; name: string; priceUsd: number; stock: number }[]>([]);
   const [users, setUsers] = useState<unknown[]>([]);
-  const [contacts, setContacts] = useState<unknown[]>([]);
+  const [contacts, setContacts] = useState<ContactRow[]>([]);
 
   useEffect(() => {
     const path = tab === "orders" ? "orders" : tab === "products" ? "products" : tab === "users" ? "users" : "contacts";
@@ -19,7 +32,7 @@ export function AdminDashboard() {
         if (tab === "orders") setOrders(data);
         if (tab === "products") setProducts(data);
         if (tab === "users") setUsers(data);
-        if (tab === "contacts") setContacts(data);
+        if (tab === "contacts") setContacts(data as ContactRow[]);
       });
   }, [tab]);
 
@@ -130,7 +143,43 @@ export function AdminDashboard() {
           <pre className="text-xs text-slate-400 overflow-auto">{JSON.stringify(users, null, 2)}</pre>
         )}
         {tab === "contacts" && (
-          <pre className="text-xs text-slate-400 overflow-auto">{JSON.stringify(contacts, null, 2)}</pre>
+          <div className="overflow-x-auto rounded-xl border border-slate-800">
+            <table className="w-full min-w-[960px] text-left text-sm">
+              <thead className="bg-slate-900 text-slate-400">
+                <tr>
+                  <th className="px-3 py-2">Time</th>
+                  <th className="px-3 py-2">Name</th>
+                  <th className="px-3 py-2">Email</th>
+                  <th className="px-3 py-2">Country</th>
+                  <th className="px-3 py-2">Messaging</th>
+                  <th className="px-3 py-2">Quantity</th>
+                  <th className="px-3 py-2">Product</th>
+                  <th className="px-3 py-2">Source</th>
+                  <th className="px-3 py-2">Message</th>
+                </tr>
+              </thead>
+              <tbody>
+                {contacts.map((c) => (
+                  <tr key={c.id} className="border-t border-slate-800 align-top">
+                    <td className="px-3 py-2 whitespace-nowrap text-slate-500">
+                      {new Date(c.createdAt).toLocaleString()}
+                    </td>
+                    <td className="px-3 py-2 text-white">{c.name}</td>
+                    <td className="px-3 py-2 text-cyan-400">{c.email}</td>
+                    <td className="px-3 py-2 text-slate-300">{c.country || "—"}</td>
+                    <td className="px-3 py-2 text-slate-300">{c.messaging || "—"}</td>
+                    <td className="px-3 py-2 text-slate-300">{c.deviceQuantity || "—"}</td>
+                    <td className="px-3 py-2 text-slate-300">{c.productInterest || "—"}</td>
+                    <td className="px-3 py-2 text-slate-500">{c.source || "—"}</td>
+                    <td className="max-w-xs px-3 py-2 text-slate-400 whitespace-pre-wrap">{c.message || "—"}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            {contacts.length === 0 && (
+              <p className="px-4 py-8 text-center text-sm text-slate-500">No inquiries yet.</p>
+            )}
+          </div>
         )}
       </div>
     </div>
