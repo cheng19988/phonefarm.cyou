@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { z } from "zod";
+import { notifyContactSubmission } from "@/lib/contact-notify";
 import { prisma } from "@/lib/prisma";
 
 const schema = z.object({
@@ -31,12 +32,13 @@ export async function POST(req: Request) {
     const { controlMethod, useCase, ...body } = parsed;
     void controlMethod;
     void useCase;
-    await prisma.contactSubmission.create({
-      data: {
-        ...body,
-        message: composeMessage(parsed),
-      },
-    });
+    const message = composeMessage(parsed);
+    const record = {
+      ...body,
+      message,
+    };
+    await prisma.contactSubmission.create({ data: record });
+    void notifyContactSubmission(record);
     return NextResponse.json({ ok: true });
   } catch {
     return NextResponse.json({ error: "Invalid submission" }, { status: 400 });

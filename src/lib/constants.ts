@@ -1,8 +1,10 @@
+import { resolveCanonicalSiteUrl } from "./site-url";
+
 export const SITE = {
   name: "Cyou Phone Farm",
   tagline: "Complete Phone Farm Setup Service with Real Devices",
   domain: "phonefarm.cyou",
-  url: process.env.SITE_URL || "https://www.phonefarm.cyou",
+  url: resolveCanonicalSiteUrl(),
   location: "Guangzhou, China",
   locationZh: "中国广州",
   since: 2017,
