@@ -3,7 +3,8 @@ const CHASSIS_HERO = "/images/real-factory/box-shots/2025_10_25_11_21_IMG_0547.p
 const CHASSIS_HERO_ALT = "/images/real-factory/box-shots/2025_10_25_11_37_IMG_0566.png";
 /** 0566 honeycomb chassis — black background removed for light hero */
 const CHASSIS_HERO_WHITE = "/images/hero/chassis-0566-white.png";
-const CHASSIS_HERO_TRANSPARENT = "/images/hero/chassis-0566-transparent.png";
+/** Original factory transparent PNG (alpha) — honeycomb chassis, no black matte */
+const CHASSIS_HERO_TRANSPARENT = "/images/real-factory/box-shots/Untitled_image__1_.png";
 const WEBP_HERO =
   "/images/hero_1600x900/phonefarm.cyou-product-box-2025-10-25-11-21-img-0547-4b35a-hero_1600x900.webp";
 /** Homepage hero — honeycomb chassis with internal trays (user-preferred background) */
