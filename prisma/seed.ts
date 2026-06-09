@@ -2,12 +2,24 @@ import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcryptjs";
 import { IMAGES } from "../src/lib/images";
 import { parseShortDescHardware } from "../src/lib/pricing";
+import realProductImages from "../src/lib/real-product-images.json";
 
 const prisma = new PrismaClient();
 const cards = IMAGES.productCards;
 const pick = (i: number) => cards[i % cards.length];
 const detail = (i: number) =>
   pick(i).replace("card_800x800", "detail_1200x900").replace("/card_800x800/", "/detail_1200x900/");
+
+type RealImg = { card: string; hero: string; detail: string };
+const realMap = realProductImages as Record<string, RealImg>;
+
+function productImages(slug: string, imgIndex: number) {
+  const real = realMap[slug];
+  if (real) {
+    return { imageCard: real.card, imageHero: real.hero, imageDetail: real.detail };
+  }
+  return { imageCard: pick(imgIndex), imageHero: IMAGES.hero, imageDetail: detail(imgIndex) };
+}
 
 function body(short: string) {
   const hw = parseShortDescHardware(short);
@@ -134,6 +146,7 @@ async function main() {
   for (const p of catalog) {
     const content = body(p.shortDesc);
     const purchase = purchaseMeta(p);
+    const images = productImages(p.slug, p.img);
     await prisma.product.upsert({
       where: { slug: p.slug },
       update: {
@@ -145,6 +158,9 @@ async function main() {
         directPurchaseEnabled: purchase.directPurchaseEnabled,
         quoteOnly: purchase.quoteOnly,
         productType: purchase.productType,
+        imageCard: images.imageCard,
+        imageHero: images.imageHero,
+        imageDetail: images.imageDetail,
         ...content,
       },
       create: {
@@ -157,9 +173,7 @@ async function main() {
         directPurchaseEnabled: purchase.directPurchaseEnabled,
         quoteOnly: purchase.quoteOnly,
         productType: purchase.productType,
-        imageCard: pick(p.img),
-        imageHero: IMAGES.hero,
-        imageDetail: detail(p.img),
+        ...images,
         ...content,
       },
     });

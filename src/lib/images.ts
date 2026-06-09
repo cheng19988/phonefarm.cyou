@@ -1,7 +1,16 @@
-/** Image paths under /public/images — phonefarm.cyou site pack + company photos */
+/** Image paths under /public/images — site pack + local real photos (sync-local-assets.ps1) */
+const REAL_HERO = "/images/real-factory/slides/slide-01.png";
+const REAL_HERO_ALT = "/images/real-factory/slides/slide-02.png";
+const WEBP_HERO =
+  "/images/hero_1600x900/phonefarm.cyou-product-box-2025-10-25-11-21-img-0547-4b35a-hero_1600x900.webp";
+const WEBP_HERO_ALT =
+  "/images/hero_1600x900/phonefarm.cyou-product-box-2025-10-25-11-37-img-0566-ee21b-hero_1600x900.webp";
+
 export const IMAGES = {
-  hero: "/images/hero_1600x900/phonefarm.cyou-product-box-2025-10-25-11-21-img-0547-4b35a-hero_1600x900.webp",
-  heroAlt: "/images/hero_1600x900/phonefarm.cyou-product-box-2025-10-25-11-37-img-0566-ee21b-hero_1600x900.webp",
+  hero: REAL_HERO,
+  heroAlt: REAL_HERO_ALT,
+  heroFallback: WEBP_HERO,
+  heroAltFallback: WEBP_HERO_ALT,
   facility: {
     assembly: "/images/company/生产车间.png",
     burnIn: "/images/company/1b4a6930-9fa5-45d3-a705-015e8b1e7df9.png",
@@ -37,19 +46,20 @@ export const IMAGES = {
     production: "/images/company/生产车间.png",
     warehouse: "/images/company/仓库.png",
   },
-  og: "/images/hero_1600x900/phonefarm.cyou-product-box-2025-10-25-11-21-img-0547-4b35a-hero_1600x900.webp",
+  og: REAL_HERO,
 } as const;
 
 export const FACILITY_GALLERY = [
-  { key: "assembly", src: IMAGES.facility.assembly, label: "Assembly floor", alt: "Cyou Phone Farm assembly bench in Guangzhou" },
-  { key: "burnIn", src: IMAGES.facility.burnIn, label: "Burn-in & QA", alt: "Pre-shipment burn-in and testing station" },
-  { key: "exportPacking", src: IMAGES.facility.exportPacking, label: "Export packing", alt: "Export cartons prepared for overseas shipment" },
-  { key: "warehouse", src: IMAGES.facility.warehouse, label: "Guangzhou warehouse", alt: "Warehouse inventory and outbound staging" },
-  { key: "assemblyLine", src: IMAGES.facility.assemblyLine, label: "Motherboard tray build", alt: "Motherboard tray assembly line" },
+  { key: "facility-1", src: "/images/real-factory/slides/slide-03.png", label: "Phone farm chassis", alt: "Real-device phone farm motherboard box lineup" },
+  { key: "facility-2", src: "/images/real-factory/slides/slide-04.png", label: "Assembly overview", alt: "Guangzhou assembly and integration overview" },
+  { key: "facility-3", src: "/images/real-factory/slides/slide-05.png", label: "Burn-in & QA", alt: "Burn-in testing before export shipment" },
+  { key: "facility-4", src: "/images/real-factory/slides/slide-06.png", label: "Export packing", alt: "Export cartons prepared for overseas buyers" },
+  { key: "facility-5", src: "/images/real-factory/slides/slide-07.png", label: "Factory floor", alt: "Cyou Phone Farm production floor in Guangzhou" },
+  { key: "facility-6", src: "/images/real-factory/slides/slide-08.png", label: "Motherboard trays", alt: "Motherboard tray build and labeling" },
 ] as const;
 
 export const HOME_TRUST_PHOTOS = [
-  { src: IMAGES.facility.assembly, label: "Assembly bench", alt: "Factory assembly bench with phone farm chassis" },
-  { src: IMAGES.facility.burnIn, label: "Burn-in testing", alt: "Burn-in and QA testing before shipment" },
-  { src: IMAGES.facility.exportPacking, label: "Export packing", alt: "Export packing and ready-to-ship pallets" },
+  { src: "/images/real-factory/slides/slide-09.png", label: "Real-device hardware", alt: "Real Android motherboard phone farm boxes" },
+  { src: "/images/real-factory/slides/slide-10.png", label: "Burn-in testing", alt: "Burn-in and QA testing station" },
+  { src: "/images/real-factory/slides/slide-11.png", label: "Export ready", alt: "Export packing and logistics preparation" },
 ] as const;

@@ -1,0 +1,37 @@
+{
+  "samsung-s8-farm-4-64": {
+    "card": "/images/real-products/product_Box_Phone_Farm_S8_S8_Latest_Generation_2026_USB_LAN_Port_box-phone-farm-s8-en_main_box_s8.png",
+    "hero": "/images/real-products/product_Box_Phone_Farm_S8_S8_Latest_Generation_2026_USB_LAN_Port_box-phone-farm-s8-en_main_box_s8.png",
+    "detail": "/images/real-products/product_Box_Phone_Farm_S8_S8_Latest_Generation_2026_USB_LAN_Port_box-phone-farm-s8-en_main_box_s8.png"
+  },
+  "samsung-s9-plus-farm-6-64": {
+    "card": "/images/real-products/product_Box_Phone_Farm_S9_S9_Latest_Generation_2026_USB_LAN_OTG_Black_Circuit_Board_box-phone-farm-s9-en_main_box_phone_.png",
+    "hero": "/images/real-products/product_Box_Phone_Farm_S9_S9_Latest_Generation_2026_USB_LAN_OTG_Black_Circuit_Board_box-phone-farm-s9-en_main_box_phone_.png",
+    "detail": "/images/real-products/product_Box_Phone_Farm_S9_S9_Latest_Generation_2026_USB_LAN_OTG_Black_Circuit_Board_box-phone-farm-s9-en_main_box_phone_.png"
+  },
+  "samsung-s10-farm-8-128": {
+    "card": "/images/real-products/product_Box_Phone_Farm_S10_USB_LAN_OTG_Port_with_Black_Circuit_Board_box-phone-farm-s10-en_main_box_phone_farm_s10_en.png",
+    "hero": "/images/real-products/product_Box_Phone_Farm_S10_USB_LAN_OTG_Port_with_Black_Circuit_Board_box-phone-farm-s10-en_main_box_phone_farm_s10_en.png",
+    "detail": "/images/real-products/product_Box_Phone_Farm_S10_USB_LAN_OTG_Port_with_Black_Circuit_Board_box-phone-farm-s10-en_main_box_phone_farm_s10_en.png"
+  },
+  "samsung-s22-farm-8-128": {
+    "card": "/images/real-products/product_Box_Phone_Farm_S20_8_128GB_USB_LAN_OTG_black_circuit_box-phone-farm-s20-en_main_box_phone_farm_s20.png",
+    "hero": "/images/real-products/product_Box_Phone_Farm_S20_8_128GB_USB_LAN_OTG_black_circuit_box-phone-farm-s20-en_main_box_phone_farm_s20.png",
+    "detail": "/images/real-products/product_Box_Phone_Farm_S20_8_128GB_USB_LAN_OTG_black_circuit_box-phone-farm-s20-en_main_box_phone_farm_s20.png"
+  },
+  "oneplus-8-pro-farm-12-256": {
+    "card": "/images/real-products/product_Box_Phone_Farm_OnePlus_8_Pro_8_128GB_USB_Port_LAN_OTG_box-phone-farm-oneplus-8-pro-en_main_oneplus_8_pro.png",
+    "hero": "/images/real-products/product_Box_Phone_Farm_OnePlus_8_Pro_8_128GB_USB_Port_LAN_OTG_box-phone-farm-oneplus-8-pro-en_main_oneplus_8_pro.png",
+    "detail": "/images/real-products/product_Box_Phone_Farm_OnePlus_8_Pro_8_128GB_USB_Port_LAN_OTG_box-phone-farm-oneplus-8-pro-en_main_oneplus_8_pro.png"
+  },
+  "oneplus-3-farm-6-64": {
+    "card": "/images/real-products/product_Box_Phone_Farm_OnePlus_5_Super_Change_USB_Port_LAN_OTG_box-phone-farm-oneplus-5-super-change-en_main_Oneplus_5_S.png",
+    "hero": "/images/real-products/product_Box_Phone_Farm_OnePlus_5_Super_Change_USB_Port_LAN_OTG_box-phone-farm-oneplus-5-super-change-en_main_Oneplus_5_S.png",
+    "detail": "/images/real-products/product_Box_Phone_Farm_OnePlus_5_Super_Change_USB_Port_LAN_OTG_box-phone-farm-oneplus-5-super-change-en_main_Oneplus_5_S.png"
+  },
+  "pixel-4a-farm-6-128": {
+    "card": "/images/real-products/product_Box_Phone_Farm_Pixel_4XL_Super_Change_Cong_USB_LAN_OTG_box-phone-farm-pixel-4xl-super-change_gallery_2_box_speci.png",
+    "hero": "/images/real-products/product_Box_Phone_Farm_Pixel_4XL_Super_Change_Cong_USB_LAN_OTG_box-phone-farm-pixel-4xl-super-change_gallery_2_box_speci.png",
+    "detail": "/images/real-products/product_Box_Phone_Farm_Pixel_4XL_Super_Change_Cong_USB_LAN_OTG_box-phone-farm-pixel-4xl-super-change_gallery_2_box_speci.png"
+  }
+}

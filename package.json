@@ -10,7 +10,7 @@
     "lint": "eslint",
     "db:migrate": "prisma migrate dev",
     "db:seed": "npx tsx prisma/seed.ts",
-    "assets:sync": "powershell -ExecutionPolicy Bypass -File scripts/sync-assets.ps1"
+    "assets:sync": "powershell -ExecutionPolicy Bypass -File scripts/sync-assets.ps1 && node scripts/sync-local-assets.mjs && node scripts/build-product-image-map.mjs"
   },
   "prisma": {
     "seed": "npx tsx prisma/seed.ts"
