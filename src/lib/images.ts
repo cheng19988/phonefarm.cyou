@@ -1,8 +1,9 @@
 /** Image paths — real chassis photos preferred; no office scene art for products. */
 const CHASSIS_HERO = "/images/real-factory/box-shots/2025_10_25_11_21_IMG_0547.png";
 const CHASSIS_HERO_ALT = "/images/real-factory/box-shots/2025_10_25_11_37_IMG_0566.png";
-/** 0566 honeycomb chassis — black background removed, white product shot for hero */
+/** 0566 honeycomb chassis — black background removed for light hero */
 const CHASSIS_HERO_WHITE = "/images/hero/chassis-0566-white.png";
+const CHASSIS_HERO_TRANSPARENT = "/images/hero/chassis-0566-transparent.png";
 const WEBP_HERO =
   "/images/hero_1600x900/phonefarm.cyou-product-box-2025-10-25-11-21-img-0547-4b35a-hero_1600x900.webp";
 /** Homepage hero — honeycomb chassis with internal trays (user-preferred background) */
@@ -11,8 +12,10 @@ const WEBP_HERO_HOME =
 
 export const IMAGES = {
   hero: WEBP_HERO_HOME,
-  /** Isolated chassis for white hero panel (full box visible, object-contain) */
+  /** Isolated chassis on white (flattened PNG) */
   heroChassisProduct: CHASSIS_HERO_WHITE,
+  /** Transparent cutout for full-bleed hero behind text */
+  heroChassisTransparent: CHASSIS_HERO_TRANSPARENT,
   heroAlt: CHASSIS_HERO_ALT,
   heroFallback: WEBP_HERO,
   heroAltFallback: WEBP_HERO_HOME,
