@@ -127,7 +127,7 @@ const BASE_HELP_ARTICLES = [
   },
 ] as const;
 
-const BASE_SLUGS = new Set(BASE_HELP_ARTICLES.map((a) => a.slug));
+const BASE_SLUGS = new Set<string>(BASE_HELP_ARTICLES.map((a) => a.slug));
 
 export const HELP_ARTICLES = [
   ...BASE_HELP_ARTICLES,
