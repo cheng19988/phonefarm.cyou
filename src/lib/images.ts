@@ -9,6 +9,8 @@ const WEBP_HERO_HOME =
 
 export const IMAGES = {
   hero: WEBP_HERO_HOME,
+  /** Isolated chassis for white hero panel (full box visible, object-contain) */
+  heroChassisProduct: CHASSIS_HERO_ALT,
   heroAlt: CHASSIS_HERO_ALT,
   heroFallback: WEBP_HERO,
   heroAltFallback: WEBP_HERO_HOME,
