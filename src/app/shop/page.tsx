@@ -1,8 +1,8 @@
 import { Suspense } from "react";
 import { prisma } from "@/lib/prisma";
 import { ProductCard } from "@/components/ProductCard";
-import { ContactBar } from "@/components/ContactBar";
 import { ShopFilters } from "@/components/ShopFilters";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 import { buildMetadata } from "@/lib/seo";
 import {
   CONTROL_SOFTWARE_SERVICES_SECTION,
@@ -76,45 +76,47 @@ export default async function ShopPage({
   const showGrouped = !category && !q;
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-12">
-      <h1 className="text-3xl font-bold text-white">Phone Farm Devices & Motherboard Boxes</h1>
-      <p className="mt-3 max-w-3xl text-slate-400 leading-relaxed">
-        Browse reference configurations for real-device phone farm deployments. Final pricing depends on
-        model availability, quantity, shipping destination, and setup requirements.
-      </p>
-      <p className="mt-2 text-sm text-slate-500">Bulk quote available · Contact sales for MOQ and lead time</p>
-      <div className="mt-4">
-        <ContactBar />
-      </div>
-      <Suspense>
-        <div className="mt-8">
-          <ShopFilters />
+    <>
+      <section className="border-b border-white/5 bg-gradient-to-b from-slate-900/50 to-transparent">
+        <div className="mx-auto max-w-7xl px-4 py-12 lg:py-16">
+          <SectionHeading
+            title="Phone farm shop"
+            subtitle="Browse reference configurations for real-device deployments. Final pricing depends on model availability, quantity, shipping destination, and setup requirements."
+          />
+          <p className="mt-4 text-sm text-slate-500">{products.length} catalog items · Bulk quote available</p>
         </div>
-      </Suspense>
-      <p className="mt-6 text-sm text-slate-500">{products.length} catalog items</p>
+      </section>
 
-      {showGrouped ? (
-        <div className="mt-8 space-y-12">
-          {Object.entries(grouped).map(([cat, items]) => (
-            <section key={cat}>
-              <h2 className="text-xl font-semibold text-white">
-                {sectionLabel(cat)}
-              </h2>
-              <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-                {items.map((p) => (
-                  <ProductCard key={p.id} product={p} />
-                ))}
-              </div>
-            </section>
-          ))}
-        </div>
-      ) : (
-        <div className="mt-6 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-          {products.map((p) => (
-            <ProductCard key={p.id} product={p} />
-          ))}
-        </div>
-      )}
-    </div>
+      <div className="mx-auto max-w-7xl px-4 pb-16">
+        <Suspense>
+          <div className="mt-2">
+            <ShopFilters />
+          </div>
+        </Suspense>
+
+        {showGrouped ? (
+          <div className="mt-10 space-y-14">
+            {Object.entries(grouped).map(([cat, items]) => (
+              <section key={cat}>
+                <h2 className="font-display text-xl font-bold text-white sm:text-2xl">
+                  {sectionLabel(cat)}
+                </h2>
+                <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                  {items.map((p) => (
+                    <ProductCard key={p.id} product={p} />
+                  ))}
+                </div>
+              </section>
+            ))}
+          </div>
+        ) : (
+          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {products.map((p) => (
+              <ProductCard key={p.id} product={p} />
+            ))}
+          </div>
+        )}
+      </div>
+    </>
   );
 }

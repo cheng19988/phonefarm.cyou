@@ -12,6 +12,7 @@ type Props = {
   imageCard: string;
   variant?: "primary" | "secondary";
   label?: string;
+  fullWidth?: boolean;
 };
 
 export function AddToCartButton({
@@ -22,6 +23,7 @@ export function AddToCartButton({
   imageCard,
   variant = "primary",
   label = "Add to Cart",
+  fullWidth = false,
 }: Props) {
   const router = useRouter();
   const [added, setAdded] = useState(false);
@@ -32,17 +34,18 @@ export function AddToCartButton({
     setTimeout(() => setAdded(false), 2000);
   }
 
+  const width = fullWidth ? "w-full" : "";
   const className =
     variant === "primary"
-      ? "rounded-lg bg-slate-700 px-4 py-2 text-sm font-medium text-white hover:bg-slate-600"
-      : "rounded-lg border border-slate-600 px-4 py-2 text-sm text-slate-200 hover:border-cyan-500";
+      ? `btn-primary text-sm !py-2.5 ${width}`
+      : `btn-secondary text-sm !py-2.5 ${width}`;
 
   return (
-    <div className="flex flex-wrap items-center gap-2">
+    <div className={`flex flex-wrap items-center gap-2 ${fullWidth ? "w-full" : ""}`}>
       <button type="button" onClick={onClick} className={className}>
-        {added ? "Added" : label}
+        {added ? "✓ Added to cart" : label}
       </button>
-      {added && (
+      {added && !fullWidth && (
         <button
           type="button"
           onClick={() => router.push("/cart")}

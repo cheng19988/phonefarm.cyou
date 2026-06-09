@@ -27,92 +27,72 @@ export function ProductCard({ product }: { product: Product }) {
   const wa = `${CONTACT.whatsappUrl}?text=${encodeURIComponent(`Hi, I'd like a bulk quote for ${product.name}.`)}`;
 
   return (
-    <article className="flex flex-col overflow-hidden rounded-xl border border-slate-800 bg-slate-900/60">
-      <Link href={`/products/${product.slug}`} className="relative aspect-square">
+    <article className="group card-premium flex flex-col overflow-hidden">
+      <Link href={`/products/${product.slug}`} className="relative aspect-square overflow-hidden">
         <Image
           src={product.imageCard}
           alt={product.name}
           fill
-          className="object-cover"
+          className="object-cover transition duration-500 group-hover:scale-105"
           sizes="(max-width:768px) 100vw, 25vw"
         />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent opacity-80" />
+        <span className="absolute left-3 top-3 rounded-md bg-slate-950/70 px-2 py-1 text-[10px] font-semibold uppercase tracking-wide text-cyan-400 backdrop-blur-sm">
+          {publicCategoryLabel(product.category)}
+        </span>
       </Link>
       <div className="flex flex-1 flex-col p-4">
-        <p className="text-xs uppercase tracking-wide text-cyan-500">
-          {publicCategoryLabel(product.category)}
-        </p>
-        <h3 className="mt-1 font-semibold text-white">
-          <Link href={`/products/${product.slug}`} className="hover:text-cyan-400">
+        <h3 className="font-semibold leading-snug text-white">
+          <Link href={`/products/${product.slug}`} className="hover:text-cyan-400 transition">
             {product.name}
           </Link>
         </h3>
-        <p className="mt-2 text-sm text-slate-400 line-clamp-2">{product.shortDesc}</p>
+        <p className="mt-2 text-sm text-slate-400 line-clamp-2 leading-relaxed">{product.shortDesc}</p>
         {!service && (
-          <p className="mt-2 text-xs text-slate-400 line-clamp-2">
-            <span className="text-slate-500">Typical configuration: </span>
-            {useCase}
-          </p>
+          <p className="mt-2 text-xs text-slate-500 line-clamp-1">{useCase}</p>
         )}
-        <div className="mt-3">
-          <p className="text-xs uppercase tracking-wide text-slate-500">
-            {service ? "Service quote" : "Reference price"}
+        <div className="mt-4 border-t border-white/5 pt-4">
+          <p className="font-display text-2xl font-bold text-white">
+            {service && product.priceUsd <= 0 ? "Custom quote" : formatReferencePrice(product.priceUsd)}
           </p>
-          <p className="text-lg font-bold text-white">
-            {service && product.priceUsd <= 0
-              ? "Custom quote"
-              : formatReferencePrice(product.priceUsd)}
-          </p>
-          <p className="mt-1 text-xs text-slate-500">
-            {service
-              ? "Configuration confirmed before invoice"
-              : "Bulk quote available · availability confirmed by sales"}
+          <p className="mt-0.5 text-xs text-slate-500">
+            {service ? "Quote before invoice" : "Bulk quote available"}
           </p>
         </div>
-        <div className="mt-3 flex flex-col gap-2">
+        <div className="mt-4 flex flex-col gap-2">
           {quoteOnly ? (
             <>
-              <Link
-                href={`/contact?product=${product.slug}`}
-                className="rounded-lg bg-cyan-600 py-2 text-center text-sm font-medium text-white hover:bg-cyan-500"
-              >
+              <Link href={`/contact?product=${product.slug}`} className="btn-primary w-full text-center text-sm !py-2.5">
                 Request Quote
               </Link>
               <a
                 href={wa}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-lg border border-emerald-700/60 py-2 text-center text-sm text-emerald-400 hover:bg-emerald-950/30"
+                className="btn-ghost-emerald w-full text-center text-sm !py-2.5"
               >
                 WhatsApp Sales
               </a>
             </>
           ) : (
             <>
-              <div className="flex gap-2">
-                {directPurchaseEnabled && product.priceUsd > 0 && (
-                  <div className="flex-1">
-                    <AddToCartButton
-                      productId={product.id}
-                      slug={product.slug}
-                      name={product.name}
-                      priceUsd={product.priceUsd}
-                      imageCard={product.imageCard}
-                      variant="primary"
-                    />
-                  </div>
-                )}
-                <Link
-                  href={`/products/${product.slug}`}
-                  className="rounded-lg border border-slate-600 px-3 py-2 text-sm text-slate-300 hover:border-cyan-500"
-                >
-                  View details
-                </Link>
-              </div>
+              {directPurchaseEnabled && product.priceUsd > 0 && (
+                <AddToCartButton
+                  productId={product.id}
+                  slug={product.slug}
+                  name={product.name}
+                  priceUsd={product.priceUsd}
+                  imageCard={product.imageCard}
+                  variant="primary"
+                  label="Add to Cart"
+                  fullWidth
+                />
+              )}
               <Link
-                href={`/contact?product=${product.slug}`}
-                className="text-center text-xs text-slate-500 hover:text-cyan-400"
+                href={`/products/${product.slug}`}
+                className="btn-secondary w-full text-center text-sm !py-2.5"
               >
-                Request bulk quote
+                View details
               </Link>
             </>
           )}

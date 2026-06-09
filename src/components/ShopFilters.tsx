@@ -24,7 +24,7 @@ export function ShopFilters() {
           type="search"
           defaultValue={q}
           placeholder="Model, CPU, brand…"
-          className="mt-1 w-full max-w-md rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-white"
+          className="mt-1 w-full max-w-md rounded-xl border border-white/10 bg-slate-900/60 px-4 py-2.5 text-white placeholder:text-slate-500 focus:border-cyan-500/40 focus:outline-none"
           onKeyDown={(e) => {
             if (e.key === "Enter") update("q", (e.target as HTMLInputElement).value);
           }}
@@ -34,7 +34,7 @@ export function ShopFilters() {
         <button
           type="button"
           onClick={() => router.push("/shop")}
-          className={`rounded-full px-3 py-1 text-sm ${!category ? "bg-cyan-600 text-white" : "border border-slate-700 text-slate-400"}`}
+          className={`rounded-full px-3 py-1.5 text-sm transition ${!category ? "bg-cyan-600 text-white shadow-lg shadow-cyan-500/20" : "border border-white/10 text-slate-400 hover:border-cyan-500/30"}`}
         >
           All
         </button>
@@ -43,7 +43,7 @@ export function ShopFilters() {
             key={b.slug}
             type="button"
             onClick={() => update("category", b.slug)}
-            className={`rounded-full px-3 py-1 text-sm ${category === b.slug ? "bg-cyan-600 text-white" : "border border-slate-700 text-slate-400"}`}
+            className={`rounded-full px-3 py-1.5 text-sm transition ${category === b.slug ? "bg-cyan-600 text-white shadow-lg shadow-cyan-500/20" : "border border-white/10 text-slate-400 hover:border-cyan-500/30"}`}
           >
             {b.name}
           </button>

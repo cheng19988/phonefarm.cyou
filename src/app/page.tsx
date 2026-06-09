@@ -1,33 +1,33 @@
-import Image from "next/image";
 import Link from "next/link";
 import { prisma } from "@/lib/prisma";
-import { ProductCard } from "@/components/ProductCard";
-import { ContactBar } from "@/components/ContactBar";
-import { FaqAccordion } from "@/components/FaqAccordion";
 import { ContactForm } from "@/components/ContactForm";
+import { FaqAccordion } from "@/components/FaqAccordion";
 import { JsonLd } from "@/components/JsonLd";
 import { DeploymentTimeline } from "@/components/DeploymentTimeline";
 import { BuyerTrustSection } from "@/components/BuyerTrustSection";
 import { DeliverySopSection } from "@/components/DeliverySopSection";
+import { HomeHero } from "@/components/HomeHero";
+import { TrustStatsBar } from "@/components/TrustStatsBar";
+import { RegionsShowcase } from "@/components/RegionsShowcase";
+import { BrandProductSection } from "@/components/BrandProductSection";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 import { FAQ_ITEMS } from "@/lib/faq";
 import {
-  SITE,
   CONTROL_SOFTWARE_OPTIONS,
   CONTROL_SOFTWARE_DISCLAIMER,
   CONTROL_SETUP_SERVICES,
   PRODUCT_INFO_TOPICS,
-  SHIPPING_REGIONS,
   HOME_SECTIONS,
-  CONTACT,
 } from "@/lib/constants";
-import { FACILITY_GALLERY, IMAGES } from "@/lib/images";
+import { FACILITY_GALLERY } from "@/lib/images";
 import { FacilityPhoto } from "@/components/FacilityPhoto";
 import { buildMetadata, faqPageJsonLd } from "@/lib/seo";
 import { isServiceCatalogItem } from "@/lib/catalog";
 
 export const metadata = buildMetadata({
   title: "Complete Phone Farm Setup Service with Real Devices",
-  description: SITE.intro,
+  description:
+    "Guangzhou factory team shipping real-device phone farm boxes since 2017. Hardware, remote control setup, and worldwide deployment support.",
   path: "/",
 });
 
@@ -59,104 +59,64 @@ export default async function HomePage() {
   return (
     <>
       <JsonLd data={faqPageJsonLd(FAQ_ITEMS.slice(0, 6))} />
-      <section className="relative overflow-hidden border-b border-slate-800">
-        <div className="absolute inset-0">
-          <Image src={IMAGES.hero} alt="Cyou Phone Farm device chassis" fill className="object-cover opacity-25" priority />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/95 to-transparent" />
-        </div>
-        <div className="relative mx-auto max-w-7xl px-4 py-20 lg:py-28">
-          <p className="text-sm font-medium uppercase tracking-widest text-cyan-400">
-            {SITE.location} · Guangzhou-based supplier · Since {SITE.since}
-          </p>
-          <h1 className="mt-4 max-w-4xl text-4xl font-bold text-white lg:text-5xl">{SITE.tagline}</h1>
-          <ul className="mt-6 max-w-3xl space-y-2 text-lg text-slate-300">
-            <li>Real Android motherboard boxes — factory assembled in Guangzhou</li>
-            <li>Remote control and group-control configuration by our engineers</li>
-            <li>Overseas delivery, export packing, and after-sales support</li>
-          </ul>
-          <div className="mt-6 hidden lg:block">
-            <ContactBar />
-          </div>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link href="/contact" className="rounded-lg bg-cyan-600 px-6 py-3 font-medium text-white hover:bg-cyan-500">
-              Request a Quote
-            </Link>
-            <Link href="/shop" className="rounded-lg border border-slate-600 px-6 py-3 text-white hover:border-cyan-500">
-              View Products
-            </Link>
-            <a
-              href={CONTACT.whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-lg border border-emerald-600/60 px-6 py-3 text-emerald-400 hover:bg-emerald-950/40"
-            >
-              WhatsApp Sales
-            </a>
-          </div>
-        </div>
-      </section>
+      <HomeHero />
+      <TrustStatsBar />
 
-      <section className="mx-auto max-w-7xl px-4 py-14">
-        <h2 className="text-2xl font-bold text-white">Product Information</h2>
-        <p className="mt-2 max-w-3xl text-slate-400">
-          Technical context for buyers evaluating real-device farms for professional QA, remote device management, and enterprise deployment.
-        </p>
-        <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <section className="mx-auto max-w-7xl px-4 py-16">
+        <SectionHeading
+          title="Product information"
+          subtitle="Technical context for buyers evaluating real-device farms for professional QA, remote device management, and enterprise deployment."
+        />
+        <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {PRODUCT_INFO_TOPICS.map((topic) => (
-            <div key={topic.title} className="rounded-xl border border-slate-800 p-5">
-              <h3 className="font-semibold text-cyan-400">{topic.title}</h3>
-              <p className="mt-2 text-sm text-slate-400">{topic.body}</p>
+            <div key={topic.title} className="card-premium p-6">
+              <h3 className="font-display text-lg font-semibold text-cyan-400">{topic.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-slate-400">{topic.body}</p>
             </div>
           ))}
         </div>
         <div className="mt-6 flex flex-wrap gap-4 text-sm">
-          <Link href="/help/what-is-phone-farm" className="text-cyan-400 hover:underline">What is a phone farm? →</Link>
-          <Link href="/help/after-purchase-guide" className="text-cyan-400 hover:underline">After receiving your farm →</Link>
+          <Link href="/help/what-is-phone-farm" className="text-cyan-400 hover:text-cyan-300">
+            What is a phone farm? →
+          </Link>
+          <Link href="/help/after-purchase-guide" className="text-cyan-400 hover:text-cyan-300">
+            After receiving your farm →
+          </Link>
         </div>
       </section>
 
       {sections.map(({ section, products }) => (
-        <section key={section.slug} className="border-t border-slate-800 bg-slate-900/20 py-12">
-          <div className="mx-auto max-w-7xl px-4">
-            <div className="flex items-center justify-between">
-              <h2 className="text-2xl font-bold text-white">{section.name}</h2>
-              <Link
-                href={`/shop?category=${"categories" in section && section.categories ? section.categories[0] : section.slug}`}
-                className="text-sm text-cyan-400 hover:underline"
-              >
-                View all →
-              </Link>
-            </div>
-            <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {products.map((p) => (
-                <ProductCard key={p.id} product={p} />
-              ))}
-            </div>
-          </div>
-        </section>
+        <BrandProductSection
+          key={section.slug}
+          slug={section.slug}
+          name={section.name}
+          products={products}
+          categoryHref={`/shop?category=${"categories" in section && section.categories ? section.categories[0] : section.slug}`}
+        />
       ))}
 
       <section className="mx-auto max-w-7xl px-4 py-16">
-        <h2 className="text-2xl font-bold text-white">Control Software Setup &amp; Remote Management Configuration</h2>
-        <p className="mt-2 max-w-3xl text-slate-400">{CONTROL_SOFTWARE_DISCLAIMER}</p>
-        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+        <SectionHeading
+          title="Control software setup"
+          subtitle={CONTROL_SOFTWARE_DISCLAIMER}
+        />
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {CONTROL_SETUP_SERVICES.map((s) => (
-            <div key={s.slug} className="rounded-xl border border-slate-800 p-5">
+            <div key={s.slug} className="card-premium p-5">
               <h3 className="font-semibold text-white">{s.name}</h3>
-              <p className="mt-2 text-sm text-slate-400">{s.desc}</p>
-              <p className="mt-3 text-sm font-medium text-cyan-400">
+              <p className="mt-2 text-sm leading-relaxed text-slate-400">{s.desc}</p>
+              <p className="mt-4 font-display text-xl font-bold text-cyan-400">
                 {s.priceFrom > 0 ? `From $${s.priceFrom}` : "Custom quote"}
               </p>
-              <p className="mt-1 text-xs text-slate-500">Contact sales · configuration confirmed before invoice</p>
-              <Link href="/contact" className="mt-4 inline-block text-sm text-cyan-400 hover:underline">
-                Request service quote →
+              <Link href="/contact" className="mt-4 inline-block text-sm font-medium text-cyan-400 hover:text-cyan-300">
+                Request quote →
               </Link>
             </div>
           ))}
         </div>
-        <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {CONTROL_SOFTWARE_OPTIONS.map((o) => (
-            <div key={o.slug} className="rounded-lg border border-slate-800/80 p-4 text-sm">
+            <div key={o.slug} className="rounded-xl border border-white/5 bg-slate-900/30 p-4 text-sm">
               <p className="font-medium text-white">{o.name}</p>
               <p className="mt-1 text-slate-400">{o.desc}</p>
             </div>
@@ -164,80 +124,58 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <BuyerTrustSection siteName={SITE.name} />
+      <BuyerTrustSection />
 
-      <section className="mx-auto max-w-7xl px-4 py-16">
-        <h2 className="text-2xl font-bold text-white">Export capability &amp; logistics</h2>
-        <p className="mt-2 max-w-2xl text-slate-400">
-          We ship from Guangzhou via DHL, FedEx, and UPS. Sample single-box orders are accepted before bulk programs.
-        </p>
-        <h3 className="mt-6 text-sm font-medium uppercase tracking-wide text-slate-500">Common destination regions</h3>
-        <ul className="mt-3 flex flex-wrap gap-2">
-          {SHIPPING_REGIONS.map((region) => (
-            <li key={region} className="rounded-full border border-slate-700 px-3 py-1 text-sm text-slate-300">
-              {region}
-            </li>
-          ))}
-        </ul>
-        <div className="mt-8 grid gap-4 md:grid-cols-3 text-sm text-slate-400">
-          <div className="rounded-xl border border-slate-800 p-5">
-            <h3 className="font-semibold text-white">Packing process</h3>
-            <p className="mt-2">Foam-braced export cartons, serial sheet inside lid, commercial invoice for customs.</p>
-          </div>
-          <div className="rounded-xl border border-slate-800 p-5">
-            <h3 className="font-semibold text-white">Sample order policy</h3>
-            <p className="mt-2">One box or accessory kit for evaluation; credited toward bulk PO when agreed in writing.</p>
-          </div>
-          <div className="rounded-xl border border-slate-800 p-5">
-            <h3 className="font-semibold text-white">After-sales</h3>
-            <p className="mt-2">WhatsApp and Telegram support during US/EU-friendly hours; spare parts stocked in Guangzhou.</p>
-          </div>
-        </div>
-      </section>
+      <RegionsShowcase />
 
-      <section className="border-t border-slate-800 py-16">
+      <section className="section-alt py-16">
         <div className="mx-auto max-w-7xl px-4">
           <DeliverySopSection id="delivery-sop" />
           <div className="mt-16">
-            <h2 className="text-2xl font-bold text-white">Deployment workflow</h2>
-            <p className="mt-2 text-slate-400">Six-stage rollout from discovery to after-sales support.</p>
-            <DeploymentTimeline />
-            <Link href="/deployment" className="mt-6 inline-block text-cyan-400 hover:underline">
-              Full deployment page →
-            </Link>
+            <SectionHeading
+              title="Deployment workflow"
+              subtitle="Six-stage rollout from discovery to after-sales support."
+              actionHref="/deployment"
+              actionLabel="Full deployment page"
+            />
+            <div className="mt-8">
+              <DeploymentTimeline />
+            </div>
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-12">
-        <h2 className="text-2xl font-bold text-white">Guangzhou facility</h2>
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <section className="mx-auto max-w-7xl px-4 py-16">
+        <SectionHeading title="Guangzhou facility" subtitle="Factory assembly, burn-in testing, and export packing." />
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {FACILITY_GALLERY.map((photo) => (
             <FacilityPhoto key={photo.key} src={photo.src} alt={photo.alt} label={photo.label} />
           ))}
         </div>
       </section>
 
-      <section className="border-t border-slate-800 py-16">
+      <section className="border-t border-white/5 py-16">
         <div className="mx-auto max-w-7xl px-4">
-          <h2 className="text-2xl font-bold text-white">FAQ</h2>
-          <div className="mt-6 max-w-3xl">
+          <SectionHeading title="FAQ" actionHref="/faq" actionLabel="Full FAQ" />
+          <div className="mt-8 max-w-3xl">
             <FaqAccordion items={FAQ_ITEMS.slice(0, 6)} />
           </div>
-          <Link href="/faq" className="mt-4 inline-block text-cyan-400 hover:underline">
-            Full FAQ →
-          </Link>
         </div>
       </section>
 
-      <section className="bg-cyan-950/20 py-16 pb-24 lg:pb-16">
-        <div className="mx-auto max-w-7xl px-4">
-          <h2 className="text-2xl font-bold text-white">Request a quotation</h2>
-          <p className="mt-2 text-slate-400">
-            Share quantity, destination, and control method — sales replies with MOQ, lead time, and setup scope.
-          </p>
-          <div className="mt-8 max-w-xl">
-            <ContactForm source="home-cta" variant="compact" />
+      <section className="relative overflow-hidden border-t border-white/5 py-20">
+        <div className="absolute inset-0 bg-gradient-to-br from-cyan-950/30 via-slate-950 to-slate-950" />
+        <div className="relative mx-auto max-w-7xl px-4">
+          <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
+            <div>
+              <h2 className="font-display text-3xl font-bold text-white">Request a quotation</h2>
+              <p className="mt-3 text-slate-400 leading-relaxed">
+                Share quantity, destination, and control method — sales replies with MOQ, lead time, and setup scope.
+              </p>
+            </div>
+            <div className="card-premium p-6">
+              <ContactForm source="home-cta" variant="compact" />
+            </div>
           </div>
         </div>
       </section>

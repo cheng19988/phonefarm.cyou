@@ -2,24 +2,24 @@ import { CONTACT } from "@/lib/constants";
 
 export function ContactBar({ compact = false }: { compact?: boolean }) {
   const links = [
-    { label: "Phone", href: `tel:${CONTACT.phone}`, text: CONTACT.phoneDisplay },
-    { label: "Telegram", href: CONTACT.telegramUrl, text: CONTACT.telegram },
-    { label: "WhatsApp", href: CONTACT.whatsappUrl, text: CONTACT.whatsapp },
-    { label: "Email", href: `mailto:${CONTACT.email}`, text: CONTACT.email },
+    { label: "Phone", href: `tel:${CONTACT.phone}`, text: CONTACT.phoneDisplay, external: false },
+    { label: "Telegram", href: CONTACT.telegramUrl, text: CONTACT.telegram, external: true },
+    { label: "WhatsApp", href: CONTACT.whatsappUrl, text: CONTACT.whatsapp, external: true },
+    { label: "Email", href: `mailto:${CONTACT.email}`, text: CONTACT.email, external: true },
   ];
   return (
-    <div
-      className={`flex flex-wrap items-center gap-2 ${compact ? "text-xs" : "text-sm"} text-cyan-100`}
-    >
+    <div className={`flex flex-wrap items-center gap-2 ${compact ? "text-xs" : "text-sm"}`}>
       {links.map((l) => (
         <a
           key={l.label}
           href={l.href}
-          target={l.label === "Phone" ? undefined : "_blank"}
-          rel="noopener noreferrer"
-          className="rounded-full border border-cyan-500/40 bg-cyan-950/50 px-3 py-1 hover:bg-cyan-800/60 transition"
+          target={l.external ? "_blank" : undefined}
+          rel={l.external ? "noopener noreferrer" : undefined}
+          className="rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-slate-300 transition hover:border-cyan-500/30 hover:bg-cyan-950/30 hover:text-white"
         >
-          <span className="font-medium text-cyan-300">{l.label}:</span> {l.text}
+          <span className="font-medium text-cyan-400/90">{l.label}</span>
+          <span className="text-slate-400"> · </span>
+          <span>{l.text}</span>
         </a>
       ))}
     </div>
