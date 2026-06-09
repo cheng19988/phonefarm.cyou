@@ -300,7 +300,8 @@ select.form-input {
 }
 
 .prose-farm h1 {
-  @apply font-display text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl;
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  @apply text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl;
 }
 .prose-farm h2 {
   @apply mt-8 text-2xl font-semibold text-slate-900;
