@@ -123,15 +123,13 @@ const catalog: SeedProduct[] = [
 ];
 
 async function main() {
-  const adminHash = await bcrypt.hash(process.env.ADMIN_PASSWORD || "Admin@2026!", 12);
-  await prisma.adminUser.upsert({
-    where: { email: process.env.ADMIN_EMAIL || "admin@phonefarm.cyou" },
-    update: {},
-    create: { email: process.env.ADMIN_EMAIL || "admin@phonefarm.cyou", passwordHash: adminHash },
-  });
-
-  const slugs = catalog.map((p) => p.slug);
-  await prisma.product.deleteMany({ where: { slug: { notIn: slugs } } });
+  // Production-safe: upsert only — never delete User, Order, OrderItem, or ContactSubmission.
+  const adminEmail = process.env.ADMIN_EMAIL || "admin@phonefarm.cyou";
+  const existingAdmin = await prisma.adminUser.findUnique({ where: { email: adminEmail } });
+  if (!existingAdmin) {
+    const adminHash = await bcrypt.hash(process.env.ADMIN_PASSWORD || "Admin@2026!", 12);
+    await prisma.adminUser.create({ data: { email: adminEmail, passwordHash: adminHash } });
+  }
 
   for (const p of catalog) {
     const content = body(p.shortDesc);
