@@ -38,11 +38,11 @@ export function BrandProductSection({
               <div className="brand-pill-icon h-12 w-12 rounded-xl text-sm">{brand.icon}</div>
             )}
             <div>
-              <h2 className="font-display text-2xl font-bold text-white sm:text-3xl">{name}</h2>
-              <p className="mt-1 text-sm text-slate-400">Reference configurations · bulk quote available</p>
+              <h2 className="font-display text-2xl font-bold text-slate-900 sm:text-3xl">{name}</h2>
+              <p className="mt-1 text-sm text-slate-600">Reference configurations · bulk quote available</p>
             </div>
           </div>
-          <Link href={categoryHref} className="text-sm font-medium text-cyan-400 hover:text-cyan-300">
+          <Link href={categoryHref} className="text-sm font-medium text-sky-700 hover:text-sky-600">
             View all {name} →
           </Link>
         </div>

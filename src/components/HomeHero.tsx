@@ -11,70 +11,55 @@ const TRUST_POINTS = [
 
 export function HomeHero() {
   return (
-    <section className="relative min-h-[92vh] flex flex-col overflow-hidden border-b border-white/5">
-      <div className="absolute inset-0">
-        <Image
-          src={IMAGES.heroAlt}
-          alt="Cyou Phone Farm device chassis lineup"
-          fill
-          className="object-cover object-center"
-          priority
-          sizes="100vw"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/88 to-slate-950/55" />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-slate-950/40" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_40%,rgba(6,182,212,0.18),transparent_45%)]" />
-      </div>
-
-      <div className="relative mx-auto flex w-full max-w-7xl flex-1 flex-col justify-center px-4 py-20 lg:py-28">
-        <div className="max-w-3xl">
-          <div className="inline-flex items-center gap-2 rounded-full border border-cyan-500/30 bg-cyan-950/50 px-4 py-1.5 text-xs font-medium text-cyan-300 backdrop-blur-sm">
-            <span className="h-1.5 w-1.5 rounded-full bg-cyan-400 animate-pulse" />
-            {SITE.location} · Factory direct · Since {SITE.since}
+    <section className="relative overflow-hidden border-b border-slate-200 bg-white">
+      <div className="absolute inset-0 bg-gradient-to-br from-sky-50 via-white to-slate-50" />
+      <div className="relative mx-auto max-w-7xl px-4 py-14 lg:py-20">
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
+          <div>
+            <div className="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-sky-50 px-4 py-1.5 text-xs font-semibold text-sky-800">
+              {SITE.location} · Factory direct · Since {SITE.since}
+            </div>
+            <h1 className="mt-5 font-display text-4xl font-bold leading-[1.1] tracking-tight text-slate-900 sm:text-5xl lg:text-[3rem]">
+              {SITE.tagline}
+            </h1>
+            <ul className="mt-6 space-y-3 text-base text-slate-600 lg:text-lg">
+              {TRUST_POINTS.map((point) => (
+                <li key={point} className="flex items-start gap-3">
+                  <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-sky-100 text-xs font-bold text-sky-700">
+                    ✓
+                  </span>
+                  {point}
+                </li>
+              ))}
+            </ul>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link href="/contact" className="btn-primary px-7 py-3.5 text-base">Request a Quote</Link>
+              <Link href="/shop" className="btn-secondary px-7 py-3.5 text-base">Browse Shop</Link>
+              <a href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer" className="btn-ghost-emerald px-7 py-3.5 text-base">
+                WhatsApp Sales
+              </a>
+            </div>
+            <div className="mt-10 flex flex-wrap gap-6 text-center sm:text-left">
+              <div>
+                <p className="font-display text-3xl font-bold text-slate-900">32+</p>
+                <p className="text-sm text-slate-500">Catalog SKUs</p>
+              </div>
+              <div>
+                <p className="font-display text-3xl font-bold text-sky-700">{SITE.since}</p>
+                <p className="text-sm text-slate-500">Years in production</p>
+              </div>
+              <div>
+                <p className="font-display text-3xl font-bold text-slate-900">30+</p>
+                <p className="text-sm text-slate-500">Export regions</p>
+              </div>
+            </div>
           </div>
-          <h1 className="mt-6 font-display text-4xl font-bold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-6xl xl:text-[4rem]">
-            {SITE.tagline}
-          </h1>
-          <ul className="mt-8 space-y-3 text-base text-slate-300 lg:text-lg">
-            {TRUST_POINTS.map((point) => (
-              <li key={point} className="flex items-start gap-3">
-                <span className="mt-1.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-cyan-500/25 text-xs text-cyan-400">
-                  ✓
-                </span>
-                {point}
-              </li>
-            ))}
-          </ul>
-          <div className="mt-10 flex flex-wrap gap-3">
-            <Link href="/contact" className="btn-primary px-8 py-3.5 text-base">
-              Request a Quote
-            </Link>
-            <Link href="/shop" className="btn-secondary px-8 py-3.5 text-base">
-              Browse Shop
-            </Link>
-            <a
-              href={CONTACT.whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-ghost-emerald px-8 py-3.5 text-base"
-            >
-              WhatsApp Sales
-            </a>
-          </div>
-        </div>
-
-        <div className="mt-12 flex flex-wrap gap-4 lg:mt-16">
-          <div className="card-premium px-6 py-4 backdrop-blur-md">
-            <p className="font-display text-3xl font-bold text-white">32+</p>
-            <p className="text-sm text-slate-400">Catalog SKUs</p>
-          </div>
-          <div className="card-premium px-6 py-4 backdrop-blur-md">
-            <p className="font-display text-3xl font-bold text-cyan-400">{SITE.since}</p>
-            <p className="text-sm text-slate-400">Years in production</p>
-          </div>
-          <div className="card-premium px-6 py-4 backdrop-blur-md">
-            <p className="font-display text-3xl font-bold text-white">30+</p>
-            <p className="text-sm text-slate-400">Export regions</p>
+          <div className="relative">
+            <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-xl shadow-slate-200/60">
+              <div className="relative aspect-[4/3]">
+                <Image src={IMAGES.hero} alt="Phone farm motherboard boxes" fill className="object-cover" sizes="(max-width:1024px) 100vw, 50vw" priority />
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -150,7 +150,7 @@ Grouped and labeled nodes, control suite with sync or master-window mode, and a 
 4. Enable one-click select or group sync for the target set.
 5. Log failures per node ID for regression tracking.
 
-[Image: /images/hero_1600x900/phonefarm.cyou-service-scenes-moderntechoffice-devicecontrol-2663b-hero_1600x900.webp|Control workstation layout with multi-preview tiles|Operator desk: control PC with grouped preview tiles, powered USB paths, and labeled node groups for sync control.]
+[Image: /images/real-factory/box-shots/2025_10_25_11_33_IMG_0561.png|Multi-slot phone farm chassis for group control|Chassis with multiple motherboard trays — USB hub paths and group labels for sync control.]
 
 ## Troubleshooting Checklist
 - Offset taps: mixed resolutions in one group—separate groups by device tier.

@@ -1,3 +1,5 @@
+import { FAQ_REFERENCE_ADDITIONS } from "./help-reference-additions";
+
 export const FAQ_ITEMS = [
   {
     q: "What is a phone farm?",
@@ -71,4 +73,5 @@ export const FAQ_ITEMS = [
     q: "Do you sell third-party control software licenses?",
     a: "We provide setup and configuration services for control software. Customers use their own licensed tools—we do not resell third-party license keys unless explicitly agreed in writing.",
   },
-] as const;
+  ...FAQ_REFERENCE_ADDITIONS,
+];

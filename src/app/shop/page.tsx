@@ -77,7 +77,7 @@ export default async function ShopPage({
 
   return (
     <>
-      <section className="border-b border-white/5 bg-gradient-to-b from-slate-900/50 to-transparent">
+      <section className="border-b border-slate-200 bg-white">
         <div className="mx-auto max-w-7xl px-4 py-12 lg:py-16">
           <SectionHeading
             title="Phone farm shop"
@@ -98,7 +98,7 @@ export default async function ShopPage({
           <div className="mt-10 space-y-14">
             {Object.entries(grouped).map(([cat, items]) => (
               <section key={cat}>
-                <h2 className="font-display text-xl font-bold text-white sm:text-2xl">
+                <h2 className="font-display text-xl font-bold text-slate-900 sm:text-2xl">
                   {sectionLabel(cat)}
                 </h2>
                 <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">

@@ -94,7 +94,7 @@ Step-by-step Instructions
 
 [Image: /images/hero_1600x900/phonefarm.cyou-accessories-networkdevice-cablesaccessoriesshowcase-e6cc8-hero_1600x900.webp|USB topology from farm box through powered hub to control PC|Typical USB path: chassis uplink → powered industrial hub → dedicated host controller on the control PC.]
 
-[Image: /images/hero_1600x900/phonefarm.cyou-service-scenes-moderndevicemanagementcontrol-ae6b9-hero_1600x900.webp|Control PC device panel with node serial visible|Mirror tool device panel after detection — match serial to the burn-in sheet before scaling.]
+[Image: /images/real-factory/box-shots/2025_10_25_11_28_IMG_0553.png|Phone farm chassis with labeled node trays|Real chassis tray — match node serial to the burn-in sheet before scaling groups.]
 
 Common Problems
 
@@ -153,7 +153,7 @@ Step-by-step Instructions
 
 [Image: /images/hero_1600x900/phonefarm.cyou-accessories-networkdevice-accessories-36665-hero_1600x900.webp|LAN OTG topology with router, switch, farm rack, and control PC|Farm VLAN: router or switch → rack Ethernet → control PC on the same logical subnet for discovery.]
 
-[Image: /images/hero_1600x900/phonefarm.cyou-service-scenes-modernitcontrolcenter-f225e-hero_1600x900.webp|LAN segment scan on the control workstation|Segment scan dialog — narrow the range to the farm subnet before scanning large office networks.]
+[Image: /images/real-factory/box-shots/2025_10_25_11_37_IMG_0566.png|LAN-ready phone farm chassis on rack shelf|Farm subnet only — narrow LAN scan to the chassis VLAN before scanning office LANs.]
 
 Common Problems
 

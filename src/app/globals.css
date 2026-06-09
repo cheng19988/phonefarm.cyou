@@ -1,14 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --background: #030712;
-  --foreground: #f1f5f9;
-  --accent: #22d3ee;
-  --accent-dim: #0891b2;
-  --surface: #0f172a;
-  --surface-elevated: #1e293b;
-  --border-subtle: rgba(148, 163, 184, 0.12);
-  --glow-cyan: rgba(34, 211, 238, 0.15);
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --accent: #0284c7;
+  --accent-bright: #0ea5e9;
+  --surface: #ffffff;
+  --surface-muted: #f1f5f9;
+  --border: #e2e8f0;
+  --header-bg: #ffffff;
 }
 
 body {
@@ -16,35 +16,41 @@ body {
   color: var(--foreground);
 }
 
-/* Site background mesh + grid */
 .bg-site {
-  background-color: #030712;
-  background-image:
-    radial-gradient(ellipse 90% 60% at 50% -30%, rgba(6, 182, 212, 0.14), transparent 55%),
-    radial-gradient(ellipse 50% 40% at 100% 50%, rgba(59, 130, 246, 0.06), transparent),
-    linear-gradient(rgba(148, 163, 184, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(148, 163, 184, 0.04) 1px, transparent 1px);
-  background-size: 100% 100%, 100% 100%, 72px 72px, 72px 72px;
+  background-color: #f8fafc;
+  background-image: linear-gradient(180deg, #ffffff 0%, #f1f5f9 40%, #f8fafc 100%);
 }
 
 .font-display {
   font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
 }
 
+/* Header */
+.site-header {
+  background: var(--header-bg);
+  border-bottom: 1px solid var(--border);
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+}
+
+.site-header-top {
+  background: #0f172a;
+  color: #e2e8f0;
+  font-size: 0.75rem;
+}
+
 /* Cards */
 .card-premium {
-  border-radius: 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  background: linear-gradient(145deg, rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.5));
-  backdrop-filter: blur(8px);
-  box-shadow: 0 4px 24px -6px rgba(0, 0, 0, 0.45);
-  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  border-radius: 0.75rem;
+  border: 1px solid var(--border);
+  background: #ffffff;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06), 0 4px 16px rgba(15, 23, 42, 0.04);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card-premium:hover {
-  border-color: rgba(34, 211, 238, 0.25);
-  transform: translateY(-3px);
-  box-shadow: 0 16px 48px -12px rgba(6, 182, 212, 0.18);
+  border-color: #7dd3fc;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(2, 132, 199, 0.12);
 }
 
 /* Buttons */
@@ -52,67 +58,67 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 0.75rem;
+  border-radius: 0.5rem;
   padding: 0.625rem 1.25rem;
   font-weight: 600;
   color: white;
-  background: linear-gradient(135deg, #0891b2, #06b6d4);
-  box-shadow: 0 4px 20px -4px rgba(6, 182, 212, 0.45);
+  background: linear-gradient(135deg, #0369a1, #0284c7);
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.35);
   transition: all 0.2s ease;
 }
 
 .btn-primary:hover {
-  background: linear-gradient(135deg, #06b6d4, #22d3ee);
-  box-shadow: 0 8px 28px -4px rgba(6, 182, 212, 0.55);
-  transform: translateY(-1px);
+  background: linear-gradient(135deg, #0284c7, #0ea5e9);
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.45);
 }
 
 .btn-secondary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 0.75rem;
+  border-radius: 0.5rem;
   padding: 0.625rem 1.25rem;
   font-weight: 500;
-  color: #e2e8f0;
-  border: 1px solid rgba(148, 163, 184, 0.25);
-  background: rgba(15, 23, 42, 0.6);
+  color: #334155;
+  border: 1px solid var(--border);
+  background: #ffffff;
   transition: all 0.2s ease;
 }
 
 .btn-secondary:hover {
-  border-color: rgba(34, 211, 238, 0.4);
-  background: rgba(30, 41, 59, 0.8);
+  border-color: #0284c7;
+  color: #0369a1;
+  background: #f0f9ff;
 }
 
 .btn-ghost-emerald {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 0.75rem;
+  border-radius: 0.5rem;
   padding: 0.625rem 1.25rem;
   font-weight: 500;
-  color: #34d399;
-  border: 1px solid rgba(52, 211, 153, 0.35);
-  background: rgba(6, 78, 59, 0.15);
+  color: #047857;
+  border: 1px solid #a7f3d0;
+  background: #ecfdf5;
   transition: all 0.2s ease;
 }
 
 .btn-ghost-emerald:hover {
-  background: rgba(6, 78, 59, 0.35);
-  border-color: rgba(52, 211, 153, 0.55);
+  background: #d1fae5;
+  border-color: #34d399;
 }
 
 .glow-line {
   height: 1px;
   width: 100%;
-  background: linear-gradient(90deg, transparent, rgba(34, 211, 238, 0.45), transparent);
+  background: linear-gradient(90deg, transparent, #cbd5e1, transparent);
 }
 
 .section-alt {
-  background: linear-gradient(180deg, rgba(15, 23, 42, 0.5) 0%, transparent 100%);
-  border-top: 1px solid rgba(148, 163, 184, 0.08);
-  border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+  background: #ffffff;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
 }
 
 .brand-pill {
@@ -120,18 +126,19 @@ body {
   align-items: center;
   gap: 0.5rem;
   border-radius: 9999px;
-  border: 1px solid rgba(148, 163, 184, 0.2);
+  border: 1px solid var(--border);
   padding: 0.375rem 0.875rem;
   font-size: 0.75rem;
-  color: #cbd5e1;
-  background: rgba(15, 23, 42, 0.6);
+  font-weight: 500;
+  color: #475569;
+  background: #ffffff;
   transition: all 0.2s ease;
 }
 
 .brand-pill:hover {
-  border-color: rgba(34, 211, 238, 0.45);
-  color: white;
-  background: rgba(6, 182, 212, 0.1);
+  border-color: #0284c7;
+  color: #0369a1;
+  background: #f0f9ff;
 }
 
 .brand-pill-icon {
@@ -143,25 +150,19 @@ body {
   border-radius: 0.375rem;
   font-size: 0.65rem;
   font-weight: 700;
-  background: linear-gradient(135deg, #0891b2, #2563eb);
+  background: linear-gradient(135deg, #0284c7, #2563eb);
   color: white;
 }
 
-.header-glass {
-  border-bottom: 1px solid rgba(148, 163, 184, 0.1);
-  background: rgba(3, 7, 18, 0.85);
-  backdrop-filter: blur(16px);
-}
-
 .prose-farm h2 {
-  @apply mt-8 text-2xl font-semibold text-white;
+  @apply mt-8 text-2xl font-semibold text-slate-900;
 }
 .prose-farm h3 {
-  @apply mt-6 text-xl font-medium text-slate-200;
+  @apply mt-6 text-xl font-medium text-slate-800;
 }
 .prose-farm p {
-  @apply mt-3 text-slate-400 leading-relaxed;
+  @apply mt-3 text-slate-600 leading-relaxed;
 }
 .prose-farm ul {
-  @apply mt-3 list-disc pl-6 text-slate-400 space-y-1;
+  @apply mt-3 list-disc pl-6 text-slate-600 space-y-1;
 }

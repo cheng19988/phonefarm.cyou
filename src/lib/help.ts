@@ -1,5 +1,6 @@
 import { HELP_EXPANDED } from "./help-expanded";
 import { HELP_SUPPLEMENT } from "./help-supplement";
+import { HELP_REFERENCE_ARTICLES } from "./help-reference-additions";
 
 export const HELP_CATEGORIES = [
   { id: "getting-started", name: "Getting Started" },
@@ -10,7 +11,7 @@ export const HELP_CATEGORIES = [
   { id: "troubleshooting", name: "Troubleshooting" },
 ] as const;
 
-export const HELP_ARTICLES = [
+const BASE_HELP_ARTICLES = [
   {
     slug: "what-is-phone-farm",
     category: "getting-started",
@@ -124,6 +125,13 @@ export const HELP_ARTICLES = [
     body: `Disable problematic XHCI handoff on legacy boards if USB tree drops nodes. Use powered hubs and separate controllers for 60+ ports.`,
   },
 ] as const;
+
+const BASE_SLUGS = new Set(BASE_HELP_ARTICLES.map((a) => a.slug));
+
+export const HELP_ARTICLES = [
+  ...BASE_HELP_ARTICLES,
+  ...HELP_REFERENCE_ARTICLES.filter((a) => !BASE_SLUGS.has(a.slug)),
+];
 
 export function getHelpArticle(slug: string) {
   const article = HELP_ARTICLES.find((a) => a.slug === slug);

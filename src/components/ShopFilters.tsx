@@ -19,12 +19,12 @@ export function ShopFilters() {
   return (
     <div className="space-y-4">
       <div>
-        <label className="text-sm text-slate-400">Search products</label>
+        <label className="text-sm text-slate-600">Search products</label>
         <input
           type="search"
           defaultValue={q}
           placeholder="Model, CPU, brand…"
-          className="mt-1 w-full max-w-md rounded-xl border border-white/10 bg-slate-900/60 px-4 py-2.5 text-white placeholder:text-slate-500 focus:border-cyan-500/40 focus:outline-none"
+          className="mt-1 w-full max-w-md rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-slate-900 placeholder:text-slate-400 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500"
           onKeyDown={(e) => {
             if (e.key === "Enter") update("q", (e.target as HTMLInputElement).value);
           }}
@@ -34,7 +34,7 @@ export function ShopFilters() {
         <button
           type="button"
           onClick={() => router.push("/shop")}
-          className={`rounded-full px-3 py-1.5 text-sm transition ${!category ? "bg-cyan-600 text-white shadow-lg shadow-cyan-500/20" : "border border-white/10 text-slate-400 hover:border-cyan-500/30"}`}
+          className={`rounded-full px-3 py-1.5 text-sm transition ${!category ? "bg-sky-600 text-white shadow-sm" : "border border-slate-300 text-slate-600 hover:border-sky-400 hover:text-sky-700"}`}
         >
           All
         </button>
@@ -43,7 +43,7 @@ export function ShopFilters() {
             key={b.slug}
             type="button"
             onClick={() => update("category", b.slug)}
-            className={`rounded-full px-3 py-1.5 text-sm transition ${category === b.slug ? "bg-cyan-600 text-white shadow-lg shadow-cyan-500/20" : "border border-white/10 text-slate-400 hover:border-cyan-500/30"}`}
+            className={`rounded-full px-3 py-1.5 text-sm transition ${category === b.slug ? "bg-sky-600 text-white shadow-sm" : "border border-slate-300 text-slate-600 hover:border-sky-400 hover:text-sky-700"}`}
           >
             {b.name}
           </button>
@@ -55,7 +55,7 @@ export function ShopFilters() {
             key={c.slug}
             type="button"
             onClick={() => update("category", c.slug)}
-            className={`rounded-full px-3 py-1 text-sm ${category === c.slug ? "bg-cyan-600 text-white" : "border border-slate-700 text-slate-400"}`}
+            className={`rounded-full px-3 py-1 text-sm ${category === c.slug ? "bg-sky-600 text-white" : "border border-slate-300 text-slate-600 hover:border-sky-400"}`}
           >
             {c.name}
           </button>

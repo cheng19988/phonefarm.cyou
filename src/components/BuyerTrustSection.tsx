@@ -16,8 +16,8 @@ export function BuyerTrustSection() {
         <div className="mt-10 grid gap-5 lg:grid-cols-2">
           {BUYER_TRUST_ITEMS.map((item) => (
             <article key={item.title} className="card-premium p-6">
-              <h3 className="font-display text-lg font-semibold text-white">{item.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-slate-400">{item.desc}</p>
+              <h3 className="font-display text-lg font-semibold text-slate-900">{item.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-slate-600">{item.desc}</p>
             </article>
           ))}
         </div>
