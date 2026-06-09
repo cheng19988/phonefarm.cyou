@@ -196,9 +196,9 @@ export function AdminDashboard() {
                         <div className="flex flex-wrap gap-2 mb-3">
                           <button type="button" onClick={() => patchOrder(o.id, { paymentStatus: "paid", status: "processing" })} className="rounded border border-emerald-700 px-2 py-1 text-xs text-emerald-400">Mark paid</button>
                           <button type="button" onClick={() => patchOrder(o.id, { paymentStatus: "verifying" })} className="rounded border border-amber-700 px-2 py-1 text-xs text-amber-400">Verifying</button>
-                          <button type="button" onClick={() => patchOrder(o.id, { status: "processing" })} className="rounded border border-slate-600 px-2 py-1 text-xs">Processing</button>
-                          <button type="button" onClick={() => patchOrder(o.id, { status: "shipped" })} className="rounded border border-slate-600 px-2 py-1 text-xs">Shipped</button>
-                          <button type="button" onClick={() => patchOrder(o.id, { status: "cancelled", paymentStatus: "cancelled" })} className="rounded border border-red-800 px-2 py-1 text-xs text-red-400">Cancel</button>
+                          <button type="button" onClick={() => patchOrder(o.id, { status: "processing" })} className="rounded border border-slate-600 px-2 py-1 text-xs">Mark processing</button>
+                          <button type="button" onClick={() => patchOrder(o.id, { status: "shipped" })} className="rounded border border-slate-600 px-2 py-1 text-xs">Mark shipped</button>
+                          <button type="button" onClick={() => patchOrder(o.id, { status: "cancelled", paymentStatus: "cancelled" })} className="rounded border border-red-800 px-2 py-1 text-xs text-red-400">Mark cancelled</button>
                         </div>
                         <textarea
                           defaultValue={o.adminNote || ""}

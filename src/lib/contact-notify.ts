@@ -15,6 +15,8 @@ type ContactPayload = {
 function formatContactText(data: ContactPayload): string {
   const lines = [
     `New inquiry from ${SITE.domain}`,
+    `Source: ${SITE.domain}`,
+    `Type: inquiry`,
     `Website: ${SITE.url}`,
     `Name: ${data.name}`,
     `Email: ${data.email}`,

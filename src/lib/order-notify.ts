@@ -22,6 +22,8 @@ type OrderNotifyPayload = {
 };
 
 function formatOrderText(data: OrderNotifyPayload): string {
+  const typeLabel =
+    data.kind === "order_created" ? "new order" : "payment hash submitted";
   const header =
     data.kind === "order_created"
       ? `New order from ${SITE.domain}`
@@ -29,6 +31,8 @@ function formatOrderText(data: OrderNotifyPayload): string {
 
   const lines = [
     header,
+    `Source: ${SITE.domain}`,
+    `Type: ${typeLabel}`,
     `Website: ${SITE.url}`,
     `Order: ${data.orderNumber}`,
     data.customerName ? `Name: ${data.customerName}` : null,

@@ -1,46 +1,50 @@
 # phonefarm.cyou — Cyou Phone Farm
 
 **Brand:** Cyou Phone Farm · **Location:** Guangzhou, China  
-**Reference structure:** https://www.niaozun.shop/ (see `reference-audit.md`)  
-**Positioning:** Full-service phone farm setup—hardware shop + remote control + group control + deployment + support.
+**Positioning:** B2B phone farm supplier — inquiry-first with optional direct checkout for standard SKUs.
 
-## Material library
-
-```
-D:\网站搭建素材库
-└── FINAL_phonefarm_6sites_package_CN\02_六个网站分类素材\03_phonefarm.cyou_full_service_site  (preferred)
-    — or fallback: 02_six_website_ready\phonefarm.cyou_full_service_site
-```
+## Local setup
 
 ```bash
 npm run assets:sync
+cp .env.example .env   # set DATABASE_URL + DIRECT_URL (Neon or local Postgres)
+npm run db:migrate
 npm run db:seed
 npm run dev
 ```
 
-## Vercel deploy
+## Database (Neon Postgres)
 
-The build runs `prisma migrate deploy` and `prisma db seed` so the catalog exists on deploy (SQLite file `prisma/vercel.db`, created at build time; `DATABASE_URL` is `file:./vercel.db` relative to the Prisma schema folder).
+Production uses **Neon PostgreSQL** via Vercel environment variables:
 
-In the Vercel project **Environment Variables**, set at minimum:
+| Variable | Purpose |
+|----------|---------|
+| `DATABASE_URL` | Neon **pooled** connection string (app runtime) |
+| `DIRECT_URL` | Neon **direct** connection string (`prisma migrate deploy`) |
 
-| Variable | Notes |
-|----------|--------|
-| `JWT_SECRET` | Long random string (override the placeholder in `vercel.json`) |
-| `ADMIN_EMAIL` / `ADMIN_PASSWORD` | Admin login |
-| `SITE_URL` | `https://www.phonefarm.cyou` (canonical; apex redirects to www) |
-| `GOOGLE_SITE_VERIFICATION` | HTML tag token from Search Console |
-| `CONTACT_WEBHOOK_URL` | Optional Zapier/Make webhook for inquiry backup |
-| `TELEGRAM_BOT_TOKEN` / `TELEGRAM_NOTIFY_CHAT_ID` | Optional Telegram alert on new inquiry |
+The build runs `prisma migrate deploy` then `prisma db seed` (products + admin upsert only — never deletes orders or inquiries).
 
-`DATABASE_URL` defaults via `vercel.json` to `file:./vercel.db`. **Contact submissions are not durable on Vercel SQLite** (DB resets on deploy). Use webhook/Telegram alerts or migrate to **Vercel Postgres** / Turso for persistent leads.
+## Vercel environment variables
+
+| Variable | Required | Notes |
+|----------|----------|--------|
+| `DATABASE_URL` | Yes | Neon pooled URL |
+| `DIRECT_URL` | Yes | Neon direct URL |
+| `JWT_SECRET` | Yes | Long random string |
+| `ADMIN_EMAIL` / `ADMIN_PASSWORD` | Yes | Admin login |
+| `SITE_URL` | Yes | `https://www.phonefarm.cyou` |
+| `USDT_TRC20_ADDRESS` | Yes | TRC20 receive address for orders |
+| `TELEGRAM_BOT_TOKEN` / `TELEGRAM_NOTIFY_CHAT_ID` | Recommended | Inquiry + order alerts (optional; submissions still succeed) |
+| `CONTACT_WEBHOOK_URL` | Optional | Webhook backup for inquiries/orders |
+| `GOOGLE_SITE_VERIFICATION` | Optional | Search Console HTML tag |
+| `TRON_API_KEY` | Optional | Future on-chain verification |
+| `CRON_SECRET` | Optional | Order expiry cron |
 
 ## Google Search Console
 
 1. Add property `https://www.phonefarm.cyou`
-2. Verify via HTML tag → set `GOOGLE_SITE_VERIFICATION` in Vercel → redeploy
+2. Verify via HTML tag or DNS → set env if using meta tag → redeploy
 3. Submit sitemap `https://www.phonefarm.cyou/sitemap.xml`
-4. Request indexing for `/`, `/shop`, `/blog`, and top product pages
 
 ## GitHub
 
@@ -48,4 +52,4 @@ https://github.com/cheng19988/phonefarm.cyou
 
 ## Admin
 
-http://localhost:3000/admin/login — credentials in `.env`
+`/admin/login` — credentials from Vercel `ADMIN_EMAIL` / `ADMIN_PASSWORD`

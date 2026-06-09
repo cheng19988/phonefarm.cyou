@@ -16,12 +16,13 @@ export type TronVerifyResult = {
 };
 
 /** Placeholder for TronGrid / Tronscan — never auto-mark paid without API confirmation */
-export async function verifyTronUsdtPayment(_params: {
+export async function verifyTronUsdtPayment(params: {
   address: string;
   expectedAmount: number;
   since: Date;
   txHash?: string | null;
 }): Promise<TronVerifyResult> {
+  void params;
   const apiKey = process.env.TRON_API_KEY;
   if (!apiKey) {
     return {
