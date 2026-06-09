@@ -14,27 +14,28 @@ const HERO_CHASSIS = IMAGES.heroChassisTransparent;
 
 export function HomeHero() {
   return (
-    <section className="relative overflow-hidden border-b border-slate-200 bg-white min-h-[520px] lg:min-h-[600px]">
+    <section className="relative overflow-hidden border-b border-slate-200 bg-white min-h-[560px] lg:min-h-[640px]">
       <div className="pointer-events-none absolute inset-0 bg-white" />
 
-      {/* Transparent chassis — centered, full area, no cover crop */}
-      <div className="pointer-events-none absolute inset-0">
-        <Image
-          src={HERO_CHASSIS}
-          alt="Phone farm honeycomb chassis with motherboard trays"
-          fill
-          className="object-contain object-center drop-shadow-[0_24px_48px_rgba(15,23,42,0.1)]"
-          sizes="100vw"
-          priority
-        />
+      {/* Transparent chassis — large, anchored right (text stays left) */}
+      <div className="pointer-events-none absolute inset-y-0 right-0 w-full lg:w-[74%]">
+        <div className="absolute inset-0 -right-[4%] scale-[1.12] lg:scale-[1.15]">
+          <Image
+            src={HERO_CHASSIS}
+            alt="Phone farm honeycomb chassis with motherboard trays"
+            fill
+            className="object-contain object-right drop-shadow-[0_24px_48px_rgba(15,23,42,0.1)]"
+            sizes="(max-width:1024px) 100vw, 74vw"
+            priority
+          />
+        </div>
       </div>
 
-      {/* Soft white behind copy only — chassis stays visible through transparency */}
       <div
-        className="pointer-events-none absolute inset-y-0 left-0 w-full max-w-3xl"
+        className="pointer-events-none absolute inset-y-0 left-0 w-full max-w-2xl lg:max-w-[46%]"
         style={{
           background:
-            "linear-gradient(to right, rgba(255,255,255,0.97) 0%, rgba(255,255,255,0.88) 55%, transparent 100%)",
+            "linear-gradient(to right, #ffffff 0%, rgba(255,255,255,0.95) 70%, transparent 100%)",
         }}
       />
 
