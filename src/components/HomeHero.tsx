@@ -9,82 +9,75 @@ const TRUST_POINTS = [
   "Export packing, worldwide logistics, and after-sales support",
 ];
 
-/** Factory transparent PNG — alpha channel, no black matte; sits on white bg. */
+/** Factory transparent PNG — alpha channel; white bg shows through. */
 const HERO_CHASSIS = IMAGES.heroChassisTransparent;
 
 export function HomeHero() {
   return (
-    <section className="relative overflow-hidden border-b border-slate-200 bg-white min-h-[560px] lg:min-h-[640px]">
-      <div className="pointer-events-none absolute inset-0 bg-white" />
-
-      {/* Transparent chassis — large, anchored right (text stays left) */}
-      <div className="pointer-events-none absolute inset-y-0 right-0 w-full lg:w-[74%]">
-        <div className="absolute inset-0 -right-[4%] scale-[1.12] lg:scale-[1.15]">
-          <Image
-            src={HERO_CHASSIS}
-            alt="Phone farm honeycomb chassis with motherboard trays"
-            fill
-            className="object-contain object-right drop-shadow-[0_24px_48px_rgba(15,23,42,0.1)]"
-            sizes="(max-width:1024px) 100vw, 74vw"
-            priority
-          />
-        </div>
-      </div>
-
-      <div
-        className="pointer-events-none absolute inset-y-0 left-0 w-full max-w-2xl lg:max-w-[46%]"
-        style={{
-          background:
-            "linear-gradient(to right, #ffffff 0%, rgba(255,255,255,0.95) 70%, transparent 100%)",
-        }}
-      />
-
-      <div className="relative mx-auto max-w-7xl px-4 py-16 lg:py-24">
-        <div className="max-w-xl lg:max-w-2xl">
-          <div className="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-sky-50 px-4 py-1.5 text-xs font-semibold text-sky-800">
-            {SITE.location} · Factory direct · Since {SITE.since}
-          </div>
-          <h1 className="mt-6 font-display text-4xl font-bold leading-[1.08] tracking-tight text-slate-900 sm:text-5xl lg:text-[3.25rem]">
-            {SITE.tagline}
-          </h1>
-          <ul className="mt-6 space-y-3 text-base text-slate-600 lg:text-lg">
-            {TRUST_POINTS.map((point) => (
-              <li key={point} className="flex items-start gap-3">
-                <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-sky-500 text-xs font-bold text-white">
-                  ✓
-                </span>
-                {point}
-              </li>
-            ))}
-          </ul>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <Link href="/contact" className="btn-primary px-7 py-3.5 text-base shadow-lg shadow-sky-500/20">
-              Request a Quote
-            </Link>
-            <Link href="/shop" className="btn-secondary px-7 py-3.5 text-base">
-              Browse Shop
-            </Link>
-            <a
-              href={CONTACT.whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-ghost-emerald px-7 py-3.5 text-base"
-            >
-              WhatsApp Sales
-            </a>
-          </div>
-          <div className="mt-10 flex flex-wrap gap-8 border-t border-slate-200 pt-8">
-            <div>
-              <p className="font-display text-3xl font-bold text-slate-900">32+</p>
-              <p className="text-sm text-slate-500">Catalog SKUs</p>
+    <section className="border-b border-slate-200 bg-white">
+      <div className="mx-auto max-w-7xl px-4 py-12 lg:py-16">
+        <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-6">
+          {/* Left column — copy only, never overlaps image */}
+          <div className="lg:col-span-5">
+            <div className="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-sky-50 px-4 py-1.5 text-xs font-semibold text-sky-800">
+              {SITE.location} · Factory direct · Since {SITE.since}
             </div>
-            <div>
-              <p className="font-display text-3xl font-bold text-sky-700">{SITE.since}</p>
-              <p className="text-sm text-slate-500">Years in production</p>
+            <h1 className="mt-5 font-display text-4xl font-bold leading-[1.08] tracking-tight text-slate-900 sm:text-5xl lg:text-[2.75rem]">
+              {SITE.tagline}
+            </h1>
+            <ul className="mt-6 space-y-3 text-base text-slate-600 lg:text-lg">
+              {TRUST_POINTS.map((point) => (
+                <li key={point} className="flex items-start gap-3">
+                  <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-sky-500 text-xs font-bold text-white">
+                    ✓
+                  </span>
+                  {point}
+                </li>
+              ))}
+            </ul>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link href="/contact" className="btn-primary px-7 py-3.5 text-base shadow-lg shadow-sky-500/20">
+                Request a Quote
+              </Link>
+              <Link href="/shop" className="btn-secondary px-7 py-3.5 text-base">
+                Browse Shop
+              </Link>
+              <a
+                href={CONTACT.whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-ghost-emerald px-7 py-3.5 text-base"
+              >
+                WhatsApp Sales
+              </a>
             </div>
-            <div>
-              <p className="font-display text-3xl font-bold text-slate-900">30+</p>
-              <p className="text-sm text-slate-500">Export regions</p>
+            <div className="mt-10 flex flex-wrap gap-6 border-t border-slate-200 pt-8 sm:gap-8">
+              <div>
+                <p className="font-display text-3xl font-bold text-slate-900">32+</p>
+                <p className="text-sm text-slate-500">Catalog SKUs</p>
+              </div>
+              <div>
+                <p className="font-display text-3xl font-bold text-sky-700">{SITE.since}</p>
+                <p className="text-sm text-slate-500">Years in production</p>
+              </div>
+              <div>
+                <p className="font-display text-3xl font-bold text-slate-900">30+</p>
+                <p className="text-sm text-slate-500">Export regions</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Right column — large chassis, clipped to this column only */}
+          <div className="relative min-h-[min(72vw,400px)] lg:col-span-7 lg:min-h-[min(42vw,540px)]">
+            <div className="absolute inset-0 lg:-mr-4 lg:scale-110">
+              <Image
+                src={HERO_CHASSIS}
+                alt="Phone farm honeycomb chassis with motherboard trays"
+                fill
+                className="object-contain object-center lg:object-right drop-shadow-[0_24px_48px_rgba(15,23,42,0.1)]"
+                sizes="(max-width:1024px) 100vw, 58vw"
+                priority
+              />
             </div>
           </div>
         </div>
