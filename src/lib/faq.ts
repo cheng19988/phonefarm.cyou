@@ -1,4 +1,5 @@
 import { FAQ_REFERENCE_ADDITIONS } from "./help-reference-additions";
+import { FAQ_AI_ADDITIONS } from "./faq-ai-additions";
 
 export const FAQ_ITEMS = [
   {
@@ -74,4 +75,5 @@ export const FAQ_ITEMS = [
     a: "We provide setup and configuration services for control software. Customers use their own licensed tools—we do not resell third-party license keys unless explicitly agreed in writing.",
   },
   ...FAQ_REFERENCE_ADDITIONS,
+  ...FAQ_AI_ADDITIONS,
 ];

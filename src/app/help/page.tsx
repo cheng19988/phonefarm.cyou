@@ -2,37 +2,56 @@ import Link from "next/link";
 import { HELP_ARTICLES, HELP_CATEGORIES } from "@/lib/help";
 import { buildMetadata } from "@/lib/seo";
 import { ContactBar } from "@/components/ContactBar";
+import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export const metadata = buildMetadata({
   title: "Help Center & Document Center",
   description:
-    "Cyou Phone Farm setup guides: USB projection, LAN OTG, batch APK, ADB shortcuts, and troubleshooting.",
+    "Cyou Phone Farm setup guides: USB projection, LAN OTG, batch APK, ADB shortcuts, router setup, ROM flash, and troubleshooting.",
   path: "/help",
 });
 
 export default function HelpPage() {
   return (
-    <div className="mx-auto max-w-7xl px-4 py-12">
-      <h1 className="text-3xl font-bold text-white">Help Center</h1>
-      <p className="mt-2 text-slate-400">Document center for connection, control, and post-delivery operations.</p>
-      <div className="mt-4">
-        <ContactBar />
+    <div className="bg-white">
+      <section className="border-b border-slate-200 bg-sky-50">
+        <div className="mx-auto max-w-7xl px-4 py-12 lg:py-16">
+          <SectionHeading
+            title="Help Center"
+            subtitle="Document center for connection, control, network, firmware, and post-delivery operations—aligned with professional phone farm workflows."
+          />
+          <div className="mt-6">
+            <ContactBar />
+          </div>
+          <p className="mt-4 text-sm text-slate-600">
+            {HELP_ARTICLES.length} articles · USB · LAN OTG · group control · router · ROM · troubleshooting
+          </p>
+        </div>
+      </section>
+      <div className="mx-auto max-w-7xl px-4 py-12">
+        {HELP_CATEGORIES.map((cat) => {
+          const articles = HELP_ARTICLES.filter((a) => a.category === cat.id);
+          if (!articles.length) return null;
+          return (
+            <section key={cat.id} className="mb-12">
+              <h2 className="font-display text-xl font-bold text-slate-900">{cat.name}</h2>
+              <div className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                {articles.map((a) => (
+                  <Link
+                    key={a.slug}
+                    href={`/help/${a.slug}`}
+                    className="card-premium block p-5 transition hover:border-sky-300"
+                  >
+                    <span className="font-semibold text-slate-900 leading-snug">{a.title}</span>
+                    <p className="mt-2 text-sm text-slate-600 line-clamp-2">{a.excerpt}</p>
+                    <span className="mt-3 text-sm font-medium text-sky-700">Read guide →</span>
+                  </Link>
+                ))}
+              </div>
+            </section>
+          );
+        })}
       </div>
-      {HELP_CATEGORIES.map((cat) => (
-        <section key={cat.id} className="mt-10">
-          <h2 className="text-xl font-semibold text-white">{cat.name}</h2>
-          <ul className="mt-4 space-y-3">
-            {HELP_ARTICLES.filter((a) => a.category === cat.id).map((a) => (
-              <li key={a.slug}>
-                <Link href={`/help/${a.slug}`} className="block rounded-lg border border-slate-800 p-4 hover:border-cyan-600/50">
-                  <span className="font-medium text-white">{a.title}</span>
-                  <p className="mt-1 text-sm text-slate-400">{a.excerpt}</p>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </section>
-      ))}
     </div>
   );
 }

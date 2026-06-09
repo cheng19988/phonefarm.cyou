@@ -1,25 +1,26 @@
 import { CONTACT } from "@/lib/constants";
 
-export function ContactBar({ compact = false }: { compact?: boolean }) {
-  const links = [
-    { label: "Phone", href: `tel:${CONTACT.phone}`, text: CONTACT.phoneDisplay, external: false },
-    { label: "Telegram", href: CONTACT.telegramUrl, text: CONTACT.telegram, external: true },
-    { label: "WhatsApp", href: CONTACT.whatsappUrl, text: CONTACT.whatsapp, external: true },
-    { label: "Email", href: `mailto:${CONTACT.email}`, text: CONTACT.email, external: true },
-  ];
+const links = [
+  { href: CONTACT.whatsappUrl, label: "WhatsApp", value: CONTACT.whatsapp },
+  { href: CONTACT.telegramUrl, label: "Telegram", value: CONTACT.telegram },
+  { href: `tel:${CONTACT.phone}`, label: "Phone", value: CONTACT.phoneDisplay },
+  { href: `mailto:${CONTACT.email}`, label: "Email", value: CONTACT.email },
+];
+
+export function ContactBar() {
   return (
-    <div className={`flex flex-wrap items-center gap-2 ${compact ? "text-xs" : "text-sm"}`}>
+    <div className="flex flex-wrap gap-2">
       {links.map((l) => (
         <a
           key={l.label}
           href={l.href}
-          target={l.external ? "_blank" : undefined}
-          rel={l.external ? "noopener noreferrer" : undefined}
-          className="rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-slate-300 transition hover:border-cyan-500/30 hover:bg-cyan-950/30 hover:text-white"
+          target={l.href.startsWith("http") ? "_blank" : undefined}
+          rel={l.href.startsWith("http") ? "noopener noreferrer" : undefined}
+          className="rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-sm text-slate-600 shadow-sm transition hover:border-sky-300 hover:bg-sky-50"
         >
-          <span className="font-medium text-cyan-400/90">{l.label}</span>
-          <span className="text-slate-400"> · </span>
-          <span>{l.text}</span>
+          <span className="font-medium text-sky-700">{l.label}</span>
+          <span className="mx-1 text-slate-400">·</span>
+          <span>{l.value}</span>
         </a>
       ))}
     </div>

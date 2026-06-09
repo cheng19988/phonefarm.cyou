@@ -58,7 +58,7 @@ export default async function HomePage() {
 
   return (
     <>
-      <JsonLd data={faqPageJsonLd(FAQ_ITEMS.slice(0, 6))} />
+      <JsonLd data={faqPageJsonLd(FAQ_ITEMS.slice(0, 12))} />
       <HomeHero />
       <TrustStatsBar />
 

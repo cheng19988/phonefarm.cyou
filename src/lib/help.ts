@@ -1,6 +1,7 @@
 import { HELP_EXPANDED } from "./help-expanded";
 import { HELP_SUPPLEMENT } from "./help-supplement";
 import { HELP_REFERENCE_ARTICLES } from "./help-reference-additions";
+import { HELP_REFERENCE_EXPANDED } from "./help-reference-expanded";
 
 export const HELP_CATEGORIES = [
   { id: "getting-started", name: "Getting Started" },
@@ -138,7 +139,9 @@ export function getHelpArticle(slug: string) {
   if (!article) return undefined;
   const expanded = HELP_EXPANDED[slug];
   const supplement = HELP_SUPPLEMENT[slug];
+  const referenceExpanded = HELP_REFERENCE_EXPANDED[slug];
   if (expanded) return { ...article, body: expanded };
   if (supplement) return { ...article, body: supplement };
+  if (referenceExpanded) return { ...article, body: referenceExpanded };
   return article;
 }

@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { getPost, BLOG_POSTS, hasFullBlogBody } from "@/lib/blog";
 import { BLOG_BODIES } from "@/lib/blog-bodies";
-import { buildMetadata, breadcrumbJsonLd } from "@/lib/seo";
+import { buildMetadata, breadcrumbJsonLd, articleJsonLd } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
 import { ContactBar } from "@/components/ContactBar";
 import { ProseMarkdown } from "@/components/ProseMarkdown";
@@ -30,15 +30,29 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
   const body = BLOG_BODIES[slug];
 
   return (
-    <article className="mx-auto max-w-3xl px-4 py-12">
+    <article className="mx-auto max-w-3xl px-4 py-12 pb-24 lg:pb-12">
       <JsonLd
-        data={breadcrumbJsonLd([
-          { name: "Insights", path: "/blog" },
-          { name: post.title, path: `/blog/${slug}` },
-        ])}
+        data={[
+          ...(body
+            ? [
+                articleJsonLd({
+                  title: post.title,
+                  description: post.excerpt,
+                  path: `/blog/${slug}`,
+                  datePublished: post.date,
+                  type: "BlogPosting",
+                }),
+              ]
+            : []),
+          breadcrumbJsonLd([
+            { name: "Insights", path: "/blog" },
+            { name: post.title, path: `/blog/${slug}` },
+          ]),
+        ]}
       />
-      <p className="text-sm text-cyan-500">{post.category} · {post.date}</p>
-      <h1 className="mt-2 text-3xl font-bold text-white">{post.title}</h1>
+      <Link href="/blog" className="text-sm font-medium text-sky-700 hover:text-sky-600">← Insights</Link>
+      <p className="mt-4 text-sm text-sky-600 font-medium">{post.category} · {post.date}</p>
+      <h1 className="mt-2 font-display text-3xl font-bold text-slate-900">{post.title}</h1>
       {body ? (
         <ProseMarkdown content={body} />
       ) : (
@@ -46,15 +60,15 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           <p>{post.excerpt}</p>
           <p className="text-slate-500">
             This draft is not published for indexing.{" "}
-            <Link href="/contact" className="text-cyan-400 hover:underline">Contact sales</Link> for deployment guidance.
+            <Link href="/contact" className="text-sky-700 hover:underline">Contact sales</Link> for deployment guidance.
           </p>
         </div>
       )}
-      <p className="mt-8 text-slate-400">
-        <Link href="/contact" className="text-cyan-400 hover:underline">Request a quote</Link>
-        {" · "}
-        <Link href="/shop" className="text-cyan-400 hover:underline">Browse devices</Link>
-      </p>
+      <div className="mt-8 flex flex-wrap gap-4 text-sm">
+        <Link href="/contact" className="text-sky-700 hover:underline">Request a quote</Link>
+        <Link href="/shop" className="text-sky-700 hover:underline">Browse devices</Link>
+        <Link href="/help" className="text-sky-700 hover:underline">Help Center</Link>
+      </div>
       <div className="mt-8">
         <ContactBar />
       </div>

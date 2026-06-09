@@ -108,6 +108,55 @@ export function faqPageJsonLd(
   };
 }
 
+export function articleJsonLd(article: {
+  title: string;
+  description: string;
+  path: string;
+  datePublished?: string;
+  image?: string;
+  type?: "Article" | "TechArticle" | "BlogPosting";
+}) {
+  const url = `${SITE.url}${article.path}`;
+  const image = article.image?.startsWith("http")
+    ? article.image
+    : `${SITE.url}${article.image ?? "/images/real-factory/box-shots/2025_10_25_11_21_IMG_0547.png"}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": article.type ?? "Article",
+    headline: article.title,
+    description: article.description,
+    url,
+    image,
+    datePublished: article.datePublished ?? "2017-01-01",
+    dateModified: article.datePublished ?? "2026-06-01",
+    author: { "@type": "Organization", name: SITE.name, url: SITE.url },
+    publisher: {
+      "@type": "Organization",
+      name: SITE.name,
+      url: SITE.url,
+      logo: { "@type": "ImageObject", url: `${SITE.url}/images/real-factory/box-shots/2025_10_25_11_21_IMG_0547.png` },
+    },
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
+  };
+}
+
+export function websiteJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: SITE.name,
+    url: SITE.url,
+    description: SITE.intro,
+    inLanguage: "en",
+    publisher: { "@type": "Organization", name: SITE.name },
+    potentialAction: {
+      "@type": "SearchAction",
+      target: `${SITE.url}/shop?q={search_term_string}`,
+      "query-input": "required name=search_term_string",
+    },
+  };
+}
+
 export function breadcrumbJsonLd(
   items: { name: string; path: string }[]
 ) {

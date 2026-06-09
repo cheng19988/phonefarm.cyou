@@ -186,6 +186,26 @@ export const PRODUCT_INFO_TOPICS = [
     title: "Connectivity planning",
     body: "Plan a dedicated control PC with powered USB hubs, gigabit switching, and DHCP pools sized for your node count before scaling past one chassis.",
   },
+  {
+    title: "USB screen projection",
+    body: "USB mirroring is the lowest-latency path and is required for first ADB authorization on official ROM tiers. Use powered industrial hubs and short data-rated cables.",
+  },
+  {
+    title: "LAN OTG projection",
+    body: "After USB setup, nodes can mirror over the LAN using OTG TCP (port 5555 on official builds). Control PC and farm must share one router subnet—scan farm VLAN only.",
+  },
+  {
+    title: "Group control & sync",
+    body: "One master window drives tap and swipe on all selected nodes in a group. Always validate on a test group before production regression windows.",
+  },
+  {
+    title: "Single machine single IP",
+    body: "Enterprise labs document VLANs, proxies, or router policies per test group. We help map topology during quotes—your IT team owns compliance policy.",
+  },
+  {
+    title: "Why Guangzhou factory supply",
+    body: "Since 2017 we assemble, burn-in test, and export pack phone farm chassis in Guangzhou with serial sheets and commercial invoice support for overseas buyers.",
+  },
 ] as const;
 
 export const HOME_SECTIONS = [

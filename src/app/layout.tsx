@@ -6,7 +6,7 @@ import { Footer } from "@/components/Footer";
 import { MobileContactFab } from "@/components/MobileContactFab";
 import { JsonLd } from "@/components/JsonLd";
 import { SITE } from "@/lib/constants";
-import { organizationJsonLd } from "@/lib/seo";
+import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const jakarta = Plus_Jakarta_Sans({
@@ -34,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${jakarta.variable}`}>
       <body className="bg-site min-h-screen flex flex-col font-sans pb-20 lg:pb-0 antialiased">
-        <JsonLd data={organizationJsonLd()} />
+        <JsonLd data={[organizationJsonLd(), websiteJsonLd()]} />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
