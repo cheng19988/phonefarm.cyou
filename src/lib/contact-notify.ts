@@ -25,7 +25,7 @@ function formatContactText(data: ContactPayload): string {
     data.phone ? `Phone: ${data.phone}` : null,
     data.deviceQuantity ? `Quantity: ${data.deviceQuantity}` : null,
     data.productInterest ? `Product: ${data.productInterest}` : null,
-    data.source ? `Source: ${data.source}` : null,
+    data.source ? `Referrer: ${data.source}` : null,
     data.message ? `\n${data.message}` : null,
   ].filter(Boolean);
   return lines.join("\n");
