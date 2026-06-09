@@ -3,6 +3,7 @@ import { z } from "zod";
 import { prisma } from "@/lib/prisma";
 import { getSession } from "@/lib/auth";
 import { PAYMENT } from "@/lib/constants";
+import { getUsdtTrc20Address } from "@/lib/payment";
 import { generateOrderNumber, orderExpiryDate } from "@/lib/orders";
 import { canAddToCart } from "@/lib/product-purchase";
 import { notifyOrderEvent } from "@/lib/order-notify";
@@ -84,6 +85,10 @@ export async function POST(req: Request) {
 
       const subtotal = lines.reduce((sum, l) => sum + l.lineTotalUsd, 0);
       const expectedAmount = Math.max(PAYMENT.minAmount, subtotal);
+      const paymentAddress = getUsdtTrc20Address();
+      if (!paymentAddress) {
+        return NextResponse.json({ error: "Payment address not configured" }, { status: 503 });
+      }
       const first = lines[0]!.product;
 
       const order = await prisma.order.create({
@@ -95,7 +100,7 @@ export async function POST(req: Request) {
           orderType: "purchase",
           status: "pending payment",
           expectedAmount,
-          paymentAddress: PAYMENT.address,
+          paymentAddress,
           paymentNetwork: PAYMENT.network,
           paymentCurrency: PAYMENT.currency,
           paymentStatus: "unpaid",
@@ -159,6 +164,10 @@ export async function POST(req: Request) {
     const unitPrice = product.priceUsd > 0 ? product.priceUsd : 0;
     const expectedAmount =
       orderType === "quote" ? 0 : Math.max(PAYMENT.minAmount, unitPrice * quantity);
+    const paymentAddress = orderType === "purchase" ? getUsdtTrc20Address() : "";
+    if (orderType === "purchase" && !paymentAddress) {
+      return NextResponse.json({ error: "Payment address not configured" }, { status: 503 });
+    }
 
     const order = await prisma.order.create({
       data: {
@@ -169,7 +178,7 @@ export async function POST(req: Request) {
         orderType,
         status: orderType === "quote" ? "pending" : "pending payment",
         expectedAmount,
-        paymentAddress: PAYMENT.address,
+        paymentAddress,
         paymentNetwork: PAYMENT.network,
         paymentCurrency: PAYMENT.currency,
         paymentStatus: orderType === "quote" ? "quote" : "unpaid",

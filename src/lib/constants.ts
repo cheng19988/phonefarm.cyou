@@ -33,7 +33,6 @@ export const PAYMENT = {
   network: "Tron",
   protocol: "TRC20",
   currency: "USDT",
-  address: "TH42KshQyz15iWk5svAwS475RM8oYQjwjW",
   contract: "TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t",
   minAmount: 10,
   expiryMinutes: 30,
