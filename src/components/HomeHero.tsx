@@ -67,25 +67,15 @@ export function HomeHero() {
           </div>
 
           <div className="order-1 lg:order-2">
-            <div
-              className="relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-lg shadow-sky-100/80"
-              style={{ minHeight: "min(72vw, 420px)" }}
-            >
-              {/* Soft halo — white base, chassis only */}
-              <div className="absolute inset-0 bg-gradient-to-br from-sky-50 via-white to-slate-50" />
-              <div className="pointer-events-none absolute bottom-0 left-1/2 h-3/5 w-4/5 -translate-x-1/2 rounded-full bg-sky-100/60 blur-2xl" />
-              <div className="relative flex h-full min-h-[min(72vw,420px)] items-center justify-center p-6 sm:p-8 lg:p-10">
-                <div className="relative h-full w-full max-h-[520px] min-h-[280px]">
-                  <Image
-                    src={HERO_CHASSIS}
-                    alt="Phone farm honeycomb chassis with motherboard trays"
-                    fill
-                    className="object-contain drop-shadow-[0_20px_40px_rgba(15,23,42,0.12)]"
-                    sizes="(max-width:1024px) 100vw, 50vw"
-                    priority
-                  />
-                </div>
-              </div>
+            <div className="relative aspect-[2713/978] w-full max-h-[min(52vw,480px)]">
+              <Image
+                src={HERO_CHASSIS}
+                alt="Phone farm honeycomb chassis with motherboard trays"
+                fill
+                className="object-contain object-center drop-shadow-[0_24px_48px_rgba(15,23,42,0.08)]"
+                sizes="(max-width:1024px) 100vw, 50vw"
+                priority
+              />
             </div>
           </div>
         </div>
