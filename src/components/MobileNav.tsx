@@ -27,19 +27,19 @@ export function MobileNav() {
         aria-label={open ? "Close menu" : "Open menu"}
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
-        className="rounded-lg border border-slate-700 px-3 py-2 text-slate-200"
+        className="rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm font-medium text-slate-700 shadow-sm"
       >
         {open ? "Close" : "Menu"}
       </button>
       {open && (
-        <div className="absolute left-0 right-0 top-full z-50 max-h-[calc(100vh-4rem)] overflow-y-auto border-b border-slate-800 bg-slate-950 shadow-xl">
+        <div className="absolute left-0 right-0 top-full z-50 max-h-[calc(100vh-4rem)] overflow-y-auto border-b border-slate-200 bg-white shadow-lg">
           <nav className="mx-auto max-w-7xl px-4 py-4">
             <div className="flex items-center justify-between">
-              <p className="text-xs font-medium uppercase tracking-wide text-slate-500">{SITE.name}</p>
+              <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">{SITE.name}</p>
               <button
                 type="button"
                 onClick={() => setOpen(false)}
-                className="text-sm text-slate-400 hover:text-white"
+                className="text-sm text-slate-600 hover:text-sky-700"
               >
                 Close
               </button>
@@ -50,25 +50,25 @@ export function MobileNav() {
                   <Link
                     href={item.href}
                     onClick={() => setOpen(false)}
-                    className="block rounded-lg px-3 py-2 text-slate-200 hover:bg-slate-800"
+                    className="block rounded-lg px-3 py-2 text-slate-800 hover:bg-sky-50 hover:text-sky-800"
                   >
                     {item.label}
                   </Link>
                 </li>
               ))}
             </ul>
-            <div className="mt-4 flex gap-4 border-t border-slate-800 pt-4 text-sm">
+            <div className="mt-4 flex gap-4 border-t border-slate-200 pt-4 text-sm">
               <CartLink />
-              <Link href="/account/orders" onClick={() => setOpen(false)} className="text-slate-300 hover:text-white">
+              <Link href="/account/orders" onClick={() => setOpen(false)} className="text-slate-600 hover:text-sky-700">
                 Account
               </Link>
             </div>
-            <div className="mt-4 grid grid-cols-2 gap-2 border-t border-slate-800 pt-4">
+            <div className="mt-4 grid grid-cols-2 gap-2 border-t border-slate-200 pt-4">
               <a
                 href={CONTACT.whatsappUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-lg bg-emerald-700 py-2 text-center text-sm text-white"
+                className="rounded-lg bg-emerald-600 py-2 text-center text-sm font-medium text-white"
               >
                 WhatsApp
               </a>
@@ -76,7 +76,7 @@ export function MobileNav() {
                 href={CONTACT.telegramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-lg bg-sky-700 py-2 text-center text-sm text-white"
+                className="rounded-lg bg-sky-600 py-2 text-center text-sm font-medium text-white"
               >
                 Telegram
               </a>
@@ -84,7 +84,7 @@ export function MobileNav() {
             <Link
               href="/contact"
               onClick={() => setOpen(false)}
-              className="mt-3 block rounded-lg bg-cyan-600 py-2 text-center text-sm font-medium text-white"
+              className="btn-primary mt-3 block py-2 text-center text-sm"
             >
               Request a Quote
             </Link>

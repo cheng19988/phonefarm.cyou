@@ -37,30 +37,30 @@ export default async function OrdersPage() {
   return (
     <div className="mx-auto max-w-7xl px-4 py-12">
       <div className="flex flex-wrap items-center justify-between gap-4">
-        <h1 className="text-3xl font-bold text-white">My Orders</h1>
+        <h1 className="page-title">My Orders</h1>
         <LogoutButton />
       </div>
       <div className="mt-8 space-y-4">
         {orders.length === 0 && (
-          <p className="text-slate-400">
+          <p className="text-slate-600">
             No orders yet.{" "}
-            <Link href="/shop" className="text-cyan-400">Browse catalog</Link>
+            <Link href="/shop" className="link-accent">Browse catalog</Link>
             {" · "}
-            <Link href="/contact" className="text-cyan-400">Request a quote</Link>
+            <Link href="/contact" className="link-accent">Request a quote</Link>
           </p>
         )}
         {orders.map((o) => (
           <Link
             key={o.id}
             href={`/account/orders/${o.id}`}
-            className="block rounded-xl border border-slate-800 p-4 hover:border-cyan-600/40"
+            className="card-premium block p-4 hover:border-sky-300"
           >
             <div className="flex flex-wrap justify-between gap-2">
-              <span className="font-mono text-white">{o.orderNumber}</span>
-              <span className="text-cyan-400 capitalize">{o.paymentStatus}</span>
+              <span className="font-mono font-medium text-slate-900">{o.orderNumber}</span>
+              <span className="font-medium capitalize text-sky-700">{o.paymentStatus}</span>
             </div>
-            <p className="mt-1 text-sm text-slate-400">{orderSummary(o)}</p>
-            <p className="text-sm text-slate-300">{formatReferencePrice(o.expectedAmount)}</p>
+            <p className="mt-1 text-sm text-slate-600">{orderSummary(o)}</p>
+            <p className="text-sm font-medium text-slate-800">{formatReferencePrice(o.expectedAmount)}</p>
             <p className="text-sm text-slate-500">{new Date(o.createdAt).toLocaleString()}</p>
           </Link>
         ))}

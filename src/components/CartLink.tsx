@@ -18,7 +18,7 @@ export function CartLink() {
     };
   }, []);
   return (
-    <Link href="/cart" className="relative text-slate-300 hover:text-white">
+    <Link href="/cart" className="relative text-slate-600 hover:text-sky-700">
       Cart
       {count > 0 && (
         <span className="absolute -right-3 -top-2 flex h-4 min-w-4 items-center justify-center rounded-full bg-cyan-600 px-1 text-[10px] text-white">

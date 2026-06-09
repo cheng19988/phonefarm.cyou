@@ -4,13 +4,13 @@ import { CheckoutForm } from "@/components/CheckoutForm";
 export default function CheckoutPage() {
   return (
     <div className="mx-auto max-w-5xl px-4 py-12">
-      <Link href="/cart" className="text-sm text-cyan-400 hover:underline">
+      <Link href="/cart" className="link-accent text-sm">
         ← Back to cart
       </Link>
-      <h1 className="mt-4 text-3xl font-bold text-white">Checkout</h1>
-      <p className="mt-2 max-w-2xl text-sm text-slate-400">
+      <h1 className="page-title mt-4">Checkout</h1>
+      <p className="page-lead text-sm">
         Complete your details for standard online orders. Bulk or custom deployments should go through{" "}
-        <Link href="/contact" className="text-cyan-400 hover:underline">
+        <Link href="/contact" className="link-accent">
           sales inquiry
         </Link>{" "}
         first.

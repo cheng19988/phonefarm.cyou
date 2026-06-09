@@ -12,9 +12,6 @@ const CONTROL_METHODS = [
 const SUCCESS_MESSAGE =
   "Thank you. Our team will review your device quantity, destination, and setup requirements before replying with a quotation.";
 
-const inputClass =
-  "mt-1 w-full rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-white text-base";
-
 export function ContactForm({
   defaultProduct = "",
   source = "contact",
@@ -45,38 +42,38 @@ export function ContactForm({
   return (
     <form onSubmit={onSubmit} className="space-y-4">
       <div className="grid gap-4 sm:grid-cols-2">
-        <label className="block text-sm">
-          <span className="text-slate-300">Name *</span>
-          <input name="name" required className={inputClass} autoComplete="name" />
+        <label className="form-field">
+          <span className="form-label">Name *</span>
+          <input name="name" required className="form-input" autoComplete="name" />
         </label>
-        <label className="block text-sm">
-          <span className="text-slate-300">Email *</span>
-          <input name="email" type="email" required className={inputClass} autoComplete="email" />
+        <label className="form-field">
+          <span className="form-label">Email *</span>
+          <input name="email" type="email" required className="form-input" autoComplete="email" />
         </label>
-        <label className="block text-sm">
-          <span className="text-slate-300">WhatsApp / Telegram</span>
-          <input name="messaging" className={inputClass} placeholder="@handle or number" />
+        <label className="form-field">
+          <span className="form-label">WhatsApp / Telegram</span>
+          <input name="messaging" className="form-input" placeholder="@handle or number" />
         </label>
-        <label className="block text-sm">
-          <span className="text-slate-300">Country / Region</span>
-          <input name="country" className={inputClass} autoComplete="country-name" />
+        <label className="form-field">
+          <span className="form-label">Country / Region</span>
+          <input name="country" className="form-input" autoComplete="country-name" />
         </label>
-        <label className={`block text-sm ${isCompact ? "sm:col-span-2" : ""}`}>
-          <span className="text-slate-300">Product or model of interest</span>
+        <label className={`form-field ${isCompact ? "sm:col-span-2" : ""}`}>
+          <span className="form-label">Product or model of interest</span>
           <input
             name="productInterest"
             defaultValue={defaultProduct}
-            className={inputClass}
+            className="form-input"
             placeholder="e.g. Samsung S10 Farm 8+128"
           />
         </label>
-        <label className="block text-sm">
-          <span className="text-slate-300">Quantity</span>
-          <input name="deviceQuantity" className={inputClass} placeholder="e.g. 2 boxes / 40 nodes" />
+        <label className="form-field">
+          <span className="form-label">Quantity</span>
+          <input name="deviceQuantity" className="form-input" placeholder="e.g. 2 boxes / 40 nodes" />
         </label>
-        <label className={`block text-sm ${isCompact ? "sm:col-span-2" : ""}`}>
-          <span className="text-slate-300">Preferred control method</span>
-          <select name="controlMethod" className={inputClass} defaultValue="">
+        <label className={`form-field ${isCompact ? "sm:col-span-2" : ""}`}>
+          <span className="form-label">Preferred control method</span>
+          <select name="controlMethod" className="form-input" defaultValue="">
             <option value="">Select…</option>
             {CONTROL_METHODS.map((m) => (
               <option key={m.value} value={m.label}>
@@ -86,9 +83,9 @@ export function ContactForm({
           </select>
         </label>
         {!isCompact && (
-          <label className="block text-sm sm:col-span-2">
-            <span className="text-slate-300">Use case</span>
-            <select name="useCase" className={inputClass} defaultValue="">
+          <label className="form-field sm:col-span-2">
+            <span className="form-label">Use case</span>
+            <select name="useCase" className="form-input" defaultValue="">
               <option value="">Select…</option>
               {LEGAL_USE_CASES.map((u) => (
                 <option key={u} value={u}>
@@ -99,15 +96,13 @@ export function ContactForm({
             </select>
           </label>
         )}
-        {isCompact && (
-          <input type="hidden" name="useCase" value="Product inquiry" />
-        )}
-        <label className={`block text-sm ${isCompact ? "sm:col-span-2" : "sm:col-span-2"}`}>
-          <span className="text-slate-300">Message</span>
+        {isCompact && <input type="hidden" name="useCase" value="Product inquiry" />}
+        <label className="form-field sm:col-span-2">
+          <span className="form-label">Message</span>
           <textarea
             name="message"
             rows={isCompact ? 3 : 4}
-            className={inputClass}
+            className="form-input"
             placeholder={
               isCompact
                 ? "Destination, timeline, or setup questions (optional)"
@@ -116,16 +111,12 @@ export function ContactForm({
           />
         </label>
       </div>
-      <button
-        type="submit"
-        disabled={status === "loading"}
-        className="w-full rounded-lg bg-cyan-600 py-3 font-medium text-white hover:bg-cyan-500 disabled:opacity-50"
-      >
+      <button type="submit" disabled={status === "loading"} className="btn-primary w-full py-3 disabled:opacity-50">
         {status === "loading" ? "Sending…" : "Send Inquiry"}
       </button>
-      {status === "ok" && <p className="text-sm leading-relaxed text-emerald-400">{SUCCESS_MESSAGE}</p>}
+      {status === "ok" && <p className="form-success leading-relaxed">{SUCCESS_MESSAGE}</p>}
       {status === "error" && (
-        <p className="text-sm text-red-400">Failed to send. Please use WhatsApp or email directly.</p>
+        <p className="form-error">Failed to send. Please use WhatsApp or email directly.</p>
       )}
     </form>
   );

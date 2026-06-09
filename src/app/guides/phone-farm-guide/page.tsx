@@ -29,7 +29,7 @@ export default function PhoneFarmGuidePage() {
       </ul>
       <h2>Software & Control</h2>
       <p>We configure remote control and group policies during deployment—contact us for your stack.</p>
-      <Link href="/shop" className="inline-block rounded-lg bg-cyan-600 px-5 py-2 text-white no-underline">
+      <Link href="/shop" className="btn-primary inline-block no-underline">
         Shop hardware
       </Link>
     </div>

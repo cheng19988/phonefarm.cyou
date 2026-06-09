@@ -59,9 +59,9 @@ export function CheckoutForm() {
 
   if (items.length === 0) {
     return (
-      <p className="text-slate-400">
+      <p className="text-slate-600">
         Loading cart… or{" "}
-        <Link href="/cart" className="text-cyan-400 hover:underline">
+        <Link href="/cart" className="link-accent">
           return to cart
         </Link>
         .
@@ -74,74 +74,75 @@ export function CheckoutForm() {
   return (
     <form onSubmit={onSubmit} className="grid gap-10 lg:grid-cols-5">
       <div className="space-y-4 lg:col-span-3">
-        <h2 className="text-lg font-semibold text-white">Shipping & contact</h2>
-        <label className="block text-sm">
-          <span className="text-slate-300">Name *</span>
-          <input name="customerName" required className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-white" />
+        <h2 className="page-section-title">Shipping & contact</h2>
+        <label className="form-field">
+          <span className="form-label">Name *</span>
+          <input name="customerName" required className="form-input" />
         </label>
-        <label className="block text-sm">
-          <span className="text-slate-300">Email *</span>
-          <input name="customerEmail" type="email" required className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-white" />
+        <label className="form-field">
+          <span className="form-label">Email *</span>
+          <input name="customerEmail" type="email" required className="form-input" />
         </label>
-        <label className="block text-sm">
-          <span className="text-slate-300">WhatsApp / Telegram</span>
-          <input name="contactMessaging" className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-white" placeholder="@username or phone" />
+        <label className="form-field">
+          <span className="form-label">WhatsApp / Telegram</span>
+          <input name="contactMessaging" className="form-input" placeholder="@username or phone" />
         </label>
-        <label className="block text-sm">
-          <span className="text-slate-300">Country / Region</span>
-          <input name="country" className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-white" />
+        <label className="form-field">
+          <span className="form-label">Country / Region</span>
+          <input name="country" className="form-input" />
         </label>
-        <label className="block text-sm">
-          <span className="text-slate-300">Shipping address *</span>
-          <textarea name="shippingAddress" required rows={3} className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-white" />
+        <label className="form-field">
+          <span className="form-label">Shipping address *</span>
+          <textarea name="shippingAddress" required rows={3} className="form-input" />
         </label>
-        <label className="block text-sm">
-          <span className="text-slate-300">Order notes</span>
-          <textarea name="orderNotes" rows={3} className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-white" placeholder="Model preferences, delivery window, customs info…" />
+        <label className="form-field">
+          <span className="form-label">Order notes</span>
+          <textarea
+            name="orderNotes"
+            rows={3}
+            className="form-input"
+            placeholder="Model preferences, delivery window, customs info…"
+          />
         </label>
 
-        <h2 className="pt-4 text-lg font-semibold text-white">Payment method</h2>
-        <div className="rounded-xl border border-cyan-800/50 bg-cyan-950/20 p-4 text-sm text-slate-300">
-          <p className="font-medium text-white">USDT TRC20</p>
-          <p className="mt-2 text-slate-400">
-            After placing the order you will receive payment instructions. Payment will be checked manually
-            after you submit the TRC20 transaction hash.
+        <h2 className="page-section-title pt-4">Payment method</h2>
+        <div className="panel-highlight">
+          <p className="font-semibold text-slate-900">USDT TRC20</p>
+          <p className="mt-2 text-slate-600">
+            After placing the order you will receive payment instructions. Payment will be checked manually after you
+            submit the TRC20 transaction hash.
           </p>
         </div>
 
-        {error && <p className="text-sm text-red-400">{error}</p>}
+        {error && <p className="form-error">{error}</p>}
         <p className="text-xs text-slate-500">
           Already have an account?{" "}
-          <Link href="/login?redirect=/checkout" className="text-cyan-400 hover:underline">
+          <Link href="/login?redirect=/checkout" className="link-accent">
             Log in
           </Link>
           {" · "}
-          <Link href="/register?redirect=/checkout" className="text-cyan-400 hover:underline">
+          <Link href="/register?redirect=/checkout" className="link-accent">
             Register
           </Link>
         </p>
-        <button
-          type="submit"
-          disabled={loading}
-          className="w-full rounded-lg bg-cyan-600 py-3 font-medium text-white hover:bg-cyan-500 disabled:opacity-60 sm:w-auto sm:px-8"
-        >
+        <button type="submit" disabled={loading} className="btn-primary w-full py-3 disabled:opacity-60 sm:w-auto sm:px-8">
           {loading ? "Placing order…" : "Place Order"}
         </button>
       </div>
 
-      <aside className="rounded-xl border border-slate-800 bg-slate-900/50 p-6 lg:col-span-2 h-fit">
-        <h2 className="font-semibold text-white">Order summary</h2>
+      <aside className="card-premium h-fit p-6 lg:col-span-2">
+        <h2 className="font-semibold text-slate-900">Order summary</h2>
         <ul className="mt-4 space-y-3 text-sm">
           {items.map((item) => (
-            <li key={item.productId} className="flex justify-between gap-2 text-slate-300">
-              <span className="min-w-0 truncate">
-                {item.name} × {item.quantity}
+            <li key={item.productId} className="flex justify-between gap-2 text-slate-600">
+              <span className="min-w-0 truncate">{item.name} × {item.quantity}</span>
+              <span className="shrink-0 font-medium text-slate-900">
+                {formatReferencePrice(item.priceUsd * item.quantity)}
               </span>
-              <span className="shrink-0 text-white">{formatReferencePrice(item.priceUsd * item.quantity)}</span>
             </li>
           ))}
         </ul>
-        <div className="mt-4 flex justify-between border-t border-slate-800 pt-4 font-medium text-white">
+        <div className="mt-4 flex justify-between border-t border-slate-200 pt-4 font-semibold text-slate-900">
           <span>Subtotal</span>
           <span>{formatReferencePrice(subtotal)}</span>
         </div>

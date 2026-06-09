@@ -13,8 +13,8 @@ export const metadata = buildMetadata({
 export default function ServicePackagesPage() {
   return (
     <div className="mx-auto max-w-7xl px-4 py-12">
-      <h1 className="text-3xl font-bold text-white">Service packages</h1>
-      <p className="mt-2 max-w-3xl text-slate-400">
+      <h1 className="page-title">Service packages</h1>
+      <p className="page-lead">
         Implementation scope for {SITE.name} — distinct from the hardware catalog. All packages are quoted in USD and
         confirmed by sales before work begins.
       </p>
@@ -23,41 +23,41 @@ export default function ServicePackagesPage() {
         {SERVICE_PACKAGES.map((pkg) => {
           const detail = PACKAGE_DETAILS.find((d) => d.slug === pkg.slug);
           return (
-            <article key={pkg.slug} className="rounded-2xl border border-slate-800 p-8">
+            <article key={pkg.slug} className="card-premium p-8">
               <div className="flex flex-wrap items-start justify-between gap-4">
                 <div>
-                  <h2 className="text-2xl font-semibold text-white">{pkg.name}</h2>
-                  <p className="mt-2 text-2xl font-bold text-cyan-400">
+                  <h2 className="text-2xl font-semibold text-slate-900">{pkg.name}</h2>
+                  <p className="mt-2 text-2xl font-bold text-sky-700">
                     {pkg.priceFrom > 0 ? `From $${pkg.priceFrom} reference` : "Custom quote"}
                   </p>
                 </div>
                 <Link
                   href={`/contact?product=${encodeURIComponent(pkg.name)}`}
-                  className="rounded-lg bg-cyan-600 px-5 py-2 text-sm font-medium text-white hover:bg-cyan-500"
+                  className="btn-primary text-sm !py-2 !px-5"
                 >
                   Get package quote
                 </Link>
               </div>
               {detail && (
-                <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3 text-sm">
+                <div className="mt-8 grid gap-6 text-sm md:grid-cols-2 lg:grid-cols-3">
                   <div>
-                    <h3 className="font-semibold text-white">Deliverables</h3>
-                    <ul className="mt-2 space-y-1 text-slate-400">
+                    <h3 className="font-semibold text-slate-900">Deliverables</h3>
+                    <ul className="mt-2 space-y-1 text-slate-600">
                       {detail.deliverables.map((d) => (
                         <li key={d}>• {d}</li>
                       ))}
                     </ul>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-white">Timeline</h3>
-                    <p className="mt-2 text-slate-400">{detail.timeline}</p>
-                    <h3 className="mt-4 font-semibold text-white">Support period</h3>
-                    <p className="mt-2 text-slate-400">{detail.supportPeriod}</p>
+                    <h3 className="font-semibold text-slate-900">Timeline</h3>
+                    <p className="mt-2 text-slate-600">{detail.timeline}</p>
+                    <h3 className="mt-4 font-semibold text-slate-900">Support period</h3>
+                    <p className="mt-2 text-slate-600">{detail.supportPeriod}</p>
                   </div>
                   <div>
-                    <h3 className="font-semibold text-white">Best for</h3>
-                    <p className="mt-2 text-slate-400">{detail.bestFor}</p>
-                    <h3 className="mt-4 font-semibold text-white">Not included</h3>
+                    <h3 className="font-semibold text-slate-900">Best for</h3>
+                    <p className="mt-2 text-slate-600">{detail.bestFor}</p>
+                    <h3 className="mt-4 font-semibold text-slate-900">Not included</h3>
                     <ul className="mt-2 space-y-1 text-slate-500">
                       {detail.notIncluded.map((n) => (
                         <li key={n}>• {n}</li>
@@ -74,7 +74,7 @@ export default function ServicePackagesPage() {
       <p className="mt-10 text-sm text-slate-500">
         Direct line: {CONTACT.telegram} · {CONTACT.whatsapp} · {CONTACT.email}
       </p>
-      <div className="mt-8 max-w-xl">
+      <div className="mt-8 max-w-xl card-premium p-6">
         <ContactForm source="packages" variant="full" />
       </div>
     </div>

@@ -30,16 +30,16 @@ export function CartPageContent() {
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-12">
-      <h1 className="text-3xl font-bold text-white">Cart</h1>
-      <p className="mt-3 max-w-2xl text-sm text-slate-400">
-        Standard configurations can be ordered online. For bulk quantities, custom models, or
-        international shipping questions, contact sales before payment.
+      <h1 className="page-title">Cart</h1>
+      <p className="page-lead text-sm">
+        Standard configurations can be ordered online. For bulk quantities, custom models, or international shipping
+        questions, contact sales before payment.
       </p>
 
       {items.length === 0 ? (
-        <div className="mt-10 rounded-xl border border-slate-800 bg-slate-900/40 p-8 text-center">
-          <p className="text-slate-400">Your cart is empty.</p>
-          <Link href="/shop" className="mt-4 inline-block text-cyan-400 hover:underline">
+        <div className="mt-10 card-premium p-8 text-center">
+          <p className="text-slate-600">Your cart is empty.</p>
+          <Link href="/shop" className="link-accent mt-4 inline-block">
             Continue browsing products
           </Link>
         </div>
@@ -49,19 +49,19 @@ export function CartPageContent() {
             {items.map((item) => (
               <li
                 key={item.productId}
-                className="flex flex-col gap-4 rounded-xl border border-slate-800 bg-slate-900/40 p-4 sm:flex-row sm:items-center"
+                className="card-premium flex flex-col gap-4 p-4 sm:flex-row sm:items-center"
               >
-                <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-lg border border-slate-700">
+                <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-lg border border-slate-200">
                   <Image src={item.imageCard} alt={item.name} fill className="object-cover" />
                 </div>
                 <div className="min-w-0 flex-1">
-                  <Link href={`/products/${item.slug}`} className="font-medium text-white hover:text-cyan-400">
+                  <Link href={`/products/${item.slug}`} className="font-medium text-slate-900 hover:text-sky-700">
                     {item.name}
                   </Link>
-                  <p className="mt-1 text-sm text-slate-400">{formatReferencePrice(item.priceUsd)} each</p>
+                  <p className="mt-1 text-sm text-slate-500">{formatReferencePrice(item.priceUsd)} each</p>
                 </div>
                 <div className="flex flex-wrap items-center gap-3">
-                  <label className="flex items-center gap-2 text-sm text-slate-400">
+                  <label className="flex items-center gap-2 text-sm text-slate-600">
                     Qty
                     <input
                       type="number"
@@ -71,10 +71,10 @@ export function CartPageContent() {
                         updateCartQuantity(item.productId, parseInt(e.target.value, 10) || 1);
                         setItems(getCart());
                       }}
-                      className="w-16 rounded border border-slate-700 bg-slate-950 px-2 py-1 text-white"
+                      className="form-input form-input-sm w-16"
                     />
                   </label>
-                  <p className="min-w-[5rem] text-right font-medium text-white">
+                  <p className="min-w-[5rem] text-right font-semibold text-slate-900">
                     {formatReferencePrice(item.priceUsd * item.quantity)}
                   </p>
                   <button
@@ -83,7 +83,7 @@ export function CartPageContent() {
                       removeFromCart(item.productId);
                       setItems(getCart());
                     }}
-                    className="text-sm text-red-400 hover:text-red-300"
+                    className="text-sm text-red-600 hover:text-red-700"
                   >
                     Remove
                   </button>
@@ -92,29 +92,19 @@ export function CartPageContent() {
             ))}
           </ul>
 
-          <div className="mt-8 flex flex-col gap-4 border-t border-slate-800 pt-6 sm:flex-row sm:items-center sm:justify-between">
+          <div className="mt-8 flex flex-col gap-4 border-t border-slate-200 pt-6 sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <p className="text-sm text-slate-400">Subtotal (USD)</p>
-              <p className="text-2xl font-bold text-white">{formatReferencePrice(subtotal)}</p>
+              <p className="text-sm text-slate-500">Subtotal (USD)</p>
+              <p className="text-2xl font-bold text-slate-900">{formatReferencePrice(subtotal)}</p>
             </div>
             <div className="flex flex-wrap gap-3">
-              <Link
-                href="/shop"
-                className="rounded-lg border border-slate-600 px-5 py-2.5 text-sm text-slate-200 hover:border-cyan-500"
-              >
+              <Link href="/shop" className="btn-secondary text-sm !py-2.5 !px-5">
                 Continue browsing
               </Link>
-              <Link
-                href="/contact"
-                className="rounded-lg border border-slate-600 px-5 py-2.5 text-sm text-slate-200 hover:border-cyan-500"
-              >
+              <Link href="/contact" className="btn-secondary text-sm !py-2.5 !px-5">
                 Request Bulk Quote
               </Link>
-              <button
-                type="button"
-                onClick={() => router.push("/checkout")}
-                className="rounded-lg bg-cyan-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-cyan-500"
-              >
+              <button type="button" onClick={() => router.push("/checkout")} className="btn-primary text-sm !py-2.5 !px-5">
                 Proceed to Checkout
               </button>
             </div>
@@ -124,11 +114,11 @@ export function CartPageContent() {
 
       <p className="mt-8 text-xs text-slate-500">
         Need help before ordering?{" "}
-        <a href={CONTACT.whatsappUrl} className="text-emerald-400 hover:underline" target="_blank" rel="noopener noreferrer">
+        <a href={CONTACT.whatsappUrl} className="link-accent" target="_blank" rel="noopener noreferrer">
           WhatsApp Sales
         </a>
         {" · "}
-        <a href={CONTACT.telegramUrl} className="text-sky-400 hover:underline" target="_blank" rel="noopener noreferrer">
+        <a href={CONTACT.telegramUrl} className="link-accent" target="_blank" rel="noopener noreferrer">
           Telegram Support
         </a>
       </p>

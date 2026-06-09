@@ -32,25 +32,25 @@ export function AuthForm({ mode }: { mode: "login" | "register" }) {
   }
 
   return (
-    <form onSubmit={onSubmit} className="mx-auto max-w-md space-y-4">
+    <form onSubmit={onSubmit} className="card-premium mx-auto max-w-md space-y-4 p-6">
       {mode === "register" && (
-        <label className="block text-sm">
-          <span className="text-slate-300">Name</span>
-          <input name="name" className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-white" />
+        <label className="form-field">
+          <span className="form-label">Name</span>
+          <input name="name" className="form-input" />
         </label>
       )}
-      <label className="block text-sm">
-        <span className="text-slate-300">Email</span>
-        <input name="email" type="email" required className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-white" />
+      <label className="form-field">
+        <span className="form-label">Email</span>
+        <input name="email" type="email" required className="form-input" autoComplete="email" />
       </label>
-      <label className="block text-sm">
-        <span className="text-slate-300">Password</span>
-        <input name="password" type="password" required minLength={8} className="mt-1 w-full rounded-lg border border-slate-700 bg-slate-900 px-3 py-2 text-white" />
+      <label className="form-field">
+        <span className="form-label">Password</span>
+        <input name="password" type="password" required minLength={8} className="form-input" autoComplete="current-password" />
       </label>
-      <button type="submit" className="w-full rounded-lg bg-cyan-600 py-3 text-white hover:bg-cyan-500">
+      <button type="submit" className="btn-primary w-full py-3">
         {mode === "login" ? "Login" : "Create Account"}
       </button>
-      {error && <p className="text-sm text-red-400">{error}</p>}
+      {error && <p className="form-error">{error}</p>}
     </form>
   );
 }
