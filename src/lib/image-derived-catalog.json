@@ -1,0 +1,290 @@
+[
+  {
+    "slug": "oneplus-5-super-change-farm-6-64",
+    "name": "OnePlus 5 Super Change Farm 6+64",
+    "category": "oneplus-box",
+    "shortDesc": "CPU: Snapdragon 835 · 6G+64G · Android 9 · Super Change",
+    "priceUsd": 650,
+    "stock": 7,
+    "productType": "hardware",
+    "directPurchaseEnabled": true,
+    "quoteOnly": false,
+    "sourceImages": [
+      "product_Box_Phone_Farm_OnePlus_5_Super_Change_USB_Port_LAN_OTG_box-phone-farm-oneplus-5-super-change-en_main_Oneplus_5_S.png"
+    ]
+  },
+  {
+    "slug": "oneplus-8-pro-farm-8-128",
+    "name": "OnePlus 8 Pro Farm 8+128",
+    "category": "oneplus-box",
+    "shortDesc": "CPU: Snapdragon 865 · 8G+128G · Android 13",
+    "priceUsd": 1350,
+    "stock": 4,
+    "productType": "hardware",
+    "directPurchaseEnabled": true,
+    "quoteOnly": false,
+    "sourceImages": [
+      "product_Box_Phone_Farm_OnePlus_8_Pro_8_128GB_USB_Port_LAN_OTG_box-phone-farm-oneplus-8-pro-en_main_oneplus_8_pro.png"
+    ]
+  },
+  {
+    "slug": "pixel-4xl-super-change-farm-6-128",
+    "name": "Pixel 4XL Super Change Farm 6+128",
+    "category": "pixel-box",
+    "shortDesc": "CPU: Snapdragon 855 · 6G+128G · Android 13 · Super Change",
+    "priceUsd": 1180,
+    "stock": 5,
+    "productType": "hardware",
+    "directPurchaseEnabled": true,
+    "quoteOnly": false,
+    "sourceImages": [
+      "product_Box_Phone_Farm_Pixel_4XL_Super_Change_Cong_USB_LAN_OTG_box-phone-farm-pixel-4xl-super-change_gallery_2_box_speci.png"
+    ]
+  },
+  {
+    "slug": "samsung-s8-farm-4-64",
+    "name": "SAMSUNG S8 Farm 4+64",
+    "category": "samsung-box",
+    "shortDesc": "CPU: Snapdragon 835 / Exynos 8895 · 4G+64G · Android 9",
+    "priceUsd": 550,
+    "stock": 14,
+    "productType": "hardware",
+    "directPurchaseEnabled": true,
+    "quoteOnly": false,
+    "sourceImages": [
+      "product_Box_Phone_Farm_S8_S8_Latest_Generation_2026_USB_LAN_Port_box-phone-farm-s8-en_main_box_s8.png",
+      "product_Perangkat_S8_S8_dijual_terpisah_dipasang_ke_dalam_Box_Phone_Farm_device-s8-id_gallery_2_main_s8.jpg",
+      "product_Perangkat_S8_S8_dijual_terpisah_dipasang_ke_dalam_Box_Phone_Farm_device-s8-id_gallery_3_Frame_13.jpg",
+      "product_Perangkat_S8_S8_dijual_terpisah_dipasang_ke_dalam_Box_Phone_Farm_device-s8-id_gallery_4_Frame_21.jpg",
+      "product_Perangkat_S8_S8_dijual_terpisah_dipasang_ke_dalam_Box_Phone_Farm_device-s8-id_gallery_4_Frame_21_(2).jpg",
+      "product_Perangkat_S8_S8_dijual_terpisah_dipasang_ke_dalam_Box_Phone_Farm_device-s8-id_gallery_4_Frame_21__2_.jpg"
+    ]
+  },
+  {
+    "slug": "samsung-s8-change-farm-2026",
+    "name": "SAMSUNG S8 Change Farm 4+64 (2026 Gen)",
+    "category": "samsung-box",
+    "shortDesc": "CPU: Snapdragon 835 / Exynos 8895 · 4G+64G · Android 9 · 2026 change generation",
+    "priceUsd": 580,
+    "stock": 10,
+    "productType": "hardware",
+    "directPurchaseEnabled": true,
+    "quoteOnly": false,
+    "sourceImages": [
+      "product_Box_Phone_Farm_S8_Change_Latest_Generation_2026_USB_LAN_Port_box-phone-farm-s8-change-en_main_s8_change_en.png",
+      "product_Box_Phone_Farm_Change_Generasi_Terbaru_2026_Port_USB_LAN_box-phone-farm-s8-change-id_gallery_6_Structure_of_B.png"
+    ]
+  },
+  {
+    "slug": "samsung-note-8-farm-6-64",
+    "name": "SAMSUNG Note 8 Farm 6+64",
+    "category": "samsung-box",
+    "shortDesc": "CPU: Snapdragon 835 / Exynos 8895 · 6G+64G · Android 9",
+    "priceUsd": 580,
+    "stock": 8,
+    "productType": "hardware",
+    "directPurchaseEnabled": true,
+    "quoteOnly": false,
+    "sourceImages": [
+      "product_Box_Phone_Farm_Note_8_6_64GB_USB_LAN_OTG_black_circuit_board_box-phone-farm-note-8-en_main_box_phone_farm_note_8.png"
+    ]
+  },
+  {
+    "slug": "samsung-s8-super-change-farm",
+    "name": "SAMSUNG S8 Super Change Farm 4+64",
+    "category": "samsung-box",
+    "shortDesc": "CPU: Snapdragon 835 / Exynos 8895 · 4G+64G · Android 9 · Super Change USB/LAN/OTG",
+    "priceUsd": 600,
+    "stock": 8,
+    "productType": "hardware",
+    "directPurchaseEnabled": true,
+    "quoteOnly": false,
+    "sourceImages": [
+      "product_Box_Phone_Farm_S8_Super_Change_USB_Port_LAN_OTG_boxphone-s8-super-change-en_main_Box_Phone_Farm_S8_Super_Change_.png"
+    ]
+  },
+  {
+    "slug": "samsung-note-8-super-change-farm",
+    "name": "SAMSUNG Note 8 Super Change Farm 6+64",
+    "category": "samsung-box",
+    "shortDesc": "CPU: Snapdragon 835 / Exynos 8895 · 6G+64G · Android 9 · Super Change",
+    "priceUsd": 610,
+    "stock": 6,
+    "productType": "hardware",
+    "directPurchaseEnabled": true,
+    "quoteOnly": false,
+    "sourceImages": [
+      "product_Box_Phone_Farm_Note_8_Super_Change_USB_Port_LAN_OTG_boxphone-note-8-super-change-en_main_Box_Phone_Farm_Note_8_S.png"
+    ]
+  },
+  {
+    "slug": "samsung-s9-farm-6-64",
+    "name": "SAMSUNG S9 Farm 6+64",
+    "category": "samsung-box",
+    "shortDesc": "CPU: Snapdragon 845 / Exynos 9810 · 6G+64G · Android 10",
+    "priceUsd": 680,
+    "stock": 12,
+    "productType": "hardware",
+    "directPurchaseEnabled": true,
+    "quoteOnly": false,
+    "sourceImages": [
+      "product_Box_Phone_Farm_S9_S9_Latest_Generation_2026_USB_LAN_OTG_Black_Circuit_Board_box-phone-farm-s9-en_main_box_phone_.png"
+    ]
+  },
+  {
+    "slug": "samsung-note-9-farm-6-128",
+    "name": "SAMSUNG Note 9 Farm 6+128",
+    "category": "samsung-box",
+    "shortDesc": "CPU: Snapdragon 845 / Exynos 9810 · 6G+128G · Android 10",
+    "priceUsd": 720,
+    "stock": 7,
+    "productType": "hardware",
+    "directPurchaseEnabled": true,
+    "quoteOnly": false,
+    "sourceImages": [
+      "product_Box_Phone_Farm_Note_9_6_128GB_USB_LAN_OTG_black_circuit_board_box-phone-farm-note-9-en_main_box_phone_farm_note_.png"
+    ]
+  },
+  {
+    "slug": "samsung-a908n-farm-6-128",
+    "name": "SAMSUNG A908N Farm 6+128",
+    "category": "samsung-box",
+    "shortDesc": "CPU: Snapdragon 855 · 6G+128G · Android 12",
+    "priceUsd": 820,
+    "stock": 6,
+    "productType": "hardware",
+    "directPurchaseEnabled": true,
+    "quoteOnly": false,
+    "sourceImages": [
+      "product_Box_Phone_Farm_A908N_6_128GB_USB_LAN_OTG_black_circuit_board_box-phone-farm-a908n-en_main_box_phone_farm_a908n.png"
+    ]
+  },
+  {
+    "slug": "samsung-note-10-lite-change-farm",
+    "name": "SAMSUNG Note 10 Lite Change Farm 6+128",
+    "category": "samsung-box",
+    "shortDesc": "CPU: Snapdragon 855 · 6G+128G · Android 12 · Change generation",
+    "priceUsd": 850,
+    "stock": 5,
+    "productType": "hardware",
+    "directPurchaseEnabled": true,
+    "quoteOnly": false,
+    "sourceImages": [
+      "product_Box_Phone_Farm_Note_10_Lite_Change_USB_LAN_OTG_Port_with_Black_Circuit_Board_box-phone-farm-note-10-lite-change-.png"
+    ]
+  },
+  {
+    "slug": "samsung-s10-farm-8-128",
+    "name": "SAMSUNG S10 Farm 8+128",
+    "category": "samsung-box",
+    "shortDesc": "CPU: Snapdragon 855 / Exynos 9820 · 8G+128G · Android 11/12",
+    "priceUsd": 930,
+    "stock": 9,
+    "productType": "hardware",
+    "directPurchaseEnabled": true,
+    "quoteOnly": false,
+    "sourceImages": [
+      "product_Box_Phone_Farm_S10_USB_LAN_OTG_Port_with_Black_Circuit_Board_box-phone-farm-s10-en_main_box_phone_farm_s10_en.png"
+    ]
+  },
+  {
+    "slug": "samsung-s10-change-farm-2026",
+    "name": "SAMSUNG S10 Change Farm 8+128 (2026 Gen)",
+    "category": "samsung-box",
+    "shortDesc": "CPU: Snapdragon 855 / Exynos 9820 · 8G+128G · Android 11/12 · 2026 change generation",
+    "priceUsd": 960,
+    "stock": 7,
+    "productType": "hardware",
+    "directPurchaseEnabled": true,
+    "quoteOnly": false,
+    "sourceImages": [
+      "product_Box_Phone_Farm_S10_Change_USB_LAN_OTG_Port_with_Black_Circuit_Board_box-phone-farm-s10-change-en_main_box_phone_.png"
+    ]
+  },
+  {
+    "slug": "samsung-s21-fe-farm-6-128",
+    "name": "SAMSUNG S21 FE Farm 6+128",
+    "category": "samsung-box",
+    "shortDesc": "CPU: Snapdragon 888 / Exynos 2100 · 6G+128G · Android 14",
+    "priceUsd": 1150,
+    "stock": 6,
+    "productType": "hardware",
+    "directPurchaseEnabled": true,
+    "quoteOnly": false,
+    "sourceImages": [
+      "product_Box_Phone_Farm_S21_FE_6_128GB_USB_LAN_OTG_black_circuit_board_box-phone-farm-s21-fe-en_main_box_phone_farm_s21fe.png",
+      "product_Box_Phone_Farm_S21_FE_6_128GB_USB_LAN_OTG_black_circuit_board_box-phone-farm-s21-fe-en_main_box_phone_farm_s21fe_(2).png",
+      "product_Box_Phone_Farm_S21_FE_6_128GB_USB_LAN_OTG_black_circuit_board_box-phone-farm-s21-fe-en_main_box_phone_farm_s21fe__2_.png"
+    ]
+  },
+  {
+    "slug": "samsung-s20-farm-8-128",
+    "name": "SAMSUNG S20 Farm 8+128",
+    "category": "samsung-box",
+    "shortDesc": "CPU: Snapdragon 865 / Exynos 990 · 8G+128G · Android 13",
+    "priceUsd": 1200,
+    "stock": 6,
+    "productType": "hardware",
+    "directPurchaseEnabled": true,
+    "quoteOnly": false,
+    "sourceImages": [
+      "product_Box_Phone_Farm_S20_8_128GB_USB_LAN_OTG_black_circuit_box-phone-farm-s20-en_main_box_phone_farm_s20.png"
+    ]
+  },
+  {
+    "slug": "samsung-note-20-farm-8-256",
+    "name": "SAMSUNG Note 20 Farm 8+256",
+    "category": "samsung-box",
+    "shortDesc": "CPU: Snapdragon 865+ / Exynos 990 · 8G+256G · Android 13",
+    "priceUsd": 1380,
+    "stock": 4,
+    "productType": "hardware",
+    "directPurchaseEnabled": true,
+    "quoteOnly": false,
+    "sourceImages": [
+      "product_Box_Phone_Farm_Note_20_8_256GB_USB_LAN_OTG_black_circuit_board_box-phone-farm-note-20-en_main_box_phone_farm_not.png"
+    ]
+  },
+  {
+    "slug": "samsung-z-flip3-farm-8-128",
+    "name": "SAMSUNG Z Flip3 Farm 8+128",
+    "category": "samsung-box",
+    "shortDesc": "CPU: Snapdragon 888 · 8G+128G · Android 14",
+    "priceUsd": 1450,
+    "stock": 4,
+    "productType": "hardware",
+    "directPurchaseEnabled": true,
+    "quoteOnly": false,
+    "sourceImages": [
+      "product_Box_Phone_Farm_Z_Flip3_8_128GB_USB_LAN_OTG_black_circuit_box-phone-farm-z-flip3-en_main_box_phone_farm_zlip_3.png"
+    ]
+  },
+  {
+    "slug": "samsung-z-flip4-farm-8-128",
+    "name": "SAMSUNG Z Flip4 Farm 8+128",
+    "category": "samsung-box",
+    "shortDesc": "CPU: Snapdragon 8+ Gen1 · 8G+128G · Android 14",
+    "priceUsd": 1580,
+    "stock": 3,
+    "productType": "hardware",
+    "directPurchaseEnabled": true,
+    "quoteOnly": false,
+    "sourceImages": [
+      "product_Box_Phone_Farm_Z_Flip4_8_128GB_USB_LAN_OTG_black_circuit_box-phone-farm-z-flip4-en_main_box_phone_farm_zlip_4.png"
+    ]
+  },
+  {
+    "slug": "nubia-z17-farm-6-64",
+    "name": "Nubia Z17 Farm 6+64",
+    "category": "xiaomi-box",
+    "shortDesc": "CPU: Snapdragon 835 · 6G+64G · Android 9",
+    "priceUsd": 620,
+    "stock": 6,
+    "productType": "hardware",
+    "directPurchaseEnabled": true,
+    "quoteOnly": false,
+    "sourceImages": [
+      "product_Box_Phone_Farm_Nubia_Z17_Super_Change_USB_Port_LAN_OTG_box-phone-farm-nubia-z17-en_main_box_phone_farm_nubia_z17.png"
+    ]
+  }
+]

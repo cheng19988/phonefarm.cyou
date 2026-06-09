@@ -36,16 +36,16 @@ async function productsForSection(section: (typeof HOME_SECTIONS)[number]) {
     "categories" in section && section.categories
       ? await prisma.product.findMany({
           where: { published: true, category: { in: [...section.categories] } },
-          take: 8,
+          take: 16,
           orderBy: { priceUsd: "asc" },
         })
       : await prisma.product.findMany({
           where: { published: true, category: section.slug },
-          take: 8,
+          take: 16,
           orderBy: { priceUsd: "asc" },
         });
 
-  return rows.filter((p) => !isServiceCatalogItem(p.category)).slice(0, 4);
+  return rows.filter((p) => !isServiceCatalogItem(p.category)).slice(0, 8);
 }
 
 export default async function HomePage() {

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import { ProductActions } from "@/components/ProductActions";
@@ -12,6 +11,8 @@ import { getProductSummary } from "@/lib/productSummaries";
 import { buildPublicSpecTable, formatReferencePrice } from "@/lib/pricing";
 import { isServiceCatalogItem, publicCategoryLabel } from "@/lib/catalog";
 import { QuotationDeliveryNotes } from "@/components/QuotationDeliveryNotes";
+import { ProductImageGallery } from "@/components/ProductImageGallery";
+import { getProductGallery } from "@/lib/product-images";
 
 function parseJson<T>(raw: string, fallback: T): T {
   try {
@@ -60,6 +61,7 @@ export default async function ProductDetailPage({
   const quoteNote = summary?.quoteNote;
   const faq = profile?.faq ?? parseJson<{ q: string; a: string }[]>(product.faq, []);
   const features = parseJson<string[]>(product.features, []);
+  const gallery = getProductGallery(product.slug, product.imageDetail);
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-12 pb-24 lg:pb-12">
@@ -82,18 +84,16 @@ export default async function ProductDetailPage({
       <div className="grid gap-10 lg:grid-cols-3">
         <div className="lg:col-span-2">
           <div className="grid gap-10 md:grid-cols-2">
-            <div className="relative aspect-square overflow-hidden rounded-xl border border-slate-800">
-              <Image src={product.imageDetail} alt={product.name} fill className="object-cover" priority />
-            </div>
+            <ProductImageGallery images={gallery} name={product.name} />
             <div>
-              <p className="text-sm uppercase text-cyan-500">{publicCategoryLabel(product.category)}</p>
-              <h1 className="mt-2 text-3xl font-bold text-white">{product.name}</h1>
-              <p className="mt-4 text-slate-400">{product.shortDesc}</p>
+              <p className="text-sm uppercase text-sky-600 font-medium">{publicCategoryLabel(product.category)}</p>
+              <h1 className="mt-2 text-3xl font-bold text-slate-900">{product.name}</h1>
+              <p className="mt-4 text-slate-600 leading-relaxed">{product.shortDesc}</p>
               <div className="mt-4">
                 <p className="text-xs uppercase tracking-wide text-slate-500">
                   {isServiceCatalogItem(product.category) ? "Service quote" : "Reference price"}
                 </p>
-                <p className="text-3xl font-bold text-white">{formatReferencePrice(product.priceUsd)}</p>
+                <p className="text-3xl font-bold text-slate-900">{formatReferencePrice(product.priceUsd)}</p>
                 <p className="mt-1 text-sm text-slate-500">
                   Bulk quote available · availability confirmed by sales · configuration confirmed before invoice
                 </p>
@@ -133,15 +133,15 @@ export default async function ProductDetailPage({
               </>
             )}
             <h2>Specification table</h2>
-            <div className="overflow-x-auto rounded-xl border border-slate-800 not-prose">
+            <div className="overflow-x-auto rounded-xl border border-slate-200 not-prose">
               <table className="w-full text-sm text-left">
                 <tbody>
                   {Object.entries(specTable)
                     .filter(([k]) => k !== "listPriceUsd")
                     .map(([k, v]) => (
-                      <tr key={k} className="border-b border-slate-800">
-                        <th className="px-4 py-2 text-slate-300">{k}</th>
-                        <td className="px-4 py-2 text-slate-400">{v}</td>
+                      <tr key={k} className="border-b border-slate-100">
+                        <th className="px-4 py-2 text-slate-700 font-medium">{k}</th>
+                        <td className="px-4 py-2 text-slate-600">{v}</td>
                       </tr>
                     ))}
                 </tbody>
@@ -163,7 +163,7 @@ export default async function ProductDetailPage({
 
           {faq.length > 0 && (
             <section className="mt-12">
-              <h2 className="text-xl font-bold text-white">MOQ / lead time / warranty FAQ</h2>
+              <h2 className="text-xl font-bold text-slate-900">MOQ / lead time / warranty FAQ</h2>
               <div className="mt-4 max-w-3xl">
                 <FaqAccordion items={faq} />
               </div>

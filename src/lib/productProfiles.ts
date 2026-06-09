@@ -1,4 +1,6 @@
 import type { QuotationDelivery } from "./delivery";
+import { ALL_HARDWARE_CATALOG } from "./hardware-catalog";
+import { parseShortDescHardware } from "./pricing";
 
 export type ProductProfile = {
   intro: string;
@@ -339,6 +341,54 @@ export const PRODUCT_PROFILES: Record<string, ProductProfile> = {
   },
 };
 
+function defaultHardwareProfile(slug: string): ProductProfile | undefined {
+  const item = ALL_HARDWARE_CATALOG.find((p) => p.slug === slug);
+  if (!item) return undefined;
+  const hw = parseShortDescHardware(item.shortDesc);
+  return {
+    intro: `${item.name} is a factory-built real-device phone farm chassis from Cyou Phone Farm, Guangzhou. ${item.shortDesc}. Ideal for QA labs, device compatibility matrices, remote device management, and group-control operations with documented USB/LAN control paths.`,
+    specOverrides: {
+      Model: item.name,
+      CPU: hw.cpu ?? "See short description",
+      "RAM / Storage": hw.ram ?? "See short description",
+      "Android version": hw.android ?? "Farm ROM documented on burn-in sheet",
+      "Device count / chassis": "20 nodes per standard 2U chassis",
+      "Control method": "USB projection · LAN OTG · batch APK · sync control",
+      "Recommended workload": "QA device lab · enterprise device fleet",
+      "Power / cooling notes": "450–550W adaptive PSU · quad-fan cooling",
+    },
+    included: [
+      "20-node motherboard chassis (model per title)",
+      "Adaptive PSU and cooling kit",
+      "Burn-in serial sheet per node",
+      "Export carton and invoice support",
+      "Remote first-connection guidance",
+      "Help Center connection articles",
+    ],
+    recommendedFor: [
+      "App QA testing on real SoC hardware",
+      "Device compatibility and regression labs",
+      "Enterprise remote device management",
+      "Group control and batch APK workflows",
+    ],
+    setupNotes:
+      "Connect powered USB hub to dedicated host controller, label each slot to match burn-in serial, run USB detection before LAN scan, and use test groups before fleet-wide sync control.",
+    quotationDelivery: {
+      moq: "Single box available. Bulk pricing typically from 5+ units.",
+      leadTime: "Commonly 7–21 business days after order confirmation for standard configs.",
+      packing: "Reinforced export carton from Guangzhou.",
+    },
+    faq: [
+      { q: "MOQ?", a: "Single 20-node box available. Bulk from 5+ units." },
+      { q: "Lead time?", a: "7–21 business days standard; custom builds longer." },
+      { q: "Images match shipped hardware?", a: "Product photos from material library match model tier; exact tray layout on burn-in sheet." },
+      { q: "Setup help?", a: "Remote Control Configuration and Group Control Onboarding available." },
+      { q: "Warranty?", a: "90-day hardware defect coverage." },
+      { q: "Shipping?", a: "DHL/FedEx/UPS worldwide from Guangzhou." },
+    ],
+  };
+}
+
 export function getProductProfile(slug: string) {
-  return PRODUCT_PROFILES[slug];
+  return PRODUCT_PROFILES[slug] ?? defaultHardwareProfile(slug);
 }

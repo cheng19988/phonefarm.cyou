@@ -1,162 +1,410 @@
 {
-  "samsung-s8-farm-4-64": {
-    "card": "/images/real-products/product_Box_Phone_Farm_S8_S8_Latest_Generation_2026_USB_LAN_Port_box-phone-farm-s8-en_main_box_s8.png",
-    "hero": "/images/real-products/product_Box_Phone_Farm_S8_S8_Latest_Generation_2026_USB_LAN_Port_box-phone-farm-s8-en_main_box_s8.png",
-    "detail": "/images/real-products/product_Box_Phone_Farm_S8_S8_Latest_Generation_2026_USB_LAN_Port_box-phone-farm-s8-en_main_box_s8.png"
+  "samsung-a908n-farm-6-128": {
+    "card": "/images/real-products/product_Box_Phone_Farm_A908N_6_128GB_USB_LAN_OTG_black_circuit_board_box-phone-farm-a908n-en_main_box_phone_farm_a908n.png",
+    "hero": "/images/real-products/product_Box_Phone_Farm_A908N_6_128GB_USB_LAN_OTG_black_circuit_board_box-phone-farm-a908n-en_main_box_phone_farm_a908n.png",
+    "detail": "/images/real-products/product_Box_Phone_Farm_A908N_6_128GB_USB_LAN_OTG_black_circuit_board_box-phone-farm-a908n-en_main_box_phone_farm_a908n.png",
+    "gallery": [
+      "/images/real-products/product_Box_Phone_Farm_A908N_6_128GB_USB_LAN_OTG_black_circuit_board_box-phone-farm-a908n-en_main_box_phone_farm_a908n.png"
+    ]
   },
-  "samsung-s9-plus-farm-6-64": {
-    "card": "/images/real-products/product_Box_Phone_Farm_S9_S9_Latest_Generation_2026_USB_LAN_OTG_Black_Circuit_Board_box-phone-farm-s9-en_main_box_phone_.png",
-    "hero": "/images/real-products/product_Box_Phone_Farm_S9_S9_Latest_Generation_2026_USB_LAN_OTG_Black_Circuit_Board_box-phone-farm-s9-en_main_box_phone_.png",
-    "detail": "/images/real-products/product_Box_Phone_Farm_S9_S9_Latest_Generation_2026_USB_LAN_OTG_Black_Circuit_Board_box-phone-farm-s9-en_main_box_phone_.png"
+  "samsung-s8-change-farm-2026": {
+    "card": "/images/real-products/product_Box_Phone_Farm_S8_Change_Latest_Generation_2026_USB_LAN_Port_box-phone-farm-s8-change-en_main_s8_change_en.png",
+    "hero": "/images/real-products/product_Box_Phone_Farm_S8_Change_Latest_Generation_2026_USB_LAN_Port_box-phone-farm-s8-change-en_main_s8_change_en.png",
+    "detail": "/images/real-products/product_Box_Phone_Farm_S8_Change_Latest_Generation_2026_USB_LAN_Port_box-phone-farm-s8-change-en_main_s8_change_en.png",
+    "gallery": [
+      "/images/real-products/product_Box_Phone_Farm_S8_Change_Latest_Generation_2026_USB_LAN_Port_box-phone-farm-s8-change-en_main_s8_change_en.png",
+      "/images/real-products/product_Box_Phone_Farm_Change_Generasi_Terbaru_2026_Port_USB_LAN_box-phone-farm-s8-change-id_gallery_6_Structure_of_B.png"
+    ]
+  },
+  "samsung-note-10-lite-change-farm": {
+    "card": "/images/real-products/product_Box_Phone_Farm_Note_10_Lite_Change_USB_LAN_OTG_Port_with_Black_Circuit_Board_box-phone-farm-note-10-lite-change-.png",
+    "hero": "/images/real-products/product_Box_Phone_Farm_Note_10_Lite_Change_USB_LAN_OTG_Port_with_Black_Circuit_Board_box-phone-farm-note-10-lite-change-.png",
+    "detail": "/images/real-products/product_Box_Phone_Farm_Note_10_Lite_Change_USB_LAN_OTG_Port_with_Black_Circuit_Board_box-phone-farm-note-10-lite-change-.png",
+    "gallery": [
+      "/images/real-products/product_Box_Phone_Farm_Note_10_Lite_Change_USB_LAN_OTG_Port_with_Black_Circuit_Board_box-phone-farm-note-10-lite-change-.png"
+    ]
+  },
+  "samsung-note-20-farm-8-256": {
+    "card": "/images/real-products/product_Box_Phone_Farm_Note_20_8_256GB_USB_LAN_OTG_black_circuit_board_box-phone-farm-note-20-en_main_box_phone_farm_not.png",
+    "hero": "/images/real-products/product_Box_Phone_Farm_Note_20_8_256GB_USB_LAN_OTG_black_circuit_board_box-phone-farm-note-20-en_main_box_phone_farm_not.png",
+    "detail": "/images/real-products/product_Box_Phone_Farm_Note_20_8_256GB_USB_LAN_OTG_black_circuit_board_box-phone-farm-note-20-en_main_box_phone_farm_not.png",
+    "gallery": [
+      "/images/real-products/product_Box_Phone_Farm_Note_20_8_256GB_USB_LAN_OTG_black_circuit_board_box-phone-farm-note-20-en_main_box_phone_farm_not.png"
+    ]
+  },
+  "samsung-note-8-farm-6-64": {
+    "card": "/images/real-products/product_Box_Phone_Farm_Note_8_6_64GB_USB_LAN_OTG_black_circuit_board_box-phone-farm-note-8-en_main_box_phone_farm_note_8.png",
+    "hero": "/images/real-products/product_Box_Phone_Farm_Note_8_6_64GB_USB_LAN_OTG_black_circuit_board_box-phone-farm-note-8-en_main_box_phone_farm_note_8.png",
+    "detail": "/images/real-products/product_Box_Phone_Farm_Note_8_6_64GB_USB_LAN_OTG_black_circuit_board_box-phone-farm-note-8-en_main_box_phone_farm_note_8.png",
+    "gallery": [
+      "/images/real-products/product_Box_Phone_Farm_Note_8_6_64GB_USB_LAN_OTG_black_circuit_board_box-phone-farm-note-8-en_main_box_phone_farm_note_8.png"
+    ]
+  },
+  "samsung-note-8-super-change-farm": {
+    "card": "/images/real-products/product_Box_Phone_Farm_Note_8_Super_Change_USB_Port_LAN_OTG_boxphone-note-8-super-change-en_main_Box_Phone_Farm_Note_8_S.png",
+    "hero": "/images/real-products/product_Box_Phone_Farm_Note_8_Super_Change_USB_Port_LAN_OTG_boxphone-note-8-super-change-en_main_Box_Phone_Farm_Note_8_S.png",
+    "detail": "/images/real-products/product_Box_Phone_Farm_Note_8_Super_Change_USB_Port_LAN_OTG_boxphone-note-8-super-change-en_main_Box_Phone_Farm_Note_8_S.png",
+    "gallery": [
+      "/images/real-products/product_Box_Phone_Farm_Note_8_Super_Change_USB_Port_LAN_OTG_boxphone-note-8-super-change-en_main_Box_Phone_Farm_Note_8_S.png"
+    ]
+  },
+  "samsung-note-9-farm-6-128": {
+    "card": "/images/real-products/product_Box_Phone_Farm_Note_9_6_128GB_USB_LAN_OTG_black_circuit_board_box-phone-farm-note-9-en_main_box_phone_farm_note_.png",
+    "hero": "/images/real-products/product_Box_Phone_Farm_Note_9_6_128GB_USB_LAN_OTG_black_circuit_board_box-phone-farm-note-9-en_main_box_phone_farm_note_.png",
+    "detail": "/images/real-products/product_Box_Phone_Farm_Note_9_6_128GB_USB_LAN_OTG_black_circuit_board_box-phone-farm-note-9-en_main_box_phone_farm_note_.png",
+    "gallery": [
+      "/images/real-products/product_Box_Phone_Farm_Note_9_6_128GB_USB_LAN_OTG_black_circuit_board_box-phone-farm-note-9-en_main_box_phone_farm_note_.png"
+    ]
+  },
+  "nubia-z17-farm-6-64": {
+    "card": "/images/real-products/product_Box_Phone_Farm_Nubia_Z17_Super_Change_USB_Port_LAN_OTG_box-phone-farm-nubia-z17-en_main_box_phone_farm_nubia_z17.png",
+    "hero": "/images/real-products/product_Box_Phone_Farm_Nubia_Z17_Super_Change_USB_Port_LAN_OTG_box-phone-farm-nubia-z17-en_main_box_phone_farm_nubia_z17.png",
+    "detail": "/images/real-products/product_Box_Phone_Farm_Nubia_Z17_Super_Change_USB_Port_LAN_OTG_box-phone-farm-nubia-z17-en_main_box_phone_farm_nubia_z17.png",
+    "gallery": [
+      "/images/real-products/product_Box_Phone_Farm_Nubia_Z17_Super_Change_USB_Port_LAN_OTG_box-phone-farm-nubia-z17-en_main_box_phone_farm_nubia_z17.png"
+    ]
+  },
+  "oneplus-5-super-change-farm-6-64": {
+    "card": "/images/real-products/product_Box_Phone_Farm_OnePlus_5_Super_Change_USB_Port_LAN_OTG_box-phone-farm-oneplus-5-super-change-en_main_Oneplus_5_S.png",
+    "hero": "/images/real-products/product_Box_Phone_Farm_OnePlus_5_Super_Change_USB_Port_LAN_OTG_box-phone-farm-oneplus-5-super-change-en_main_Oneplus_5_S.png",
+    "detail": "/images/real-products/product_Box_Phone_Farm_OnePlus_5_Super_Change_USB_Port_LAN_OTG_box-phone-farm-oneplus-5-super-change-en_main_Oneplus_5_S.png",
+    "gallery": [
+      "/images/real-products/product_Box_Phone_Farm_OnePlus_5_Super_Change_USB_Port_LAN_OTG_box-phone-farm-oneplus-5-super-change-en_main_Oneplus_5_S.png"
+    ]
+  },
+  "oneplus-8-pro-farm-8-128": {
+    "card": "/images/real-products/product_Box_Phone_Farm_OnePlus_8_Pro_8_128GB_USB_Port_LAN_OTG_box-phone-farm-oneplus-8-pro-en_main_oneplus_8_pro.png",
+    "hero": "/images/real-products/product_Box_Phone_Farm_OnePlus_8_Pro_8_128GB_USB_Port_LAN_OTG_box-phone-farm-oneplus-8-pro-en_main_oneplus_8_pro.png",
+    "detail": "/images/real-products/product_Box_Phone_Farm_OnePlus_8_Pro_8_128GB_USB_Port_LAN_OTG_box-phone-farm-oneplus-8-pro-en_main_oneplus_8_pro.png",
+    "gallery": [
+      "/images/real-products/product_Box_Phone_Farm_OnePlus_8_Pro_8_128GB_USB_Port_LAN_OTG_box-phone-farm-oneplus-8-pro-en_main_oneplus_8_pro.png"
+    ]
+  },
+  "pixel-4xl-super-change-farm-6-128": {
+    "card": "/images/real-products/product_Box_Phone_Farm_Pixel_4XL_Super_Change_Cong_USB_LAN_OTG_box-phone-farm-pixel-4xl-super-change_gallery_2_box_speci.png",
+    "hero": "/images/real-products/product_Box_Phone_Farm_Pixel_4XL_Super_Change_Cong_USB_LAN_OTG_box-phone-farm-pixel-4xl-super-change_gallery_2_box_speci.png",
+    "detail": "/images/real-products/product_Box_Phone_Farm_Pixel_4XL_Super_Change_Cong_USB_LAN_OTG_box-phone-farm-pixel-4xl-super-change_gallery_2_box_speci.png",
+    "gallery": [
+      "/images/real-products/product_Box_Phone_Farm_Pixel_4XL_Super_Change_Cong_USB_LAN_OTG_box-phone-farm-pixel-4xl-super-change_gallery_2_box_speci.png"
+    ]
+  },
+  "samsung-s10-change-farm-2026": {
+    "card": "/images/real-products/product_Box_Phone_Farm_S10_Change_USB_LAN_OTG_Port_with_Black_Circuit_Board_box-phone-farm-s10-change-en_main_box_phone_.png",
+    "hero": "/images/real-products/product_Box_Phone_Farm_S10_Change_USB_LAN_OTG_Port_with_Black_Circuit_Board_box-phone-farm-s10-change-en_main_box_phone_.png",
+    "detail": "/images/real-products/product_Box_Phone_Farm_S10_Change_USB_LAN_OTG_Port_with_Black_Circuit_Board_box-phone-farm-s10-change-en_main_box_phone_.png",
+    "gallery": [
+      "/images/real-products/product_Box_Phone_Farm_S10_Change_USB_LAN_OTG_Port_with_Black_Circuit_Board_box-phone-farm-s10-change-en_main_box_phone_.png"
+    ]
   },
   "samsung-s10-farm-8-128": {
     "card": "/images/real-products/product_Box_Phone_Farm_S10_USB_LAN_OTG_Port_with_Black_Circuit_Board_box-phone-farm-s10-en_main_box_phone_farm_s10_en.png",
     "hero": "/images/real-products/product_Box_Phone_Farm_S10_USB_LAN_OTG_Port_with_Black_Circuit_Board_box-phone-farm-s10-en_main_box_phone_farm_s10_en.png",
-    "detail": "/images/real-products/product_Box_Phone_Farm_S10_USB_LAN_OTG_Port_with_Black_Circuit_Board_box-phone-farm-s10-en_main_box_phone_farm_s10_en.png"
+    "detail": "/images/real-products/product_Box_Phone_Farm_S10_USB_LAN_OTG_Port_with_Black_Circuit_Board_box-phone-farm-s10-en_main_box_phone_farm_s10_en.png",
+    "gallery": [
+      "/images/real-products/product_Box_Phone_Farm_S10_USB_LAN_OTG_Port_with_Black_Circuit_Board_box-phone-farm-s10-en_main_box_phone_farm_s10_en.png"
+    ]
   },
-  "samsung-s22-farm-8-128": {
+  "samsung-s20-farm-8-128": {
+    "card": "/images/real-products/product_Box_Phone_Farm_S20_8_128GB_USB_LAN_OTG_black_circuit_box-phone-farm-s20-en_main_box_phone_farm_s20.png",
+    "hero": "/images/real-products/product_Box_Phone_Farm_S20_8_128GB_USB_LAN_OTG_black_circuit_box-phone-farm-s20-en_main_box_phone_farm_s20.png",
+    "detail": "/images/real-products/product_Box_Phone_Farm_S20_8_128GB_USB_LAN_OTG_black_circuit_box-phone-farm-s20-en_main_box_phone_farm_s20.png",
+    "gallery": [
+      "/images/real-products/product_Box_Phone_Farm_S20_8_128GB_USB_LAN_OTG_black_circuit_box-phone-farm-s20-en_main_box_phone_farm_s20.png"
+    ]
+  },
+  "samsung-s21-fe-farm-6-128": {
     "card": "/images/real-products/product_Box_Phone_Farm_S21_FE_6_128GB_USB_LAN_OTG_black_circuit_board_box-phone-farm-s21-fe-en_main_box_phone_farm_s21fe.png",
     "hero": "/images/real-products/product_Box_Phone_Farm_S21_FE_6_128GB_USB_LAN_OTG_black_circuit_board_box-phone-farm-s21-fe-en_main_box_phone_farm_s21fe.png",
-    "detail": "/images/real-products/product_Box_Phone_Farm_S21_FE_6_128GB_USB_LAN_OTG_black_circuit_board_box-phone-farm-s21-fe-en_main_box_phone_farm_s21fe.png"
+    "detail": "/images/real-products/product_Box_Phone_Farm_S21_FE_6_128GB_USB_LAN_OTG_black_circuit_board_box-phone-farm-s21-fe-en_main_box_phone_farm_s21fe.png",
+    "gallery": [
+      "/images/real-products/product_Box_Phone_Farm_S21_FE_6_128GB_USB_LAN_OTG_black_circuit_board_box-phone-farm-s21-fe-en_main_box_phone_farm_s21fe.png",
+      "/images/real-products/product_Box_Phone_Farm_S21_FE_6_128GB_USB_LAN_OTG_black_circuit_board_box-phone-farm-s21-fe-en_main_box_phone_farm_s21fe_(2).png",
+      "/images/real-products/product_Box_Phone_Farm_S21_FE_6_128GB_USB_LAN_OTG_black_circuit_board_box-phone-farm-s21-fe-en_main_box_phone_farm_s21fe__2_.png"
+    ]
+  },
+  "samsung-s8-farm-4-64": {
+    "card": "/images/real-products/product_Box_Phone_Farm_S8_S8_Latest_Generation_2026_USB_LAN_Port_box-phone-farm-s8-en_main_box_s8.png",
+    "hero": "/images/real-products/product_Box_Phone_Farm_S8_S8_Latest_Generation_2026_USB_LAN_Port_box-phone-farm-s8-en_main_box_s8.png",
+    "detail": "/images/real-products/product_Box_Phone_Farm_S8_S8_Latest_Generation_2026_USB_LAN_Port_box-phone-farm-s8-en_main_box_s8.png",
+    "gallery": [
+      "/images/real-products/product_Box_Phone_Farm_S8_S8_Latest_Generation_2026_USB_LAN_Port_box-phone-farm-s8-en_main_box_s8.png",
+      "/images/real-products/product_Perangkat_S8_S8_dijual_terpisah_dipasang_ke_dalam_Box_Phone_Farm_device-s8-id_gallery_2_main_s8.jpg",
+      "/images/real-products/product_Perangkat_S8_S8_dijual_terpisah_dipasang_ke_dalam_Box_Phone_Farm_device-s8-id_gallery_3_Frame_13.jpg",
+      "/images/real-products/product_Perangkat_S8_S8_dijual_terpisah_dipasang_ke_dalam_Box_Phone_Farm_device-s8-id_gallery_4_Frame_21.jpg",
+      "/images/real-products/product_Perangkat_S8_S8_dijual_terpisah_dipasang_ke_dalam_Box_Phone_Farm_device-s8-id_gallery_4_Frame_21_(2).jpg",
+      "/images/real-products/product_Perangkat_S8_S8_dijual_terpisah_dipasang_ke_dalam_Box_Phone_Farm_device-s8-id_gallery_4_Frame_21__2_.jpg"
+    ]
+  },
+  "samsung-s8-super-change-farm": {
+    "card": "/images/real-products/product_Box_Phone_Farm_S8_Super_Change_USB_Port_LAN_OTG_boxphone-s8-super-change-en_main_Box_Phone_Farm_S8_Super_Change_.png",
+    "hero": "/images/real-products/product_Box_Phone_Farm_S8_Super_Change_USB_Port_LAN_OTG_boxphone-s8-super-change-en_main_Box_Phone_Farm_S8_Super_Change_.png",
+    "detail": "/images/real-products/product_Box_Phone_Farm_S8_Super_Change_USB_Port_LAN_OTG_boxphone-s8-super-change-en_main_Box_Phone_Farm_S8_Super_Change_.png",
+    "gallery": [
+      "/images/real-products/product_Box_Phone_Farm_S8_Super_Change_USB_Port_LAN_OTG_boxphone-s8-super-change-en_main_Box_Phone_Farm_S8_Super_Change_.png"
+    ]
+  },
+  "samsung-s9-farm-6-64": {
+    "card": "/images/real-products/product_Box_Phone_Farm_S9_S9_Latest_Generation_2026_USB_LAN_OTG_Black_Circuit_Board_box-phone-farm-s9-en_main_box_phone_.png",
+    "hero": "/images/real-products/product_Box_Phone_Farm_S9_S9_Latest_Generation_2026_USB_LAN_OTG_Black_Circuit_Board_box-phone-farm-s9-en_main_box_phone_.png",
+    "detail": "/images/real-products/product_Box_Phone_Farm_S9_S9_Latest_Generation_2026_USB_LAN_OTG_Black_Circuit_Board_box-phone-farm-s9-en_main_box_phone_.png",
+    "gallery": [
+      "/images/real-products/product_Box_Phone_Farm_S9_S9_Latest_Generation_2026_USB_LAN_OTG_Black_Circuit_Board_box-phone-farm-s9-en_main_box_phone_.png"
+    ]
+  },
+  "samsung-z-flip3-farm-8-128": {
+    "card": "/images/real-products/product_Box_Phone_Farm_Z_Flip3_8_128GB_USB_LAN_OTG_black_circuit_box-phone-farm-z-flip3-en_main_box_phone_farm_zlip_3.png",
+    "hero": "/images/real-products/product_Box_Phone_Farm_Z_Flip3_8_128GB_USB_LAN_OTG_black_circuit_box-phone-farm-z-flip3-en_main_box_phone_farm_zlip_3.png",
+    "detail": "/images/real-products/product_Box_Phone_Farm_Z_Flip3_8_128GB_USB_LAN_OTG_black_circuit_box-phone-farm-z-flip3-en_main_box_phone_farm_zlip_3.png",
+    "gallery": [
+      "/images/real-products/product_Box_Phone_Farm_Z_Flip3_8_128GB_USB_LAN_OTG_black_circuit_box-phone-farm-z-flip3-en_main_box_phone_farm_zlip_3.png"
+    ]
+  },
+  "samsung-z-flip4-farm-8-128": {
+    "card": "/images/real-products/product_Box_Phone_Farm_Z_Flip4_8_128GB_USB_LAN_OTG_black_circuit_box-phone-farm-z-flip4-en_main_box_phone_farm_zlip_4.png",
+    "hero": "/images/real-products/product_Box_Phone_Farm_Z_Flip4_8_128GB_USB_LAN_OTG_black_circuit_box-phone-farm-z-flip4-en_main_box_phone_farm_zlip_4.png",
+    "detail": "/images/real-products/product_Box_Phone_Farm_Z_Flip4_8_128GB_USB_LAN_OTG_black_circuit_box-phone-farm-z-flip4-en_main_box_phone_farm_zlip_4.png",
+    "gallery": [
+      "/images/real-products/product_Box_Phone_Farm_Z_Flip4_8_128GB_USB_LAN_OTG_black_circuit_box-phone-farm-z-flip4-en_main_box_phone_farm_zlip_4.png"
+    ]
   },
   "oppo-find-x2-farm-8-128": {
-    "card": "/images/real-factory/box-shots/2025_10_25_11_33_IMG_0561.png",
-    "hero": "/images/real-factory/box-shots/2025_10_25_11_33_IMG_0561.png",
-    "detail": "/images/real-factory/box-shots/2025_10_25_11_33_IMG_0561.png"
+    "card": "/images/real-factory/box-shots/2025_10_25_11_21_IMG_0547.png",
+    "hero": "/images/real-factory/box-shots/2025_10_25_11_21_IMG_0547.png",
+    "detail": "/images/real-factory/box-shots/2025_10_25_11_21_IMG_0547.png",
+    "gallery": [
+      "/images/real-factory/box-shots/2025_10_25_11_21_IMG_0547.png"
+    ]
   },
   "oppo-find-x2-pro-farm-12-256": {
-    "card": "/images/real-factory/box-shots/2025_10_25_11_37_IMG_0566.png",
-    "hero": "/images/real-factory/box-shots/2025_10_25_11_37_IMG_0566.png",
-    "detail": "/images/real-factory/box-shots/2025_10_25_11_37_IMG_0566.png"
+    "card": "/images/real-factory/box-shots/2025_10_25_11_24_IMG_0549.png",
+    "hero": "/images/real-factory/box-shots/2025_10_25_11_24_IMG_0549.png",
+    "detail": "/images/real-factory/box-shots/2025_10_25_11_24_IMG_0549.png",
+    "gallery": [
+      "/images/real-factory/box-shots/2025_10_25_11_24_IMG_0549.png"
+    ]
   },
   "oppo-find-x3-neo-farm-8-128": {
-    "card": "/images/card_800x800/phonefarm.cyou-product-box-0f5501e1584de9a625d220f62951bc6d-d04df-card_800x800.webp",
-    "hero": "/images/card_800x800/phonefarm.cyou-product-box-0f5501e1584de9a625d220f62951bc6d-d04df-card_800x800.webp",
-    "detail": "/images/card_800x800/phonefarm.cyou-product-box-0f5501e1584de9a625d220f62951bc6d-d04df-card_800x800.webp"
+    "card": "/images/real-factory/box-shots/2025_10_25_11_27_IMG_0551.png",
+    "hero": "/images/real-factory/box-shots/2025_10_25_11_27_IMG_0551.png",
+    "detail": "/images/real-factory/box-shots/2025_10_25_11_27_IMG_0551.png",
+    "gallery": [
+      "/images/real-factory/box-shots/2025_10_25_11_27_IMG_0551.png"
+    ]
   },
   "oppo-reno5-pro-farm-8-128": {
-    "card": "/images/card_800x800/phonefarm.cyou-product-box-2025-10-25-11-24-img-0549-f696b-card_800x800.webp",
-    "hero": "/images/card_800x800/phonefarm.cyou-product-box-2025-10-25-11-24-img-0549-f696b-card_800x800.webp",
-    "detail": "/images/card_800x800/phonefarm.cyou-product-box-2025-10-25-11-24-img-0549-f696b-card_800x800.webp"
+    "card": "/images/real-factory/box-shots/2025_10_25_11_28_IMG_0553.png",
+    "hero": "/images/real-factory/box-shots/2025_10_25_11_28_IMG_0553.png",
+    "detail": "/images/real-factory/box-shots/2025_10_25_11_28_IMG_0553.png",
+    "gallery": [
+      "/images/real-factory/box-shots/2025_10_25_11_28_IMG_0553.png"
+    ]
   },
   "xiaomi-6x-a2-farm-4-64": {
-    "card": "/images/real-factory/box-shots/2025_10_25_11_21_IMG_0547.png",
-    "hero": "/images/real-factory/box-shots/2025_10_25_11_21_IMG_0547.png",
-    "detail": "/images/real-factory/box-shots/2025_10_25_11_21_IMG_0547.png"
+    "card": "/images/real-factory/box-shots/2025_10_25_11_33_IMG_0561.png",
+    "hero": "/images/real-factory/box-shots/2025_10_25_11_33_IMG_0561.png",
+    "detail": "/images/real-factory/box-shots/2025_10_25_11_33_IMG_0561.png",
+    "gallery": [
+      "/images/real-factory/box-shots/2025_10_25_11_33_IMG_0561.png"
+    ]
   },
   "xiaomi-8se-farm-6-64": {
-    "card": "/images/real-factory/box-shots/2025_10_25_11_24_IMG_0549.png",
-    "hero": "/images/real-factory/box-shots/2025_10_25_11_24_IMG_0549.png",
-    "detail": "/images/real-factory/box-shots/2025_10_25_11_24_IMG_0549.png"
-  },
-  "xiaomi-mix-2-farm-6-64": {
-    "card": "/images/real-factory/box-shots/2025_10_25_11_27_IMG_0551.png",
-    "hero": "/images/real-factory/box-shots/2025_10_25_11_27_IMG_0551.png",
-    "detail": "/images/real-factory/box-shots/2025_10_25_11_27_IMG_0551.png"
-  },
-  "xiaomi-8-farm-8-128": {
-    "card": "/images/real-factory/box-shots/2025_10_25_11_28_IMG_0553.png",
-    "hero": "/images/real-factory/box-shots/2025_10_25_11_28_IMG_0553.png",
-    "detail": "/images/real-factory/box-shots/2025_10_25_11_28_IMG_0553.png"
-  },
-  "oneplus-3-farm-6-64": {
-    "card": "/images/real-factory/box-shots/2025_10_25_11_33_IMG_0561.png",
-    "hero": "/images/real-factory/box-shots/2025_10_25_11_33_IMG_0561.png",
-    "detail": "/images/real-factory/box-shots/2025_10_25_11_33_IMG_0561.png"
-  },
-  "oneplus-8-pro-farm-12-256": {
-    "card": "/images/real-products/product_Box_Phone_Farm_OnePlus_8_Pro_8_128GB_USB_Port_LAN_OTG_box-phone-farm-oneplus-8-pro-en_main_oneplus_8_pro.png",
-    "hero": "/images/real-products/product_Box_Phone_Farm_OnePlus_8_Pro_8_128GB_USB_Port_LAN_OTG_box-phone-farm-oneplus-8-pro-en_main_oneplus_8_pro.png",
-    "detail": "/images/real-products/product_Box_Phone_Farm_OnePlus_8_Pro_8_128GB_USB_Port_LAN_OTG_box-phone-farm-oneplus-8-pro-en_main_oneplus_8_pro.png"
-  },
-  "oneplus-9-pro-farm-8-128": {
-    "card": "/images/card_800x800/phonefarm.cyou-product-box-0f5501e1584de9a625d220f62951bc6d-d04df-card_800x800.webp",
-    "hero": "/images/card_800x800/phonefarm.cyou-product-box-0f5501e1584de9a625d220f62951bc6d-d04df-card_800x800.webp",
-    "detail": "/images/card_800x800/phonefarm.cyou-product-box-0f5501e1584de9a625d220f62951bc6d-d04df-card_800x800.webp"
-  },
-  "oneplus-11-farm-16-256": {
-    "card": "/images/card_800x800/phonefarm.cyou-product-box-2025-10-25-11-24-img-0549-f696b-card_800x800.webp",
-    "hero": "/images/card_800x800/phonefarm.cyou-product-box-2025-10-25-11-24-img-0549-f696b-card_800x800.webp",
-    "detail": "/images/card_800x800/phonefarm.cyou-product-box-2025-10-25-11-24-img-0549-f696b-card_800x800.webp"
-  },
-  "pixel-4a-farm-6-128": {
-    "card": "/images/real-products/product_Box_Phone_Farm_Pixel_4XL_Super_Change_Cong_USB_LAN_OTG_box-phone-farm-pixel-4xl-super-change_gallery_2_box_speci.png",
-    "hero": "/images/real-products/product_Box_Phone_Farm_Pixel_4XL_Super_Change_Cong_USB_LAN_OTG_box-phone-farm-pixel-4xl-super-change_gallery_2_box_speci.png",
-    "detail": "/images/real-products/product_Box_Phone_Farm_Pixel_4XL_Super_Change_Cong_USB_LAN_OTG_box-phone-farm-pixel-4xl-super-change_gallery_2_box_speci.png"
-  },
-  "pixel-5-farm-8-128": {
-    "card": "/images/real-factory/box-shots/2025_10_25_11_24_IMG_0549.png",
-    "hero": "/images/real-factory/box-shots/2025_10_25_11_24_IMG_0549.png",
-    "detail": "/images/real-factory/box-shots/2025_10_25_11_24_IMG_0549.png"
-  },
-  "pixel-6-farm-8-128": {
-    "card": "/images/real-factory/box-shots/2025_10_25_11_27_IMG_0551.png",
-    "hero": "/images/real-factory/box-shots/2025_10_25_11_27_IMG_0551.png",
-    "detail": "/images/real-factory/box-shots/2025_10_25_11_27_IMG_0551.png"
-  },
-  "pixel-7-pro-farm-12-128": {
-    "card": "/images/real-factory/box-shots/2025_10_25_11_28_IMG_0553.png",
-    "hero": "/images/real-factory/box-shots/2025_10_25_11_28_IMG_0553.png",
-    "detail": "/images/real-factory/box-shots/2025_10_25_11_28_IMG_0553.png"
-  },
-  "motherboard-box-20-slot": {
-    "card": "/images/card_800x800/phonefarm.cyou-product-box-2025-10-25-11-27-img-0551-a9b35-card_800x800.webp",
-    "hero": "/images/card_800x800/phonefarm.cyou-product-box-2025-10-25-11-27-img-0551-a9b35-card_800x800.webp",
-    "detail": "/images/card_800x800/phonefarm.cyou-product-box-2025-10-25-11-27-img-0551-a9b35-card_800x800.webp"
-  },
-  "industrial-usb-hub-20-port": {
-    "card": "/images/card_800x800/phonefarm.cyou-product-box-2025-10-25-11-28-img-0553-47327-card_800x800.webp",
-    "hero": "/images/card_800x800/phonefarm.cyou-product-box-2025-10-25-11-28-img-0553-47327-card_800x800.webp",
-    "detail": "/images/card_800x800/phonefarm.cyou-product-box-2025-10-25-11-28-img-0553-47327-card_800x800.webp"
-  },
-  "adaptive-power-supply-550w": {
-    "card": "/images/card_800x800/phonefarm.cyou-product-box-2025-10-25-11-33-img-0561-db197-card_800x800.webp",
-    "hero": "/images/card_800x800/phonefarm.cyou-product-box-2025-10-25-11-33-img-0561-db197-card_800x800.webp",
-    "detail": "/images/card_800x800/phonefarm.cyou-product-box-2025-10-25-11-33-img-0561-db197-card_800x800.webp"
-  },
-  "quad-fan-cooling-kit": {
-    "card": "/images/hero_1600x900/phonefarm.cyou-product-box-2025-10-25-11-21-img-0547-4b35a-hero_1600x900.webp",
-    "hero": "/images/hero_1600x900/phonefarm.cyou-product-box-2025-10-25-11-21-img-0547-4b35a-hero_1600x900.webp",
-    "detail": "/images/hero_1600x900/phonefarm.cyou-product-box-2025-10-25-11-21-img-0547-4b35a-hero_1600x900.webp"
-  },
-  "gigabit-farm-network-kit": {
-    "card": "/images/real-factory/box-shots/2025_10_25_11_21_IMG_0547.png",
-    "hero": "/images/real-factory/box-shots/2025_10_25_11_21_IMG_0547.png",
-    "detail": "/images/real-factory/box-shots/2025_10_25_11_21_IMG_0547.png"
-  },
-  "mirror-setup-basic-renewal": {
-    "card": "/images/real-factory/box-shots/2025_10_25_11_24_IMG_0549.png",
-    "hero": "/images/real-factory/box-shots/2025_10_25_11_24_IMG_0549.png",
-    "detail": "/images/real-factory/box-shots/2025_10_25_11_24_IMG_0549.png"
-  },
-  "mirror-setup-cloud-bridge": {
-    "card": "/images/real-factory/box-shots/2025_10_25_11_27_IMG_0551.png",
-    "hero": "/images/real-factory/box-shots/2025_10_25_11_27_IMG_0551.png",
-    "detail": "/images/real-factory/box-shots/2025_10_25_11_27_IMG_0551.png"
-  },
-  "mirror-setup-annual-pro": {
-    "card": "/images/real-factory/box-shots/2025_10_25_11_28_IMG_0553.png",
-    "hero": "/images/real-factory/box-shots/2025_10_25_11_28_IMG_0553.png",
-    "detail": "/images/real-factory/box-shots/2025_10_25_11_28_IMG_0553.png"
-  },
-  "group-control-onboarding": {
-    "card": "/images/real-factory/box-shots/2025_10_25_11_33_IMG_0561.png",
-    "hero": "/images/real-factory/box-shots/2025_10_25_11_33_IMG_0561.png",
-    "detail": "/images/real-factory/box-shots/2025_10_25_11_33_IMG_0561.png"
-  },
-  "package-starter-setup": {
     "card": "/images/real-factory/box-shots/2025_10_25_11_37_IMG_0566.png",
     "hero": "/images/real-factory/box-shots/2025_10_25_11_37_IMG_0566.png",
-    "detail": "/images/real-factory/box-shots/2025_10_25_11_37_IMG_0566.png"
+    "detail": "/images/real-factory/box-shots/2025_10_25_11_37_IMG_0566.png",
+    "gallery": [
+      "/images/real-factory/box-shots/2025_10_25_11_37_IMG_0566.png"
+    ]
   },
-  "package-studio-pro": {
+  "xiaomi-mix-2-farm-6-64": {
     "card": "/images/card_800x800/phonefarm.cyou-product-box-0f5501e1584de9a625d220f62951bc6d-d04df-card_800x800.webp",
     "hero": "/images/card_800x800/phonefarm.cyou-product-box-0f5501e1584de9a625d220f62951bc6d-d04df-card_800x800.webp",
-    "detail": "/images/card_800x800/phonefarm.cyou-product-box-0f5501e1584de9a625d220f62951bc6d-d04df-card_800x800.webp"
+    "detail": "/images/card_800x800/phonefarm.cyou-product-box-0f5501e1584de9a625d220f62951bc6d-d04df-card_800x800.webp",
+    "gallery": [
+      "/images/card_800x800/phonefarm.cyou-product-box-0f5501e1584de9a625d220f62951bc6d-d04df-card_800x800.webp"
+    ]
+  },
+  "xiaomi-8-farm-8-128": {
+    "card": "/images/card_800x800/phonefarm.cyou-accessories-networkdevice-cablesaccessoriesshowcase-e6cc8-card_800x800.webp",
+    "hero": "/images/card_800x800/phonefarm.cyou-accessories-networkdevice-cablesaccessoriesshowcase-e6cc8-card_800x800.webp",
+    "detail": "/images/card_800x800/phonefarm.cyou-accessories-networkdevice-cablesaccessoriesshowcase-e6cc8-card_800x800.webp",
+    "gallery": [
+      "/images/card_800x800/phonefarm.cyou-accessories-networkdevice-cablesaccessoriesshowcase-e6cc8-card_800x800.webp"
+    ]
+  },
+  "oneplus-3-farm-6-64": {
+    "card": "/images/real-factory/box-shots/2025_10_25_11_21_IMG_0547.png",
+    "hero": "/images/real-factory/box-shots/2025_10_25_11_21_IMG_0547.png",
+    "detail": "/images/real-factory/box-shots/2025_10_25_11_21_IMG_0547.png",
+    "gallery": [
+      "/images/real-factory/box-shots/2025_10_25_11_21_IMG_0547.png"
+    ]
+  },
+  "oneplus-9-pro-farm-8-128": {
+    "card": "/images/real-factory/box-shots/2025_10_25_11_24_IMG_0549.png",
+    "hero": "/images/real-factory/box-shots/2025_10_25_11_24_IMG_0549.png",
+    "detail": "/images/real-factory/box-shots/2025_10_25_11_24_IMG_0549.png",
+    "gallery": [
+      "/images/real-factory/box-shots/2025_10_25_11_24_IMG_0549.png"
+    ]
+  },
+  "oneplus-11-farm-16-256": {
+    "card": "/images/real-factory/box-shots/2025_10_25_11_27_IMG_0551.png",
+    "hero": "/images/real-factory/box-shots/2025_10_25_11_27_IMG_0551.png",
+    "detail": "/images/real-factory/box-shots/2025_10_25_11_27_IMG_0551.png",
+    "gallery": [
+      "/images/real-factory/box-shots/2025_10_25_11_27_IMG_0551.png"
+    ]
+  },
+  "oneplus-8-pro-farm-12-256": {
+    "card": "/images/real-factory/box-shots/2025_10_25_11_28_IMG_0553.png",
+    "hero": "/images/real-factory/box-shots/2025_10_25_11_28_IMG_0553.png",
+    "detail": "/images/real-factory/box-shots/2025_10_25_11_28_IMG_0553.png",
+    "gallery": [
+      "/images/real-factory/box-shots/2025_10_25_11_28_IMG_0553.png"
+    ]
+  },
+  "pixel-4a-farm-6-128": {
+    "card": "/images/real-factory/box-shots/2025_10_25_11_33_IMG_0561.png",
+    "hero": "/images/real-factory/box-shots/2025_10_25_11_33_IMG_0561.png",
+    "detail": "/images/real-factory/box-shots/2025_10_25_11_33_IMG_0561.png",
+    "gallery": [
+      "/images/real-factory/box-shots/2025_10_25_11_33_IMG_0561.png"
+    ]
+  },
+  "pixel-5-farm-8-128": {
+    "card": "/images/real-factory/box-shots/2025_10_25_11_37_IMG_0566.png",
+    "hero": "/images/real-factory/box-shots/2025_10_25_11_37_IMG_0566.png",
+    "detail": "/images/real-factory/box-shots/2025_10_25_11_37_IMG_0566.png",
+    "gallery": [
+      "/images/real-factory/box-shots/2025_10_25_11_37_IMG_0566.png"
+    ]
+  },
+  "pixel-6-farm-8-128": {
+    "card": "/images/card_800x800/phonefarm.cyou-product-box-0f5501e1584de9a625d220f62951bc6d-d04df-card_800x800.webp",
+    "hero": "/images/card_800x800/phonefarm.cyou-product-box-0f5501e1584de9a625d220f62951bc6d-d04df-card_800x800.webp",
+    "detail": "/images/card_800x800/phonefarm.cyou-product-box-0f5501e1584de9a625d220f62951bc6d-d04df-card_800x800.webp",
+    "gallery": [
+      "/images/card_800x800/phonefarm.cyou-product-box-0f5501e1584de9a625d220f62951bc6d-d04df-card_800x800.webp"
+    ]
+  },
+  "pixel-7-pro-farm-12-128": {
+    "card": "/images/card_800x800/phonefarm.cyou-accessories-networkdevice-cablesaccessoriesshowcase-e6cc8-card_800x800.webp",
+    "hero": "/images/card_800x800/phonefarm.cyou-accessories-networkdevice-cablesaccessoriesshowcase-e6cc8-card_800x800.webp",
+    "detail": "/images/card_800x800/phonefarm.cyou-accessories-networkdevice-cablesaccessoriesshowcase-e6cc8-card_800x800.webp",
+    "gallery": [
+      "/images/card_800x800/phonefarm.cyou-accessories-networkdevice-cablesaccessoriesshowcase-e6cc8-card_800x800.webp"
+    ]
+  },
+  "samsung-s9-plus-farm-6-64": {
+    "card": "/images/real-factory/box-shots/2025_10_25_11_21_IMG_0547.png",
+    "hero": "/images/real-factory/box-shots/2025_10_25_11_21_IMG_0547.png",
+    "detail": "/images/real-factory/box-shots/2025_10_25_11_21_IMG_0547.png",
+    "gallery": [
+      "/images/real-factory/box-shots/2025_10_25_11_21_IMG_0547.png"
+    ]
+  },
+  "samsung-s22-farm-8-128": {
+    "card": "/images/real-factory/box-shots/2025_10_25_11_24_IMG_0549.png",
+    "hero": "/images/real-factory/box-shots/2025_10_25_11_24_IMG_0549.png",
+    "detail": "/images/real-factory/box-shots/2025_10_25_11_24_IMG_0549.png",
+    "gallery": [
+      "/images/real-factory/box-shots/2025_10_25_11_24_IMG_0549.png"
+    ]
+  },
+  "motherboard-box-20-slot": {
+    "card": "/images/real-factory/box-shots/2025_10_25_11_27_IMG_0551.png",
+    "hero": "/images/real-factory/box-shots/2025_10_25_11_27_IMG_0551.png",
+    "detail": "/images/real-factory/box-shots/2025_10_25_11_27_IMG_0551.png",
+    "gallery": [
+      "/images/real-factory/box-shots/2025_10_25_11_27_IMG_0551.png"
+    ]
+  },
+  "industrial-usb-hub-20-port": {
+    "card": "/images/real-factory/box-shots/2025_10_25_11_28_IMG_0553.png",
+    "hero": "/images/real-factory/box-shots/2025_10_25_11_28_IMG_0553.png",
+    "detail": "/images/real-factory/box-shots/2025_10_25_11_28_IMG_0553.png",
+    "gallery": [
+      "/images/real-factory/box-shots/2025_10_25_11_28_IMG_0553.png"
+    ]
+  },
+  "adaptive-power-supply-550w": {
+    "card": "/images/real-factory/box-shots/2025_10_25_11_33_IMG_0561.png",
+    "hero": "/images/real-factory/box-shots/2025_10_25_11_33_IMG_0561.png",
+    "detail": "/images/real-factory/box-shots/2025_10_25_11_33_IMG_0561.png",
+    "gallery": [
+      "/images/real-factory/box-shots/2025_10_25_11_33_IMG_0561.png"
+    ]
+  },
+  "quad-fan-cooling-kit": {
+    "card": "/images/real-factory/box-shots/2025_10_25_11_37_IMG_0566.png",
+    "hero": "/images/real-factory/box-shots/2025_10_25_11_37_IMG_0566.png",
+    "detail": "/images/real-factory/box-shots/2025_10_25_11_37_IMG_0566.png",
+    "gallery": [
+      "/images/real-factory/box-shots/2025_10_25_11_37_IMG_0566.png"
+    ]
+  },
+  "gigabit-farm-network-kit": {
+    "card": "/images/card_800x800/phonefarm.cyou-product-box-0f5501e1584de9a625d220f62951bc6d-d04df-card_800x800.webp",
+    "hero": "/images/card_800x800/phonefarm.cyou-product-box-0f5501e1584de9a625d220f62951bc6d-d04df-card_800x800.webp",
+    "detail": "/images/card_800x800/phonefarm.cyou-product-box-0f5501e1584de9a625d220f62951bc6d-d04df-card_800x800.webp",
+    "gallery": [
+      "/images/card_800x800/phonefarm.cyou-product-box-0f5501e1584de9a625d220f62951bc6d-d04df-card_800x800.webp"
+    ]
+  },
+  "mirror-setup-basic-renewal": {
+    "card": "/images/card_800x800/phonefarm.cyou-accessories-networkdevice-cablesaccessoriesshowcase-e6cc8-card_800x800.webp",
+    "hero": "/images/card_800x800/phonefarm.cyou-accessories-networkdevice-cablesaccessoriesshowcase-e6cc8-card_800x800.webp",
+    "detail": "/images/card_800x800/phonefarm.cyou-accessories-networkdevice-cablesaccessoriesshowcase-e6cc8-card_800x800.webp",
+    "gallery": [
+      "/images/card_800x800/phonefarm.cyou-accessories-networkdevice-cablesaccessoriesshowcase-e6cc8-card_800x800.webp"
+    ]
+  },
+  "mirror-setup-cloud-bridge": {
+    "card": "/images/real-factory/box-shots/2025_10_25_11_21_IMG_0547.png",
+    "hero": "/images/real-factory/box-shots/2025_10_25_11_21_IMG_0547.png",
+    "detail": "/images/real-factory/box-shots/2025_10_25_11_21_IMG_0547.png",
+    "gallery": [
+      "/images/real-factory/box-shots/2025_10_25_11_21_IMG_0547.png"
+    ]
+  },
+  "mirror-setup-annual-pro": {
+    "card": "/images/real-factory/box-shots/2025_10_25_11_24_IMG_0549.png",
+    "hero": "/images/real-factory/box-shots/2025_10_25_11_24_IMG_0549.png",
+    "detail": "/images/real-factory/box-shots/2025_10_25_11_24_IMG_0549.png",
+    "gallery": [
+      "/images/real-factory/box-shots/2025_10_25_11_24_IMG_0549.png"
+    ]
+  },
+  "group-control-onboarding": {
+    "card": "/images/real-factory/box-shots/2025_10_25_11_27_IMG_0551.png",
+    "hero": "/images/real-factory/box-shots/2025_10_25_11_27_IMG_0551.png",
+    "detail": "/images/real-factory/box-shots/2025_10_25_11_27_IMG_0551.png",
+    "gallery": [
+      "/images/real-factory/box-shots/2025_10_25_11_27_IMG_0551.png"
+    ]
+  },
+  "package-starter-setup": {
+    "card": "/images/real-factory/box-shots/2025_10_25_11_28_IMG_0553.png",
+    "hero": "/images/real-factory/box-shots/2025_10_25_11_28_IMG_0553.png",
+    "detail": "/images/real-factory/box-shots/2025_10_25_11_28_IMG_0553.png",
+    "gallery": [
+      "/images/real-factory/box-shots/2025_10_25_11_28_IMG_0553.png"
+    ]
+  },
+  "package-studio-pro": {
+    "card": "/images/real-factory/box-shots/2025_10_25_11_33_IMG_0561.png",
+    "hero": "/images/real-factory/box-shots/2025_10_25_11_33_IMG_0561.png",
+    "detail": "/images/real-factory/box-shots/2025_10_25_11_33_IMG_0561.png",
+    "gallery": [
+      "/images/real-factory/box-shots/2025_10_25_11_33_IMG_0561.png"
+    ]
   },
   "package-enterprise-deploy": {
-    "card": "/images/card_800x800/phonefarm.cyou-product-box-2025-10-25-11-24-img-0549-f696b-card_800x800.webp",
-    "hero": "/images/card_800x800/phonefarm.cyou-product-box-2025-10-25-11-24-img-0549-f696b-card_800x800.webp",
-    "detail": "/images/card_800x800/phonefarm.cyou-product-box-2025-10-25-11-24-img-0549-f696b-card_800x800.webp"
+    "card": "/images/real-factory/box-shots/2025_10_25_11_37_IMG_0566.png",
+    "hero": "/images/real-factory/box-shots/2025_10_25_11_37_IMG_0566.png",
+    "detail": "/images/real-factory/box-shots/2025_10_25_11_37_IMG_0566.png",
+    "gallery": [
+      "/images/real-factory/box-shots/2025_10_25_11_37_IMG_0566.png"
+    ]
   }
 }
