@@ -19,8 +19,8 @@ Production uses **Neon PostgreSQL** via Vercel environment variables:
 
 | Variable | Purpose |
 |----------|---------|
-| `DATABASE_URL` | Neon **pooled** connection string (app runtime) |
-| `DIRECT_URL` | Neon **direct** connection string (`prisma migrate deploy`) |
+| `DATABASE_URL` | Neon connection string (pooled or direct) |
+| `DIRECT_URL` | Neon **direct** URL for `prisma migrate deploy` (optional — falls back to `DATABASE_URL`) |
 
 The build runs `prisma migrate deploy` then `prisma db seed` (products + admin upsert only — never deletes orders or inquiries).
 
@@ -28,8 +28,8 @@ The build runs `prisma migrate deploy` then `prisma db seed` (products + admin u
 
 | Variable | Required | Notes |
 |----------|----------|--------|
-| `DATABASE_URL` | Yes | Neon pooled URL |
-| `DIRECT_URL` | Yes | Neon direct URL |
+| `DATABASE_URL` | Yes | Neon pooled or direct URL |
+| `DIRECT_URL` | Recommended | Neon direct URL; if omitted, build uses `DATABASE_URL` |
 | `JWT_SECRET` | Yes | Long random string |
 | `ADMIN_EMAIL` / `ADMIN_PASSWORD` | Yes | Admin login |
 | `SITE_URL` | Yes | `https://www.phonefarm.cyou` |
