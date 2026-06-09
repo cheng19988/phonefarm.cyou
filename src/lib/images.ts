@@ -3,12 +3,15 @@ const CHASSIS_HERO = "/images/real-factory/box-shots/2025_10_25_11_21_IMG_0547.p
 const CHASSIS_HERO_ALT = "/images/real-factory/box-shots/2025_10_25_11_37_IMG_0566.png";
 const WEBP_HERO =
   "/images/hero_1600x900/phonefarm.cyou-product-box-2025-10-25-11-21-img-0547-4b35a-hero_1600x900.webp";
+/** Homepage hero — honeycomb chassis with internal trays (user-preferred background) */
+const WEBP_HERO_HOME =
+  "/images/hero_1600x900/phonefarm.cyou-product-box-2025-10-25-11-37-img-0566-ee21b-hero_1600x900.webp";
 
 export const IMAGES = {
-  hero: CHASSIS_HERO,
+  hero: WEBP_HERO_HOME,
   heroAlt: CHASSIS_HERO_ALT,
   heroFallback: WEBP_HERO,
-  heroAltFallback: WEBP_HERO,
+  heroAltFallback: WEBP_HERO_HOME,
   facility: {
     assembly: "/images/real-factory/photos/2025_05_27_00_28_IMG_0332.JPG",
     burnIn: "/images/real-factory/box-shots/2025_10_25_11_45_IMG_0575.png",
