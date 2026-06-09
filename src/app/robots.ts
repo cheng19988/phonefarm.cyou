@@ -6,6 +6,7 @@ const DISALLOW = [
   "/api/",
   "/account/",
   "/cart",
+  "/checkout",
   "/login",
   "/register",
 ];

@@ -2,6 +2,8 @@ import Link from "next/link";
 import { ContactBar } from "./ContactBar";
 import { SiteBar } from "./SiteBar";
 import { MobileNav } from "./MobileNav";
+import { CartLink } from "./CartLink";
+import { HeaderAccountMenu } from "./HeaderAccountMenu";
 import { SITE, SHOP_BRANDS, CONTACT } from "@/lib/constants";
 
 const nav = [
@@ -41,6 +43,10 @@ export function Header() {
         </nav>
         <div className="flex items-center gap-2 text-sm sm:gap-3">
           <SiteBar />
+          <div className="hidden sm:flex items-center gap-3 text-sm">
+            <CartLink />
+            <HeaderAccountMenu />
+          </div>
           <Link href="/services/packages" className="hidden md:inline text-amber-400 hover:text-amber-300">
             Packages
           </Link>

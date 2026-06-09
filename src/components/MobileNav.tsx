@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { CONTACT, SITE } from "@/lib/constants";
+import { CartLink } from "./CartLink";
 
 const links = [
   { href: "/", label: "Home" },
@@ -56,6 +57,12 @@ export function MobileNav() {
                 </li>
               ))}
             </ul>
+            <div className="mt-4 flex gap-4 border-t border-slate-800 pt-4 text-sm">
+              <CartLink />
+              <Link href="/account/orders" onClick={() => setOpen(false)} className="text-slate-300 hover:text-white">
+                Account
+              </Link>
+            </div>
             <div className="mt-4 grid grid-cols-2 gap-2 border-t border-slate-800 pt-4">
               <a
                 href={CONTACT.whatsappUrl}

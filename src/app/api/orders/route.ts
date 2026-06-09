@@ -4,11 +4,31 @@ import { prisma } from "@/lib/prisma";
 import { getSession } from "@/lib/auth";
 import { PAYMENT } from "@/lib/constants";
 import { generateOrderNumber, orderExpiryDate } from "@/lib/orders";
+import { canAddToCart } from "@/lib/product-purchase";
+import { notifyOrderEvent } from "@/lib/order-notify";
 
-const schema = z.object({
+const legacySchema = z.object({
   productId: z.string(),
   quantity: z.number().int().min(1).default(1),
   orderType: z.enum(["purchase", "quote"]).default("purchase"),
+});
+
+const checkoutSchema = z.object({
+  items: z
+    .array(
+      z.object({
+        productId: z.string(),
+        quantity: z.number().int().min(1),
+      })
+    )
+    .min(1),
+  customerName: z.string().min(1),
+  customerEmail: z.string().email(),
+  contactMessaging: z.string().optional(),
+  country: z.string().optional(),
+  shippingAddress: z.string().min(1),
+  orderNotes: z.string().optional(),
+  paymentMethod: z.literal("USDT_TRC20").default("USDT_TRC20"),
 });
 
 export async function GET() {
@@ -18,7 +38,10 @@ export async function GET() {
   }
   const orders = await prisma.order.findMany({
     where: { userId: session.sub },
-    include: { product: true },
+    include: {
+      product: true,
+      items: { include: { product: true } },
+    },
     orderBy: { createdAt: "desc" },
   });
   return NextResponse.json(orders);
@@ -29,8 +52,103 @@ export async function POST(req: Request) {
   if (!session || session.role !== "user") {
     return NextResponse.json({ error: "Login required" }, { status: 401 });
   }
+
   try {
-    const { productId, quantity, orderType } = schema.parse(await req.json());
+    const body = await req.json();
+
+    if (Array.isArray(body.items)) {
+      const data = checkoutSchema.parse(body);
+      const products = await prisma.product.findMany({
+        where: { id: { in: data.items.map((i) => i.productId) }, published: true },
+      });
+      if (products.length !== data.items.length) {
+        return NextResponse.json({ error: "One or more products not found" }, { status: 404 });
+      }
+
+      const lines = data.items.map((item) => {
+        const product = products.find((p) => p.id === item.productId)!;
+        if (!canAddToCart(product)) {
+          throw new Error(`Product not available for direct purchase: ${product.name}`);
+        }
+        if (product.stock < item.quantity) {
+          throw new Error(`Insufficient availability for ${product.name}`);
+        }
+        const unitPrice = product.priceUsd;
+        return {
+          product,
+          quantity: item.quantity,
+          unitPriceUsd: unitPrice,
+          lineTotalUsd: unitPrice * item.quantity,
+        };
+      });
+
+      const subtotal = lines.reduce((sum, l) => sum + l.lineTotalUsd, 0);
+      const expectedAmount = Math.max(PAYMENT.minAmount, subtotal);
+      const first = lines[0]!.product;
+
+      const order = await prisma.order.create({
+        data: {
+          orderNumber: generateOrderNumber(),
+          userId: session.sub,
+          productId: first.id,
+          quantity: lines.reduce((n, l) => n + l.quantity, 0),
+          orderType: "purchase",
+          status: "pending payment",
+          expectedAmount,
+          paymentAddress: PAYMENT.address,
+          paymentNetwork: PAYMENT.network,
+          paymentCurrency: PAYMENT.currency,
+          paymentStatus: "unpaid",
+          customerName: data.customerName,
+          customerEmail: data.customerEmail,
+          contactMessaging: data.contactMessaging,
+          country: data.country,
+          shippingAddress: data.shippingAddress,
+          orderNotes: data.orderNotes,
+          expiresAt: orderExpiryDate(),
+          items: {
+            create: lines.map((l) => ({
+              productId: l.product.id,
+              quantity: l.quantity,
+              unitPriceUsd: l.unitPriceUsd,
+              lineTotalUsd: l.lineTotalUsd,
+            })),
+          },
+        },
+        include: {
+          items: { include: { product: true } },
+        },
+      });
+
+      for (const line of lines) {
+        await prisma.product.update({
+          where: { id: line.product.id },
+          data: { stock: { decrement: line.quantity } },
+        });
+      }
+
+      void notifyOrderEvent({
+        kind: "order_created",
+        orderNumber: order.orderNumber,
+        customerName: data.customerName,
+        customerEmail: data.customerEmail,
+        contactMessaging: data.contactMessaging,
+        country: data.country,
+        shippingAddress: data.shippingAddress,
+        orderNotes: data.orderNotes,
+        expectedAmount,
+        paymentStatus: "unpaid",
+        items: order.items.map((i) => ({
+          name: i.product.name,
+          quantity: i.quantity,
+          lineTotalUsd: i.lineTotalUsd,
+        })),
+      });
+
+      return NextResponse.json(order);
+    }
+
+    const { productId, quantity, orderType } = legacySchema.parse(body);
     const product = await prisma.product.findUnique({ where: { id: productId } });
     if (!product || !product.published) {
       return NextResponse.json({ error: "Product not found" }, { status: 404 });
@@ -49,15 +167,23 @@ export async function POST(req: Request) {
         productId: product.id,
         quantity,
         orderType,
-        status: orderType === "quote" ? "Pending" : "Waiting for Payment",
+        status: orderType === "quote" ? "pending" : "pending payment",
         expectedAmount,
         paymentAddress: PAYMENT.address,
         paymentNetwork: PAYMENT.network,
         paymentCurrency: PAYMENT.currency,
         paymentStatus: orderType === "quote" ? "quote" : "unpaid",
         expiresAt: orderExpiryDate(),
+        items: {
+          create: {
+            productId: product.id,
+            quantity,
+            unitPriceUsd: unitPrice,
+            lineTotalUsd: unitPrice * quantity,
+          },
+        },
       },
-      include: { product: true },
+      include: { product: true, items: { include: { product: true } } },
     });
 
     if (orderType === "purchase" && product.stock >= quantity) {
@@ -68,7 +194,8 @@ export async function POST(req: Request) {
     }
 
     return NextResponse.json(order);
-  } catch {
-    return NextResponse.json({ error: "Order failed" }, { status: 400 });
+  } catch (e) {
+    const message = e instanceof Error ? e.message : "Order failed";
+    return NextResponse.json({ error: message }, { status: 400 });
   }
 }

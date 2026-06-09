@@ -51,7 +51,33 @@ type SeedProduct = {
   priceUsd: number;
   stock: number;
   img: number;
+  directPurchaseEnabled?: boolean;
+  quoteOnly?: boolean;
+  productType?: "hardware" | "accessory" | "service" | "enterprise";
 };
+
+function purchaseMeta(p: SeedProduct) {
+  if (p.slug === "package-enterprise-deploy" || p.priceUsd <= 0) {
+    return { directPurchaseEnabled: false, quoteOnly: true, productType: "enterprise" as const };
+  }
+  if (
+    p.category === "motherboard-box" ||
+    p.category === "usb-hub" ||
+    p.category === "power-supply" ||
+    p.category === "cooling-solution" ||
+    p.category === "network-equipment"
+  ) {
+    return { directPurchaseEnabled: true, quoteOnly: false, productType: "accessory" as const };
+  }
+  if (
+    p.category === "mirror-vip" ||
+    p.category === "control-software" ||
+    p.category === "service-package"
+  ) {
+    return { directPurchaseEnabled: true, quoteOnly: false, productType: "service" as const };
+  }
+  return { directPurchaseEnabled: true, quoteOnly: false, productType: "hardware" as const };
+}
 
 const catalog: SeedProduct[] = [
   // Samsung Box — reference parity
@@ -109,6 +135,7 @@ async function main() {
 
   for (const p of catalog) {
     const content = body(p.shortDesc);
+    const purchase = purchaseMeta(p);
     await prisma.product.upsert({
       where: { slug: p.slug },
       update: {
@@ -117,6 +144,9 @@ async function main() {
         shortDesc: p.shortDesc,
         priceUsd: p.priceUsd,
         stock: p.stock,
+        directPurchaseEnabled: purchase.directPurchaseEnabled,
+        quoteOnly: purchase.quoteOnly,
+        productType: purchase.productType,
         ...content,
       },
       create: {
@@ -126,6 +156,9 @@ async function main() {
         shortDesc: p.shortDesc,
         priceUsd: p.priceUsd,
         stock: p.stock,
+        directPurchaseEnabled: purchase.directPurchaseEnabled,
+        quoteOnly: purchase.quoteOnly,
+        productType: purchase.productType,
         imageCard: pick(p.img),
         imageHero: IMAGES.hero,
         imageDetail: detail(p.img),

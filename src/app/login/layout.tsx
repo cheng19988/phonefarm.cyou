@@ -1,8 +1,8 @@
 import { buildNoIndexMetadata } from "@/lib/seo";
 
 export const metadata = buildNoIndexMetadata(
-  "B2B Quotation",
-  "Contact Cyou Phone Farm sales for pricing and availability.",
+  "Login",
+  "Sign in to your Cyou Phone Farm account.",
   "/login"
 );
 

@@ -82,7 +82,7 @@ export default async function HomePage() {
               Request a Quote
             </Link>
             <Link href="/shop" className="rounded-lg border border-slate-600 px-6 py-3 text-white hover:border-cyan-500">
-              View Phone Farm Devices
+              View Products
             </Link>
             <a
               href={CONTACT.whatsappUrl}

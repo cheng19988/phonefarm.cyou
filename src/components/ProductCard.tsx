@@ -2,8 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { formatReferencePrice, typicalUseCase } from "@/lib/pricing";
 import { isServiceCatalogItem, publicCategoryLabel } from "@/lib/catalog";
+import { resolveProductPurchase } from "@/lib/product-purchase";
+import { AddToCartButton } from "./AddToCartButton";
+import { CONTACT } from "@/lib/constants";
 
 type Product = {
+  id: string;
   slug: string;
   name: string;
   shortDesc: string;
@@ -11,11 +15,16 @@ type Product = {
   imageCard: string;
   category: string;
   specs?: string;
+  directPurchaseEnabled: boolean;
+  quoteOnly: boolean;
+  productType: string;
 };
 
 export function ProductCard({ product }: { product: Product }) {
   const useCase = typicalUseCase(product.specs);
   const service = isServiceCatalogItem(product.category);
+  const { quoteOnly, directPurchaseEnabled } = resolveProductPurchase(product);
+  const wa = `${CONTACT.whatsappUrl}?text=${encodeURIComponent(`Hi, I'd like a bulk quote for ${product.name}.`)}`;
 
   return (
     <article className="flex flex-col overflow-hidden rounded-xl border border-slate-800 bg-slate-900/60">
@@ -59,19 +68,54 @@ export function ProductCard({ product }: { product: Product }) {
               : "Bulk quote available · availability confirmed by sales"}
           </p>
         </div>
-        <div className="mt-3 flex gap-2">
-          <Link
-            href={`/contact?product=${product.slug}`}
-            className="flex-1 rounded-lg bg-cyan-600 py-2 text-center text-sm font-medium text-white hover:bg-cyan-500"
-          >
-            Request quote
-          </Link>
-          <Link
-            href={`/products/${product.slug}`}
-            className="rounded-lg border border-slate-600 px-3 py-2 text-sm text-slate-300 hover:border-cyan-500"
-          >
-            View details
-          </Link>
+        <div className="mt-3 flex flex-col gap-2">
+          {quoteOnly ? (
+            <>
+              <Link
+                href={`/contact?product=${product.slug}`}
+                className="rounded-lg bg-cyan-600 py-2 text-center text-sm font-medium text-white hover:bg-cyan-500"
+              >
+                Request Quote
+              </Link>
+              <a
+                href={wa}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-lg border border-emerald-700/60 py-2 text-center text-sm text-emerald-400 hover:bg-emerald-950/30"
+              >
+                WhatsApp Sales
+              </a>
+            </>
+          ) : (
+            <>
+              <div className="flex gap-2">
+                {directPurchaseEnabled && product.priceUsd > 0 && (
+                  <div className="flex-1">
+                    <AddToCartButton
+                      productId={product.id}
+                      slug={product.slug}
+                      name={product.name}
+                      priceUsd={product.priceUsd}
+                      imageCard={product.imageCard}
+                      variant="primary"
+                    />
+                  </div>
+                )}
+                <Link
+                  href={`/products/${product.slug}`}
+                  className="rounded-lg border border-slate-600 px-3 py-2 text-sm text-slate-300 hover:border-cyan-500"
+                >
+                  View details
+                </Link>
+              </div>
+              <Link
+                href={`/contact?product=${product.slug}`}
+                className="text-center text-xs text-slate-500 hover:text-cyan-400"
+              >
+                Request bulk quote
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </article>

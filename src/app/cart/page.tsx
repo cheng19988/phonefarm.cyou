@@ -1,5 +1,5 @@
-import { B2BQuotationGate } from "@/components/B2BQuotationGate";
+import { CartPageContent } from "@/components/CartPageContent";
 
 export default function CartPage() {
-  return <B2BQuotationGate />;
+  return <CartPageContent />;
 }

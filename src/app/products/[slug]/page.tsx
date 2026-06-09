@@ -105,6 +105,10 @@ export default async function ProductDetailPage({
                   name={product.name}
                   imageCard={product.imageCard}
                   priceUsd={product.priceUsd}
+                  directPurchaseEnabled={product.directPurchaseEnabled}
+                  quoteOnly={product.quoteOnly}
+                  productType={product.productType}
+                  category={product.category}
                 />
               </div>
               <div className="mt-6">
