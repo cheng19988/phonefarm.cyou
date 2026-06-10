@@ -40,18 +40,10 @@ export function ProductActions({
       <div className="flex flex-wrap gap-3">
         {rules.quoteOnly ? (
           <>
-            <Link
-              href={inquiry}
-              className="rounded-lg bg-cyan-600 px-6 py-3 font-medium text-white hover:bg-cyan-500"
-            >
+            <Link href={inquiry} className="btn-primary">
               Request Quote for This Model
             </Link>
-            <a
-              href={wa}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-lg bg-emerald-700 px-6 py-3 font-medium text-white hover:bg-emerald-600"
-            >
+            <a href={wa} target="_blank" rel="noopener noreferrer" className="btn-ghost-emerald">
               WhatsApp Sales
             </a>
           </>
@@ -68,25 +60,14 @@ export function ProductActions({
                 label="Add to Cart"
               />
             )}
-            <Link
-              href={inquiry}
-              className="rounded-lg border border-slate-600 px-6 py-3 text-slate-200 hover:border-cyan-500"
-            >
+            <Link href={inquiry} className="btn-secondary">
               Request Quote
             </Link>
-            <a
-              href={wa}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="rounded-lg border border-emerald-700/60 px-6 py-3 text-emerald-400 hover:bg-emerald-950/30"
-            >
+            <a href={wa} target="_blank" rel="noopener noreferrer" className="btn-ghost-emerald">
               WhatsApp Sales
             </a>
             {rules.directPurchaseEnabled && priceUsd > 0 && (
-              <Link
-                href={`/contact?product=${slug}&intent=sample`}
-                className="text-sm text-slate-400 underline-offset-2 hover:text-cyan-400 hover:underline"
-              >
+              <Link href={`/contact?product=${slug}&intent=sample`} className="link-accent self-center text-sm">
                 Order sample via sales
               </Link>
             )}

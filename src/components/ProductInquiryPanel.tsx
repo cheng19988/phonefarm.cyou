@@ -28,7 +28,7 @@ export function ProductInquiryPanel({
           Full quote form
         </Link>
       </div>
-      <div className="mt-4 hidden sm:block">
+      <div className="mt-4">
         <ContactForm defaultProduct={productSlug} source={`product-${productSlug}`} variant="compact" />
       </div>
     </aside>

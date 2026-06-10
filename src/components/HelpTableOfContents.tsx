@@ -7,12 +7,12 @@ export function HelpTableOfContents({ content }: { content: string }) {
   if (headings.length < 3) return null;
 
   return (
-    <nav className="mt-6 rounded-xl border border-slate-800 bg-slate-900/40 p-4 not-prose">
+    <nav className="card-premium mt-6 p-4 not-prose">
       <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">On this page</p>
       <ul className="mt-3 space-y-2 text-sm">
         {headings.map((h) => (
           <li key={h}>
-            <a href={`#${slugify(h)}`} className="text-cyan-400 hover:underline">
+            <a href={`#${slugify(h)}`} className="link-accent">
               {h}
             </a>
           </li>

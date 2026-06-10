@@ -7,12 +7,14 @@ import { CartLink } from "./CartLink";
 
 const links = [
   { href: "/", label: "Home" },
+  { href: "/phone-farm", label: "Phone Farm" },
   { href: "/shop", label: "Shop" },
-  { href: "/services", label: "Setup Services" },
+  { href: "/services", label: "Services" },
   { href: "/deployment", label: "Deployment" },
   { href: "/services/packages", label: "Packages" },
   { href: "/help", label: "Help" },
   { href: "/faq", label: "FAQ" },
+  { href: "/blog", label: "Insights" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
 ];

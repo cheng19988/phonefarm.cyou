@@ -54,7 +54,7 @@ function renderBlock(line: string, key: string | number) {
     !trimmed.startsWith("[")
   ) {
     return (
-      <h3 key={key} id={headingId(trimmed)} className="mt-8 text-lg font-semibold text-white">
+      <h3 key={key} id={headingId(trimmed)} className="mt-8 text-lg font-semibold text-slate-800">
         {trimmed}
       </h3>
     );
@@ -103,7 +103,7 @@ export function ProseMarkdown({ content }: { content: string }) {
 
         return (
           <section key={i}>
-            {isTitle && <h2 className="text-2xl font-bold text-white">{first}</h2>}
+            {isTitle && <h2 className="text-2xl font-bold text-slate-900">{first}</h2>}
             {renderParagraphBlocks(isTitle ? parts.slice(1).join("\n\n") : trimmed, `b${i}`)}
           </section>
         );

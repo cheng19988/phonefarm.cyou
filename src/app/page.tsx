@@ -76,10 +76,10 @@ export default async function HomePage() {
           ))}
         </div>
         <div className="mt-6 flex flex-wrap gap-4 text-sm">
-          <Link href="/help/what-is-phone-farm" className="text-sky-700 hover:text-sky-600">
+          <Link href="/phone-farm" className="link-accent">
             What is a phone farm? →
           </Link>
-          <Link href="/help/after-purchase-guide" className="text-sky-700 hover:text-sky-600">
+          <Link href="/help/after-purchase-guide" className="link-accent">
             After receiving your farm →
           </Link>
         </div>
@@ -116,7 +116,7 @@ export default async function HomePage() {
         </div>
         <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {CONTROL_SOFTWARE_OPTIONS.map((o) => (
-            <div key={o.slug} className="rounded-xl border border-slate-200 bg-slate-50 p-4 text-sm">
+            <div key={o.slug} className="card-premium p-4 text-sm">
               <p className="font-medium text-slate-900">{o.name}</p>
               <p className="mt-1 text-slate-600">{o.desc}</p>
             </div>

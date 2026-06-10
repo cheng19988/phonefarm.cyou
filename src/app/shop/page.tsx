@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Suspense } from "react";
 import { prisma } from "@/lib/prisma";
 import { ProductCard } from "@/components/ProductCard";
@@ -94,7 +95,15 @@ export default async function ShopPage({
           </div>
         </Suspense>
 
-        {showGrouped ? (
+        {products.length === 0 ? (
+          <div className="card-premium mt-10 p-10 text-center">
+            <p className="text-slate-700">No products match your search or filter.</p>
+            <p className="mt-2 text-sm text-slate-500">Try another category or contact sales for custom models.</p>
+            <Link href="/shop" className="link-accent mt-4 inline-block text-sm">
+              View full catalog
+            </Link>
+          </div>
+        ) : showGrouped ? (
           <div className="mt-10 space-y-14">
             {Object.entries(grouped).map(([cat, items]) => (
               <section key={cat}>

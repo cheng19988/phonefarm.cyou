@@ -49,7 +49,7 @@ export function AddToCartButton({
         <button
           type="button"
           onClick={() => router.push("/cart")}
-          className="text-xs text-cyan-400 hover:underline"
+          className="link-accent text-xs"
         >
           View cart
         </button>

@@ -51,20 +51,11 @@ export function HomeHero() {
                 WhatsApp Sales
               </a>
             </div>
-            <div className="mt-10 flex flex-wrap gap-6 border-t border-slate-200 pt-8 sm:gap-8">
-              <div>
-                <p className="font-display text-3xl font-bold text-slate-900">32+</p>
-                <p className="text-sm text-slate-500">Catalog SKUs</p>
-              </div>
-              <div>
-                <p className="font-display text-3xl font-bold text-sky-700">{SITE.since}</p>
-                <p className="text-sm text-slate-500">Years in production</p>
-              </div>
-              <div>
-                <p className="font-display text-3xl font-bold text-slate-900">30+</p>
-                <p className="text-sm text-slate-500">Export regions</p>
-              </div>
-            </div>
+            <p className="mt-8 text-sm text-slate-500">
+              <Link href="/phone-farm" className="link-accent">
+                What is a phone farm? →
+              </Link>
+            </p>
           </div>
 
           {/* Right column — large chassis, clipped to this column only */}

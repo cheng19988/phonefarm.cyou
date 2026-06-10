@@ -7,9 +7,10 @@ import { SHOP_BRANDS, CONTACT } from "@/lib/constants";
 
 const nav = [
   { href: "/", label: "Home" },
+  { href: "/phone-farm", label: "Phone Farm" },
   { href: "/shop", label: "Shop" },
   { href: "/services", label: "Services" },
-  { href: "/help", label: "Help Center" },
+  { href: "/help", label: "Help" },
   { href: "/faq", label: "FAQ" },
   { href: "/about", label: "About" },
   { href: "/contact", label: "Contact" },
