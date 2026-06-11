@@ -57,9 +57,12 @@ export const IMAGES = {
   og: CHASSIS_HERO,
 } as const;
 
+/** User-provided transparent chassis — services page banner */
+const SERVICES_CHASSIS = "/images/hero/services-chassis.png";
+
 /** One image per page — avoid repeating the homepage transparent chassis */
 export const PAGE_IMAGES = {
-  servicesBanner: IMAGES.company.production,
+  servicesBanner: SERVICES_CHASSIS,
   phoneFarmAside: "/images/real-factory/box-shots/2025_10_25_11_28_IMG_0553.png",
   deploymentBanner: IMAGES.facility.assembly,
 } as const;
