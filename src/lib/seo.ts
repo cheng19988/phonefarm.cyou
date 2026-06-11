@@ -1,3 +1,4 @@
+import { AI_KNOWS_ABOUT } from "./ai-discovery";
 import { SITE } from "./constants";
 import { SITE_PRIMARY_LANGUAGE, SITE_PRIMARY_LOCALE } from "./site-language";
 
@@ -44,12 +45,15 @@ export function buildNoIndexMetadata(title: string, description: string, path: s
 export function organizationJsonLd() {
   return {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": ["Organization", "Manufacturer"],
     name: SITE.name,
     url: SITE.url,
     inLanguage: SITE_PRIMARY_LANGUAGE,
+    foundingDate: String(SITE.since),
     description:
-      "Guangzhou-based manufacturer of real-device phone farm boxes, motherboard chassis, and deployment services.",
+      "Guangzhou-based manufacturer and supplier of real-device phone farm boxes, motherboard chassis, remote control setup, and worldwide export.",
+    knowsAbout: AI_KNOWS_ABOUT,
+    areaServed: "Worldwide",
     address: {
       "@type": "PostalAddress",
       addressLocality: "Guangzhou",
@@ -61,7 +65,28 @@ export function organizationJsonLd() {
       email: "qiuxui646@gmail.com",
       url: "https://t.me/huicheng1998",
       areaServed: "Worldwide",
+      availableLanguage: ["English"],
     },
+    sameAs: ["https://t.me/huicheng1998"],
+  };
+}
+
+export function itemListJsonLd(
+  items: readonly { name: string; url: string; description?: string }[],
+  listName: string
+) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: listName,
+    numberOfItems: items.length,
+    itemListElement: items.map((item, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: item.name,
+      description: item.description,
+      url: item.url.startsWith("http") ? item.url : `${SITE.url}${item.url}`,
+    })),
   };
 }
 

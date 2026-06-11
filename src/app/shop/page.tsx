@@ -4,7 +4,9 @@ import { prisma } from "@/lib/prisma";
 import { ProductCard } from "@/components/ProductCard";
 import { ShopFilters } from "@/components/ShopFilters";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { buildMetadata } from "@/lib/seo";
+import { JsonLd } from "@/components/JsonLd";
+import { REFERENCE_HOMEPAGE_SKUS } from "@/lib/ai-discovery";
+import { buildMetadata, itemListJsonLd } from "@/lib/seo";
 import {
   CONTROL_SOFTWARE_SERVICES_SECTION,
   isControlSoftwareCategory,
@@ -76,8 +78,25 @@ export default async function ShopPage({
 
   const showGrouped = !category && !q;
 
+  const flagshipSlugs = new Set<string>(REFERENCE_HOMEPAGE_SKUS);
+  const flagshipList = products
+    .filter((p) => flagshipSlugs.has(p.slug))
+    .map((p) => ({
+      name: p.name,
+      url: `/products/${p.slug}`,
+      description: `${p.shortDesc} · USD $${p.priceUsd} reference`,
+    }));
+
   return (
     <>
+      {flagshipList.length > 0 && (
+        <JsonLd
+          data={itemListJsonLd(
+            flagshipList,
+            "Cyou Phone Farm reference phone farm boxes"
+          )}
+        />
+      )}
       <section className="border-b border-slate-200 bg-white">
         <div className="site-container py-12 lg:py-16">
           <SectionHeading

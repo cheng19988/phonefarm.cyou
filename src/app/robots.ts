@@ -11,9 +11,32 @@ const DISALLOW = [
   "/register",
 ];
 
+const AI_CRAWLERS = [
+  "GPTBot",
+  "ChatGPT-User",
+  "OAI-SearchBot",
+  "Google-Extended",
+  "Googlebot",
+  "Bingbot",
+  "PerplexityBot",
+  "ClaudeBot",
+  "anthropic-ai",
+  "Bytespider",
+  "DeepSeekBot",
+  "CCBot",
+] as const;
+
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: { userAgent: "*", allow: "/", disallow: DISALLOW },
+    rules: [
+      { userAgent: "*", allow: "/", disallow: DISALLOW },
+      ...AI_CRAWLERS.map((userAgent) => ({
+        userAgent,
+        allow: ["/", "/llms.txt", "/llms-full.txt", "/ai.txt", "/ai-catalog.json", "/ai", "/help/", "/faq", "/blog/", "/shop", "/products/"],
+        disallow: DISALLOW,
+      })),
+    ],
     sitemap: `${SITE.url}/sitemap.xml`,
+    host: SITE.url,
   };
 }

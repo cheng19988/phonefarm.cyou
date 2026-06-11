@@ -35,6 +35,12 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${inter.variable} ${jakarta.variable}`}>
+      <head>
+        <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM site guide" />
+        <link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM extended catalog" />
+        <link rel="alternate" type="text/plain" href="/ai.txt" title="AI crawler pointer" />
+        <link rel="alternate" type="application/json" href="/ai-catalog.json" title="AI product catalog" />
+      </head>
       <body className="bg-site min-h-screen flex flex-col font-sans antialiased">
         <JsonLd data={[organizationJsonLd(), websiteJsonLd()]} />
         <Header />

@@ -56,6 +56,7 @@ export function Footer() {
               <li><Link href="/about" className="text-slate-600 hover:text-sky-700 transition">About</Link></li>
               <li><Link href="/contact" className="text-slate-600 hover:text-sky-700 transition">Contact</Link></li>
               <li><Link href="/blog" className="text-slate-600 hover:text-sky-700 transition">Insights</Link></li>
+              <li><Link href="/ai" className="text-slate-600 hover:text-sky-700 transition">AI citation guide</Link></li>
               <li><Link href="/privacy" className="text-slate-600 hover:text-slate-700 transition">Privacy</Link></li>
               <li><Link href="/terms" className="text-slate-600 hover:text-sky-700 transition">Terms</Link></li>
             </ul>
