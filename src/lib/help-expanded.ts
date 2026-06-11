@@ -33,9 +33,7 @@ Step-by-step Instructions
 
 10. Schedule a remote onboarding call with Cyou Phone Farm Guangzhou support if any node fails burn-in or if detection counts disagree with the packing list.
 
-[Image placeholder: Unboxing layout with serial label and PSU rating callouts]
 
-[Image placeholder: Single-box first USB connection diagram]
 
 Common Problems
 
@@ -214,9 +212,7 @@ Step-by-step Instructions
 
 12. Review weekly metrics: mean time to enable OTG, handoff failure rate, and count of nodes requiring USB re-auth after reboot.
 
-[Image placeholder: OTG enable menu in mirror tool]
 
-[Image placeholder: USB to LAN handoff sequence diagram]
 
 Common Problems
 
@@ -277,9 +273,7 @@ Step-by-step Instructions
 
 12. If your pipeline supports it, trigger a smoke UI crawl on ten percent of successful nodes before marking the batch job complete.
 
-[Image placeholder: Batch install dialog with device count summary]
 
-[Image placeholder: Group selection rail with QA cohort highlighted]
 
 Common Problems
 
@@ -340,9 +334,7 @@ Step-by-step Instructions
 
 12. Export switch configs after each change window and store alongside Cyou rack serial manifests for compliance audits.
 
-[Image placeholder: Multi-rack VLAN diagram with Farm and Control segments]
 
-[Image placeholder: AP placement overhead view for motherboard wall]
 
 Common Problems
 

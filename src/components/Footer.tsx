@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Logo } from "./Logo";
 import { CONTACT, SHOP_BRANDS, SITE } from "@/lib/constants";
+import { CONTACT_URLS } from "@/lib/contact-urls";
 
 export function Footer() {
   return (
@@ -17,8 +18,8 @@ export function Footer() {
               <a href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer" className="text-emerald-700 hover:text-emerald-600">
                 WhatsApp
               </a>
-              <a href={`mailto:${CONTACT.email}`} className="link-accent">
-                Email
+              <a href={CONTACT_URLS.gmailCompose} target="_blank" rel="noopener noreferrer" className="link-accent">
+                {CONTACT.email}
               </a>
             </div>
             <Link href="/contact" className="btn-primary mt-6 inline-flex text-sm !py-2 !px-4">

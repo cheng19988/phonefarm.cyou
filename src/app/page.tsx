@@ -77,9 +77,11 @@ export default async function HomePage() {
         </div>
         <div className="mt-6 flex flex-wrap gap-4 text-sm">
           <Link href="/phone-farm" className="link-accent">
-            What is a phone farm? —          </Link>
+            What is a phone farm?
+          </Link>
           <Link href="/help/after-purchase-guide" className="link-accent">
-            After receiving your farm —          </Link>
+            After receiving your farm
+          </Link>
         </div>
       </section>
 

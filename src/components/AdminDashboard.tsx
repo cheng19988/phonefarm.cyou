@@ -107,23 +107,23 @@ export function AdminDashboard() {
 
   return (
     <div className="site-container py-8">
-      <h1 className="text-2xl font-bold text-white">Admin Dashboard</h1>
-      <div className="mt-4 flex gap-2">
+      <h1 className="page-title">Admin Dashboard</h1>
+      <div className="mt-4 flex flex-wrap gap-2">
         {(["orders", "products", "users", "contacts"] as Tab[]).map((t) => (
           <button
             key={t}
             type="button"
             onClick={() => setTab(t)}
-            className={`rounded-lg px-4 py-2 text-sm capitalize ${tab === t ? "bg-cyan-600 text-white" : "border border-slate-700 text-slate-400"}`}
+            className={`rounded-lg px-4 py-2 text-sm capitalize transition ${tab === t ? "bg-sky-600 text-white shadow-sm" : "border border-slate-200 bg-white text-slate-600 hover:border-sky-200 hover:bg-sky-50"}`}
           >
             {t}
           </button>
         ))}
       </div>
-      <div className="mt-8 overflow-x-auto">
+      <div className="mt-8 overflow-x-auto rounded-xl border border-slate-200 bg-white shadow-sm">
         {tab === "orders" && (
           <table className="w-full min-w-[1100px] text-sm text-left">
-            <thead className="text-slate-400">
+            <thead className="bg-slate-50 text-slate-600">
               <tr>
                 <th className="p-2">Order</th>
                 <th className="p-2">Customer</th>
@@ -140,20 +140,20 @@ export function AdminDashboard() {
             <tbody>
               {orders.map((o) => (
                 <Fragment key={o.id}>
-                  <tr className="border-t border-slate-800 align-top">
+                  <tr className="border-t border-slate-200 align-top">
                     <td className="p-2 font-mono">{o.orderNumber}</td>
                     <td className="p-2">
                       <div>{o.customerName || o.user.name || "-"}</div>
-                      <div className="text-xs text-cyan-400">{o.customerEmail || o.user.email}</div>
+                      <div className="text-xs text-sky-700">{o.customerEmail || o.user.email}</div>
                       {o.country && <div className="text-xs text-slate-500">{o.country}</div>}
                     </td>
-                    <td className="p-2 text-xs text-slate-400">{o.contactMessaging || "-"}</td>
+                    <td className="p-2 text-xs text-slate-600">{o.contactMessaging || "-"}</td>
                     <td className="p-2 max-w-[200px] text-xs">{productList(o)}</td>
                     <td className="p-2">${o.expectedAmount}</td>
                     <td className="p-2 max-w-[120px] truncate font-mono text-xs">{o.txHash || "-"}</td>
                     <td className="p-2">
                       <select
-                        className="rounded bg-slate-900 border border-slate-700 text-xs"
+                        className="rounded border border-slate-300 bg-white px-2 py-1 text-xs text-slate-800"
                         value={o.paymentStatus}
                         onChange={(e) => patchOrder(o.id, { paymentStatus: e.target.value })}
                       >
@@ -164,7 +164,7 @@ export function AdminDashboard() {
                     </td>
                     <td className="p-2">
                       <select
-                        className="rounded bg-slate-900 border border-slate-700 text-xs"
+                        className="rounded border border-slate-300 bg-white px-2 py-1 text-xs text-slate-800"
                         value={o.status}
                         onChange={(e) => patchOrder(o.id, { status: e.target.value })}
                       >
@@ -179,7 +179,7 @@ export function AdminDashboard() {
                     <td className="p-2">
                       <button
                         type="button"
-                        className="text-xs text-cyan-400"
+                        className="text-xs font-medium text-sky-700 hover:text-sky-600"
                         onClick={() => setExpandedOrder(expandedOrder === o.id ? null : o.id)}
                       >
                         {expandedOrder === o.id ? "Hide" : "Note"}
@@ -187,30 +187,60 @@ export function AdminDashboard() {
                     </td>
                   </tr>
                   {expandedOrder === o.id && (
-                    <tr className="border-t border-slate-800/50 bg-slate-900/30">
+                    <tr className="border-t border-slate-100 bg-slate-50/80">
                       <td colSpan={10} className="p-4">
                         {o.shippingAddress && (
-                          <p className="text-xs text-slate-400 mb-2 whitespace-pre-wrap">Address: {o.shippingAddress}</p>
+                          <p className="text-xs text-slate-600 mb-2 whitespace-pre-wrap">Address: {o.shippingAddress}</p>
                         )}
-                        {o.orderNotes && <p className="text-xs text-slate-400 mb-2">Customer notes: {o.orderNotes}</p>}
+                        {o.orderNotes && <p className="text-xs text-slate-600 mb-2">Customer notes: {o.orderNotes}</p>}
                         <div className="flex flex-wrap gap-2 mb-3">
-                          <button type="button" onClick={() => patchOrder(o.id, { paymentStatus: "paid", status: "processing" })} className="rounded border border-emerald-700 px-2 py-1 text-xs text-emerald-400">Mark paid</button>
-                          <button type="button" onClick={() => patchOrder(o.id, { paymentStatus: "verifying" })} className="rounded border border-amber-700 px-2 py-1 text-xs text-amber-400">Verifying</button>
-                          <button type="button" onClick={() => patchOrder(o.id, { status: "processing" })} className="rounded border border-slate-600 px-2 py-1 text-xs">Mark processing</button>
-                          <button type="button" onClick={() => patchOrder(o.id, { status: "shipped" })} className="rounded border border-slate-600 px-2 py-1 text-xs">Mark shipped</button>
-                          <button type="button" onClick={() => patchOrder(o.id, { status: "cancelled", paymentStatus: "cancelled" })} className="rounded border border-red-800 px-2 py-1 text-xs text-red-400">Mark cancelled</button>
+                          <button
+                            type="button"
+                            onClick={() => patchOrder(o.id, { paymentStatus: "paid", status: "processing" })}
+                            className="rounded border border-emerald-300 bg-emerald-50 px-2 py-1 text-xs font-medium text-emerald-800 hover:bg-emerald-100"
+                          >
+                            Mark paid
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => patchOrder(o.id, { paymentStatus: "verifying" })}
+                            className="rounded border border-amber-300 bg-amber-50 px-2 py-1 text-xs font-medium text-amber-800 hover:bg-amber-100"
+                          >
+                            Verifying
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => patchOrder(o.id, { status: "processing" })}
+                            className="rounded border border-slate-300 bg-white px-2 py-1 text-xs font-medium text-slate-700 hover:bg-slate-50"
+                          >
+                            Mark processing
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => patchOrder(o.id, { status: "shipped" })}
+                            className="rounded border border-slate-300 bg-white px-2 py-1 text-xs font-medium text-slate-700 hover:bg-slate-50"
+                          >
+                            Mark shipped
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => patchOrder(o.id, { status: "cancelled", paymentStatus: "cancelled" })}
+                            className="rounded border border-red-300 bg-red-50 px-2 py-1 text-xs font-medium text-red-800 hover:bg-red-100"
+                          >
+                            Mark cancelled
+                          </button>
                         </div>
                         <textarea
                           defaultValue={o.adminNote || ""}
                           onChange={(e) => setAdminNotes((prev) => ({ ...prev, [o.id]: e.target.value }))}
                           rows={2}
-                          className="w-full rounded border border-slate-700 bg-slate-950 px-2 py-1 text-xs text-white"
+                          className="form-input text-xs"
                           placeholder="Admin note (internal)"
                         />
                         <button
                           type="button"
                           onClick={() => patchOrder(o.id, { adminNote: adminNotes[o.id] ?? o.adminNote ?? "" })}
-                          className="mt-2 rounded bg-slate-700 px-3 py-1 text-xs text-white"
+                          className="mt-2 rounded-lg bg-sky-600 px-3 py-1.5 text-xs font-medium text-white hover:bg-sky-700"
                         >
                           Save note
                         </button>
@@ -224,18 +254,18 @@ export function AdminDashboard() {
         )}
         {tab === "products" && (
           <table className="w-full text-sm">
-            <thead className="text-slate-400">
+            <thead className="bg-slate-50 text-slate-600">
               <tr><th className="p-2">Name</th><th className="p-2">Price</th><th className="p-2">Stock</th></tr>
             </thead>
             <tbody>
               {products.map((p) => (
-                <tr key={p.id} className="border-t border-slate-800">
-                  <td className="p-2">{p.name}</td>
+                <tr key={p.id} className="border-t border-slate-200">
+                  <td className="p-2 text-slate-800">{p.name}</td>
                   <td className="p-2">
                     <input
                       type="number"
                       defaultValue={p.priceUsd}
-                      className="w-24 rounded bg-slate-900 border border-slate-700 px-2"
+                      className="w-24 form-input !py-1 !text-sm"
                       onBlur={(e) => updateProduct(p.id, "priceUsd", parseFloat(e.target.value))}
                     />
                   </td>
@@ -243,7 +273,7 @@ export function AdminDashboard() {
                     <input
                       type="number"
                       defaultValue={p.stock}
-                      className="w-20 rounded bg-slate-900 border border-slate-700 px-2"
+                      className="w-20 form-input !py-1 !text-sm"
                       onBlur={(e) => updateProduct(p.id, "stock", parseInt(e.target.value, 10))}
                     />
                   </td>
@@ -253,12 +283,12 @@ export function AdminDashboard() {
           </table>
         )}
         {tab === "users" && (
-          <pre className="text-xs text-slate-400 overflow-auto">{JSON.stringify(users, null, 2)}</pre>
+          <pre className="p-4 text-xs text-slate-600 overflow-auto">{JSON.stringify(users, null, 2)}</pre>
         )}
         {tab === "contacts" && (
-          <div className="overflow-x-auto rounded-xl border border-slate-800">
+          <div className="overflow-x-auto">
             <table className="w-full min-w-[960px] text-left text-sm">
-              <thead className="bg-slate-900 text-slate-400">
+              <thead className="bg-slate-50 text-slate-600">
                 <tr>
                   <th className="px-3 py-2">Time</th>
                   <th className="px-3 py-2">Name</th>
@@ -273,18 +303,18 @@ export function AdminDashboard() {
               </thead>
               <tbody>
                 {contacts.map((c) => (
-                  <tr key={c.id} className="border-t border-slate-800 align-top">
+                  <tr key={c.id} className="border-t border-slate-200 align-top">
                     <td className="px-3 py-2 whitespace-nowrap text-slate-500">
                       {new Date(c.createdAt).toLocaleString()}
                     </td>
-                    <td className="px-3 py-2 text-white">{c.name}</td>
-                    <td className="px-3 py-2 text-cyan-400">{c.email}</td>
-                    <td className="px-3 py-2 text-slate-300">{c.country || "-"}</td>
-                    <td className="px-3 py-2 text-slate-300">{c.messaging || "-"}</td>
-                    <td className="px-3 py-2 text-slate-300">{c.deviceQuantity || "-"}</td>
-                    <td className="px-3 py-2 text-slate-300">{c.productInterest || "-"}</td>
+                    <td className="px-3 py-2 font-medium text-slate-900">{c.name}</td>
+                    <td className="px-3 py-2 text-sky-700">{c.email}</td>
+                    <td className="px-3 py-2 text-slate-700">{c.country || "-"}</td>
+                    <td className="px-3 py-2 text-slate-700">{c.messaging || "-"}</td>
+                    <td className="px-3 py-2 text-slate-700">{c.deviceQuantity || "-"}</td>
+                    <td className="px-3 py-2 text-slate-700">{c.productInterest || "-"}</td>
                     <td className="px-3 py-2 text-slate-500">{c.source || "-"}</td>
-                    <td className="max-w-xs px-3 py-2 text-slate-400 whitespace-pre-wrap">{c.message || "-"}</td>
+                    <td className="max-w-xs px-3 py-2 text-slate-600 whitespace-pre-wrap">{c.message || "-"}</td>
                   </tr>
                 ))}
               </tbody>

@@ -4,10 +4,11 @@ import { FACILITY_GALLERY } from "@/lib/images";
 import { FacilityPhoto } from "@/components/FacilityPhoto";
 import { DeliverySopSection } from "@/components/DeliverySopSection";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { CONTACT_URLS } from "@/lib/contact-urls";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
-  title: "About Cyou Phone Farm —Guangzhou Factory Since 2017",
+  title: "About Cyou Phone Farm - Guangzhou Factory Since 2017",
   description:
     "Guangzhou manufacturer of real-device phone farm boxes since 2017. Assembly, burn-in testing, export packing, remote control setup, and worldwide B2B shipping.",
   path: "/about",
@@ -20,7 +21,7 @@ export default function AboutPage() {
         <div className="site-container py-12 lg:py-16">
           <SectionHeading
             title={`About ${SITE.name}`}
-            subtitle={`Guangzhou factory · Real-device phone farms since ${SITE.since} · Assembly, burn-in, export, and remote setup support.`}
+            subtitle={`Guangzhou factory | Real-device phone farms since ${SITE.since} | Assembly, burn-in, export, and remote setup support.`}
           />
         </div>
       </section>
@@ -31,7 +32,7 @@ export default function AboutPage() {
           <p>
             {SITE.name} manufactures and ships real-device phone farm hardware from Guangzhou. Since {SITE.since}, we have
             assembled motherboard chassis for overseas QA teams, mobile device labs, hardware distributors, and enterprise
-            fleets who need documented configurations—not anonymous mystery boxes.
+            fleets who need documented configurations - not anonymous mystery boxes.
           </p>
           <h2>What we supply</h2>
           <ul>
@@ -44,7 +45,8 @@ export default function AboutPage() {
           </ul>
           <h2>How we work</h2>
           <p>
-            Every project follows a written sequence: requirement confirmation —hardware selection —assembly validation —            control software baseline —burn-in —export packing —remote handover. Reference USD prices on the website are
+            Every project follows a written sequence: requirement confirmation, hardware selection, assembly validation,
+            control software baseline, burn-in, export packing, and remote handover. Reference USD prices on the website are
             starting points; sales confirms MOQ, lead time, and proforma invoice before payment.
           </p>
         </div>
@@ -77,14 +79,22 @@ export default function AboutPage() {
 
         <div className="prose-farm mt-16 max-w-3xl">
           <h2>Lawful B2B use cases</h2>
-          <p>We support app QA testing, device compatibility labs, enterprise device fleet management, and authorized client testing on owned hardware. We decline fraud, platform manipulation, and ban-evasion inquiries.</p>
+          <p>
+            We support app QA testing, device compatibility labs, enterprise device fleet management, and authorized client
+            testing on owned hardware. We decline fraud, platform manipulation, and ban-evasion inquiries.
+          </p>
           <h2>Contact</h2>
           <ul>
             <li>WhatsApp: <a href={CONTACT.whatsappUrl}>{CONTACT.whatsapp}</a></li>
             <li>Telegram: <a href={CONTACT.telegramUrl}>{CONTACT.telegram}</a></li>
-            <li>Email: <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a></li>
+            <li>
+              Email:{" "}
+              <a href={CONTACT_URLS.gmailCompose} target="_blank" rel="noopener noreferrer">
+                {CONTACT.email}
+              </a>
+            </li>
           </ul>
-          <p><Link href="/contact">Send a structured inquiry →</Link></p>
+          <p><Link href="/contact">Send a structured inquiry</Link></p>
         </div>
 
         <div className="mt-16">
