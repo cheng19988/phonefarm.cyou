@@ -5,19 +5,7 @@ import { CartLink } from "./CartLink";
 import { HeaderAccountMenu } from "./HeaderAccountMenu";
 import { SHOP_BRANDS } from "@/lib/constants";
 import { PUBLIC_CART_IN_NAV } from "@/lib/features";
-
-const nav = [
-  { href: "/", label: "Home" },
-  { href: "/phone-farm", label: "Phone Farm" },
-  { href: "/shop", label: "Shop" },
-  { href: "/services", label: "Services" },
-  { href: "/deployment", label: "Deployment" },
-  { href: "/help", label: "Help" },
-  { href: "/blog", label: "Insights" },
-  { href: "/faq", label: "FAQ" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
-];
+import { MAIN_NAV } from "@/lib/site-nav";
 
 export function Header() {
   return (
@@ -26,7 +14,7 @@ export function Header() {
         <Logo />
 
         <nav className="header-nav hidden lg:flex" aria-label="Main">
-          {nav.map((item) => (
+          {MAIN_NAV.map((item) => (
             <Link key={item.href} href={item.href} className="header-nav-link">
               {item.label}
             </Link>

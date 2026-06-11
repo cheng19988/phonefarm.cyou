@@ -5,20 +5,7 @@ import { useState } from "react";
 import { CONTACT, SITE } from "@/lib/constants";
 import { CartLink } from "./CartLink";
 import { PUBLIC_CART_IN_NAV } from "@/lib/features";
-
-const links = [
-  { href: "/", label: "Home" },
-  { href: "/phone-farm", label: "Phone Farm" },
-  { href: "/shop", label: "Shop" },
-  { href: "/services", label: "Services" },
-  { href: "/deployment", label: "Deployment" },
-  { href: "/services/packages", label: "Packages" },
-  { href: "/help", label: "Help" },
-  { href: "/faq", label: "FAQ" },
-  { href: "/blog", label: "Insights" },
-  { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
-];
+import { MAIN_NAV, SECONDARY_NAV } from "@/lib/site-nav";
 
 export function MobileNav() {
   const [open, setOpen] = useState(false);
@@ -48,12 +35,25 @@ export function MobileNav() {
               </button>
             </div>
             <ul className="mt-3 space-y-1">
-              {links.map((item) => (
+              {MAIN_NAV.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
                     onClick={() => setOpen(false)}
                     className="block rounded-lg px-3 py-2 text-slate-800 hover:bg-sky-50 hover:text-sky-800"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <ul className="mt-3 space-y-1 border-t border-slate-100 pt-3">
+              {SECONDARY_NAV.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    onClick={() => setOpen(false)}
+                    className="block rounded-lg px-3 py-2 text-sm text-slate-600 hover:bg-sky-50 hover:text-sky-800"
                   >
                     {item.label}
                   </Link>

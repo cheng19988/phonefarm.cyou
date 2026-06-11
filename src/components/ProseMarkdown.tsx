@@ -1,5 +1,4 @@
 import { ContentImage } from "./ContentImage";
-import { ImagePlaceholderCard } from "./ImagePlaceholderCard";
 
 function headingId(title: string) {
   return title
@@ -13,7 +12,7 @@ function renderBlock(line: string, key: string | number) {
   if (!trimmed) return null;
 
   if (trimmed.startsWith("[Image placeholder:")) {
-    return <ImagePlaceholderCard key={key} label={trimmed} />;
+    return null;
   }
 
   if (trimmed.startsWith("[Image:")) {

@@ -5,7 +5,7 @@ import { isServiceCatalogItem, publicCategoryLabel } from "@/lib/catalog";
 import { resolveProductPurchase } from "@/lib/product-purchase";
 import { AddToCartButton } from "./AddToCartButton";
 import { CONTACT } from "@/lib/constants";
-import { PUBLIC_CHECKOUT_ENABLED } from "@/lib/features";
+import { PUBLIC_CHECKOUT_ENABLED, PUBLIC_CART_IN_NAV } from "@/lib/features";
 
 type Product = {
   id: string;
@@ -26,6 +26,9 @@ export function ProductCard({ product }: { product: Product }) {
   const service = isServiceCatalogItem(product.category);
   const { quoteOnly, directPurchaseEnabled } = resolveProductPurchase(product);
   const wa = `${CONTACT.whatsappUrl}?text=${encodeURIComponent(`Hi, I'd like a bulk quote for ${product.name}.`)}`;
+  const quoteFirst = quoteOnly || !PUBLIC_CART_IN_NAV;
+  const canAddToCart =
+    PUBLIC_CHECKOUT_ENABLED && directPurchaseEnabled && product.priceUsd > 0 && !quoteOnly;
 
   return (
     <article className="group card-premium flex flex-col overflow-hidden">
@@ -58,13 +61,13 @@ export function ProductCard({ product }: { product: Product }) {
           <p className="mt-0.5 text-xs text-slate-500">
             {service
               ? "Quote before invoice"
-              : PUBLIC_CHECKOUT_ENABLED
-                ? "Bulk quote available · Direct checkout for standard SKUs"
+              : canAddToCart
+                ? "Bulk quote available · Standard SKU online order optional"
                 : "Bulk quote available · Availability confirmed by sales"}
           </p>
         </div>
         <div className="mt-4 flex flex-col gap-2">
-          {quoteOnly ? (
+          {quoteFirst ? (
             <>
               <Link href={`/contact?product=${product.slug}`} className="btn-primary w-full text-center text-sm !py-2.5">
                 Request Quote
@@ -72,10 +75,22 @@ export function ProductCard({ product }: { product: Product }) {
               <a href={wa} target="_blank" rel="noopener noreferrer" className="btn-ghost-emerald w-full text-center text-sm !py-2.5">
                 WhatsApp Sales
               </a>
+              {canAddToCart && (
+                <AddToCartButton
+                  productId={product.id}
+                  slug={product.slug}
+                  name={product.name}
+                  priceUsd={product.priceUsd}
+                  imageCard={product.imageCard}
+                  variant="secondary"
+                  label="Add to standard order"
+                  fullWidth
+                />
+              )}
             </>
           ) : (
             <>
-              {directPurchaseEnabled && product.priceUsd > 0 && (
+              {canAddToCart && (
                 <AddToCartButton
                   productId={product.id}
                   slug={product.slug}
@@ -83,10 +98,13 @@ export function ProductCard({ product }: { product: Product }) {
                   priceUsd={product.priceUsd}
                   imageCard={product.imageCard}
                   variant="primary"
-                  label="Add to Cart"
+                  label="Add to standard order"
                   fullWidth
                 />
               )}
+              <Link href={`/contact?product=${product.slug}`} className="btn-secondary w-full text-center text-sm !py-2.5">
+                Request Quote
+              </Link>
               <Link href={`/products/${product.slug}`} className="btn-secondary w-full text-center text-sm !py-2.5">
                 View details
               </Link>

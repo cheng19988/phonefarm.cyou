@@ -2,6 +2,7 @@ import Link from "next/link";
 import { CONTACT } from "@/lib/constants";
 import { resolveProductPurchase } from "@/lib/product-purchase";
 import { AddToCartButton } from "./AddToCartButton";
+import { PUBLIC_CHECKOUT_ENABLED, PUBLIC_CART_IN_NAV } from "@/lib/features";
 
 export function ProductActions({
   productId,
@@ -34,11 +35,14 @@ export function ProductActions({
   });
   const inquiry = `/contact?product=${encodeURIComponent(slug)}`;
   const wa = `${CONTACT.whatsappUrl}?text=${encodeURIComponent(`Hi, I'd like a quote for ${name} (${slug}).`)}`;
+  const quoteFirst = rules.quoteOnly || !PUBLIC_CART_IN_NAV;
+  const canAddToCart =
+    PUBLIC_CHECKOUT_ENABLED && rules.directPurchaseEnabled && priceUsd > 0 && !rules.quoteOnly;
 
   return (
     <div className="flex flex-col gap-3">
       <div className="flex flex-wrap gap-3">
-        {rules.quoteOnly ? (
+        {quoteFirst ? (
           <>
             <Link href={inquiry} className="btn-primary">
               Request Quote for This Model
@@ -46,10 +50,21 @@ export function ProductActions({
             <a href={wa} target="_blank" rel="noopener noreferrer" className="btn-ghost-emerald">
               WhatsApp Sales
             </a>
+            {canAddToCart && (
+              <AddToCartButton
+                productId={productId}
+                slug={slug}
+                name={name}
+                priceUsd={priceUsd}
+                imageCard={imageCard}
+                variant="secondary"
+                label="Add to standard order"
+              />
+            )}
           </>
         ) : (
           <>
-            {rules.directPurchaseEnabled && priceUsd > 0 && (
+            {canAddToCart && (
               <AddToCartButton
                 productId={productId}
                 slug={slug}
@@ -57,7 +72,7 @@ export function ProductActions({
                 priceUsd={priceUsd}
                 imageCard={imageCard}
                 variant="primary"
-                label="Add to Cart"
+                label="Add to standard order"
               />
             )}
             <Link href={inquiry} className="btn-secondary">
@@ -66,7 +81,7 @@ export function ProductActions({
             <a href={wa} target="_blank" rel="noopener noreferrer" className="btn-ghost-emerald">
               WhatsApp Sales
             </a>
-            {rules.directPurchaseEnabled && priceUsd > 0 && (
+            {canAddToCart && (
               <Link href={`/contact?product=${slug}&intent=sample`} className="link-accent self-center text-sm">
                 Order sample via sales
               </Link>
@@ -76,9 +91,7 @@ export function ProductActions({
       </div>
       <p className="text-sm text-slate-500">
         Reference price only. Sales confirms MOQ, lead time, shipping, and setup scope before bulk orders.
-        {rules.directPurchaseEnabled && priceUsd > 0
-          ? " Standard configurations may be ordered online after sales confirms payment instructions."
-          : ""}
+        {canAddToCart ? " Standard configurations may be ordered online after sales confirms payment instructions." : ""}
       </p>
     </div>
   );

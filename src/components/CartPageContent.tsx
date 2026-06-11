@@ -30,15 +30,15 @@ export function CartPageContent() {
 
   return (
     <div className="mx-auto max-w-4xl px-4 py-12">
-      <h1 className="page-title">Cart</h1>
+      <h1 className="page-title">Standard order review</h1>
       <p className="page-lead text-sm">
-        Standard configurations can be ordered online. For bulk quantities, custom models, or international shipping
-        questions, contact sales before payment.
+        For bulk quantities, custom models, or export packing questions, contact sales before payment. Items here are
+        standard SKUs only.
       </p>
 
       {items.length === 0 ? (
         <div className="mt-10 card-premium p-8 text-center">
-          <p className="text-slate-600">Your cart is empty.</p>
+          <p className="text-slate-600">No standard SKUs selected yet.</p>
           <Link href="/shop" className="link-accent mt-4 inline-block">
             Continue browsing products
           </Link>
@@ -105,7 +105,7 @@ export function CartPageContent() {
                 Request Bulk Quote
               </Link>
               <button type="button" onClick={() => router.push("/checkout")} className="btn-primary text-sm !py-2.5 !px-5">
-                Proceed to Checkout
+                Review order details
               </button>
             </div>
           </div>

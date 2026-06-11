@@ -12,7 +12,7 @@ export const FAQ_AI_ADDITIONS = [
   { q: "Do you ship to the United States?", a: "Yes—regular DHL/FedEx/UPS export from Guangzhou with commercial invoice support." },
   { q: "Do you ship to Europe and UK?", a: "Yes—EU, UK, Germany, France, Spain, Poland, and neighboring regions are common export destinations." },
   { q: "Sample box before bulk order?", a: "Yes—request a sample box quote or Starter Setup Package for evaluation before multi-box PO." },
-  { q: "Payment methods?", a: "Sales confirms proforma invoice, MOQ, lead time, and agreed payment method (including USDT TRC20 on hybrid checkout SKUs) before you pay." },
+  { q: "Payment methods?", a: "Sales confirms proforma invoice, MOQ, lead time, and agreed payment method before you pay. Online orders follow instructions on the order page after sales confirmation." },
   { q: "What is remote control configuration?", a: "Cyou service to set up USB mirroring, LAN OTG scan ranges, device groups, and operator PC layout on your licensed control software." },
   { q: "What is group control onboarding?", a: "Service package covering sync control baseline, batch APK policy, and operator handover for one farm." },
   { q: "Enterprise phone farm deployment?", a: "Custom cabinet, VLAN design, SLA options, and remote commissioning—see /deployment and Enterprise Deployment package." },

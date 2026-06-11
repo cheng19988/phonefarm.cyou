@@ -5,7 +5,6 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { cartSubtotal, clearCart, getCart, type CartItem } from "@/lib/cart";
 import { formatReferencePrice } from "@/lib/pricing";
-import { PAYMENT } from "@/lib/constants";
 
 export function CheckoutForm() {
   const router = useRouter();
@@ -105,12 +104,12 @@ export function CheckoutForm() {
           />
         </label>
 
-        <h2 className="page-section-title pt-4">Payment method</h2>
+        <h2 className="page-section-title pt-4">Payment</h2>
         <div className="panel-highlight">
-          <p className="font-semibold text-slate-900">USDT TRC20</p>
+          <p className="font-semibold text-slate-900">Sales-confirmed payment instructions</p>
           <p className="mt-2 text-slate-600">
-            After placing the order you will receive payment instructions. Payment will be checked manually after you
-            submit the TRC20 transaction hash.
+            After placing the order you receive payment instructions on the order page. Submit the transaction reference
+            shown there; our team verifies payment manually.
           </p>
         </div>
 
@@ -147,7 +146,7 @@ export function CheckoutForm() {
           <span>{formatReferencePrice(subtotal)}</span>
         </div>
         <p className="mt-2 text-xs text-slate-500">
-          Minimum payment {PAYMENT.minAmount} USDT if applicable. Final amount shown on order page.
+          Final amount and payment instructions are shown on the order page after submission.
         </p>
       </aside>
     </form>

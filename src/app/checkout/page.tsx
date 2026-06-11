@@ -7,9 +7,9 @@ export default function CheckoutPage() {
       <Link href="/cart" className="link-accent text-sm">
         ← Back to cart
       </Link>
-      <h1 className="page-title mt-4">Checkout</h1>
+      <h1 className="page-title mt-4">Order details</h1>
       <p className="page-lead text-sm">
-        Complete your details for standard online orders. Bulk or custom deployments should go through{" "}
+        Complete shipping and contact details for standard online orders. Bulk or custom deployments should go through{" "}
         <Link href="/contact" className="link-accent">
           sales inquiry
         </Link>{" "}

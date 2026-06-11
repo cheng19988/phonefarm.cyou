@@ -7,6 +7,18 @@ export type ProductSummary = {
 
 /** Light differentiation for SKUs without full productProfiles entries. */
 export const PRODUCT_SUMMARIES: Record<string, ProductSummary> = {
+  "samsung-s8-farm-4-64": {
+    summary: "Snapdragon 835 S8+ tier with 4G+64G—workhorse chassis for Android 9 compatibility labs and long-run stability testing.",
+    bestFor: "Entry enterprise device labs and studios standardizing on proven 835 thermals.",
+    hardwareNote: "835 boards are mature for 24/7 burn-in; plan quarterly fan cleaning in warm rooms.",
+    quoteNote: "Share destination country and node count; we confirm board availability and export lead time.",
+  },
+  "samsung-s10-farm-8-128": {
+    summary: "Snapdragon 855 S10 tier with 8G+128G—stronger multitasking for modern APK sets and heavier logging during QA.",
+    bestFor: "Teams moving from S8/S9 fleets who need Android 10–11 matrix coverage.",
+    hardwareNote: "855 thermals need solid rack airflow; include spare fan kit in warm-site quotes.",
+    quoteNote: "Bulk MOQ typically discussed from 5+ boxes; sample single-box evaluation available.",
+  },
   "samsung-s9-plus-farm-6-64": {
     summary: "Snapdragon 845 / Exynos 9810 tier with 6G+64G—step up from S8 when your QA matrix needs Android 10 and stronger multitasking.",
     bestFor: "Mid-size app compatibility labs moving off S8 fleets.",

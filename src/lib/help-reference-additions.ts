@@ -115,7 +115,7 @@ export const FAQ_REFERENCE_ADDITIONS = [
   { q: "How do I batch install APK?", a: "Select devices → batch install → choose APK. Test one node for split/incompatible APKs before fleet push." },
   { q: "What is ADB authorization on official ROM?", a: "Official Android builds require ADB key files on the control PC. Cyou Remote Control Configuration covers placement and renewal." },
   { q: "What is optimized farm ROM?", a: "Farm-tuned images reduce LAN scan and auth steps. ROM tier is listed on your burn-in sheet—do not flash unknown packages." },
-  { q: "How do I set single machine single IP?", a: "Use router policies, proxies, or VLAN egress per test group. We help document topology during enterprise quotes—not legal advice on platform rules." },
+  { q: "How do device labs segment network egress?", a: "Use VLANs, router policies, and documented subnets per test group. We help map topology during enterprise quotes—your IT team owns compliance policy." },
   { q: "What is Mirror Software VIP-style setup?", a: "We offer onboarding packages for your licensed mirror workspace—multi-monitor layout, LAN ranges, accounts—not resale of third-party CDKEYs." },
   { q: "Which control software do you support?", a: "Industry mirror and group-control tools (USB, LAN OTG, WiFi handoff). We configure customer-chosen stacks; licenses stay with the customer." },
   { q: "Do you sell Laixi / CloudPhone / WhiteTiger licenses?", a: "No—we configure environments for tools you license separately unless explicitly agreed in writing." },
