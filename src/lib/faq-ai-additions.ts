@@ -31,4 +31,11 @@ export const FAQ_AI_ADDITIONS = [
   { q: "Equipment offline in control panel?", a: "Re-seat USB, swap hub port, check burn-in serial—see Help: Equipment detection failures." },
   { q: "Phone farm help center?", a: "Full document center at phonefarm.cyou/help—USB, LAN, network, ROM, control, troubleshooting." },
   { q: "Phone farm blog and guides?", a: "Insights at phonefarm.cyou/blog plus guides at /guides/phone-farm-guide and /guides/hardware-selection." },
+  { q: "What is Laixi group control software?", a: "Laixi is a leading Android screen projection and group-control suite. Cyou configures your licensed Laixi workspace on real phone farm hardware—see Help: Laixi control software guide." },
+  { q: "What is CloudPhone mirror software?", a: "CloudPhone is a cost-effective Android mirror tool with batch APK and LAN mirroring. We set up scan ranges and groups on your CloudPhone account—see Help: CloudPhone guide." },
+  { q: "What is WhiteTiger screen projection?", a: "WhiteTiger is a widely used mirror suite (related tools include Panda and Xiaowei). We document USB topology and batch policy on your license—see Help: WhiteTiger guide." },
+  { q: "How to add cloud phone subscription to mirror software?", a: "Purchase cloud seats from your vendor, copy subscription URL, add in Laixi/CloudPhone/WhiteTiger, validate on canary node—see Help: Cloud phone subscription workflow." },
+  { q: "Samsung S22 phone farm box price?", a: "Reference Samsung S22 8+128 farm box ~$1,500 USD on phonefarm.cyou/shop—Snapdragon 8 Gen 1, Android 14 tier for modern app QA." },
+  { q: "Single machine single IP on phone farm?", a: "Each farm node can map to one outbound IP via per-device proxy or router policy—see Help: single machine single IP and network deployment guides." },
+  { q: "Free mirror software vs paid group control?", a: "Free-tier USB mirroring works for small labs; paid Laixi/CloudPhone/WhiteTiger stacks add sync control, batch APK, and LAN fleet scale—see Help: control software types." },
 ] as const;

@@ -393,4 +393,66 @@ Tooling for group control, batch APK, and LAN OTG matured; buyers should select 
 ## Honest Next Step
 
 If your use case is lawful B2B testing or fleet management, request a structured quote at phonefarm.cyou/contact with node count, apps, and region. We decline inquiries that cannot be described as professional device operations.`,
+
+  "laixi-cloudphone-whitetiger-mirror-guide": `Phone farm operators choose mirror and group-control software before they scale from one chassis to a full rack. Three names appear constantly in B2B deployments: Laixi, CloudPhone, and WhiteTiger (often discussed alongside Panda and Xiaowei-class tools). Cyou Phone Farm configures customer-licensed stacks on real motherboard hardware—we do not resell third-party CDKEY brands by default. This guide explains what each category offers and how to match software to your farm topology.
+
+## Laixi: stability-first group control
+
+Laixi is widely regarded as an industry-leading Android screen projection suite with mature group-control features: sync tap, batch APK, multi-monitor tiling, and LAN discovery after OTG TCP enablement. Teams running enterprise app QA on Samsung and Oppo farms often standardize on Laixi when operators need predictable USB attach rates across twenty nodes per box. Setup path: powered USB hub authorization on official ROM, document port map, enable LAN scan on farm subnet only, then fleet grouping. See Help: Laixi control software guide on phonefarm.cyou/help.
+
+## CloudPhone: cost-effective fleet mirroring
+
+CloudPhone targets buyers who need strong stability at lower license cost than premium tiers. It supports USB and LAN mirroring, batch installs, and operator layouts suitable for studios validating client apps on owned hardware. CloudPhone is a common recommendation when a lab mixes mid-tier Xiaomi boxes with a few flagship Samsung nodes. Configuration mirrors Laixi at the network layer—subnet planning and TCP 5555 policy matter more than brand choice. See Help: CloudPhone control software guide.
+
+## WhiteTiger and related mirror stacks
+
+WhiteTiger (and related Panda/Xiaowei ecosystems) remain popular in large domestic fleets. Feature sets overlap Laixi and CloudPhone: screen projection, sync control, wallpaper batch, and file push. Differentiation is often licensing model, UI workflow, and regional support—not raw hardware compatibility. Cyou documents USB topology and batch APK policy on your license; burn-in sheets from our Guangzhou factory list ROM tier so operators know whether ADB file authorization is required before mirroring.
+
+## Free-tier USB mirroring vs paid group control
+
+Free or entry mirror tools suffice for five-node pilots. Paid stacks earn their cost when you need synchronized gestures across forty-plus nodes, rollback-tested batch APK, spare operator accounts, and LAN handoff after initial USB pairing. Reference site buyers often start USB-only then migrate to Laixi or CloudPhone at rack scale—plan control PC USB controller budget before software license spend.
+
+## How Cyou Phone Farm helps
+
+Our Remote Control Configuration and mirror-style onboarding packages map each chassis node to your control PC, validate canary nodes, and hand over runbooks. Licenses stay on your vendor account. Request a quote at phonefarm.cyou/contact with node count, chosen software, and export destination.`,
+
+  "samsung-s22-phone-farm-box-guide": `The Samsung Galaxy S22 motherboard tier is the reference flagship for buyers who need Android 14, Snapdragon 8 Gen 1 performance, and modern Samsung framework behavior on a real phone farm chassis—not emulators. Cyou Phone Farm lists the SAMSUNG S22 Farm 8+128 configuration at approximately $1,500 USD reference pricing on phonefarm.cyou/shop; final invoice depends on MOQ, destination, and remote setup scope.
+
+## Hardware snapshot
+
+- SoC: Snapdragon 8 Gen 1
+- Memory: 8G RAM + 128G storage per node
+- Android: 14 (documented on factory burn-in sheet)
+- Chassis: standard 20-node 2U motherboard box with quad-fan cooling
+- Control: USB screen projection first; LAN OTG after authorization on official ROM builds
+
+## Who should buy S22 farm boxes
+
+Enterprise device labs running regression on Android 14, fintech and super-app teams validating heavy WebView workloads, and OEM compatibility matrices that must include current Samsung behavior. S22 sits above S10/S20 tiers when your app matrix needs flagship GPU/CPU headroom. If your matrix still targets Android 9–11 only, S8/S9/S10 boxes remain more cost-effective.
+
+## Connection and software pairing
+
+Pair S22 fleets with customer-licensed Laixi, CloudPhone, or WhiteTiger workspaces after USB hub burn-in. Enable LAN OTG only on the farm VLAN; document single machine single IP policy if each node maps to a dedicated outbound proxy. Help Center articles cover USB projection, OTG mode tutorial, and Samsung farm ROM guidance.
+
+## Sample before bulk
+
+Overseas buyers should evaluate one sample box before multi-rack POs. Cyou ships from Guangzhou with DHL/FedEx/UPS export documentation. Contact phonefarm.cyou/contact with node count, apps, and region for proforma invoice and lead time.`,
+
+  "cloud-phone-subscription-hybrid-labs": `Hybrid device labs combine real motherboard phone farms with rented cloud phone seats inside mirror software. Real hardware stays authoritative for release QA, sensor behavior, and OEM-specific branches; cloud seats add elastic capacity for burst testing or geographic IP experiments when vendor policy allows. Cyou Phone Farm focuses on real-device chassis from Guangzhou; this article documents the subscription workflow buyers reference when blending both layers.
+
+## Typical subscription workflow
+
+1. Purchase cloud phone seats from your licensed vendor (duration and region per vendor catalog).
+2. Open vendor portal → copy subscription URL or activation code.
+3. In Laixi, CloudPhone, or WhiteTiger, add subscription / cloud phone source per vendor instructions.
+4. Validate screen projection on one canary node before fleet rollout.
+5. Document which workloads remain on real S22/S10 farm nodes vs cloud seats in your runbook.
+
+## Network and compliance notes
+
+Cloud seats route traffic through vendor infrastructure; real farm nodes use your lab network and proxy policy. Do not assume identical fingerprint or latency behavior—treat hybrid results as complementary. Enterprise buyers should segregate test accounts and data classes per compliance team guidance.
+
+## Where Cyou fits
+
+We supply Samsung, Oppo, Xiaomi, OnePlus, and Pixel farm boxes plus remote control configuration. For hybrid topology documentation during enterprise quotes, mention cloud vendor choice in your contact form. Full step-by-step: Help: Cloud phone subscription workflow on phonefarm.cyou/help.`,
 };

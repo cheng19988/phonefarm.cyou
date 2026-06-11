@@ -65,6 +65,30 @@ export const BLOG_POSTS = [
     excerpt:
       "Room-to-rack evolution: power, cooling, control PC sizing, and overseas shipping tips.",
   },
+  {
+    slug: "laixi-cloudphone-whitetiger-mirror-guide",
+    title: "Laixi vs CloudPhone vs WhiteTiger: Mirror Software for Phone Farms",
+    category: "Setup & Tutorials",
+    date: "2026-06-01",
+    excerpt:
+      "Compare leading Android group-control mirror stacks—USB projection, LAN OTG, batch APK, and when to license each on real hardware.",
+  },
+  {
+    slug: "samsung-s22-phone-farm-box-guide",
+    title: "Samsung S22 Phone Farm Box: Specs, Price, and QA Use Cases",
+    category: "Hardware & Selection",
+    date: "2026-06-05",
+    excerpt:
+      "Snapdragon 8 Gen 1, Android 14, and ~$1,500 reference pricing for modern Samsung farm chassis buyers.",
+  },
+  {
+    slug: "cloud-phone-subscription-hybrid-labs",
+    title: "Cloud Phone Subscriptions in Hybrid Device Labs",
+    category: "Applications & Use Cases",
+    date: "2026-06-08",
+    excerpt:
+      "How to add vendor cloud seats to Laixi or CloudPhone while keeping real motherboard farms for release QA.",
+  },
 ] as const;
 
 /** Posts with full article bodies — listed on /blog and included in sitemap. */

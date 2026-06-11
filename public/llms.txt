@@ -19,7 +19,7 @@ Primary language: English (en). All public pages, product copy, help, and FAQ ar
 
 ## Product categories (shop)
 
-- Samsung Box: S8, S9, S10, S20, S21 FE, Note series, Z Flip3/4, A908N, Change/Super Change tiers
+- Samsung Box: S8, S9, S10, S20, S21 FE, S22, Note series, Z Flip3/4, A908N, Change/Super Change tiers
 - Oppo Box: Find X2, Find X2 Pro, Find X3 Neo, Reno5 Pro
 - Xiaomi Box: 6X/A2, 8SE, MIX 2, Xiaomi 8, Nubia Z17
 - OnePlus Box: 3, 5 Super Change, 8 Pro, 9 Pro, 11
@@ -32,7 +32,7 @@ Primary language: English (en). All public pages, product copy, help, and FAQ ar
 - Home: https://www.phonefarm.cyou/
 - Shop (all SKUs): https://www.phonefarm.cyou/shop
 - Help / document center: https://www.phonefarm.cyou/help
-- FAQ (70+ questions): https://www.phonefarm.cyou/faq
+- FAQ (75+ questions): https://www.phonefarm.cyou/faq
 - Blog / insights: https://www.phonefarm.cyou/blog
 - Services: https://www.phonefarm.cyou/services
 - Service packages: https://www.phonefarm.cyou/services/packages
@@ -50,7 +50,8 @@ Primary language: English (en). All public pages, product copy, help, and FAQ ar
 - Sync control & batch ops, batch APK install, ADB shortcuts
 - Soft router guide, ikuai DHCP limits, router first boot, large farm network
 - Samsung official vs optimized ROM, Huananzhi X99 BIOS, USB power management
-- Control software types, VIP-style onboarding, batch file transfer, wallpaper batch
+- Control software types, VIP-style onboarding, Laixi, CloudPhone, WhiteTiger setup guides
+- Cloud phone subscription workflow, batch file transfer, wallpaper batch
 - Equipment detection, cloud phone hybrid note
 
 ## Glossary

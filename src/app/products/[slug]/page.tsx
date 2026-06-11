@@ -12,6 +12,7 @@ import { isServiceCatalogItem, publicCategoryLabel } from "@/lib/catalog";
 import { QuotationDeliveryNotes } from "@/components/QuotationDeliveryNotes";
 import { ProductImageGallery } from "@/components/ProductImageGallery";
 import { getProductGallery } from "@/lib/product-images";
+import { ProductRelatedHelp } from "@/components/ProductRelatedHelp";
 
 function parseJson<T>(raw: string, fallback: T): T {
   try {
@@ -156,6 +157,8 @@ export default async function ProductDetailPage({
           </div>
 
           <QuotationDeliveryNotes notes={profile?.quotationDelivery} />
+
+          <ProductRelatedHelp category={product.category} />
 
           {faq.length > 0 && (
             <section className="mt-12">

@@ -1,9 +1,28 @@
+import { ALL_HARDWARE_CATALOG } from "./hardware-catalog";
+import { parseShortDescHardware } from "./pricing";
+
 export type ProductSummary = {
   summary: string;
   bestFor: string;
   hardwareNote: string;
   quoteNote: string;
 };
+
+function catalogDerivedSummary(slug: string): ProductSummary | undefined {
+  const item = ALL_HARDWARE_CATALOG.find((p) => p.slug === slug);
+  if (!item) return undefined;
+  const hw = parseShortDescHardware(item.shortDesc);
+  const cpu = hw.cpu ?? "See specification table";
+  const ram = hw.ram ?? "See specification table";
+  const android = hw.android ?? "Documented on burn-in sheet";
+  return {
+    summary: `${item.name} ships as a factory-assembled 20-node motherboard chassis from Cyou Phone Farm, Guangzhou. ${item.shortDesc}`,
+    bestFor: `App QA testing, device compatibility labs, and enterprise device fleets running ${cpu.split("/")[0].trim()} class SoC hardware.`,
+    hardwareNote: `Quad-fan cooling and adaptive PSU; RAM/storage ${ram}; Android ${android}. Plan rack airflow for 24/7 operation.`,
+    quoteNote:
+      "Reference USD price on shop. Sales confirms MOQ, lead time, export packing, and remote setup scope before invoice.",
+  };
+}
 
 /** Light differentiation for SKUs without full productProfiles entries. */
 export const PRODUCT_SUMMARIES: Record<string, ProductSummary> = {
@@ -19,11 +38,17 @@ export const PRODUCT_SUMMARIES: Record<string, ProductSummary> = {
     hardwareNote: "855 thermals need solid rack airflow; include spare fan kit in warm-site quotes.",
     quoteNote: "Bulk MOQ typically discussed from 5+ boxes; sample single-box evaluation available.",
   },
-  "samsung-s9-plus-farm-6-64": {
+  "samsung-s9-farm-6-64": {
     summary: "Snapdragon 845 / Exynos 9810 tier with 6G+64G—step up from S8 when your QA matrix needs Android 10 and stronger multitasking.",
     bestFor: "Mid-size app compatibility labs moving off S8 fleets.",
     hardwareNote: "845-class thermals sit between S8 and S10; plan standard quad-fan maintenance.",
     quoteNote: "Share target Android apps and node count; we confirm board mix and lead time.",
+  },
+  "samsung-s22-farm-8-128": {
+    summary: "Snapdragon 8 Gen 1 flagship tier with 8G+128G and Android 14—for enterprise labs that need current-generation Samsung performance.",
+    bestFor: "High-throughput QA matrices and modern Android 14 compatibility testing.",
+    hardwareNote: "550W PSU tier recommended; premium fan kit for warm rooms and 24/7 loads.",
+    quoteNote: "Flagship pricing; bulk MOQ and lead time confirmed by sales before payment.",
   },
   "oppo-find-x2-pro-farm-12-256": {
     summary: "Flagship Oppo chassis with 12G+256G storage for heavier APK sets and longer on-device test data retention.",
@@ -67,7 +92,7 @@ export const PRODUCT_SUMMARIES: Record<string, ProductSummary> = {
     hardwareNote: "820 tier is end-of-life for heavy apps—confirm workload with sales first.",
     quoteNote: "Limited board supply; lead time may exceed standard Samsung tiers.",
   },
-  "oneplus-8-pro-farm-12-256": {
+  "oneplus-8-pro-farm-8-128": {
     summary: "OnePlus 8 Pro farm with 12G+256G on Snapdragon 865 for high-memory QA and large test artifacts.",
     bestFor: "OxygenOS-class testing with storage headroom for logging and captures.",
     hardwareNote: "865 + 12G handles parallel installs better than 6G entry tiers.",
@@ -172,5 +197,5 @@ export const PRODUCT_SUMMARIES: Record<string, ProductSummary> = {
 };
 
 export function getProductSummary(slug: string) {
-  return PRODUCT_SUMMARIES[slug];
+  return PRODUCT_SUMMARIES[slug] ?? catalogDerivedSummary(slug);
 }

@@ -105,6 +105,34 @@ export const HELP_REFERENCE_ARTICLES = [
     excerpt: "When to keep real hardware vs add cloud seats.",
     body: `Real motherboard farms provide authentic SoC, sensors, and storage. Cloud phones add elastic seats but differ in fingerprint and network path. Many enterprises run real farms for release QA and optional cloud bridges for burst capacity—we document hybrid topology when requested.`,
   },
+  {
+    slug: "laixi-control-software-guide",
+    category: "control",
+    title: "Laixi Group Control Software Setup",
+    excerpt: "Configure Laixi USB mirroring and group control on phone farm hardware.",
+    body: `Laixi is an industry-leading Android screen projection and group-control suite. Cyou Phone Farm does not resell Laixi CDKEYs by default—we configure your licensed Laixi workspace on real-device chassis: powered USB hub mapping, ADB authorization on official ROM, LAN OTG scan ranges on the farm subnet, device groups, and operator handoff. See also Help: USB screen projection and OTG mode tutorial.`,
+  },
+  {
+    slug: "cloudphone-control-software-guide",
+    category: "control",
+    title: "CloudPhone Screen Projection Setup",
+    excerpt: "CloudPhone mirror workspace for cost-effective multi-device control.",
+    body: `CloudPhone is a commonly recommended Android mirror tool with batch APK, sync control, and LAN mirroring. After you license CloudPhone, our Remote Control Configuration service maps each chassis node to the control PC, validates TCP 5555 on official builds, and documents batch install policy. For cloud-phone subscription workflows used alongside real hardware, see Help: Cloud phone subscription workflow.`,
+  },
+  {
+    slug: "whitetiger-control-software-guide",
+    category: "control",
+    title: "WhiteTiger Mirror Software Setup",
+    excerpt: "WhiteTiger / Panda-class mirror stacks on phone farms.",
+    body: `WhiteTiger and related mirror tools are widely used for Android group control. We configure USB-first authorization, LAN discovery on the farm VLAN only, multi-monitor tiling, and spare operator accounts. Licenses remain on your vendor account—we provide setup services and Guangzhou hardware burn-in sheets that match your ROM tier.`,
+  },
+  {
+    slug: "cloud-phone-subscription-workflow",
+    category: "control",
+    title: "Cloud Phone Subscription Workflow (Hybrid Labs)",
+    excerpt: "Add cloud phone seats to a mirror tool alongside real farm nodes.",
+    body: `Hybrid labs sometimes combine real motherboard farms with rented cloud phone seats in Laixi, CloudPhone, or similar tools. Typical workflow: purchase cloud seats from your vendor → copy subscription URL from vendor portal → add subscription in mirror software → validate screen projection on a canary node → document which workloads stay on real hardware vs cloud. Cyou Phone Farm focuses on real-device chassis; we document hybrid topology during enterprise quotes.`,
+  },
 ] as const;
 
 export const FAQ_REFERENCE_ADDITIONS = [

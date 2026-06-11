@@ -20,6 +20,7 @@ export const IMAGE_DERIVED_HARDWARE: HardwareCatalogItem[] = imageDerived as Har
 
 /** Oppo / Xiaomi / Pixel / OnePlus lines without product_ PNG in library yet — chassis image at seed */
 export const REFERENCE_HARDWARE_WITHOUT_IMAGES: HardwareCatalogItem[] = [
+  { slug: "samsung-s22-farm-8-128", name: "SAMSUNG S22 Farm 8+128", category: "samsung-box", shortDesc: "CPU: Snapdragon 8 Gen 1 · 8G+128G · Android 14", priceUsd: 1500, stock: 4 },
   { slug: "oppo-find-x2-farm-8-128", name: "OPPO Find X2 Farm 8+128", category: "oppo-box", shortDesc: "CPU: Snapdragon 865 · 8G+128G · Android 13", priceUsd: 1050, stock: 6 },
   { slug: "oppo-find-x2-pro-farm-12-256", name: "OPPO Find X2 Pro Farm 12+256", category: "oppo-box", shortDesc: "CPU: Snapdragon 865 · 12G+256G · Android 13", priceUsd: 1400, stock: 4 },
   { slug: "oppo-find-x3-neo-farm-8-128", name: "OPPO Find X3 Neo Farm 8+128", category: "oppo-box", shortDesc: "CPU: Snapdragon 888 · 8G+128G · Android 13", priceUsd: 1270, stock: 5 },

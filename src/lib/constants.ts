@@ -73,9 +73,24 @@ export const PRODUCT_CATEGORIES = [
 
 export const CONTROL_SOFTWARE_OPTIONS = [
   {
-    slug: "usb-mirroring",
-    name: "USB mirroring setup",
-    desc: "Powered hub paths, ADB authorization, and per-node labels on your control PC.",
+    slug: "free-mirror-stack",
+    name: "USB screen mirroring (free-tier tools)",
+    desc: "Baseline USB projection and device detection on customer-licensed mirror software—we configure paths, not resell licenses.",
+  },
+  {
+    slug: "laixi-stack",
+    name: "Laixi group control screen projection",
+    desc: "Industry-leading Android mirror tool known for stability and rich group-control features. We configure USB/LAN on your Laixi license.",
+  },
+  {
+    slug: "cloudphone-stack",
+    name: "CloudPhone group control software",
+    desc: "Cost-effective mirror stack with strong stability. We set up LAN scan ranges, groups, and operator layout on your CloudPhone account.",
+  },
+  {
+    slug: "whitetiger-stack",
+    name: "WhiteTiger screen projection software",
+    desc: "Widely deployed mirror suite (related tools include Panda and Xiaowei). We document USB topology and batch APK policy on your license.",
   },
   {
     slug: "lan-otg",
@@ -84,18 +99,13 @@ export const CONTROL_SOFTWARE_OPTIONS = [
   },
   {
     slug: "device-grouping",
-    name: "Device grouping",
-    desc: "Test groups, master window rules, and operator permissions.",
+    name: "Device grouping & sync control",
+    desc: "Test groups, master window rules, sync tap, and operator permissions.",
   },
   {
     slug: "batch-apk",
     name: "Batch APK installation",
     desc: "Test-on-one-node workflow, split APK handling, and rollback notes.",
-  },
-  {
-    slug: "control-pc-layout",
-    name: "Control PC layout",
-    desc: "Monitor tiling, USB controller separation, and backup workstation guidance.",
   },
   {
     slug: "operator-handover",
