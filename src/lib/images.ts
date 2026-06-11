@@ -12,10 +12,11 @@ const WEBP_HERO_HOME =
   "/images/hero_1600x900/phonefarm.cyou-product-box-2025-10-25-11-37-img-0566-ee21b-hero_1600x900.webp";
 
 export const IMAGES = {
+  /** Dark-background webp — OG/social only; do not use on light pages */
   hero: WEBP_HERO_HOME,
   /** Isolated chassis on white (flattened PNG) */
   heroChassisProduct: CHASSIS_HERO_WHITE,
-  /** Transparent cutout for full-bleed hero behind text */
+  /** Transparent cutout — homepage hero only */
   heroChassisTransparent: CHASSIS_HERO_TRANSPARENT,
   heroAlt: CHASSIS_HERO_ALT,
   heroFallback: WEBP_HERO,
@@ -54,6 +55,13 @@ export const IMAGES = {
     warehouse: "/images/company/仓库.png",
   },
   og: CHASSIS_HERO,
+} as const;
+
+/** One image per page — avoid repeating the homepage transparent chassis */
+export const PAGE_IMAGES = {
+  servicesBanner: IMAGES.company.production,
+  phoneFarmAside: "/images/real-factory/box-shots/2025_10_25_11_28_IMG_0553.png",
+  deploymentBanner: IMAGES.facility.assembly,
 } as const;
 
 export const FACILITY_GALLERY = [

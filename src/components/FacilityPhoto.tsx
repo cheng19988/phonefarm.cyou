@@ -15,7 +15,7 @@ export function FacilityPhoto({
         src={src}
         alt={alt}
         fill
-        className="object-cover transition duration-500 group-hover:scale-105"
+        className="object-contain p-1 transition duration-500 group-hover:scale-[1.02]"
         sizes="(max-width:768px) 100vw, 33vw"
       />
       <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-900/80 via-slate-900/40 to-transparent px-5 py-4 text-sm font-medium text-white">
