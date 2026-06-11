@@ -11,7 +11,7 @@ import { TrustStatsBar } from "@/components/TrustStatsBar";
 import { RegionsShowcase } from "@/components/RegionsShowcase";
 import { BrandProductSection } from "@/components/BrandProductSection";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { FAQ_ITEMS } from "@/lib/faq";
+import { HOME_FAQ_ITEMS } from "@/lib/faq";
 import {
   CONTROL_SOFTWARE_OPTIONS,
   CONTROL_SOFTWARE_DISCLAIMER,
@@ -58,7 +58,7 @@ export default async function HomePage() {
 
   return (
     <>
-      <JsonLd data={faqPageJsonLd(FAQ_ITEMS.slice(0, 12))} />
+      <JsonLd data={faqPageJsonLd(HOME_FAQ_ITEMS)} />
       <HomeHero />
       <TrustStatsBar />
 
@@ -96,10 +96,7 @@ export default async function HomePage() {
       ))}
 
       <section className="site-container py-16">
-        <SectionHeading
-          title="Control software setup"
-          subtitle={CONTROL_SOFTWARE_DISCLAIMER}
-        />
+        <SectionHeading title="Control software setup" subtitle={CONTROL_SOFTWARE_DISCLAIMER} />
         <div className="info-grid mt-10">
           {CONTROL_SETUP_SERVICES.map((s) => (
             <div key={s.slug} className="card-premium p-5">
@@ -109,7 +106,8 @@ export default async function HomePage() {
                 {s.priceFrom > 0 ? `From $${s.priceFrom}` : "Custom quote"}
               </p>
               <Link href="/contact" className="mt-4 inline-block text-sm font-medium text-sky-700 hover:text-sky-600">
-                Request quote —              </Link>
+                Request quote
+              </Link>
             </div>
           ))}
         </div>
@@ -157,7 +155,7 @@ export default async function HomePage() {
         <div className="site-container">
           <SectionHeading title="FAQ" actionHref="/faq" actionLabel="Full FAQ" />
           <div className="mt-8 max-w-3xl">
-            <FaqAccordion items={FAQ_ITEMS.slice(0, 6)} />
+            <FaqAccordion items={HOME_FAQ_ITEMS.slice(0, 6)} />
           </div>
         </div>
       </section>
@@ -168,7 +166,7 @@ export default async function HomePage() {
             <div>
               <h2 className="font-display text-3xl font-bold text-slate-900">Request a quotation</h2>
               <p className="mt-3 text-slate-600 leading-relaxed">
-                Share quantity, destination, and control method —sales replies with MOQ, lead time, and setup scope.
+                Share quantity, destination, and control method. Sales replies with MOQ, lead time, and setup scope.
               </p>
             </div>
             <div className="card-premium p-6">

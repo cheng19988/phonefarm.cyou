@@ -1,7 +1,9 @@
 import { FAQ_REFERENCE_ADDITIONS } from "./help-reference-additions";
 import { FAQ_AI_ADDITIONS } from "./faq-ai-additions";
 
-export const FAQ_ITEMS = [
+export type FaqItem = { q: string; a: string };
+
+const FAQ_CORE: FaqItem[] = [
   {
     q: "What is a phone farm?",
     a: "A phone farm is a chassis of real Android motherboards with shared power, cooling, and centralized control—optimized versus loose phones on desks. Cyou Phone Farm provides full setup from Guangzhou.",
@@ -74,6 +76,29 @@ export const FAQ_ITEMS = [
     q: "Do you sell third-party control software licenses?",
     a: "We provide setup and configuration services for control software. Customers use their own licensed tools—we do not resell third-party license keys unless explicitly agreed in writing.",
   },
+];
+
+function normalizeFaqKey(question: string) {
+  return question.toLowerCase().replace(/\s+/g, " ").trim();
+}
+
+export function dedupeFaqItems(items: readonly FaqItem[]): FaqItem[] {
+  const seen = new Set<string>();
+  const unique: FaqItem[] = [];
+  for (const item of items) {
+    const key = normalizeFaqKey(item.q);
+    if (seen.has(key)) continue;
+    seen.add(key);
+    unique.push(item);
+  }
+  return unique;
+}
+
+export const FAQ_ITEMS = dedupeFaqItems([
+  ...FAQ_CORE,
   ...FAQ_REFERENCE_ADDITIONS,
   ...FAQ_AI_ADDITIONS,
-];
+]);
+
+/** Top questions for homepage accordion + JSON-LD (aligned with /faq, no duplicates). */
+export const HOME_FAQ_ITEMS = FAQ_ITEMS.slice(0, 18);

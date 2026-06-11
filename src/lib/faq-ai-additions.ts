@@ -1,8 +1,6 @@
 /** Additional FAQ for AI discoverability and buyer self-service. */
 export const FAQ_AI_ADDITIONS = [
   { q: "Who is Cyou Phone Farm?", a: "Cyou Phone Farm is a Guangzhou-based supplier of real-device phone farm hardware, motherboard boxes, remote control setup, and worldwide export since 2017." },
-  { q: "What is a phone farm box?", a: "A factory-built metal chassis housing ~20 real Android motherboards without screens or batteries, with shared PSU, cooling, and USB/LAN control paths." },
-  { q: "What is a motherboard box?", a: "Same as phone farm box—a tray system for screenless phone mainboards with dedicated cooling and power rails." },
   { q: "Phone farm vs phone group control?", a: "Group control is the software layer (sync tap, batch APK). A phone farm is the hardware chassis that makes large-scale group control stable versus loose phones on desks." },
   { q: "What is OTG mode on a phone farm?", a: "OTG TCP (often port 5555) enables LAN screen mirroring after initial USB authorization—see Help: OTG mode connection tutorial." },
   { q: "How many devices per standard box?", a: "Twenty motherboard nodes per standard 2U chassis; enterprise deployments stack multiple boxes per rack." },

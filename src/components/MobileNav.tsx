@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { CONTACT, SITE } from "@/lib/constants";
 import { CartLink } from "./CartLink";
+import { PUBLIC_CART_IN_NAV } from "@/lib/features";
 
 const links = [
   { href: "/", label: "Home" },
@@ -59,12 +60,14 @@ export function MobileNav() {
                 </li>
               ))}
             </ul>
-            <div className="mt-4 flex gap-4 border-t border-slate-200 pt-4 text-sm">
-              <CartLink />
-              <Link href="/account/orders" onClick={() => setOpen(false)} className="text-slate-600 hover:text-sky-700">
-                Account
-              </Link>
-            </div>
+            {PUBLIC_CART_IN_NAV && (
+              <div className="mt-4 flex gap-4 border-t border-slate-200 pt-4 text-sm">
+                <CartLink />
+                <Link href="/account/orders" onClick={() => setOpen(false)} className="text-slate-600 hover:text-sky-700">
+                  Account
+                </Link>
+              </div>
+            )}
             <div className="mt-4 grid grid-cols-2 gap-2 border-t border-slate-200 pt-4">
               <a
                 href={CONTACT.whatsappUrl}

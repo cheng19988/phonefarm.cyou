@@ -5,6 +5,7 @@ import { isServiceCatalogItem, publicCategoryLabel } from "@/lib/catalog";
 import { resolveProductPurchase } from "@/lib/product-purchase";
 import { AddToCartButton } from "./AddToCartButton";
 import { CONTACT } from "@/lib/constants";
+import { PUBLIC_CHECKOUT_ENABLED } from "@/lib/features";
 
 type Product = {
   id: string;
@@ -55,7 +56,11 @@ export function ProductCard({ product }: { product: Product }) {
             {service && product.priceUsd <= 0 ? "Custom quote" : formatReferencePrice(product.priceUsd)}
           </p>
           <p className="mt-0.5 text-xs text-slate-500">
-            {service ? "Quote before invoice" : "Bulk quote available · Add to Cart"}
+            {service
+              ? "Quote before invoice"
+              : PUBLIC_CHECKOUT_ENABLED
+                ? "Bulk quote available · Direct checkout for standard SKUs"
+                : "Bulk quote available · Availability confirmed by sales"}
           </p>
         </div>
         <div className="mt-4 flex flex-col gap-2">

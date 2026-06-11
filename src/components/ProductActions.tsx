@@ -77,7 +77,7 @@ export function ProductActions({
       <p className="text-sm text-slate-500">
         Reference price only. Sales confirms MOQ, lead time, shipping, and setup scope before bulk orders.
         {rules.directPurchaseEnabled && priceUsd > 0
-          ? " Standard configurations may be ordered online with USDT TRC20."
+          ? " Standard configurations may be ordered online after sales confirms payment instructions."
           : ""}
       </p>
     </div>
