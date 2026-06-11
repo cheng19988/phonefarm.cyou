@@ -7,7 +7,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
-  title: "Phone Farm Setup Services — Remote Control & Group Control",
+  title: "Phone Farm Setup Services - Remote Control & Group Control",
   description:
     "One-stop phone farm setup, remote control configuration, group control onboarding, deployment, enterprise bulk, samples, and overseas support from Guangzhou.",
   path: "/services",
@@ -20,11 +20,11 @@ export default function ServicesPage() {
         <div className="site-container py-12 lg:py-16">
           <SectionHeading
             title="Setup Services"
-            subtitle={`${SITE.name} delivers full phone farm projects in ${SITE.location} — hardware, control software configuration, and handover.`}
+            subtitle={`${SITE.name} delivers full phone farm projects in ${SITE.location} - hardware, control software configuration, and handover.`}
           />
           <div className="mt-6">
             <Link href="/services/packages" className="text-sm font-medium text-amber-700 hover:text-amber-600">
-              View service packages ?
+              View service packages
             </Link>
           </div>
         </div>
@@ -47,14 +47,14 @@ export default function ServicesPage() {
               <h2 className="font-display text-lg font-semibold text-slate-900">{s.title}</h2>
               <p className="mt-3 text-sm text-slate-600 leading-relaxed">{s.desc}</p>
               <Link href="/contact" className="mt-4 inline-block text-sm font-medium text-sky-700 hover:text-sky-600">
-                Request service ?
+                Request service
               </Link>
             </article>
           ))}
         </div>
 
         <section className="mt-16">
-          <SectionHeading title="Control setup packages" subtitle="Reference-style onboarding — we configure, you license." />
+          <SectionHeading title="Control setup packages" subtitle="Reference-style onboarding - we configure, you license." />
           <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {CONTROL_SETUP_SERVICES.map((s) => (
               <div key={s.slug} className="card-premium p-5">
@@ -81,9 +81,9 @@ export default function ServicesPage() {
           </div>
           <p className="mt-6 text-sm">
             <Link href="/help/control-software-types" className="text-sky-700 hover:underline">
-              Control software types guide ?
+              Control software types guide
             </Link>
-            {" · "}
+            <span className="mx-2 text-slate-400">|</span>
             <Link href="/help" className="text-sky-700 hover:underline">
               Help Center
             </Link>
