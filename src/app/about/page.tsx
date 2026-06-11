@@ -2,7 +2,6 @@ import Link from "next/link";
 import { SITE, CONTACT, TRUST_POINTS, DEPLOYMENT_STEPS } from "@/lib/constants";
 import { FACILITY_GALLERY } from "@/lib/images";
 import { FacilityPhoto } from "@/components/FacilityPhoto";
-import { ContactBar } from "@/components/ContactBar";
 import { DeliverySopSection } from "@/components/DeliverySopSection";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { buildMetadata } from "@/lib/seo";
@@ -23,9 +22,6 @@ export default function AboutPage() {
             title={`About ${SITE.name}`}
             subtitle={`Guangzhou factory · Real-device phone farms since ${SITE.since} · Assembly, burn-in, export, and remote setup support.`}
           />
-          <div className="mt-6">
-            <ContactBar />
-          </div>
         </div>
       </section>
 
@@ -87,7 +83,6 @@ export default function AboutPage() {
             <li>WhatsApp: <a href={CONTACT.whatsappUrl}>{CONTACT.whatsapp}</a></li>
             <li>Telegram: <a href={CONTACT.telegramUrl}>{CONTACT.telegram}</a></li>
             <li>Email: <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a></li>
-            <li>Phone: {CONTACT.phoneDisplay}</li>
           </ul>
           <p><Link href="/contact">Send a structured inquiry →</Link></p>
         </div>

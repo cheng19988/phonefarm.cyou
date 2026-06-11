@@ -4,7 +4,6 @@ import { getPost, BLOG_POSTS, hasFullBlogBody } from "@/lib/blog";
 import { BLOG_BODIES } from "@/lib/blog-bodies";
 import { buildMetadata, breadcrumbJsonLd, articleJsonLd } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
-import { ContactBar } from "@/components/ContactBar";
 import { ProseMarkdown } from "@/components/ProseMarkdown";
 
 export async function generateStaticParams() {
@@ -70,7 +69,6 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         <Link href="/help" className="text-sky-700 hover:underline">Help Center</Link>
       </div>
       <div className="mt-8">
-        <ContactBar />
       </div>
     </article>
   );

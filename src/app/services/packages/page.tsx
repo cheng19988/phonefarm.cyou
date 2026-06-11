@@ -2,7 +2,6 @@ import Link from "next/link";
 import { SERVICE_PACKAGES, SITE, CONTACT } from "@/lib/constants";
 import { PACKAGE_DETAILS } from "@/lib/packageDetails";
 import { ContactForm } from "@/components/ContactForm";
-import { ContactBar } from "@/components/ContactBar";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { buildMetadata } from "@/lib/seo";
 
@@ -21,9 +20,6 @@ export default function ServicePackagesPage() {
             title="Service packages"
             subtitle={`Implementation scope for ${SITE.name} —distinct from the hardware catalog. All packages are quoted in USD and confirmed by sales before work begins.`}
           />
-          <div className="mt-6">
-            <ContactBar />
-          </div>
         </div>
       </section>
 

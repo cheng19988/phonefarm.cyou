@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { SITE } from "@/lib/constants";
 import { ContactForm } from "@/components/ContactForm";
-import { ContactBar } from "@/components/ContactBar";
 import { DeliverySopSection } from "@/components/DeliverySopSection";
 import { DeploymentTimeline } from "@/components/DeploymentTimeline";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -23,9 +22,6 @@ export default function DeploymentPage() {
             title="Deployment Workflow"
             subtitle={`How ${SITE.name} delivers hardware, testing, packing, and remote support from ${SITE.location}.`}
           />
-          <div className="mt-6">
-            <ContactBar />
-          </div>
         </div>
       </section>
 

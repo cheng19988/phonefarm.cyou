@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { FaqAccordion } from "@/components/FaqAccordion";
-import { ContactBar } from "@/components/ContactBar";
 import { ContactForm } from "@/components/ContactForm";
 import { FAQ_ITEMS } from "@/lib/faq";
 import { JsonLd } from "@/components/JsonLd";
@@ -24,9 +23,6 @@ export default function FaqPage() {
             title="Frequently Asked Questions"
             subtitle="Expanded FAQ for buyers, integrators, enterprise procurement, and phone farm reference."
           />
-          <div className="mt-6">
-            <ContactBar />
-          </div>
           <p className="mt-4 text-sm text-slate-600">{FAQ_ITEMS.length} questions · Help Center and blog linked below</p>
         </div>
       </section>

@@ -1,13 +1,12 @@
-import { ContactBar } from "@/components/ContactBar";
 import { ContactForm } from "@/components/ContactForm";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { CONTACT, SITE } from "@/lib/constants";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
-  title: "Contact Sales —Custom Quote in Minutes",
+  title: "Contact Sales — Custom Quote in Minutes",
   description:
-    "Contact Cyou Phone Farm: +86 13059502618, Telegram @huicheng1998, WhatsApp +852 6215 5642, qiuxui646@gmail.com",
+    "Contact Cyou Phone Farm: Telegram @huicheng1998, WhatsApp +85262155642, qiuxui646@gmail.com",
   path: "/contact",
 });
 
@@ -23,24 +22,27 @@ export default async function ContactPage({
         <div className="site-container py-12 lg:py-16">
           <SectionHeading
             title="Contact Sales"
-            subtitle={`Tell us your device count and product interest—we reply from ${SITE.location} within 24 hours.`}
+            subtitle={`Tell us your device count and product interest—we reply from ${SITE.location} within 24 hours. Use the floating contact button (bottom-right) or the form below.`}
           />
-          <div className="mt-6 space-y-2 text-slate-700">
+          <div className="mt-6 space-y-2 text-sm text-slate-700">
             <p>
-              Phone: <a href={`tel:${CONTACT.phone}`} className="link-accent">{CONTACT.phoneDisplay}</a>
+              Telegram:{" "}
+              <a href={CONTACT.telegramUrl} target="_blank" rel="noopener noreferrer" className="link-accent">
+                {CONTACT.telegram}
+              </a>
             </p>
             <p>
-              Telegram: <a href={CONTACT.telegramUrl} className="link-accent">{CONTACT.telegram}</a>
+              WhatsApp:{" "}
+              <a href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer" className="link-accent">
+                {CONTACT.whatsapp}
+              </a>
             </p>
             <p>
-              WhatsApp: <a href={CONTACT.whatsappUrl} className="link-accent">{CONTACT.whatsapp}</a>
+              Email:{" "}
+              <a href={`mailto:${CONTACT.email}`} className="link-accent">
+                {CONTACT.email}
+              </a>
             </p>
-            <p>
-              Email: <a href={`mailto:${CONTACT.email}`} className="link-accent">{CONTACT.email}</a>
-            </p>
-          </div>
-          <div className="mt-4">
-            <ContactBar />
           </div>
         </div>
       </section>

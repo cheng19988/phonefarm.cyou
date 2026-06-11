@@ -76,7 +76,7 @@ export default function TermsPage() {
 
       <h2>10. Contact</h2>
       <p>
-        {CONTACT.email} · {CONTACT.phoneDisplay} · {CONTACT.telegram}
+        {CONTACT.email} · {CONTACT.telegram} · {CONTACT.whatsapp}
       </p>
     </div>
   );

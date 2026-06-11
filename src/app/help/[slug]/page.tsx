@@ -6,7 +6,6 @@ import { HELP_SUPPLEMENT } from "@/lib/help-supplement";
 import { HELP_REFERENCE_EXPANDED } from "@/lib/help-reference-expanded";
 import { buildMetadata, breadcrumbJsonLd, articleJsonLd } from "@/lib/seo";
 import { JsonLd } from "@/components/JsonLd";
-import { ContactBar } from "@/components/ContactBar";
 import { ProseMarkdown } from "@/components/ProseMarkdown";
 import { HelpTableOfContents } from "@/components/HelpTableOfContents";
 
@@ -67,9 +66,6 @@ export default async function HelpArticlePage({ params }: { params: Promise<{ sl
           {" · "}
           <Link href="/faq" className="text-sky-700 hover:underline">FAQ</Link>
         </p>
-      </div>
-      <div className="mt-6">
-        <ContactBar />
       </div>
     </article>
   );

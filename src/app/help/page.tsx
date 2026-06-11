@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { HELP_ARTICLES, HELP_CATEGORIES } from "@/lib/help";
 import { buildMetadata } from "@/lib/seo";
-import { ContactBar } from "@/components/ContactBar";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export const metadata = buildMetadata({
@@ -20,9 +19,6 @@ export default function HelpPage() {
             title="Help Center"
             subtitle="Document center for connection, control, network, firmware, and post-delivery operations—aligned with professional phone farm workflows."
           />
-          <div className="mt-6">
-            <ContactBar />
-          </div>
           <p className="mt-4 text-sm text-slate-600">
             {HELP_ARTICLES.length} articles · USB · LAN OTG · group control · router · ROM · troubleshooting
           </p>

@@ -3,7 +3,6 @@ import Link from "next/link";
 import { getSession } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { OrderPaymentPanel } from "@/components/OrderPaymentPanel";
-import { ContactBar } from "@/components/ContactBar";
 import { formatReferencePrice } from "@/lib/pricing";
 
 export default async function OrderDetailPage({
@@ -102,7 +101,6 @@ export default async function OrderDetailPage({
         </p>
       )}
       <div className="mt-8">
-        <ContactBar />
       </div>
     </div>
   );

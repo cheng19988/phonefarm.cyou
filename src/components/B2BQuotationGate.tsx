@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { ContactBar } from "./ContactBar";
 import { CONTACT } from "@/lib/constants";
 
 export function B2BQuotationGate({ pageLabel }: { pageLabel?: string }) {
@@ -26,9 +25,6 @@ export function B2BQuotationGate({ pageLabel }: { pageLabel?: string }) {
         <Link href="/shop" className="btn-secondary px-6 py-3">
           Browse catalog
         </Link>
-      </div>
-      <div className="mt-8">
-        <ContactBar />
       </div>
     </div>
   );

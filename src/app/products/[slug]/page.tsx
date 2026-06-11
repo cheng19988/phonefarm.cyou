@@ -2,7 +2,6 @@ import { notFound } from "next/navigation";
 import { prisma } from "@/lib/prisma";
 import { ProductActions } from "@/components/ProductActions";
 import { ProductInquiryPanel } from "@/components/ProductInquiryPanel";
-import { ContactBar } from "@/components/ContactBar";
 import { JsonLd } from "@/components/JsonLd";
 import { productJsonLd, breadcrumbJsonLd, buildMetadata } from "@/lib/seo";
 import { FaqAccordion } from "@/components/FaqAccordion";
@@ -110,9 +109,6 @@ export default async function ProductDetailPage({
                   productType={product.productType}
                   category={product.category}
                 />
-              </div>
-              <div className="mt-6">
-                <ContactBar />
               </div>
             </div>
           </div>

@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ContactBar } from "@/components/ContactBar";
 import { ContactForm } from "@/components/ContactForm";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { SITE } from "@/lib/constants";
@@ -9,7 +8,7 @@ import { PAGE_IMAGES } from "@/lib/images";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
-  title: "What Is a Phone Farm? —Real-Device Android Labs",
+  title: "What Is a Phone Farm? ï¿½Real-Device Android Labs",
   description:
     "Learn how factory-built phone farms work: motherboard chassis, USB/LAN control, QA testing, and enterprise device labs from Guangzhou since 2017.",
   path: "/phone-farm",
@@ -49,11 +48,8 @@ export default function PhoneFarmPage() {
         <div className="site-container py-12 lg:py-16">
           <SectionHeading
             title="What is a phone farm?"
-            subtitle="A factory-built chassis of real Android motherboards —not consumer phones on a desk. Designed for professional QA, device labs, and enterprise fleets."
+            subtitle="A factory-built chassis of real Android motherboards ï¿½not consumer phones on a desk. Designed for professional QA, device labs, and enterprise fleets."
           />
-          <div className="mt-6">
-            <ContactBar />
-          </div>
         </div>
       </section>
 
@@ -82,11 +78,11 @@ export default function PhoneFarmPage() {
         </div>
 
         <section className="mt-16">
-          <SectionHeading title="Typical configuration" subtitle="Standard 20-node box —scales with accessories and network kits." />
+          <SectionHeading title="Typical configuration" subtitle="Standard 20-node box ï¿½scales with accessories and network kits." />
           <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {[
               { title: "Chassis", body: "2U-style frame, quad-fan cooling, adaptive PSU" },
-              { title: "Nodes", body: "20 motherboard slots —Samsung, Xiaomi, OPPO, Pixel tiers" },
+              { title: "Nodes", body: "20 motherboard slots ï¿½Samsung, Xiaomi, OPPO, Pixel tiers" },
               { title: "Control", body: "USB mirroring or LAN OTG on a dedicated workstation PC" },
               { title: "Ops", body: "Burn-in sheet, export packing, remote setup support" },
             ].map((item) => (
@@ -138,7 +134,7 @@ export default function PhoneFarmPage() {
         <section className="mt-16 grid gap-6 lg:grid-cols-3">
           <Link href="/shop" className="card-premium p-6 hover:border-sky-300">
             <h3 className="font-semibold text-slate-900">Browse hardware</h3>
-            <p className="mt-2 text-sm text-slate-600">32+ SKUs — boxes, hubs, PSU, network kits.</p>
+            <p className="mt-2 text-sm text-slate-600">32+ SKUs ï¿½ boxes, hubs, PSU, network kits.</p>
             <span className="link-accent mt-4 inline-block text-sm">Shop catalog ?</span>
           </Link>
           <Link href="/services" className="card-premium p-6 hover:border-sky-300">

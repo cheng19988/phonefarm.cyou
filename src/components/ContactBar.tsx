@@ -1,9 +1,8 @@
 import { CONTACT } from "@/lib/constants";
 
 const links = [
-  { href: CONTACT.whatsappUrl, label: "WhatsApp", value: CONTACT.whatsapp },
   { href: CONTACT.telegramUrl, label: "Telegram", value: CONTACT.telegram },
-  { href: `tel:${CONTACT.phone}`, label: "Phone", value: CONTACT.phoneDisplay },
+  { href: CONTACT.whatsappUrl, label: "WhatsApp", value: CONTACT.whatsapp },
   { href: `mailto:${CONTACT.email}`, label: "Email", value: CONTACT.email },
 ];
 

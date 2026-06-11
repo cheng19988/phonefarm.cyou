@@ -64,7 +64,6 @@ export function Footer() {
           <p className="text-xs text-slate-500">
             © {new Date().getFullYear()} {SITE.name}. {SITE.location}.
           </p>
-          <p className="text-xs text-slate-500">{CONTACT.phoneDisplay}</p>
         </div>
       </div>
     </footer>

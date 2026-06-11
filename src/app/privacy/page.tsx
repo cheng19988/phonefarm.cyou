@@ -72,7 +72,7 @@ export default function PrivacyPage() {
 
       <h2>9. Contact</h2>
       <p>
-        Data protection inquiries: {CONTACT.email} · {CONTACT.phoneDisplay}
+        Data protection inquiries: {CONTACT.email} · {CONTACT.telegram} · {CONTACT.whatsapp}
       </p>
     </div>
   );

@@ -64,7 +64,7 @@ export const FAQ_ITEMS = [
   },
   {
     q: "How to contact sales?",
-    a: "Phone +86 13059502618, Telegram @huicheng1998, WhatsApp +852 6215 5642, email qiuxui646@gmail.com, or the contact form.",
+    a: "Telegram @huicheng1998, WhatsApp +85262155642, email qiuxui646@gmail.com, or the contact form.",
   },
   {
     q: "How do I connect devices after delivery?",

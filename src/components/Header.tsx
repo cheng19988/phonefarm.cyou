@@ -3,7 +3,7 @@ import { Logo } from "./Logo";
 import { MobileNav } from "./MobileNav";
 import { CartLink } from "./CartLink";
 import { HeaderAccountMenu } from "./HeaderAccountMenu";
-import { SHOP_BRANDS, CONTACT } from "@/lib/constants";
+import { SHOP_BRANDS } from "@/lib/constants";
 
 const nav = [
   { href: "/", label: "Home" },
@@ -19,33 +19,6 @@ const nav = [
 export function Header() {
   return (
     <header className="site-header sticky top-0 z-50">
-      <div className="site-header-top hidden lg:block">
-        <div className="site-container flex flex-wrap items-center justify-between gap-2 py-2">
-          <span className="text-slate-300">Guangzhou factory · Real-device phone farm · Worldwide export</span>
-          <div className="flex flex-wrap items-center gap-5">
-            <a href={`tel:${CONTACT.phone}`} className="text-slate-300 transition hover:text-white">
-              {CONTACT.phoneDisplay}
-            </a>
-            <a
-              href={CONTACT.telegramUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-slate-300 transition hover:text-sky-300"
-            >
-              Telegram {CONTACT.telegram}
-            </a>
-            <a
-              href={CONTACT.whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-slate-300 transition hover:text-emerald-300"
-            >
-              WhatsApp {CONTACT.whatsapp}
-            </a>
-          </div>
-        </div>
-      </div>
-
       <div className="site-container flex items-center justify-between gap-4 py-3 lg:gap-6">
         <Logo />
 

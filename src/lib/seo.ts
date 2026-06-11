@@ -52,9 +52,9 @@ export function organizationJsonLd() {
     },
     contactPoint: {
       "@type": "ContactPoint",
-      telephone: "+86-13059502618",
       contactType: "sales",
       email: "qiuxui646@gmail.com",
+      url: "https://t.me/huicheng1998",
       areaServed: "Worldwide",
     },
   };

@@ -2,7 +2,6 @@ import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { ProductCard } from "@/components/ProductCard";
 import { ContactForm } from "@/components/ContactForm";
-import { ContactBar } from "@/components/ContactBar";
 import { DeliverySopSection } from "@/components/DeliverySopSection";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { SITE } from "@/lib/constants";
@@ -72,9 +71,6 @@ export default async function PhoneFarmingSolutionPage() {
               What is a phone farm?
             </Link>
           </div>
-          <div className="mt-6">
-            <ContactBar />
-          </div>
         </div>
       </section>
 
@@ -125,9 +121,6 @@ export default async function PhoneFarmingSolutionPage() {
 
       <section className="site-container py-14">
         <h2 className="page-section-title">Discuss your deployment</h2>
-        <div className="mt-4">
-          <ContactBar />
-        </div>
         <div className="card-premium mt-8 max-w-xl p-6">
           <ContactForm source="solution-phone-farming" variant="full" />
         </div>
