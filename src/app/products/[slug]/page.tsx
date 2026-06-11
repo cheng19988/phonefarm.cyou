@@ -64,7 +64,7 @@ export default async function ProductDetailPage({
   const gallery = getProductGallery(product.slug, product.imageDetail);
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-12 pb-24 lg:pb-12">
+    <div className="site-container py-12 pb-24 lg:pb-12">
       <JsonLd
         data={[
           productJsonLd({

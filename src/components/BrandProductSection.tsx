@@ -31,7 +31,7 @@ export function BrandProductSection({
 
   return (
     <section className="section-alt py-14">
-      <div className="mx-auto max-w-7xl px-4">
+      <div className="site-container">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div className="flex items-center gap-4">
             {brand && (
@@ -43,10 +43,9 @@ export function BrandProductSection({
             </div>
           </div>
           <Link href={categoryHref} className="text-sm font-medium text-sky-700 hover:text-sky-600">
-            View all {name} →
-          </Link>
+            View all {name} —          </Link>
         </div>
-        <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="product-grid mt-8">
           {products.map((p) => (
             <ProductCard key={p.id} product={p} />
           ))}

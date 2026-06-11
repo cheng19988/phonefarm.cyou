@@ -17,7 +17,7 @@ export function SectionHeading({
         <h2 className="font-display text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl lg:text-4xl">
           {title}
         </h2>
-        {subtitle && <p className="mt-2 max-w-2xl text-sm leading-relaxed text-slate-600 sm:text-base">{subtitle}</p>}
+        {subtitle && <p className="mt-2 max-w-4xl text-sm leading-relaxed text-slate-600 sm:text-base">{subtitle}</p>}
       </div>
       {actionHref && actionLabel && (
         <Link

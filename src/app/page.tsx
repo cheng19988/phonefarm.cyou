@@ -62,12 +62,12 @@ export default async function HomePage() {
       <HomeHero />
       <TrustStatsBar />
 
-      <section className="mx-auto max-w-7xl px-4 py-16">
+      <section className="site-container py-16">
         <SectionHeading
           title="Product information"
           subtitle="Technical context for buyers evaluating real-device farms for professional QA, remote device management, and enterprise deployment."
         />
-        <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+        <div className="info-grid mt-10">
           {PRODUCT_INFO_TOPICS.map((topic) => (
             <div key={topic.title} className="card-premium p-6">
               <h3 className="font-display text-lg font-semibold text-sky-700">{topic.title}</h3>
@@ -77,11 +77,9 @@ export default async function HomePage() {
         </div>
         <div className="mt-6 flex flex-wrap gap-4 text-sm">
           <Link href="/phone-farm" className="link-accent">
-            What is a phone farm? →
-          </Link>
+            What is a phone farm? —          </Link>
           <Link href="/help/after-purchase-guide" className="link-accent">
-            After receiving your farm →
-          </Link>
+            After receiving your farm —          </Link>
         </div>
       </section>
 
@@ -95,12 +93,12 @@ export default async function HomePage() {
         />
       ))}
 
-      <section className="mx-auto max-w-7xl px-4 py-16">
+      <section className="site-container py-16">
         <SectionHeading
           title="Control software setup"
           subtitle={CONTROL_SOFTWARE_DISCLAIMER}
         />
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+        <div className="info-grid mt-10">
           {CONTROL_SETUP_SERVICES.map((s) => (
             <div key={s.slug} className="card-premium p-5">
               <h3 className="font-semibold text-slate-900">{s.name}</h3>
@@ -109,12 +107,11 @@ export default async function HomePage() {
                 {s.priceFrom > 0 ? `From $${s.priceFrom}` : "Custom quote"}
               </p>
               <Link href="/contact" className="mt-4 inline-block text-sm font-medium text-sky-700 hover:text-sky-600">
-                Request quote →
-              </Link>
+                Request quote —              </Link>
             </div>
           ))}
         </div>
-        <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        <div className="info-grid mt-8">
           {CONTROL_SOFTWARE_OPTIONS.map((o) => (
             <div key={o.slug} className="card-premium p-4 text-sm">
               <p className="font-medium text-slate-900">{o.name}</p>
@@ -129,7 +126,7 @@ export default async function HomePage() {
       <RegionsShowcase />
 
       <section className="section-alt py-16">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="site-container">
           <DeliverySopSection id="delivery-sop" />
           <div className="mt-16">
             <SectionHeading
@@ -145,9 +142,9 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-16">
+      <section className="site-container py-16">
         <SectionHeading title="Guangzhou facility" subtitle="Factory assembly, burn-in testing, and export packing." />
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
           {FACILITY_GALLERY.map((photo) => (
             <FacilityPhoto key={photo.key} src={photo.src} alt={photo.alt} label={photo.label} />
           ))}
@@ -155,7 +152,7 @@ export default async function HomePage() {
       </section>
 
       <section className="border-t border-slate-200 py-16">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="site-container">
           <SectionHeading title="FAQ" actionHref="/faq" actionLabel="Full FAQ" />
           <div className="mt-8 max-w-3xl">
             <FaqAccordion items={FAQ_ITEMS.slice(0, 6)} />
@@ -164,12 +161,12 @@ export default async function HomePage() {
       </section>
 
       <section className="relative overflow-hidden border-t border-slate-200 bg-sky-50 py-20">
-        <div className="relative mx-auto max-w-7xl px-4">
+        <div className="relative site-container">
           <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
             <div>
               <h2 className="font-display text-3xl font-bold text-slate-900">Request a quotation</h2>
               <p className="mt-3 text-slate-600 leading-relaxed">
-                Share quantity, destination, and control method — sales replies with MOQ, lead time, and setup scope.
+                Share quantity, destination, and control method —sales replies with MOQ, lead time, and setup scope.
               </p>
             </div>
             <div className="card-premium p-6">

@@ -10,7 +10,7 @@ import { LEGAL_USE_CASES } from "@/lib/delivery";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
-  title: "Enterprise Phone Farm Solution — QA & Device Labs",
+  title: "Enterprise Phone Farm Solution —QA & Device Labs",
   description:
     "Real-device phone farm solution from Guangzhou: hardware, burn-in, export packing, and remote setup for app QA testing, mobile device labs, and enterprise device fleets.",
   path: "/solutions/phone-farming",
@@ -56,7 +56,7 @@ export default async function PhoneFarmingSolutionPage() {
   return (
     <div className="bg-white pb-24 lg:pb-0">
       <section className="border-b border-slate-200 bg-sky-50">
-        <div className="mx-auto max-w-7xl px-4 py-12 lg:py-16">
+        <div className="site-container py-12 lg:py-16">
           <SectionHeading
             title="Enterprise phone farm solution"
             subtitle={`${SITE.name} supplies real Android motherboard farms from Guangzhou for app QA testing, mobile device labs, compatibility testing, and enterprise device fleet programs.`}
@@ -78,7 +78,7 @@ export default async function PhoneFarmingSolutionPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-14">
+      <section className="site-container py-14">
         <SectionHeading title="Lawful B2B use cases we support" />
         <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {LEGAL_USE_CASES.map((use) => (
@@ -90,7 +90,7 @@ export default async function PhoneFarmingSolutionPage() {
       </section>
 
       <section className="section-alt py-14">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="site-container">
           <SectionHeading title="What a typical solution includes" />
           <div className="mt-8 grid gap-5 md:grid-cols-2">
             {LAYERS.map((layer) => (
@@ -103,28 +103,27 @@ export default async function PhoneFarmingSolutionPage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-14">
+      <section className="site-container py-14">
         <DeliverySopSection />
       </section>
 
       <section className="section-alt py-14">
-        <div className="mx-auto max-w-7xl px-4">
+        <div className="site-container">
           <SectionHeading
             title="Reference hardware configurations"
-            subtitle="Browse common box tiers — final BOM confirmed in your written quote."
+            subtitle="Browse common box tiers —final BOM confirmed in your written quote."
           />
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="product-grid mt-8">
             {products.map((p) => (
               <ProductCard key={p.id} product={p} />
             ))}
           </div>
           <Link href="/shop" className="link-accent mt-8 inline-block text-sm">
-            Full hardware catalog →
-          </Link>
+            Full hardware catalog —          </Link>
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-4 py-14">
+      <section className="site-container py-14">
         <h2 className="page-section-title">Discuss your deployment</h2>
         <div className="mt-4">
           <ContactBar />

@@ -100,13 +100,13 @@ export function AdminDashboard() {
 
   function productList(o: OrderRow) {
     if (o.items.length > 0) {
-      return o.items.map((i) => `${i.product.name} √ó${i.quantity}`).join(", ");
+      return o.items.map((i) => `${i.product.name} ù${i.quantity}`).join(", ");
     }
-    return o.product?.name ?? "‚Äî";
+    return o.product?.name ?? "ó";
   }
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-8">
+    <div className="site-container py-8">
       <h1 className="text-2xl font-bold text-white">Admin Dashboard</h1>
       <div className="mt-4 flex gap-2">
         {(["orders", "products", "users", "contacts"] as Tab[]).map((t) => (
@@ -143,14 +143,14 @@ export function AdminDashboard() {
                   <tr className="border-t border-slate-800 align-top">
                     <td className="p-2 font-mono">{o.orderNumber}</td>
                     <td className="p-2">
-                      <div>{o.customerName || o.user.name || "‚Äî"}</div>
+                      <div>{o.customerName || o.user.name || "ó"}</div>
                       <div className="text-xs text-cyan-400">{o.customerEmail || o.user.email}</div>
                       {o.country && <div className="text-xs text-slate-500">{o.country}</div>}
                     </td>
-                    <td className="p-2 text-xs text-slate-400">{o.contactMessaging || "‚Äî"}</td>
+                    <td className="p-2 text-xs text-slate-400">{o.contactMessaging || "ó"}</td>
                     <td className="p-2 max-w-[200px] text-xs">{productList(o)}</td>
                     <td className="p-2">${o.expectedAmount}</td>
-                    <td className="p-2 max-w-[120px] truncate font-mono text-xs">{o.txHash || "‚Äî"}</td>
+                    <td className="p-2 max-w-[120px] truncate font-mono text-xs">{o.txHash || "ó"}</td>
                     <td className="p-2">
                       <select
                         className="rounded bg-slate-900 border border-slate-700 text-xs"
@@ -279,12 +279,12 @@ export function AdminDashboard() {
                     </td>
                     <td className="px-3 py-2 text-white">{c.name}</td>
                     <td className="px-3 py-2 text-cyan-400">{c.email}</td>
-                    <td className="px-3 py-2 text-slate-300">{c.country || "‚Äî"}</td>
-                    <td className="px-3 py-2 text-slate-300">{c.messaging || "‚Äî"}</td>
-                    <td className="px-3 py-2 text-slate-300">{c.deviceQuantity || "‚Äî"}</td>
-                    <td className="px-3 py-2 text-slate-300">{c.productInterest || "‚Äî"}</td>
-                    <td className="px-3 py-2 text-slate-500">{c.source || "‚Äî"}</td>
-                    <td className="max-w-xs px-3 py-2 text-slate-400 whitespace-pre-wrap">{c.message || "‚Äî"}</td>
+                    <td className="px-3 py-2 text-slate-300">{c.country || "ó"}</td>
+                    <td className="px-3 py-2 text-slate-300">{c.messaging || "ó"}</td>
+                    <td className="px-3 py-2 text-slate-300">{c.deviceQuantity || "ó"}</td>
+                    <td className="px-3 py-2 text-slate-300">{c.productInterest || "ó"}</td>
+                    <td className="px-3 py-2 text-slate-500">{c.source || "ó"}</td>
+                    <td className="max-w-xs px-3 py-2 text-slate-400 whitespace-pre-wrap">{c.message || "ó"}</td>
                   </tr>
                 ))}
               </tbody>

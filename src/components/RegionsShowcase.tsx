@@ -3,7 +3,7 @@ import { SectionHeading } from "./ui/SectionHeading";
 
 export function RegionsShowcase() {
   return (
-    <section className="mx-auto max-w-7xl px-4 py-16">
+    <section className="site-container py-16">
       <SectionHeading
         title="Global shipping coverage"
         subtitle="We regularly export phone farm hardware from Guangzhou to QA labs, device farms, and enterprise buyers worldwide."

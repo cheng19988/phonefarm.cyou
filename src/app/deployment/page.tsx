@@ -10,7 +10,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata = buildMetadata({
   title: "Phone Farm Deployment Workflow",
   description:
-    "From requirement confirmation to remote handover — delivery SOP for real-device phone farm hardware from Cyou Phone Farm Guangzhou.",
+    "From requirement confirmation to remote handover —delivery SOP for real-device phone farm hardware from Cyou Phone Farm Guangzhou.",
   path: "/deployment",
 });
 
@@ -18,7 +18,7 @@ export default function DeploymentPage() {
   return (
     <div className="bg-white">
       <section className="border-b border-slate-200 bg-sky-50">
-        <div className="mx-auto max-w-7xl px-4 py-12 lg:py-16">
+        <div className="site-container py-12 lg:py-16">
           <SectionHeading
             title="Deployment Workflow"
             subtitle={`How ${SITE.name} delivers hardware, testing, packing, and remote support from ${SITE.location}.`}
@@ -29,7 +29,7 @@ export default function DeploymentPage() {
         </div>
       </section>
 
-      <div className="mx-auto max-w-7xl px-4 py-12 pb-24 lg:pb-12">
+      <div className="site-container py-12 pb-24 lg:pb-12">
         <DeliverySopSection />
 
         <section className="mt-16">

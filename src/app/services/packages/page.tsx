@@ -8,7 +8,7 @@ import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
   title: "Service Packages & Quotes",
-  description: "Starter, Studio Pro, and Enterprise phone farm setup packages — deliverables, timeline, and support from Cyou Phone Farm.",
+  description: "Starter, Studio Pro, and Enterprise phone farm setup packages —deliverables, timeline, and support from Cyou Phone Farm.",
   path: "/services/packages",
 });
 
@@ -16,10 +16,10 @@ export default function ServicePackagesPage() {
   return (
     <div className="bg-white">
       <section className="border-b border-slate-200 bg-sky-50">
-        <div className="mx-auto max-w-7xl px-4 py-12 lg:py-16">
+        <div className="site-container py-12 lg:py-16">
           <SectionHeading
             title="Service packages"
-            subtitle={`Implementation scope for ${SITE.name} — distinct from the hardware catalog. All packages are quoted in USD and confirmed by sales before work begins.`}
+            subtitle={`Implementation scope for ${SITE.name} —distinct from the hardware catalog. All packages are quoted in USD and confirmed by sales before work begins.`}
           />
           <div className="mt-6">
             <ContactBar />
@@ -27,7 +27,7 @@ export default function ServicePackagesPage() {
         </div>
       </section>
 
-      <div className="mx-auto max-w-7xl px-4 py-12">
+      <div className="site-container py-12">
         <div className="space-y-10">
           {SERVICE_PACKAGES.map((pkg) => {
             const detail = PACKAGE_DETAILS.find((d) => d.slug === pkg.slug);
@@ -53,7 +53,7 @@ export default function ServicePackagesPage() {
                       <h3 className="font-semibold text-slate-900">Deliverables</h3>
                       <ul className="mt-2 space-y-1 text-slate-600">
                         {detail.deliverables.map((d) => (
-                          <li key={d}>• {d}</li>
+                          <li key={d}>—{d}</li>
                         ))}
                       </ul>
                     </div>
@@ -69,7 +69,7 @@ export default function ServicePackagesPage() {
                       <h3 className="mt-4 font-semibold text-slate-900">Not included</h3>
                       <ul className="mt-2 space-y-1 text-slate-500">
                         {detail.notIncluded.map((n) => (
-                          <li key={n}>• {n}</li>
+                          <li key={n}>—{n}</li>
                         ))}
                       </ul>
                     </div>

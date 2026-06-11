@@ -79,7 +79,7 @@ export default async function ShopPage({
   return (
     <>
       <section className="border-b border-slate-200 bg-white">
-        <div className="mx-auto max-w-7xl px-4 py-12 lg:py-16">
+        <div className="site-container py-12 lg:py-16">
           <SectionHeading
             title="Phone farm shop"
             subtitle="Browse reference configurations for real-device deployments. Final pricing depends on model availability, quantity, shipping destination, and setup requirements."
@@ -88,7 +88,7 @@ export default async function ShopPage({
         </div>
       </section>
 
-      <div className="mx-auto max-w-7xl px-4 pb-16">
+      <div className="site-container pb-16">
         <Suspense>
           <div className="mt-2">
             <ShopFilters />
@@ -110,7 +110,7 @@ export default async function ShopPage({
                 <h2 className="font-display text-xl font-bold text-slate-900 sm:text-2xl">
                   {sectionLabel(cat)}
                 </h2>
-                <div className="mt-6 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+                <div className="product-grid mt-6">
                   {items.map((p) => (
                     <ProductCard key={p.id} product={p} />
                   ))}
@@ -119,7 +119,7 @@ export default async function ShopPage({
             ))}
           </div>
         ) : (
-          <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+          <div className="product-grid mt-10">
             {products.map((p) => (
               <ProductCard key={p.id} product={p} />
             ))}

@@ -10,7 +10,7 @@ const STATS = [
 export function TrustStatsBar() {
   return (
     <section className="border-b border-slate-200 bg-white">
-      <div className="mx-auto max-w-7xl px-4 py-8">
+      <div className="site-container py-8">
         <div className="grid grid-cols-2 gap-6 lg:grid-cols-4">
           {STATS.map((stat) => (
             <div key={stat.label} className="text-center lg:text-left">

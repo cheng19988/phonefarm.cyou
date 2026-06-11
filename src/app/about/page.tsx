@@ -8,7 +8,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
-  title: "About Cyou Phone Farm — Guangzhou Factory Since 2017",
+  title: "About Cyou Phone Farm —Guangzhou Factory Since 2017",
   description:
     "Guangzhou manufacturer of real-device phone farm boxes since 2017. Assembly, burn-in testing, export packing, remote control setup, and worldwide B2B shipping.",
   path: "/about",
@@ -18,7 +18,7 @@ export default function AboutPage() {
   return (
     <div className="bg-white">
       <section className="border-b border-slate-200 bg-sky-50">
-        <div className="mx-auto max-w-7xl px-4 py-12 lg:py-16">
+        <div className="site-container py-12 lg:py-16">
           <SectionHeading
             title={`About ${SITE.name}`}
             subtitle={`Guangzhou factory · Real-device phone farms since ${SITE.since} · Assembly, burn-in, export, and remote setup support.`}
@@ -29,7 +29,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <div className="mx-auto max-w-7xl px-4 py-12">
+      <div className="site-container py-12">
         <div className="prose-farm max-w-3xl">
           <h2>Who we are</h2>
           <p>
@@ -48,8 +48,7 @@ export default function AboutPage() {
           </ul>
           <h2>How we work</h2>
           <p>
-            Every project follows a written sequence: requirement confirmation → hardware selection → assembly validation →
-            control software baseline → burn-in → export packing → remote handover. Reference USD prices on the website are
+            Every project follows a written sequence: requirement confirmation —hardware selection —assembly validation —            control software baseline —burn-in —export packing —remote handover. Reference USD prices on the website are
             starting points; sales confirms MOQ, lead time, and proforma invoice before payment.
           </p>
         </div>

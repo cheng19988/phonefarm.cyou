@@ -20,53 +20,68 @@ export function Header() {
   return (
     <header className="site-header sticky top-0 z-50">
       <div className="site-header-top hidden lg:block">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-2 px-4 py-2">
-          <span className="text-slate-400">Guangzhou factory · Real-device phone farm · Worldwide export</span>
-          <div className="flex flex-wrap items-center gap-4">
-            <a href={`tel:${CONTACT.phone}`} className="hover:text-white">{CONTACT.phoneDisplay}</a>
-            <a href={CONTACT.telegramUrl} target="_blank" rel="noopener noreferrer" className="hover:text-white">
+        <div className="site-container flex flex-wrap items-center justify-between gap-2 py-2">
+          <span className="text-slate-300">Guangzhou factory · Real-device phone farm · Worldwide export</span>
+          <div className="flex flex-wrap items-center gap-5">
+            <a href={`tel:${CONTACT.phone}`} className="text-slate-300 transition hover:text-white">
+              {CONTACT.phoneDisplay}
+            </a>
+            <a
+              href={CONTACT.telegramUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-300 transition hover:text-sky-300"
+            >
               Telegram {CONTACT.telegram}
             </a>
-            <a href={CONTACT.whatsappUrl} target="_blank" rel="noopener noreferrer" className="hover:text-white">
+            <a
+              href={CONTACT.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-slate-300 transition hover:text-emerald-300"
+            >
               WhatsApp {CONTACT.whatsapp}
             </a>
           </div>
         </div>
       </div>
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3">
+
+      <div className="site-container flex items-center justify-between gap-4 py-3 lg:gap-6">
         <Logo />
-        <nav className="hidden xl:flex items-center gap-0.5 text-sm font-medium">
+
+        <nav className="header-nav hidden lg:flex" aria-label="Main">
           {nav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="rounded-md px-3 py-2 text-slate-600 transition hover:bg-slate-100 hover:text-slate-900"
-            >
+            <Link key={item.href} href={item.href} className="header-nav-link">
               {item.label}
             </Link>
           ))}
         </nav>
-        <div className="flex items-center gap-2 sm:gap-3">
+
+        <div className="flex items-center gap-2 sm:gap-2.5">
           <div className="hidden sm:flex items-center gap-3 text-sm">
             <CartLink />
             <HeaderAccountMenu />
           </div>
           <Link
             href="/services/packages"
-            className="hidden md:inline rounded-md px-3 py-2 text-sm font-medium text-amber-700 hover:bg-amber-50"
+            className="hidden md:inline-flex items-center rounded-full border border-amber-200 bg-amber-50 px-3.5 py-2 text-[13px] font-semibold text-amber-800 transition hover:border-amber-300 hover:bg-amber-100"
           >
             Packages
           </Link>
-          <Link href="/contact" className="btn-primary hidden sm:inline-flex text-sm !py-2 !px-4">
+          <Link href="/contact" className="btn-primary hidden sm:inline-flex text-sm !py-2 !px-4 shadow-md">
             Get Quote
           </Link>
           <MobileNav />
         </div>
       </div>
-      <div className="hidden lg:block border-t border-slate-200 bg-slate-50">
-        <div className="mx-auto flex max-w-7xl gap-2 overflow-x-auto px-4 py-2">
+
+      <div className="hidden lg:block border-t border-slate-100 bg-slate-50/60">
+        <div className="site-container flex items-center gap-3 overflow-x-auto py-2.5">
+          <span className="shrink-0 text-[11px] font-semibold uppercase tracking-wider text-slate-400">
+            Brands
+          </span>
           {SHOP_BRANDS.map((b) => (
-            <Link key={b.slug} href={`/shop?category=${b.slug}`} className="brand-pill shrink-0">
+            <Link key={b.slug} href={`/shop?category=${b.slug}`} className="brand-pill shrink-0 shadow-sm">
               <span className="brand-pill-icon">{b.icon}</span>
               {b.name}
             </Link>

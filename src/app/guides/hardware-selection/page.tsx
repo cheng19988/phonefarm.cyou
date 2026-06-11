@@ -11,7 +11,7 @@ export const metadata = buildMetadata({
 export default function HardwareSelectionPage() {
   const posts = BLOG_POSTS.filter((p) => p.category === "Hardware & Selection");
   return (
-    <div className="mx-auto max-w-7xl px-4 py-12">
+    <div className="site-container py-12">
       <h1 className="page-title">Hardware & Selection</h1>
       <p className="page-lead">
         Models, specs, and buying guides—aligned with professional phone farming workflows.

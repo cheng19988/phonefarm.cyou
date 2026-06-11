@@ -8,7 +8,7 @@ import { buildMetadata, faqPageJsonLd } from "@/lib/seo";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export const metadata = buildMetadata({
-  title: "Phone Farm FAQ — Hardware, Setup, Shipping, Payment",
+  title: "Phone Farm FAQ —Hardware, Setup, Shipping, Payment",
   description:
     "70+ answers about phone farm boxes, motherboard boxes, USB/LAN control, real devices vs cloud, MOQ, samples, shipping, payment, and Guangzhou factory support.",
   path: "/faq",
@@ -18,7 +18,7 @@ export default function FaqPage() {
   return (
     <div className="bg-white">
       <section className="border-b border-slate-200 bg-sky-50">
-        <div className="mx-auto max-w-7xl px-4 py-12 lg:py-16">
+        <div className="site-container py-12 lg:py-16">
           <JsonLd data={faqPageJsonLd(FAQ_ITEMS)} />
           <SectionHeading
             title="Frequently Asked Questions"
@@ -30,7 +30,7 @@ export default function FaqPage() {
           <p className="mt-4 text-sm text-slate-600">{FAQ_ITEMS.length} questions · Help Center and blog linked below</p>
         </div>
       </section>
-      <div className="mx-auto max-w-7xl px-4 py-12">
+      <div className="site-container py-12">
         <div className="max-w-3xl">
           <FaqAccordion items={FAQ_ITEMS} />
         </div>

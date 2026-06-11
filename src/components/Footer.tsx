@@ -5,7 +5,7 @@ import { CONTACT, SHOP_BRANDS, SITE } from "@/lib/constants";
 export function Footer() {
   return (
     <footer className="mt-auto border-t border-slate-200 bg-slate-50 text-slate-700">
-      <div className="mx-auto max-w-7xl px-4 py-14">
+      <div className="site-container py-14">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-4">
             <Logo compact />

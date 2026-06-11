@@ -9,7 +9,7 @@ import { IMAGES } from "@/lib/images";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
-  title: "What Is a Phone Farm? — Real-Device Android Labs",
+  title: "What Is a Phone Farm? —Real-Device Android Labs",
   description:
     "Learn how factory-built phone farms work: motherboard chassis, USB/LAN control, QA testing, and enterprise device labs from Guangzhou since 2017.",
   path: "/phone-farm",
@@ -46,10 +46,10 @@ export default function PhoneFarmPage() {
   return (
     <div className="bg-white">
       <section className="border-b border-slate-200 bg-sky-50">
-        <div className="mx-auto max-w-7xl px-4 py-12 lg:py-16">
+        <div className="site-container py-12 lg:py-16">
           <SectionHeading
             title="What is a phone farm?"
-            subtitle="A factory-built chassis of real Android motherboards — not consumer phones on a desk. Designed for professional QA, device labs, and enterprise fleets."
+            subtitle="A factory-built chassis of real Android motherboards —not consumer phones on a desk. Designed for professional QA, device labs, and enterprise fleets."
           />
           <div className="mt-6">
             <ContactBar />
@@ -57,7 +57,7 @@ export default function PhoneFarmPage() {
         </div>
       </section>
 
-      <div className="mx-auto max-w-7xl px-4 py-12">
+      <div className="site-container py-12">
         <div className="grid items-center gap-10 lg:grid-cols-2">
           <div className="prose-farm max-w-none">
             <p>
@@ -82,11 +82,11 @@ export default function PhoneFarmPage() {
         </div>
 
         <section className="mt-16">
-          <SectionHeading title="Typical configuration" subtitle="Standard 20-node box — scales with accessories and network kits." />
+          <SectionHeading title="Typical configuration" subtitle="Standard 20-node box —scales with accessories and network kits." />
           <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {[
               { title: "Chassis", body: "2U-style frame, quad-fan cooling, adaptive PSU" },
-              { title: "Nodes", body: "20 motherboard slots — Samsung, Xiaomi, OPPO, Pixel tiers" },
+              { title: "Nodes", body: "20 motherboard slots —Samsung, Xiaomi, OPPO, Pixel tiers" },
               { title: "Control", body: "USB mirroring or LAN OTG on a dedicated workstation PC" },
               { title: "Ops", body: "Burn-in sheet, export packing, remote setup support" },
             ].map((item) => (

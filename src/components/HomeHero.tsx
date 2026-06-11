@@ -4,20 +4,20 @@ import { CONTACT, SITE } from "@/lib/constants";
 import { IMAGES } from "@/lib/images";
 
 const TRUST_POINTS = [
-  "Real Android motherboard boxes — factory assembled in Guangzhou",
+  "Real Android motherboard boxes —factory assembled in Guangzhou",
   "Remote control & group-control configured by our engineers",
   "Export packing, worldwide logistics, and after-sales support",
 ];
 
-/** Factory transparent PNG — alpha channel; white bg shows through. */
+/** Factory transparent PNG —alpha channel; white bg shows through. */
 const HERO_CHASSIS = IMAGES.heroChassisTransparent;
 
 export function HomeHero() {
   return (
     <section className="border-b border-slate-200 bg-white">
-      <div className="mx-auto max-w-7xl px-4 py-12 lg:py-16">
+      <div className="site-container py-12 lg:py-16">
         <div className="grid items-center gap-10 lg:grid-cols-12 lg:gap-6">
-          {/* Left column — copy only, never overlaps image */}
+          {/* Left column —copy only, never overlaps image */}
           <div className="lg:col-span-5">
             <div className="inline-flex items-center gap-2 rounded-full border border-sky-200 bg-sky-50 px-4 py-1.5 text-xs font-semibold text-sky-800">
               {SITE.location} · Factory direct · Since {SITE.since}
@@ -29,8 +29,7 @@ export function HomeHero() {
               {TRUST_POINTS.map((point) => (
                 <li key={point} className="flex items-start gap-3">
                   <span className="mt-1 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-sky-500 text-xs font-bold text-white">
-                    ✓
-                  </span>
+                    —                  </span>
                   {point}
                 </li>
               ))}
@@ -53,12 +52,11 @@ export function HomeHero() {
             </div>
             <p className="mt-8 text-sm text-slate-500">
               <Link href="/phone-farm" className="link-accent">
-                What is a phone farm? →
-              </Link>
+                What is a phone farm? —              </Link>
             </p>
           </div>
 
-          {/* Right column — large chassis, clipped to this column only */}
+          {/* Right column —large chassis, clipped to this column only */}
           <div className="relative min-h-[min(72vw,400px)] lg:col-span-7 lg:min-h-[min(42vw,540px)]">
             <div className="absolute inset-0 lg:-mr-4 lg:scale-110">
               <Image

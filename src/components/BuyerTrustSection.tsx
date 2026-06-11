@@ -8,7 +8,7 @@ export function BuyerTrustSection() {
   const siteName = SITE.name;
   return (
     <section className="section-alt py-16">
-      <div className="mx-auto max-w-7xl px-4">
+      <div className="site-container">
         <SectionHeading
           title={`Why buyers work with ${siteName}`}
           subtitle="Practical reasons overseas QA teams, device labs, and hardware buyers choose a Guangzhou-based supplier."

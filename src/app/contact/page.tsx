@@ -5,7 +5,7 @@ import { CONTACT, SITE } from "@/lib/constants";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
-  title: "Contact Sales — Custom Quote in Minutes",
+  title: "Contact Sales —Custom Quote in Minutes",
   description:
     "Contact Cyou Phone Farm: +86 13059502618, Telegram @huicheng1998, WhatsApp +852 6215 5642, qiuxui646@gmail.com",
   path: "/contact",
@@ -20,7 +20,7 @@ export default async function ContactPage({
   return (
     <div className="bg-white">
       <section className="border-b border-slate-200 bg-sky-50">
-        <div className="mx-auto max-w-7xl px-4 py-12 lg:py-16">
+        <div className="site-container py-12 lg:py-16">
           <SectionHeading
             title="Contact Sales"
             subtitle={`Tell us your device count and product interest—we reply from ${SITE.location} within 24 hours.`}
@@ -45,7 +45,7 @@ export default async function ContactPage({
         </div>
       </section>
 
-      <div className="mx-auto max-w-7xl px-4 py-12 pb-24 lg:pb-12">
+      <div className="site-container py-12 pb-24 lg:pb-12">
         <div className="max-w-xl card-premium p-6">
           <ContactForm defaultProduct={product || ""} source="contact" variant="full" />
         </div>

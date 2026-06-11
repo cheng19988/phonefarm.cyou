@@ -8,7 +8,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
-  title: "Phone Farm Setup Services — Remote Control & Group Control",
+  title: "Phone Farm Setup Services —Remote Control & Group Control",
   description:
     "One-stop phone farm setup, remote control configuration, group control onboarding, deployment, enterprise bulk, samples, and overseas support from Guangzhou.",
   path: "/services",
@@ -18,7 +18,7 @@ export default function ServicesPage() {
   return (
     <div className="bg-white">
       <section className="border-b border-slate-200 bg-sky-50">
-        <div className="mx-auto max-w-7xl px-4 py-12 lg:py-16">
+        <div className="site-container py-12 lg:py-16">
           <SectionHeading
             title="Setup Services"
             subtitle={`${SITE.name} delivers full phone farm projects in ${SITE.location}—hardware, control software configuration, and handover.`}
@@ -26,13 +26,12 @@ export default function ServicesPage() {
           <div className="mt-6 flex flex-wrap items-center gap-4">
             <ContactBar />
             <Link href="/services/packages" className="text-sm font-medium text-amber-700 hover:text-amber-600">
-              View service packages →
-            </Link>
+              View service packages —            </Link>
           </div>
         </div>
       </section>
 
-      <div className="mx-auto max-w-7xl px-4 py-12">
+      <div className="site-container py-12">
         <div className="relative overflow-hidden rounded-xl border border-slate-200 aspect-[21/9] max-h-80">
           <Image src={IMAGES.hero} alt="Phone farm chassis" fill className="object-cover" />
         </div>
@@ -43,8 +42,7 @@ export default function ServicesPage() {
               <h2 className="font-display text-lg font-semibold text-slate-900">{s.title}</h2>
               <p className="mt-3 text-sm text-slate-600 leading-relaxed">{s.desc}</p>
               <Link href="/contact" className="mt-4 inline-block text-sm font-medium text-sky-700 hover:text-sky-600">
-                Request service →
-              </Link>
+                Request service —              </Link>
             </article>
           ))}
         </div>

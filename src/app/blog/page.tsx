@@ -4,7 +4,7 @@ import { buildMetadata } from "@/lib/seo";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export const metadata = buildMetadata({
-  title: "Phone Farm Insights — Guides & Tutorials",
+  title: "Phone Farm Insights —Guides & Tutorials",
   description:
     "Phone farm hardware selection, cooling, USB stability, bulk APK, ADB shortcuts, budget builds, and 2026 deployment guides for enterprise device labs.",
   path: "/blog",
@@ -14,7 +14,7 @@ export default function BlogPage() {
   return (
     <div className="bg-white">
       <section className="border-b border-slate-200 bg-sky-50">
-        <div className="mx-auto max-w-7xl px-4 py-12 lg:py-16">
+        <div className="site-container py-12 lg:py-16">
           <SectionHeading
             title="Insights"
             subtitle="Deployment guides for hardware selection, cooling, network planning, stability testing, and group control operations."
@@ -22,7 +22,7 @@ export default function BlogPage() {
           <p className="mt-4 text-sm text-slate-600">{PUBLISHED_BLOG_POSTS.length} published articles</p>
         </div>
       </section>
-      <div className="mx-auto max-w-7xl px-4 py-12">
+      <div className="site-container py-12">
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {PUBLISHED_BLOG_POSTS.map((post) => (
             <article key={post.slug} className="card-premium p-6">
@@ -34,8 +34,7 @@ export default function BlogPage() {
               </h2>
               <p className="mt-3 text-sm text-slate-600 line-clamp-3">{post.excerpt}</p>
               <Link href={`/blog/${post.slug}`} className="mt-4 inline-block text-sm font-medium text-sky-700">
-                Read article →
-              </Link>
+                Read article —              </Link>
             </article>
           ))}
         </div>

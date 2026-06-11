@@ -35,7 +35,7 @@ export function MobileNav() {
       </button>
       {open && (
         <div className="absolute left-0 right-0 top-full z-50 max-h-[calc(100vh-4rem)] overflow-y-auto border-b border-slate-200 bg-white shadow-lg">
-          <nav className="mx-auto max-w-7xl px-4 py-4">
+          <nav className="site-container py-4">
             <div className="flex items-center justify-between">
               <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">{SITE.name}</p>
               <button

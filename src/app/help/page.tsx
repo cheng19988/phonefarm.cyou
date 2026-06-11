@@ -15,7 +15,7 @@ export default function HelpPage() {
   return (
     <div className="bg-white">
       <section className="border-b border-slate-200 bg-sky-50">
-        <div className="mx-auto max-w-7xl px-4 py-12 lg:py-16">
+        <div className="site-container py-12 lg:py-16">
           <SectionHeading
             title="Help Center"
             subtitle="Document center for connection, control, network, firmware, and post-delivery operations—aligned with professional phone farm workflows."
@@ -28,7 +28,7 @@ export default function HelpPage() {
           </p>
         </div>
       </section>
-      <div className="mx-auto max-w-7xl px-4 py-12">
+      <div className="site-container py-12">
         {HELP_CATEGORIES.map((cat) => {
           const articles = HELP_ARTICLES.filter((a) => a.category === cat.id);
           if (!articles.length) return null;

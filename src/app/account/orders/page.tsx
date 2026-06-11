@@ -35,7 +35,7 @@ export default async function OrdersPage() {
   });
 
   return (
-    <div className="mx-auto max-w-7xl px-4 py-12">
+    <div className="site-container py-12">
       <div className="flex flex-wrap items-center justify-between gap-4">
         <h1 className="page-title">My Orders</h1>
         <LogoutButton />
