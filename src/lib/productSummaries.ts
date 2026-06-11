@@ -151,6 +151,24 @@ export const PRODUCT_SUMMARIES: Record<string, ProductSummary> = {
     hardwareNote: "Standard sizes for Cyou chassis—confirm chassis generation before order.",
     quoteNote: "Low MOQ; often added to hardware PO for spare parts inventory.",
   },
+  "motherboard-box-20-slot": {
+    summary: "Empty 20-slot metal chassis for Samsung-class motherboard trays—shared PSU path, cooling rails, and export packing.",
+    bestFor: "Buyers sourcing bare chassis to populate with their own board inventory or phased rollouts.",
+    hardwareNote: "Tray spacing matches standard Cyou Samsung/Oppo tier; confirm board generation before mix-and-match.",
+    quoteNote: "Often paired with hub, PSU, and cooling kit—ask for bundled accessory quote.",
+  },
+  "industrial-usb-hub-20-port": {
+    summary: "Industrial powered USB hub matched to 20-node farms—stable enumeration for long USB cable runs.",
+    bestFor: "Replacing consumer hubs that drop nodes during overnight burn-in.",
+    hardwareNote: "Use dedicated host controllers on the control PC for 40+ total ports.",
+    quoteNote: "Specify chassis tier and cable length; sales matches hub firmware tier.",
+  },
+  "gigabit-farm-network-kit": {
+    summary: "Router, switch, and cabling baseline for LAN OTG discovery on a dedicated farm subnet.",
+    bestFor: "Sites moving from USB-only mirroring to LAN OTG at 20–40 nodes.",
+    hardwareNote: "Consumer WiFi APs limit concurrent mirrors—plan wired LAN for production walls.",
+    quoteNote: "Include target node count and rack layout for switch port sizing.",
+  },
 };
 
 export function getProductSummary(slug: string) {

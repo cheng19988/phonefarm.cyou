@@ -6,7 +6,6 @@ export const SITE = {
   domain: "phonefarm.cyou",
   url: resolveCanonicalSiteUrl(),
   location: "Guangzhou, China",
-  locationZh: "中国广州",
   since: 2017,
   intro:
     "Guangzhou factory team shipping real-device phone farm boxes since 2017. We size hardware, configure remote and group control, and support overseas rollout—not just a parts list.",

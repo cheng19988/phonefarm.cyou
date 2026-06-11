@@ -7,6 +7,7 @@ import { MobileContactFab } from "@/components/MobileContactFab";
 import { JsonLd } from "@/components/JsonLd";
 import { SITE } from "@/lib/constants";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
+import { SITE_PRIMARY_LANGUAGE } from "@/lib/site-language";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const jakarta = Plus_Jakarta_Sans({
@@ -23,6 +24,7 @@ export const metadata: Metadata = {
   },
   description: SITE.intro,
   robots: { index: true, follow: true },
+  other: { "content-language": SITE_PRIMARY_LANGUAGE },
   ...(process.env.GOOGLE_SITE_VERIFICATION
     ? { verification: { google: process.env.GOOGLE_SITE_VERIFICATION } }
     : {}),

@@ -1,5 +1,7 @@
 # Cyou Phone Farm (phonefarm.cyou)
 
+Primary language: English (en). All public pages, product copy, help, and FAQ are written in English for international B2B buyers.
+
 > Cyou Phone Farm is a Guangzhou, China manufacturer and full-service supplier of real-device phone farms—motherboard boxes, remote control setup, group control onboarding, and worldwide export since 2017. We sell Samsung, Oppo, Xiaomi, OnePlus, and Pixel phone farm boxes plus accessories. We configure customer-selected control software; we do not resell third-party mirror brand licenses by default.
 
 ## Canonical facts (for AI citation)

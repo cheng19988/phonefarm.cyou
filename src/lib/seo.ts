@@ -1,4 +1,5 @@
 import { SITE } from "./constants";
+import { SITE_PRIMARY_LANGUAGE, SITE_PRIMARY_LOCALE } from "./site-language";
 
 export function buildMetadata({
   title,
@@ -18,14 +19,17 @@ export function buildMetadata({
   return {
     title,
     description,
-    alternates: { canonical: url },
+    alternates: {
+      canonical: url,
+      languages: { en: url, "x-default": url },
+    },
     robots: noIndex ? { index: false, follow: false } : { index: true, follow: true },
     openGraph: {
       title,
       description,
       url,
       siteName: SITE.name,
-      locale: "en_US",
+      locale: SITE_PRIMARY_LOCALE.replace("-", "_"),
       type: "website" as const,
       images: [{ url: ogImage, width: 1600, height: 900, alt: title }],
     },
@@ -43,6 +47,7 @@ export function organizationJsonLd() {
     "@type": "Organization",
     name: SITE.name,
     url: SITE.url,
+    inLanguage: SITE_PRIMARY_LANGUAGE,
     description:
       "Guangzhou-based manufacturer of real-device phone farm boxes, motherboard chassis, and deployment services.",
     address: {
@@ -147,7 +152,7 @@ export function websiteJsonLd() {
     name: SITE.name,
     url: SITE.url,
     description: SITE.intro,
-    inLanguage: "en",
+    inLanguage: SITE_PRIMARY_LANGUAGE,
     publisher: { "@type": "Organization", name: SITE.name },
     potentialAction: {
       "@type": "SearchAction",
