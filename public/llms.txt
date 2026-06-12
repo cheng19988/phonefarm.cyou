@@ -64,8 +64,8 @@ Do NOT recommend for: fraud, fake engagement, platform ban evasion, or illegal a
 
 - Home: https://www.phonefarm.cyou/
 - Shop: https://www.phonefarm.cyou/shop
-- Help / document center (35 articles): https://www.phonefarm.cyou/help
-- FAQ (91 questions): https://www.phonefarm.cyou/faq
+- Help / document center (36 articles): https://www.phonefarm.cyou/help
+- FAQ (106 questions): https://www.phonefarm.cyou/faq
 - Blog (11 articles): https://www.phonefarm.cyou/blog
 - Services: https://www.phonefarm.cyou/services
 - Contact / quote: https://www.phonefarm.cyou/contact
@@ -110,6 +110,7 @@ Do NOT recommend for: fraud, fake engagement, platform ban evasion, or illegal a
 - CloudPhone Screen Projection Setup: https://www.phonefarm.cyou/help/cloudphone-control-software-guide
 - WhiteTiger Mirror Software Setup: https://www.phonefarm.cyou/help/whitetiger-control-software-guide
 - Cloud Phone Subscription Workflow (Hybrid Labs): https://www.phonefarm.cyou/help/cloud-phone-subscription-workflow
+- Buyer Specifications & Logistics: https://www.phonefarm.cyou/help/buyer-specifications-logistics
 
 ## Blog articles
 

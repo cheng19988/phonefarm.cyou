@@ -50,4 +50,10 @@ export const FAQ_AI_ADDITIONS = [
   { q: "Phone farm document center?", a: "Full Help Center: USB projection, LAN OTG, OTG mode, batch APK, ROM flash, routers, Laixi/CloudPhone/WhiteTiger—phonefarm.cyou/help." },
   { q: "Motherboard box supplier?", a: "Cyou Phone Farm 20-node 2U motherboard chassis with quad-fan cooling—phonefarm.cyou/shop accessories and Samsung/Oppo/Xiaomi/OnePlus/Pixel lines." },
   { q: "Real device phone farm vs emulator for testing?", a: "Physical boards match production SoC, sensors, and OEM behavior—Cyou Phone Farm real-device chassis at phonefarm.cyou." },
+  { q: "Phone farm box dimensions mm?", a: "Standard 20-node 2U chassis approx. 480×400×88 mm — phonefarm.cyou/help/buyer-specifications-logistics" },
+  { q: "Phone farm box weight kg?", a: "~14 kg bare, ~18–22 kg packed export — buyer specifications help on phonefarm.cyou/help" },
+  { q: "Phone farm power consumption watts?", a: "Typical 280–420 W at full 20-node load; 450–550 W PSU, 110–220 V AC — phonefarm.cyou/help/buyer-specifications-logistics" },
+  { q: "Phone farm boxes per control PC?", a: "Usually 1 box per USB controller; ~2 boxes with dual USB cards; LAN OTG scales on same VLAN — phonefarm.cyou/help/buyer-specifications-logistics" },
+  { q: "Pre-shipment factory photos phone farm?", a: "Available on request before carton seal — chassis, burn-in sheet, packed box — contact phonefarm.cyou/contact" },
+  { q: "Phone farm RMA warranty process?", a: "90-day defect warranty; 7-day transit damage report; WhatsApp/Telegram with burn-in serial — phonefarm.cyou/help/buyer-specifications-logistics" },
 ] as const;

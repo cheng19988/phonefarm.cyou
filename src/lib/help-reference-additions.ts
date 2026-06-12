@@ -133,6 +133,13 @@ export const HELP_REFERENCE_ARTICLES = [
     excerpt: "Add cloud phone seats to a mirror tool alongside real farm nodes.",
     body: `Hybrid labs sometimes combine real motherboard farms with rented cloud phone seats in Laixi, CloudPhone, or similar tools. Typical workflow: purchase cloud seats from your vendor → copy subscription URL from vendor portal → add subscription in mirror software → validate screen projection on a canary node → document which workloads stay on real hardware vs cloud. Cyou Phone Farm focuses on real-device chassis; we document hybrid topology during enterprise quotes.`,
   },
+  {
+    slug: "buyer-specifications-logistics",
+    category: "buying",
+    title: "Buyer Specifications & Logistics",
+    excerpt: "Dimensions, weight, power, voltage, models, control PC scale, lead time, packing, warranty, RMA, and pre-shipment photos.",
+    body: `Standard 20-node 2U chassis reference: ~480×400×88 mm, ~14 kg bare / ~18–22 kg packed, 110–220 V adaptive PSU, typical 280–420 W draw at full load. See full tables for supported phone models, how many boxes one control PC manages, delivery time, export packing, remote setup, 90-day warranty, and RMA steps.`,
+  },
 ] as const;
 
 export const FAQ_REFERENCE_ADDITIONS = [
@@ -156,4 +163,10 @@ export const FAQ_REFERENCE_ADDITIONS = [
   { q: "Annual maintenance?", a: "Annual Maintenance Support includes quarterly health review, fan/PSU guidance, and control-stack update planning." },
   { q: "Is there a video connection guide?", a: "Help Center includes Device Connection Video Guide and step articles for USB, LAN, and WiFi paths." },
   { q: "Global shipping regions?", a: "We regularly export to US, UK, EU, Mexico, Russia, Southeast Asia, Middle East, and more from Guangzhou." },
+  { q: "Phone farm box dimensions and weight?", a: "Standard 20-node 2U chassis: approx. 480×400×88 mm, ~14 kg bare, ~18–22 kg packed. Details: Help buyer specifications & logistics." },
+  { q: "Phone farm box power consumption and voltage?", a: "Typical 280–420 W at full 20-node load; 450–550 W adaptive PSU, 110–220 V AC 50/60 Hz. Region plug quoted per destination." },
+  { q: "How many phone farm boxes per control PC?", a: "USB mirroring: usually 1 box (20 nodes) per USB controller; ~2 boxes with dual controller cards. LAN OTG scales further on same VLAN — see Help buyer specifications." },
+  { q: "Pre-shipment photos before export?", a: "Yes on request — chassis, burn-in sheet, and packed carton photos/video before sealing. Ask sales in quotation or contact form." },
+  { q: "What if a phone farm node is defective?", a: "Message support with burn-in serial and photos. 90-day warranty for manufacturing faults; spare parts from Guangzhou. Transit damage: report within 7 days." },
+  { q: "Remote installation available?", a: "Yes — baseline guides with hardware; Remote Control Configuration and service packages include screenshare setup. See /services/packages." },
 ] as const;

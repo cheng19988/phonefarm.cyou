@@ -5,8 +5,8 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export const metadata = buildMetadata({
   title: "Help Center & Document Center",
-  description:
-    "Cyou Phone Farm setup guides: USB projection, LAN OTG, batch APK, ADB shortcuts, router setup, ROM flash, and troubleshooting.",
+    description:
+    "Cyou Phone Farm document center: buyer specs (dimensions, power, warranty), USB/LAN setup, batch APK, router, ROM flash, and troubleshooting.",
   path: "/help",
 });
 

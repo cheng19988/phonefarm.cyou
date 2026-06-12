@@ -3,6 +3,7 @@
 export type ProductHelpLink = { slug: string; title: string };
 
 const UNIVERSAL: ProductHelpLink[] = [
+  { slug: "buyer-specifications-logistics", title: "Dimensions, power, warranty & RMA" },
   { slug: "what-is-phone-farm", title: "What is a phone farm?" },
   { slug: "after-purchase-guide", title: "After receiving your farm" },
   { slug: "device-connection-video-guide", title: "Device connection guide" },

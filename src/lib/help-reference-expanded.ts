@@ -337,4 +337,123 @@ Real hardware from Guangzhou; hybrid consulting on request. We do not replace yo
 - /faq
 - /solutions/phone-farming
 - /contact`,
+
+  "buyer-specifications-logistics": `Buyer Specifications & Logistics (Dimensions, Power, Warranty, RMA)
+
+## Quick reference — standard 20-node motherboard box
+
+| Item | Reference value |
+|------|-----------------|
+| Form factor | 2U rack-style metal chassis |
+| Dimensions (L × W × H) | **480 × 400 × 88 mm** approximate (±10 mm per batch) |
+| Weight | **~14 kg** bare chassis · **~18–22 kg** packed for export |
+| Nodes per box | **20** motherboard nodes (no screen, no battery) |
+| PSU rating | **450–550 W** adaptive PSU (tier matched to SoC) |
+| Input voltage | **110–220 V AC**, 50/60 Hz |
+| Typical power draw | **280–420 W** at full 20-node USB mirror load (SoC dependent) |
+| Recommended circuit | Dedicated **10 A** outlet or PDU slot per box (+25% headroom) |
+| Lead time | **7–21 business days** after order confirmation (standard configs) |
+| Warranty | **90 days** hardware defect from delivery date |
+| Transit damage | Report within **7 days** with photos |
+
+Values are factory reference — your proforma and burn-in sheet confirm the exact batch.
+
+## Supported phone models
+
+Cyou Phone Farm ships **real motherboard** farm boxes, not consumer handsets. Current catalog lines:
+
+- **Samsung Box** — S8, S9, S10, S20, S21 FE, S22, Note series, Z Flip, Change / Super Change tiers
+- **Oppo Box** — Find X2, Find X2 Pro, Find X3 Neo, Reno5 Pro
+- **Xiaomi Box** — 6X/A2, 8SE, MIX 2, Xiaomi 8, Nubia Z17
+- **OnePlus Box** — 3, 5 Super Change, 8 Pro, 9 Pro, 11
+- **Pixel Box** — 4a, 5, 6, 7 Pro, 4XL Super Change
+
+Each SKU on /shop lists CPU, RAM/storage, Android version, and USD reference price. Mixed trays and empty chassis are quoted separately.
+
+## How many boxes can one control PC manage?
+
+**USB screen mirroring (most common first connection):**
+- One powered industrial USB hub on **one USB host controller** → reliably **one box (20 nodes)**.
+- **~40 nodes (2 boxes)** possible on one workstation with **two USB controller cards** and validated hub wiring — not on a single laptop root hub.
+- Above **60 USB ports** on one PC: add-in USB cards and Enterprise BOM review.
+
+**LAN OTG mirroring:**
+- After USB authorization, additional boxes on the **same farm VLAN** can mirror over Ethernet.
+- Scale depends on mirror software, gigabit switch, and operator monitors — not only USB port count.
+
+**Large sites:**
+- Plan **primary + backup control PC** above 40 nodes.
+- Enterprise Deployment includes workstation and network BOM review.
+
+See also: /help/usb-screen-projection · /help/large-farm-network-deployment
+
+## Delivery time
+
+- **Standard configurations:** commonly **7–21 business days** after sales confirms your order and payment terms.
+- **Single-box samples:** often **7–12 business days** when board stock is available.
+- **Custom mixes / flagship shortages:** **14–30 business days** — confirmed on proforma.
+- **Express freight:** DHL / FedEx / UPS from Guangzhou after export packing — transit time depends on destination (not included in factory lead time).
+
+## Export packing
+
+- Anti-shock **foam bracing** and corner protection
+- **Accessory checklist** taped inside carton lid
+- **Burn-in serial sheet** per node
+- **Commercial invoice** and packing list for customs
+- Handling marks on outer carton for air/sea freight
+
+Factory photos of packing process: /about (Guangzhou facility gallery).
+
+## Pre-shipment photos or video
+
+**Yes — available on request** before we seal the export carton.
+
+Typical media we provide:
+- Chassis exterior and tray layout
+- Burn-in serial sheet snapshot
+- Packed carton with labels (before carrier pickup)
+
+Request in your quotation email or /contact form with proforma / order reference.
+
+## Remote installation and setup
+
+- **Included with hardware:** first-connection guide, burn-in sheet, Help Center articles (USB, LAN OTG, batch APK).
+- **Remote Control Configuration service:** screenshare setup of USB paths, LAN scan ranges, and control software workspace on your license.
+- **Group Control Onboarding:** sync control baseline, batch APK policy, operator handover.
+- **Starter / Studio Pro / Enterprise packages:** escalating remote hours and network BOM review — see /services/packages.
+
+Remote sessions use WhatsApp, Telegram, or agreed screenshare. Customer provides control PC access and network details.
+
+## Warranty (90 days)
+
+Hardware defect warranty: **90 calendar days from delivery date** covering chassis fabrication, bundled PSU, and factory-installed fans under normal 24/7 farm use.
+
+**Not covered:** unauthorized ROM flashes, consumer hub overload, liquid/impact damage, incorrect mains voltage, or environmental abuse.
+
+Extended SLA available on enterprise contracts — ask sales.
+
+## If something is broken — RMA process
+
+1. **Transit damage:** photograph outer carton and device within **7 days of delivery** before discarding packaging.
+2. **Functional defect:** message WhatsApp **+85262155642** or Telegram **@huicheng1998** with order number, **node serial from burn-in sheet**, and photos/video.
+3. Support classifies: warranty manufacturing fault vs operator environment (hub, ROM, power).
+4. **Warranty-approved:** spare fan/PSU/board shipped from Guangzhou stock, or return-to-factory repair — path confirmed in writing.
+5. **Keep original export carton** when return shipment is required.
+
+Spare fans, PSUs, USB hubs, and trays are stocked in Guangzhou for expansion and RMA — not only first shipment.
+
+## When to contact sales
+
+- Confirm dimensions/weight for your destination freight quote
+- Request pre-shipment photos
+- Multi-box control PC sizing
+- Custom voltage plug and PSU region
+
+## Related Links
+- /shop
+- /contact
+- /deployment
+- /services/packages
+- /faq
+- /terms`,
 };

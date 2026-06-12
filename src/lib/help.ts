@@ -4,6 +4,7 @@ import { HELP_REFERENCE_ARTICLES } from "./help-reference-additions";
 import { HELP_REFERENCE_EXPANDED } from "./help-reference-expanded";
 
 export const HELP_CATEGORIES = [
+  { id: "buying", name: "Buying & Logistics" },
   { id: "getting-started", name: "Getting Started" },
   { id: "connection", name: "Device Connection" },
   { id: "network", name: "Network & Router" },

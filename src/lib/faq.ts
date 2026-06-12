@@ -76,6 +76,30 @@ const FAQ_CORE: FaqItem[] = [
     q: "Do you sell third-party control software licenses?",
     a: "We provide setup and configuration services for control software. Customers use their own licensed tools—we do not resell third-party license keys unless explicitly agreed in writing.",
   },
+  {
+    q: "What are phone farm box dimensions and weight?",
+    a: "Standard 20-node 2U chassis: approx. 480×400×88 mm, ~14 kg bare, ~18–22 kg packed for export. See Help: Buyer specifications & logistics.",
+  },
+  {
+    q: "What voltage and power does a phone farm box need?",
+    a: "110–220 V AC adaptive PSU (450–550 W rated). Typical draw ~280–420 W at full 20-node USB mirror load. Dedicated 10 A circuit per box recommended.",
+  },
+  {
+    q: "How many farm boxes can one control PC manage?",
+    a: "USB mirroring: typically one 20-node box per USB host controller; about two boxes with dual USB controller cards. LAN OTG can add more boxes on the same farm VLAN.",
+  },
+  {
+    q: "Can I get photos before shipment?",
+    a: "Yes—pre-shipment chassis and packed-carton photos or short video on request before we seal the export carton. Ask in your quotation or contact form.",
+  },
+  {
+    q: "What is the warranty and RMA process?",
+    a: "90-day hardware defect warranty from delivery. Report shipping damage within 7 days with photos. Contact support with burn-in serial for RMA; spare parts from Guangzhou.",
+  },
+  {
+    q: "Do you offer remote installation?",
+    a: "Yes—baseline connection guides with hardware; Remote Control Configuration and Starter/Studio/Enterprise packages include screenshare setup. See /services/packages.",
+  },
 ];
 
 function normalizeFaqKey(question: string) {

@@ -1,4 +1,5 @@
 import type { QuotationDelivery } from "./delivery";
+import { STANDARD_20_NODE_CHASSIS } from "./chassis-specs";
 import { ALL_HARDWARE_CATALOG } from "./hardware-catalog";
 import { parseShortDescHardware } from "./pricing";
 
@@ -352,10 +353,14 @@ function defaultHardwareProfile(slug: string): ProductProfile | undefined {
       CPU: hw.cpu ?? "See short description",
       "RAM / Storage": hw.ram ?? "See short description",
       "Android version": hw.android ?? "Farm ROM documented on burn-in sheet",
-      "Device count / chassis": "20 nodes per standard 2U chassis",
+      "Device count / chassis": `${STANDARD_20_NODE_CHASSIS.nodesPerChassis} nodes per standard 2U chassis`,
+      "Chassis dimensions": STANDARD_20_NODE_CHASSIS.dimensionsMm.formatted,
+      "Weight (packed)": STANDARD_20_NODE_CHASSIS.weightKg.formatted,
+      "Input voltage": STANDARD_20_NODE_CHASSIS.power.inputVoltage,
+      "Typical power draw": STANDARD_20_NODE_CHASSIS.power.typicalDrawWatts,
       "Control method": "USB projection · LAN OTG · batch APK · sync control",
       "Recommended workload": "QA device lab · enterprise device fleet",
-      "Power / cooling notes": "450–550W adaptive PSU · quad-fan cooling",
+      "Power / cooling notes": `${STANDARD_20_NODE_CHASSIS.power.psuRatedWatts} W adaptive PSU · quad-fan cooling`,
     },
     included: [
       "20-node motherboard chassis (model per title)",
@@ -379,12 +384,15 @@ function defaultHardwareProfile(slug: string): ProductProfile | undefined {
       packing: "Reinforced export carton from Guangzhou.",
     },
     faq: [
+      { q: "Box dimensions and weight?", a: `${STANDARD_20_NODE_CHASSIS.dimensionsMm.formatted}; ${STANDARD_20_NODE_CHASSIS.weightKg.formatted}. Full logistics guide: Help buyer specifications & logistics.` },
+      { q: "Power and voltage?", a: `${STANDARD_20_NODE_CHASSIS.power.inputVoltage}; typical draw ${STANDARD_20_NODE_CHASSIS.power.typicalDrawWatts}.` },
+      { q: "How many boxes per control PC?", a: "USB path: usually 1 box per USB controller; ~2 boxes with dual controller cards. LAN OTG can scale further — see Help buyer specifications." },
       { q: "MOQ?", a: "Single 20-node box available. Bulk from 5+ units." },
       { q: "Lead time?", a: "7–21 business days standard; custom builds longer." },
-      { q: "Images match shipped hardware?", a: "Product photos from material library match model tier; exact tray layout on burn-in sheet." },
-      { q: "Setup help?", a: "Remote Control Configuration and Group Control Onboarding available." },
-      { q: "Warranty?", a: "90-day hardware defect coverage." },
-      { q: "Shipping?", a: "DHL/FedEx/UPS worldwide from Guangzhou." },
+      { q: "Pre-shipment photos?", a: "Available on request before export carton is sealed — ask sales with your order reference." },
+      { q: "Warranty and if something breaks?", a: "90-day hardware defect warranty; report transit damage within 7 days with photos. RMA spare parts from Guangzhou — Help buyer specifications." },
+      { q: "Remote setup?", a: "Baseline guides included; Remote Control Configuration and service packages add screenshare install." },
+      { q: "Shipping?", a: "DHL/FedEx/UPS worldwide from Guangzhou with foam-braced export carton." },
     ],
   };
 }

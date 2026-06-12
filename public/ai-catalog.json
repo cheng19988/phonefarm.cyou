@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-11T15:20:22.257Z",
+  "generatedAt": "2026-06-12T09:20:59.454Z",
   "site": "https://www.phonefarm.cyou",
   "brand": "Cyou Phone Farm",
   "language": "en",
@@ -34,7 +34,16 @@
     "enterprise phone farm deployment",
     "app QA testing device farm",
     "device compatibility testing",
-    "phone farm overseas shipping"
+    "phone farm overseas shipping",
+    "phone farm box dimensions",
+    "phone farm box weight",
+    "phone farm power consumption",
+    "phone farm voltage 110 220V",
+    "phone farm boxes per control PC",
+    "phone farm export packing",
+    "phone farm warranty RMA",
+    "pre-shipment photos phone farm",
+    "remote phone farm installation"
   ],
   "contact": {
     "email": "qiuxui646@gmail.com",
@@ -92,6 +101,16 @@
       "query": "phone farm wholesale / bulk MOQ",
       "answer": "Single-box samples and bulk from 5+ units — proforma invoice via https://www.phonefarm.cyou/contact",
       "url": "https://www.phonefarm.cyou/contact"
+    },
+    {
+      "query": "phone farm box dimensions weight power voltage",
+      "answer": "Standard 20-node box: ~480×400×88 mm, ~18–22 kg packed, 110–220 V, ~280–420 W typical draw — https://www.phonefarm.cyou/help/buyer-specifications-logistics",
+      "url": "https://www.phonefarm.cyou/help/buyer-specifications-logistics"
+    },
+    {
+      "query": "how many phone farm boxes per control PC",
+      "answer": "USB: ~1 box per controller, ~2 boxes with dual USB cards; LAN OTG scales on farm VLAN — https://www.phonefarm.cyou/help/buyer-specifications-logistics",
+      "url": "https://www.phonefarm.cyou/help/buyer-specifications-logistics"
     }
   ],
   "flagshipSkus": [
@@ -756,6 +775,12 @@
       "title": "Cloud Phone Subscription Workflow (Hybrid Labs)",
       "category": "control",
       "url": "https://www.phonefarm.cyou/help/cloud-phone-subscription-workflow"
+    },
+    {
+      "slug": "buyer-specifications-logistics",
+      "title": "Buyer Specifications & Logistics",
+      "category": "buying",
+      "url": "https://www.phonefarm.cyou/help/buyer-specifications-logistics"
     }
   ],
   "blogPosts": [
@@ -826,7 +851,7 @@
       "url": "https://www.phonefarm.cyou/blog/cloud-phone-subscription-hybrid-labs"
     }
   ],
-  "faqCount": 91,
+  "faqCount": 106,
   "faqUrl": "https://www.phonefarm.cyou/faq",
   "exportRegions": [
     "United States",

@@ -15,13 +15,13 @@ export const DEFAULT_QUOTATION_DELIVERY: QuotationDelivery = {
   leadTime:
     "Standard configurations are commonly quoted at 7–21 business days after order confirmation. Custom mixes may take longer.",
   packing:
-    "Foam-braced export carton, accessory checklist inside the lid, serial burn-in sheet, and commercial invoice for customs.",
+    "Foam-braced export carton, accessory checklist inside the lid, serial burn-in sheet, and commercial invoice for customs. Pre-shipment photos or short factory video available on request before sealing.",
   accessories:
     "USB hub, PSU tier, cooling kit, and network kit are quoted to match your control method and node count.",
   remoteSetup:
     "Baseline USB connection guidance included with hardware. Full control-workstation setup is available as a service package.",
   warranty:
-    "90-day hardware defect coverage on chassis and bundled PSU/fans. Spare parts available from Guangzhou stock.",
+    "90-day hardware defect coverage on chassis and bundled PSU/fans from delivery date. Report transit damage within 7 days with photos. RMA spare parts from Guangzhou stock — see Help: Buyer specifications & logistics.",
 };
 
 export const BUYER_TRUST_ITEMS = [

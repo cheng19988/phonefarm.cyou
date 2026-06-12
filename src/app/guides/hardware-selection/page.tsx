@@ -16,6 +16,16 @@ export default function HardwareSelectionPage() {
       <p className="page-lead">
         Models, specs, and buying guides—aligned with professional phone farming workflows.
       </p>
+      <div className="mt-6 card-premium p-6">
+        <h2 className="text-lg font-semibold text-slate-900">Physical specs & logistics</h2>
+        <p className="mt-2 text-sm text-slate-600 leading-relaxed">
+          Dimensions (~480×400×88 mm), weight, 110–220 V power, control PC scale (boxes per workstation), lead time,
+          export packing, 90-day warranty, RMA, pre-shipment photos, and remote setup — consolidated for buyers.
+        </p>
+        <Link href="/help/buyer-specifications-logistics" className="link-accent mt-3 inline-block text-sm font-medium">
+          Read buyer specifications & logistics →
+        </Link>
+      </div>
       <div className="mt-10 space-y-6">
         {posts.map((post) => (
           <Link
