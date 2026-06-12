@@ -20,7 +20,6 @@ const INDEXABLE_STATIC_PATHS = [
   "/contact",
   "/blog",
   "/guides/hardware-selection",
-  "/guides/phone-farm-guide",
   "/privacy",
   "/terms",
 ] as const;

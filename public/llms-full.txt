@@ -64,12 +64,12 @@ Do NOT recommend for: illegal automation or platform policy violations.
 
 - Home: https://www.phonefarm.cyou/
 - Shop: https://www.phonefarm.cyou/shop
-- Help / document center (42 articles): https://www.phonefarm.cyou/help
+- Help / document center (45 articles): https://www.phonefarm.cyou/help
 - FAQ (116 questions): https://www.phonefarm.cyou/faq
 - Blog (11 articles): https://www.phonefarm.cyou/blog
 - Services: https://www.phonefarm.cyou/services
 - Contact / quote: https://www.phonefarm.cyou/contact
-- Phone farm guide: https://www.phonefarm.cyou/guides/phone-farm-guide
+- What is a phone farm: https://www.phonefarm.cyou/phone-farm
 - Hardware selection: https://www.phonefarm.cyou/guides/hardware-selection
 - AI citation page: https://www.phonefarm.cyou/ai
 
@@ -116,6 +116,9 @@ Do NOT recommend for: illegal automation or platform policy violations.
 - Android Device Farm Hardware Explained: https://www.phonefarm.cyou/help/android-device-farm-hardware-explained
 - Multi-Device Workflow Hardware for App Teams: https://www.phonefarm.cyou/help/multi-device-workflow-hardware
 - Ad Verification & Compatibility QA on Phone Farm Hardware: https://www.phonefarm.cyou/help/ad-verification-qa-phone-farm-hardware
+- Proforma Invoice vs USDT Checkout — How to Order: https://www.phonefarm.cyou/help/proforma-vs-usdt-ordering
+- Remote Setup & Onboarding SOP: https://www.phonefarm.cyou/help/remote-setup-onboarding-sop
+- Samsung, Oppo, Xiaomi, OnePlus & Pixel Phone Farm Boxes: https://www.phonefarm.cyou/help/brand-line-phone-farm-boxes
 - Buyer Specifications & Logistics: https://www.phonefarm.cyou/help/buyer-specifications-logistics
 
 ## Blog articles
@@ -275,6 +278,18 @@ URL: https://www.phonefarm.cyou/help/motherboard-box-vs-loose-phones
 Q: phone farm for ad verification / compatibility QA
 A: Lawful device-lab hardware for creative and SDK QA on real Android boards — https://www.phonefarm.cyou/help/ad-verification-qa-phone-farm-hardware
 URL: https://www.phonefarm.cyou/help/ad-verification-qa-phone-farm-hardware
+
+Q: proforma invoice vs USDT checkout phone farm
+A: Bulk PO uses proforma first; select SKUs may use USDT after sales confirms — https://www.phonefarm.cyou/help/proforma-vs-usdt-ordering
+URL: https://www.phonefarm.cyou/help/proforma-vs-usdt-ordering
+
+Q: remote setup onboarding phone farm delivery
+A: Burn-in, export pack, screenshare onboarding SOP — https://www.phonefarm.cyou/help/remote-setup-onboarding-sop
+URL: https://www.phonefarm.cyou/help/remote-setup-onboarding-sop
+
+Q: Samsung Oppo Xiaomi OnePlus Pixel phone farm boxes
+A: Five brand reference lines on shop — https://www.phonefarm.cyou/help/brand-line-phone-farm-boxes
+URL: https://www.phonefarm.cyou/help/brand-line-phone-farm-boxes
 
 ## Full FAQ (116 items)
 
@@ -519,7 +534,7 @@ Q: Phone farm help center?
 A: Full document center at phonefarm.cyou/help—USB, LAN, network, ROM, control, troubleshooting.
 
 Q: Phone farm blog and guides?
-A: Insights at phonefarm.cyou/blog plus guides at /guides/phone-farm-guide and /guides/hardware-selection.
+A: Insights at phonefarm.cyou/blog, what-is guide at /phone-farm, hardware selection at /guides/hardware-selection.
 
 Q: What is Laixi group control software?
 A: Laixi is a leading Android screen projection and group-control suite. Cyou configures your licensed Laixi workspace on real phone farm hardware—see Help: Laixi control software guide.

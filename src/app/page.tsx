@@ -79,6 +79,12 @@ export default async function HomePage() {
           <Link href="/phone-farm" className="link-accent">
             What is a phone farm?
           </Link>
+          <Link href="/help/brand-line-phone-farm-boxes" className="link-accent">
+            Brand line phone farm boxes
+          </Link>
+          <Link href="/help/proforma-vs-usdt-ordering" className="link-accent">
+            Proforma vs USDT ordering
+          </Link>
           <Link href="/help/after-purchase-guide" className="link-accent">
             After receiving your farm
           </Link>

@@ -221,7 +221,7 @@ export function contactPageJsonLd() {
         "@type": "ContactPoint",
         contactType: "sales",
         email: "qiuxui646@gmail.com",
-        url: "https://t.me/huicheng1998",
+        url,
         areaServed: "Worldwide",
         availableLanguage: ["English"],
       },

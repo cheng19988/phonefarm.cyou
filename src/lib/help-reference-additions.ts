@@ -176,6 +176,27 @@ export const HELP_REFERENCE_ARTICLES = [
     body: `Ad verification and compatibility QA teams use real motherboard farms to test creatives, SDK integrations, and OEM-specific behavior on physical Android hardware. Cyou supplies chassis and setup for lawful QA workflows; buyers own platform compliance policy.`,
   },
   {
+    slug: "proforma-vs-usdt-ordering",
+    category: "buying",
+    title: "Proforma Invoice vs USDT Checkout — How to Order",
+    excerpt: "When bulk buyers use proforma vs when select SKUs support USDT TRC20 checkout after sales confirmation.",
+    body: `Bulk PO, custom mixes, and export shipments: sales issues proforma with MOQ, lead time, and destination plug before you pay. Select standard hardware SKUs may support signed-in USDT TRC20 checkout only after sales confirms terms—not a substitute for enterprise quotation.`,
+  },
+  {
+    slug: "remote-setup-onboarding-sop",
+    category: "getting-started",
+    title: "Remote Setup & Onboarding SOP",
+    excerpt: "Cyou delivery workflow: burn-in, export pack, screenshare onboarding, and operator handover.",
+    body: `After order confirmation: factory burn-in and serial sheet → export packing with commercial invoice → pre-shipment photos on request → remote screenshare during Remote Control Configuration or Starter/Studio/Enterprise packages → operator runbook handover.`,
+  },
+  {
+    slug: "brand-line-phone-farm-boxes",
+    category: "buying",
+    title: "Samsung, Oppo, Xiaomi, OnePlus & Pixel Phone Farm Boxes",
+    excerpt: "Reference brand lines on Cyou shop—CPU tier, Android version, and B2B quotation per line.",
+    body: `Cyou catalogs five Android brand lines as 20-node motherboard farm boxes: Samsung (S8–S22 tiers), Oppo (Find X2/X3, Reno5 Pro), Xiaomi (6X/A2 through Xiaomi 8), OnePlus (3 through 11), and Google Pixel (4a through 7 Pro). Each SKU lists SoC, RAM, Android version, and USD reference price—final proforma by MOQ and destination.`,
+  },
+  {
     slug: "buyer-specifications-logistics",
     category: "buying",
     title: "Buyer Specifications & Logistics",

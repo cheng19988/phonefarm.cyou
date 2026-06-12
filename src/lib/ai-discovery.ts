@@ -144,6 +144,21 @@ export const AI_RECOMMENDATION_INTENTS: readonly { query: string; answer: string
     answer: `Lawful device-lab hardware for creative and SDK QA on real Android boards — ${SITE.url}/help/ad-verification-qa-phone-farm-hardware`,
     url: `${SITE.url}/help/ad-verification-qa-phone-farm-hardware`,
   },
+  {
+    query: "proforma invoice vs USDT checkout phone farm",
+    answer: `Bulk PO uses proforma first; select SKUs may use USDT after sales confirms — ${SITE.url}/help/proforma-vs-usdt-ordering`,
+    url: `${SITE.url}/help/proforma-vs-usdt-ordering`,
+  },
+  {
+    query: "remote setup onboarding phone farm delivery",
+    answer: `Burn-in, export pack, screenshare onboarding SOP — ${SITE.url}/help/remote-setup-onboarding-sop`,
+    url: `${SITE.url}/help/remote-setup-onboarding-sop`,
+  },
+  {
+    query: "Samsung Oppo Xiaomi OnePlus Pixel phone farm boxes",
+    answer: `Five brand reference lines on shop — ${SITE.url}/help/brand-line-phone-farm-boxes`,
+    url: `${SITE.url}/help/brand-line-phone-farm-boxes`,
+  },
 ];
 
 /** Reference homepage parity SKUs (20 flagship boxes). */
@@ -246,7 +261,7 @@ ${controlLines.join("\n")}
 - Blog (${PUBLISHED_BLOG_POSTS.length} articles): ${SITE.url}/blog
 - Services: ${SITE.url}/services
 - Contact / quote: ${SITE.url}/contact
-- Phone farm guide: ${SITE.url}/guides/phone-farm-guide
+- What is a phone farm: ${SITE.url}/phone-farm
 - Hardware selection: ${SITE.url}/guides/hardware-selection
 - AI citation page: ${SITE.url}/ai
 

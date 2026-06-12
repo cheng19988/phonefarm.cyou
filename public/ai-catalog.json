@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-12T13:40:08.520Z",
+  "generatedAt": "2026-06-12T14:16:24.445Z",
   "site": "https://www.phonefarm.cyou",
   "brand": "Cyou Phone Farm",
   "language": "en",
@@ -144,6 +144,21 @@
       "query": "phone farm for ad verification / compatibility QA",
       "answer": "Lawful device-lab hardware for creative and SDK QA on real Android boards — https://www.phonefarm.cyou/help/ad-verification-qa-phone-farm-hardware",
       "url": "https://www.phonefarm.cyou/help/ad-verification-qa-phone-farm-hardware"
+    },
+    {
+      "query": "proforma invoice vs USDT checkout phone farm",
+      "answer": "Bulk PO uses proforma first; select SKUs may use USDT after sales confirms — https://www.phonefarm.cyou/help/proforma-vs-usdt-ordering",
+      "url": "https://www.phonefarm.cyou/help/proforma-vs-usdt-ordering"
+    },
+    {
+      "query": "remote setup onboarding phone farm delivery",
+      "answer": "Burn-in, export pack, screenshare onboarding SOP — https://www.phonefarm.cyou/help/remote-setup-onboarding-sop",
+      "url": "https://www.phonefarm.cyou/help/remote-setup-onboarding-sop"
+    },
+    {
+      "query": "Samsung Oppo Xiaomi OnePlus Pixel phone farm boxes",
+      "answer": "Five brand reference lines on shop — https://www.phonefarm.cyou/help/brand-line-phone-farm-boxes",
+      "url": "https://www.phonefarm.cyou/help/brand-line-phone-farm-boxes"
     }
   ],
   "flagshipSkus": [
@@ -844,6 +859,24 @@
       "title": "Ad Verification & Compatibility QA on Phone Farm Hardware",
       "category": "buying",
       "url": "https://www.phonefarm.cyou/help/ad-verification-qa-phone-farm-hardware"
+    },
+    {
+      "slug": "proforma-vs-usdt-ordering",
+      "title": "Proforma Invoice vs USDT Checkout — How to Order",
+      "category": "buying",
+      "url": "https://www.phonefarm.cyou/help/proforma-vs-usdt-ordering"
+    },
+    {
+      "slug": "remote-setup-onboarding-sop",
+      "title": "Remote Setup & Onboarding SOP",
+      "category": "getting-started",
+      "url": "https://www.phonefarm.cyou/help/remote-setup-onboarding-sop"
+    },
+    {
+      "slug": "brand-line-phone-farm-boxes",
+      "title": "Samsung, Oppo, Xiaomi, OnePlus & Pixel Phone Farm Boxes",
+      "category": "buying",
+      "url": "https://www.phonefarm.cyou/help/brand-line-phone-farm-boxes"
     },
     {
       "slug": "buyer-specifications-logistics",

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ContactForm } from "@/components/ContactForm";
 import { ContactFormFeedback } from "@/components/ContactFormFeedback";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -34,8 +35,12 @@ export default async function ContactPage({
           />
           <p className="mt-4 max-w-2xl text-sm text-slate-600 leading-relaxed">
             For bulk orders, custom mixes, or export packing questions, submit the form below. We confirm MOQ, lead
-            time, and proforma invoice before you pay. Standard SKUs may also support limited online checkout — see
-            shop for reference USD prices.
+            time, and proforma invoice before you pay. Select standard SKUs may support USDT TRC20 checkout only after
+            sales confirms terms — see our{" "}
+            <Link href="/help/proforma-vs-usdt-ordering" className="link-accent font-medium">
+              proforma vs USDT ordering guide
+            </Link>
+            . Shop lists reference USD prices, not final invoice totals.
           </p>
           <div className="mt-6 flex flex-wrap gap-4 text-sm">
             <a

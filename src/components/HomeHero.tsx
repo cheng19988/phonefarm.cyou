@@ -24,8 +24,17 @@ export function HomeHero() {
               {SITE.tagline}
             </h1>
             <p className="mt-4 text-base leading-relaxed text-slate-600 lg:text-lg">
-              B2B phone farm boxes — Samsung, Oppo, Xiaomi, OnePlus, and Pixel reference lines. Bulk RFQ · USDT on
-              select SKUs · worldwide export · remote setup available.
+              B2B phone farm boxes — Samsung, Oppo, Xiaomi, OnePlus, and Pixel reference lines. Bulk RFQ · worldwide
+              export · remote setup available.
+            </p>
+            <p className="mt-3 text-sm leading-relaxed text-slate-500">
+              <strong className="font-medium text-slate-700">How to order:</strong> bulk and export POs receive a
+              proforma invoice (MOQ, lead time) before payment. Select standard SKUs may use USDT TRC20 checkout after
+              sales confirms terms —{" "}
+              <Link href="/help/proforma-vs-usdt-ordering" className="link-accent">
+                ordering guide
+              </Link>
+              .
             </p>
             <ul className="mt-6 space-y-3 text-base text-slate-600 lg:text-lg">
               {TRUST_POINTS.map((point) => (

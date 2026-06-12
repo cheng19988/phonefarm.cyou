@@ -1,5 +1,6 @@
-import { redirect } from "next/navigation";
+import { permanentRedirect } from "next/navigation";
 
+/** Legacy URL — canonical guide content lives at /phone-farm */
 export default function PhoneFarmGuidePage() {
-  redirect("/phone-farm");
+  permanentRedirect("/phone-farm");
 }

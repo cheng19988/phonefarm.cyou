@@ -491,6 +491,131 @@ Cyou Phone Farm supplies **B2B hardware and configuration** for professional dev
 - /services/packages
 - /contact`,
 
+  "proforma-vs-usdt-ordering": `Proforma Invoice vs USDT Checkout — How to Order
+
+## Two payment paths on phonefarm.cyou
+
+| Path | When to use | What happens |
+|------|-------------|--------------|
+| **Proforma invoice (default B2B)** | Bulk PO, custom mixes, export packing, multi-box rollout, enterprise deployment | Submit RFQ → sales confirms MOQ, lead time, destination plug, setup scope → proforma invoice → you pay agreed method → factory burn-in and export |
+| **USDT TRC20 checkout (select SKUs)** | Standard published hardware after sales enables terms | Browse /shop → may cart/checkout → pay USDT within order window **only when sales has confirmed** MOQ and scope—not for ad-hoc enterprise quotes |
+
+Cyou Phone Farm is **B2B-first**. Reference USD prices on the shop are not final payment totals.
+
+## Proforma workflow (step by step)
+
+1. **Request quotation** — /contact or WhatsApp/Telegram with node count, brand line, destination country, control method (USB vs LAN OTG).
+2. **Sales reply** — MOQ, lead time, export packing notes, optional remote setup package.
+3. **Proforma invoice** — confirms SKU mix, unit reference pricing, freight method, and payment instructions.
+4. **Payment** — wire/T/T or agreed method as stated on proforma (USDT may be agreed in writing for some POs).
+5. **Production** — burn-in, serial sheet, optional pre-shipment photos.
+6. **Export** — DHL/FedEx/UPS from Guangzhou with commercial invoice.
+
+## USDT checkout workflow (when available)
+
+1. Sales confirms a **standard SKU** and quantity on record.
+2. Sign in (if required) and add to cart from /shop.
+3. Checkout shows **USDT TRC20** on Tron with order expiry window.
+4. Send exact amount to the address shown; team verifies on-chain before shipping.
+
+**Not for:** custom tray mixes, undeclared ROM tiers, or export orders without prior sales confirmation.
+
+## Samples and first-time overseas buyers
+
+Request a **sample box quote** or Starter Setup Package on /contact. Sample path still uses proforma—validates shipping, voltage, and remote onboarding before bulk PO.
+
+## Related links
+
+- /contact
+- /shop
+- /help/remote-setup-onboarding-sop
+- /help/buyer-specifications-logistics
+- /faq`,
+
+  "remote-setup-onboarding-sop": `Remote Setup & Onboarding SOP (Cyou Phone Farm)
+
+## What “remote setup” includes
+
+Cyou engineers configure your **licensed** mirror/group-control workspace on hardware we ship—not resale of third-party license keys by default.
+
+Typical scope:
+
+- USB hub port map and powered topology validation
+- USB screen projection baseline on control PC
+- LAN OTG scan ranges on farm subnet (if ordered)
+- Device groups and operator monitor layout
+- Batch APK canary workflow documentation
+- Operator handover checklist and escalation path
+
+Delivered via **Remote Control Configuration**, **Group Control Onboarding**, or **Starter / Studio Pro / Enterprise** packages on /services/packages.
+
+## Delivery SOP timeline
+
+| Stage | Cyou action | Buyer action |
+|-------|-------------|--------------|
+| Order confirmed | Proforma accepted, production slot | Provide destination, plug type, control software choice |
+| Burn-in | 72h factory script, serial sheet per node | — |
+| Pre-shipment (optional) | Chassis + packed carton photos/video | Review before seal |
+| Export pack | Foam brace, invoice, packing list | Prepare importer details |
+| Transit | DHL/FedEx/UPS handoff | Track and inspect on arrival |
+| Remote onboarding | Screenshare session(s) per package tier | Control PC ready, hub cabled |
+| Handover | Runbook + spare-parts list | Internal operator training |
+
+## After remote session
+
+- Run your real app matrix on canary group before fleet rollout.
+- Document VLAN egress if using segmented device labs.
+- Schedule quarterly fan cleaning—see Help cooling articles.
+
+## Related links
+
+- /deployment
+- /help/after-purchase-guide
+- /help/device-connection-video-guide
+- /services
+- /contact`,
+
+  "brand-line-phone-farm-boxes": `Samsung, Oppo, Xiaomi, OnePlus & Pixel Phone Farm Boxes
+
+## Five reference brand lines (Cyou shop)
+
+Cyou Phone Farm catalogs **real motherboard** farm boxes—not consumer handset resale—grouped by OEM ecosystem for app QA and device lab matrices.
+
+### Samsung Box
+Legacy through modern tiers: S8, S9, S10, S20, S21 FE, S22, Note, Z Flip, Change/Super Change where listed. Reference ~$550–$1,580 USD depending on SoC and Android generation.
+
+### Oppo Box
+Find X2, Find X2 Pro, Find X3 Neo, Reno5 Pro—Snapdragon/Dimensity tiers for ColorOS-branch testing.
+
+### Xiaomi Box
+6X/A2, 8SE, MIX 2, Xiaomi 8, Nubia Z17—mid-tier matrices and budget lab expansion.
+
+### OnePlus Box
+3, 5 Super Change, 8 Pro, 9 Pro, 11—OxygenOS/ColorOS lineage coverage.
+
+### Google Pixel Box
+4a, 5, 6, 7 Pro, 4XL Super Change—Google Tensor and Android trunk QA.
+
+## How to quote a brand line
+
+1. Pick reference SKUs on /shop?category={brand}-box.
+2. Submit node count and destination on /contact.
+3. Sales returns proforma with MOQ, lead time, and optional remote setup package.
+
+Mixed trays or empty chassis are **custom quotes**—not standard shop checkout.
+
+## Remote setup per line
+
+ROM tier (official vs optimized farm ROM) is on your burn-in sheet. Remote onboarding covers USB/LAN path for your chosen control software—Laixi, CloudPhone, WhiteTiger, or free-tier USB mirrors on your licenses.
+
+## Related links
+
+- /shop
+- /contact
+- /help/proforma-vs-usdt-ordering
+- /help/remote-setup-onboarding-sop
+- /faq`,
+
   "ad-verification-qa-phone-farm-hardware": `Ad Verification & Compatibility QA on Phone Farm Hardware
 
 ## Lawful use definition
