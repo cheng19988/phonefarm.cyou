@@ -208,8 +208,8 @@ export const PRODUCT_INFO_TOPICS = [
     body: "One master window drives tap and swipe on all selected nodes in a group. Always validate on a test group before production regression windows.",
   },
   {
-    title: "Network segmentation for device labs",
-    body: "Enterprise labs document VLANs and router policies per test group. We help map topology during quotes—your IT team owns compliance policy.",
+    title: "Router & VLAN planning",
+    body: "Enterprise labs document VLANs, DHCP pools, and router policies per test group. We help map topology during quotes—your IT team owns compliance policy.",
   },
   {
     title: "Why Guangzhou factory supply",

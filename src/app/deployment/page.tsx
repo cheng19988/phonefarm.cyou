@@ -42,7 +42,9 @@ export default function DeploymentPage() {
 
         <section className="mt-16 max-w-xl">
           <h2 className="page-section-title">Start your deployment inquiry</h2>
-          <p className="mt-1 text-sm text-slate-500">Full form with use case and control method fields.</p>
+          <p className="mt-1 text-sm text-slate-500">
+            Share rack count, apps under test, and control software — we reply with a deployment plan from Guangzhou.
+          </p>
           <div className="card-premium mt-4 p-6">
             <ContactForm source="deployment" variant="full" />
           </div>

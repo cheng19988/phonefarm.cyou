@@ -24,7 +24,7 @@ export const IMAGES = {
   facility: {
     assembly: "/images/real-factory/photos/2025_05_27_00_28_IMG_0332.JPG",
     burnIn: "/images/real-factory/box-shots/2025_10_25_11_45_IMG_0575.png",
-    exportPacking: "/images/company/仓库.png",
+    exportPacking: "/images/real-factory/photos/2025_05_26_23_56_IMG_0310.JPG",
     warehouse: "/images/real-factory/photos/2025_05_26_23_56_IMG_0310.JPG",
     assemblyLine: "/images/real-factory/box-shots/2025_10_25_11_28_IMG_0553.png",
   },
@@ -72,7 +72,7 @@ export const FACILITY_GALLERY = [
   { key: "box-2", src: "/images/real-factory/box-shots/2025_10_25_11_24_IMG_0549.png", label: "Samsung-class box", alt: "Samsung phone farm box lineup" },
   { key: "box-3", src: "/images/real-factory/box-shots/2025_10_25_11_27_IMG_0551.png", label: "Motherboard tray", alt: "Motherboard tray inside chassis" },
   { key: "factory-1", src: "/images/real-factory/photos/2025_05_27_00_28_IMG_0332.JPG", label: "Assembly floor", alt: "Guangzhou assembly floor" },
-  { key: "factory-2", src: "/images/company/仓库.png", label: "Export packing", alt: "Warehouse cartons shrink-wrapped on pallets for overseas shipment" },
+  { key: "factory-2", src: "/images/real-factory/photos/2025_05_26_23_56_IMG_0310.JPG", label: "Export packing", alt: "Warehouse cartons shrink-wrapped on pallets for overseas shipment" },
   { key: "box-4", src: "/images/real-factory/box-shots/2025_10_25_11_33_IMG_0561.png", label: "Multi-slot chassis", alt: "Multi-slot phone farm chassis" },
 ] as const;
 

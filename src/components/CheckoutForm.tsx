@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { cartSubtotal, clearCart, getCart, type CartItem } from "@/lib/cart";
+import { PAYMENT } from "@/lib/constants";
 import { formatReferencePrice } from "@/lib/pricing";
 
 export function CheckoutForm() {
@@ -69,11 +70,33 @@ export function CheckoutForm() {
   }
 
   const subtotal = cartSubtotal(items);
+  const chargeMin = Math.max(PAYMENT.minAmount, subtotal);
 
   return (
     <form onSubmit={onSubmit} className="grid gap-10 lg:grid-cols-5">
       <div className="space-y-4 lg:col-span-3">
-        <h2 className="page-section-title">Shipping & contact</h2>
+        <div className="panel-highlight text-sm text-slate-700">
+          <p className="font-semibold text-slate-900">Two ways to buy</p>
+          <ul className="mt-2 space-y-1 list-disc pl-5">
+            <li>
+              <strong>Quotation (recommended for bulk):</strong>{" "}
+              <Link href="/contact" className="link-accent">contact sales</Link> — proforma invoice before payment.
+            </li>
+            <li>
+              <strong>Online checkout (this form):</strong> place order → pay USDT within {PAYMENT.expiryMinutes} minutes
+              → team verifies on-chain.
+            </li>
+          </ul>
+          <p className="mt-2 text-slate-600">
+            You must{" "}
+            <Link href="/login?redirect=/checkout" className="link-accent font-medium">sign in</Link>
+            {" or "}
+            <Link href="/register?redirect=/checkout" className="link-accent font-medium">register</Link>
+            {" "}before the order is created.
+          </p>
+        </div>
+
+        <h2 className="page-section-title">Shipping &amp; contact</h2>
         <label className="form-field">
           <span className="form-label">Name *</span>
           <input name="customerName" required className="form-input" />
@@ -87,8 +110,8 @@ export function CheckoutForm() {
           <input name="contactMessaging" className="form-input" placeholder="@username or phone" />
         </label>
         <label className="form-field">
-          <span className="form-label">Country / Region</span>
-          <input name="country" className="form-input" />
+          <span className="form-label">Country / Region *</span>
+          <input name="country" required className="form-input" />
         </label>
         <label className="form-field">
           <span className="form-label">Shipping address *</span>
@@ -100,32 +123,24 @@ export function CheckoutForm() {
             name="orderNotes"
             rows={3}
             className="form-input"
-            placeholder="Model preferences, delivery window, customs info…"
+            placeholder="Delivery window, customs broker, model notes…"
           />
         </label>
 
-        <h2 className="page-section-title pt-4">Payment</h2>
+        <h2 className="page-section-title pt-4">Payment (after you submit)</h2>
         <div className="panel-highlight">
-          <p className="font-semibold text-slate-900">Sales-confirmed payment instructions</p>
-          <p className="mt-2 text-slate-600">
-            After placing the order you receive payment instructions on the order page. Submit the transaction reference
-            shown there; our team verifies payment manually.
-          </p>
+          <p className="font-semibold text-slate-900">USDT {PAYMENT.protocol} on {PAYMENT.network}</p>
+          <ul className="mt-2 space-y-1 text-sm text-slate-600 list-disc pl-5">
+            <li>Wallet address and exact amount appear on the order page immediately after submission.</li>
+            <li>Pay within {PAYMENT.expiryMinutes} minutes; minimum charge USD ${PAYMENT.minAmount} when subtotal is lower.</li>
+            <li>Paste your transaction hash on the order page — verification is manual (not instant).</li>
+            <li>Shipping and duties are not included in catalog subtotal; sales confirms final export total if needed.</li>
+          </ul>
         </div>
 
         {error && <p className="form-error">{error}</p>}
-        <p className="text-xs text-slate-500">
-          Already have an account?{" "}
-          <Link href="/login?redirect=/checkout" className="link-accent">
-            Log in
-          </Link>
-          {" · "}
-          <Link href="/register?redirect=/checkout" className="link-accent">
-            Register
-          </Link>
-        </p>
         <button type="submit" disabled={loading} className="btn-primary w-full py-3 disabled:opacity-60 sm:w-auto sm:px-8">
-          {loading ? "Placing order…" : "Place Order"}
+          {loading ? "Placing order…" : "Place order & view payment steps"}
         </button>
       </div>
 
@@ -142,11 +157,16 @@ export function CheckoutForm() {
           ))}
         </ul>
         <div className="mt-4 flex justify-between border-t border-slate-200 pt-4 font-semibold text-slate-900">
-          <span>Subtotal</span>
+          <span>Catalog subtotal</span>
           <span>{formatReferencePrice(subtotal)}</span>
         </div>
+        {chargeMin > subtotal && (
+          <p className="mt-2 text-xs text-slate-500">
+            Online checkout minimum USD ${PAYMENT.minAmount} — amount due may be {formatReferencePrice(chargeMin)}.
+          </p>
+        )}
         <p className="mt-2 text-xs text-slate-500">
-          Final amount and payment instructions are shown on the order page after submission.
+          Reference catalog prices. Export packing and remote setup are quoted separately when applicable.
         </p>
       </aside>
     </form>

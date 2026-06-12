@@ -12,7 +12,7 @@ export async function POST(req: Request) {
     where: {
       expiresAt: { lt: now },
       paymentStatus: { notIn: ["paid", "quote"] },
-      status: { in: ["Pending", "Waiting for Payment"] },
+      status: { in: ["Pending", "Waiting for Payment", "pending payment", "pending"] },
     },
     data: { status: "Expired", paymentStatus: "expired", verificationStatus: "expired" },
   });

@@ -15,7 +15,7 @@ type Props = {
 export function B2BQuotationGate({
   title,
   children,
-  checkoutLabel = "Continue with standard online order tools",
+  checkoutLabel = "Continue to standard online order (USDT checkout)",
 }: Props) {
   const [showTools, setShowTools] = useState(false);
 
@@ -24,9 +24,10 @@ export function B2BQuotationGate({
       <div>
         <div className="border-b border-slate-200 bg-slate-50">
           <div className="site-container py-3 text-sm text-slate-600">
-            Bulk quotes, custom configurations, and export questions should go through sales first.
+            Standard online checkout for published SKUs. Bulk or custom orders should use{" "}
+            <Link href="/contact" className="link-accent font-medium">request quotation</Link> first.
             <button type="button" onClick={() => setShowTools(false)} className="link-accent ml-2 font-medium">
-              Back to quotation overview
+              Back
             </button>
           </div>
         </div>
@@ -40,18 +41,18 @@ export function B2BQuotationGate({
       <div className="mx-auto max-w-2xl card-premium p-8 lg:p-10">
         <h1 className="page-title">{title}</h1>
         <p className="mt-4 text-slate-600 leading-relaxed">
-          This website is configured for B2B quotation. Please contact our sales team for pricing, availability, MOQ,
-          lead time, and payment instructions before bulk orders.
+          Cyou Phone Farm sells real-device motherboard chassis from our Guangzhou factory. Most buyers start with a
+          quotation: we confirm model availability, MOQ, export lead time, and proforma invoice before payment.
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
-          <Link href="/contact" className="btn-primary">Request Quote</Link>
+          <Link href="/contact" className="btn-primary">Request quotation</Link>
           <a
             href={CONTACT.whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="btn-ghost-emerald"
           >
-            WhatsApp Sales
+            WhatsApp sales
           </a>
           <a
             href={CONTACT.telegramUrl}
@@ -70,9 +71,9 @@ export function B2BQuotationGate({
             Email sales
           </a>
         </div>
-        <p className="mt-6 text-sm text-slate-500">
-          Reference USD prices on the shop are starting points. Sales confirms configuration and proforma invoice before
-          payment.
+        <p className="mt-6 text-sm text-slate-500 leading-relaxed">
+          Shop prices are USD reference points. Final invoice includes shipping destination, quantity, and any remote
+          setup scope you request.
         </p>
         {PUBLIC_CHECKOUT_ENABLED && children && (
           <button

@@ -4,6 +4,7 @@ import { getSession } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { OrderPaymentPanel } from "@/components/OrderPaymentPanel";
 import { formatReferencePrice } from "@/lib/pricing";
+import { formatOrderStatus, formatPaymentStatus } from "@/lib/order-labels";
 
 export default async function OrderDetailPage({
   params,
@@ -43,8 +44,8 @@ export default async function OrderDetailPage({
         ← Orders
       </Link>
       <h1 className="page-title mt-4">Order {order.orderNumber}</h1>
-      <p className="mt-2 text-slate-600 capitalize">
-        Payment: {order.paymentStatus} · Status: {order.status}
+      <p className="mt-2 text-slate-600">
+        Payment: {formatPaymentStatus(order.paymentStatus)} · Status: {formatOrderStatus(order.status)}
       </p>
 
       <div className="card-premium mt-6 p-4">

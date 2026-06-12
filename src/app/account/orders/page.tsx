@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { getSession } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { formatReferencePrice } from "@/lib/pricing";
+import { formatPaymentStatus } from "@/lib/order-labels";
 import { LogoutButton } from "@/components/LogoutButton";
 
 function orderSummary(order: {
@@ -57,7 +58,7 @@ export default async function OrdersPage() {
           >
             <div className="flex flex-wrap justify-between gap-2">
               <span className="font-mono font-medium text-slate-900">{o.orderNumber}</span>
-              <span className="font-medium capitalize text-sky-700">{o.paymentStatus}</span>
+              <span className="font-medium text-sky-700">{formatPaymentStatus(o.paymentStatus)}</span>
             </div>
             <p className="mt-1 text-sm text-slate-600">{orderSummary(o)}</p>
             <p className="text-sm font-medium text-slate-800">{formatReferencePrice(o.expectedAmount)}</p>

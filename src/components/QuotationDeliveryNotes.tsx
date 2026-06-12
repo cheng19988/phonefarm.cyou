@@ -6,14 +6,14 @@ export function QuotationDeliveryNotes({ notes }: { notes?: Partial<QuotationDel
 
   return (
     <section className="card-premium mt-12 p-6 not-prose">
-      <h2 className="text-xl font-bold text-slate-900">Quotation &amp; Delivery Notes</h2>
+      <h2 className="text-xl font-bold text-slate-900">Pricing, lead time &amp; delivery</h2>
       <ul className="mt-4 space-y-3 text-sm text-slate-600">
         <li>
-          <span className="font-medium text-slate-800">Reference pricing: </span>
+          <span className="font-medium text-slate-800">Price: </span>
           {n.priceNote}
         </li>
         <li>
-          <span className="font-medium text-slate-800">MOQ guidance: </span>
+          <span className="font-medium text-slate-800">MOQ: </span>
           {n.moq}
         </li>
         <li>
@@ -21,19 +21,19 @@ export function QuotationDeliveryNotes({ notes }: { notes?: Partial<QuotationDel
           {n.leadTime}
         </li>
         <li>
-          <span className="font-medium text-slate-800">Packing: </span>
+          <span className="font-medium text-slate-800">Export packing: </span>
           {n.packing}
         </li>
         <li>
-          <span className="font-medium text-slate-800">Recommended accessories: </span>
+          <span className="font-medium text-slate-800">Accessories: </span>
           {n.accessories}
         </li>
         <li>
-          <span className="font-medium text-slate-800">Remote setup support: </span>
+          <span className="font-medium text-slate-800">Remote setup: </span>
           {n.remoteSetup}
         </li>
         <li>
-          <span className="font-medium text-slate-800">Warranty &amp; spares: </span>
+          <span className="font-medium text-slate-800">Warranty: </span>
           {n.warranty}
         </li>
       </ul>

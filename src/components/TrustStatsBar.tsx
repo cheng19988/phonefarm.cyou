@@ -3,7 +3,7 @@ import { SITE } from "@/lib/constants";
 const STATS = [
   { value: String(SITE.since), label: "Years manufacturing", sub: "Guangzhou factory" },
   { value: "32+", label: "Product SKUs", sub: "Boxes & accessories" },
-  { value: "14+", label: "Export destinations", sub: "DHL · FedEx · UPS" },
+  { value: "14", label: "Export regions listed", sub: "DHL · FedEx · UPS" },
   { value: "6-step", label: "Deployment SOP", sub: "Hardware to handover" },
 ];
 
