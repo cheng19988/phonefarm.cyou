@@ -1,0 +1,10 @@
+{
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "phonefarm.cyou" }],
+      "destination": "https://www.phonefarm.cyou/$1",
+      "statusCode": 301
+    }
+  ]
+}

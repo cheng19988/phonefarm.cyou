@@ -1,19 +1,26 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
+import { CANONICAL_ORIGIN, isApexHost } from "@/lib/site-hosts";
 
-const CANONICAL_HOST = "www.phonefarm.cyou";
-const ROOT_HOST = "phonefarm.cyou";
+function requestHost(request: NextRequest): string | undefined {
+  const forwarded = request.headers.get("x-forwarded-host");
+  const host = forwarded ?? request.headers.get("host");
+  return host?.split(",")[0]?.trim();
+}
 
 export function middleware(request: NextRequest) {
-  const host = request.headers.get("host")?.split(":")[0]?.toLowerCase();
-  if (host !== ROOT_HOST) {
+  if (!isApexHost(requestHost(request))) {
     return NextResponse.next();
   }
 
-  const destination = new URL(request.nextUrl.pathname + request.nextUrl.search, `https://${CANONICAL_HOST}`);
+  const destination = new URL(
+    request.nextUrl.pathname + request.nextUrl.search,
+    CANONICAL_ORIGIN
+  );
   return NextResponse.redirect(destination, 301);
 }
 
 export const config = {
-  matcher: "/:path*",
+  // Match all paths including "/" (/:path* alone can miss the root on some matchers).
+  matcher: ["/", "/((?!_next/static|_next/image).*)"],
 };

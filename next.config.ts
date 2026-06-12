@@ -1,7 +1,5 @@
 import type { NextConfig } from "next";
-
-const ROOT_HOST = "phonefarm.cyou";
-const CANONICAL_HOST = "www.phonefarm.cyou";
+import { CANONICAL_HOST, ROOT_HOST } from "./src/lib/site-hosts";
 
 const nextConfig: NextConfig = {
   async redirects() {
