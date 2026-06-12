@@ -11,7 +11,7 @@ import {
   updateCartQuantity,
   type CartItem,
 } from "@/lib/cart";
-import { formatReferencePrice } from "@/lib/pricing";
+import { FINAL_QUOTE_BEFORE_PAYMENT, formatReferencePrice, REFERENCE_PRICE_LABEL } from "@/lib/pricing";
 import { CONTACT } from "@/lib/constants";
 
 export function CartPageContent() {
@@ -32,8 +32,12 @@ export function CartPageContent() {
     <div className="mx-auto max-w-4xl px-4 py-12">
       <h1 className="page-title">Standard order review</h1>
       <p className="page-lead text-sm">
-        For bulk quantities, custom models, or export packing questions, contact sales before payment. Items here are
-        standard SKUs only.
+        {REFERENCE_PRICE_LABEL} · {FINAL_QUOTE_BEFORE_PAYMENT}. Bulk, mixed deployments, and export packing require an
+        RFQ first —{" "}
+        <Link href="/contact" className="link-accent font-medium">
+          request quotation
+        </Link>
+        . This cart is for sales-confirmed standard SKUs only.
       </p>
 
       {items.length === 0 ? (
@@ -94,7 +98,7 @@ export function CartPageContent() {
 
           <div className="mt-8 flex flex-col gap-4 border-t border-slate-200 pt-6 sm:flex-row sm:items-center sm:justify-between">
             <div>
-              <p className="text-sm text-slate-500">Subtotal (USD)</p>
+              <p className="text-sm text-slate-500">Catalog subtotal ({REFERENCE_PRICE_LABEL.toLowerCase()})</p>
               <p className="text-2xl font-bold text-slate-900">{formatReferencePrice(subtotal)}</p>
             </div>
             <div className="flex flex-wrap gap-3">

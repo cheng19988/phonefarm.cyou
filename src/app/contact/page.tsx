@@ -34,13 +34,13 @@ export default async function ContactPage({
             subtitle={`${SITE.name} · ${SITE.location} · factory assembly & export since ${SITE.since}`}
           />
           <p className="mt-4 max-w-2xl text-sm text-slate-600 leading-relaxed">
-            For bulk orders, custom mixes, or export packing questions, submit the form below. We confirm MOQ, lead
-            time, and proforma invoice before you pay. Select standard SKUs may support USDT TRC20 checkout only after
-            sales confirms terms — see our{" "}
+            RFQ-first B2B path for brand-line motherboard farms from our Guangzhou factory. Submit the form for a
+            written BOM, burn-in QC scope, export packing, and proforma invoice — final quote confirmed before payment.
+            USDT checkout applies only to sales-confirmed standard SKUs — see our{" "}
             <Link href="/help/proforma-vs-usdt-ordering" className="link-accent font-medium">
               proforma vs USDT ordering guide
             </Link>
-            . Shop lists reference USD prices, not final invoice totals.
+            . Shop and checkout show reference prices only.
           </p>
           <div className="mt-6 flex flex-wrap gap-4 text-sm">
             <a

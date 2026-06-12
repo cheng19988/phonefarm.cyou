@@ -1,5 +1,10 @@
 import { buildPurchaseSpecRows } from "./purchase-specs";
 
+/** Sitewide B2B price labeling — reference only until sales confirms proforma. */
+export const REFERENCE_PRICE_LABEL = "Reference price";
+export const FINAL_QUOTE_BEFORE_PAYMENT = "Final quote confirmed before payment";
+export const REFERENCE_PRICE_DISCLAIMER = `${REFERENCE_PRICE_LABEL} · ${FINAL_QUOTE_BEFORE_PAYMENT}`;
+
 export function formatReferencePrice(priceUsd: number): string {
   if (priceUsd <= 0) return "Bulk quote available";
   return `From $${priceUsd.toLocaleString("en-US")}`;

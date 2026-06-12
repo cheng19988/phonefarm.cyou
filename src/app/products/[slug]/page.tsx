@@ -7,7 +7,12 @@ import { productJsonLd, breadcrumbJsonLd, buildMetadata } from "@/lib/seo";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { getProductProfile } from "@/lib/productProfiles";
 import { getProductSummary } from "@/lib/productSummaries";
-import { buildPublicSpecTable, formatReferencePrice } from "@/lib/pricing";
+import {
+  buildPublicSpecTable,
+  FINAL_QUOTE_BEFORE_PAYMENT,
+  formatReferencePrice,
+  REFERENCE_PRICE_LABEL,
+} from "@/lib/pricing";
 import { SITE } from "@/lib/constants";
 import { isServiceCatalogItem, publicCategoryLabel } from "@/lib/catalog";
 import { QuotationDeliveryNotes } from "@/components/QuotationDeliveryNotes";
@@ -102,12 +107,10 @@ export default async function ProductDetailPage({
               <p className="mt-4 text-slate-600 leading-relaxed">{product.shortDesc}</p>
               <div className="mt-4">
                 <p className="text-xs uppercase tracking-wide text-slate-500">
-                  {isServiceCatalogItem(product.category) ? "Service quote" : "Reference price"}
+                  {isServiceCatalogItem(product.category) ? "Service quote" : REFERENCE_PRICE_LABEL}
                 </p>
                 <p className="text-3xl font-bold text-slate-900">{formatReferencePrice(product.priceUsd)}</p>
-                <p className="mt-1 text-sm text-slate-500">
-                  Bulk quote available · availability confirmed by sales · configuration confirmed before invoice
-                </p>
+                <p className="mt-1 text-sm text-slate-500">{FINAL_QUOTE_BEFORE_PAYMENT}</p>
               </div>
               <div className="mt-6">
                 <ProductActions

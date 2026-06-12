@@ -24,8 +24,7 @@ export const CONTACT = {
 export const CURRENCY = {
   code: "USD",
   symbol: "$",
-  label:
-    "Reference prices in USD · Bulk orders and custom configurations are quoted by sales.",
+  label: "Reference price · final quote confirmed before payment",
 } as const;
 
 export const PAYMENT = {

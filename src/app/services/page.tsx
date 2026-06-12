@@ -5,6 +5,7 @@ import { PAGE_IMAGES } from "@/lib/images";
 import { ContactForm } from "@/components/ContactForm";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { buildMetadata } from "@/lib/seo";
+import { FINAL_QUOTE_BEFORE_PAYMENT, REFERENCE_PRICE_LABEL } from "@/lib/pricing";
 
 export const metadata = buildMetadata({
   title: "Phone Farm Setup Services - Remote Control & Group Control",
@@ -60,9 +61,11 @@ export default function ServicesPage() {
               <div key={s.slug} className="card-premium p-5">
                 <h3 className="font-semibold text-slate-900">{s.name}</h3>
                 <p className="mt-2 text-sm text-slate-600">{s.desc}</p>
-                <p className="mt-3 font-display text-lg font-bold text-sky-700">
+                <p className="mt-3 text-xs uppercase tracking-wide text-slate-500">{REFERENCE_PRICE_LABEL}</p>
+                <p className="mt-1 font-display text-lg font-bold text-sky-700">
                   {s.priceFrom > 0 ? `From $${s.priceFrom}` : "Custom quote"}
                 </p>
+                <p className="mt-1 text-xs text-slate-500">{FINAL_QUOTE_BEFORE_PAYMENT}</p>
               </div>
             ))}
           </div>

@@ -23,6 +23,7 @@ import { FACILITY_GALLERY } from "@/lib/images";
 import { FacilityPhoto } from "@/components/FacilityPhoto";
 import { buildMetadata, faqPageJsonLd } from "@/lib/seo";
 import { isServiceCatalogItem } from "@/lib/catalog";
+import { FINAL_QUOTE_BEFORE_PAYMENT, REFERENCE_PRICE_LABEL } from "@/lib/pricing";
 
 export const metadata = buildMetadata({
   title: "Phone Farm Box Manufacturer & B2B Supplier | Real-Device Android Farms",
@@ -108,9 +109,11 @@ export default async function HomePage() {
             <div key={s.slug} className="card-premium p-5">
               <h3 className="font-semibold text-slate-900">{s.name}</h3>
               <p className="mt-2 text-sm leading-relaxed text-slate-600">{s.desc}</p>
-              <p className="mt-4 font-display text-xl font-bold text-sky-700">
+              <p className="mt-4 text-xs uppercase tracking-wide text-slate-500">{REFERENCE_PRICE_LABEL}</p>
+              <p className="mt-1 font-display text-xl font-bold text-sky-700">
                 {s.priceFrom > 0 ? `From $${s.priceFrom}` : "Custom quote"}
               </p>
+              <p className="mt-1 text-xs text-slate-500">{FINAL_QUOTE_BEFORE_PAYMENT}</p>
               <Link href="/contact" className="mt-4 inline-block text-sm font-medium text-sky-700 hover:text-sky-600">
                 Request quote
               </Link>
@@ -172,7 +175,8 @@ export default async function HomePage() {
             <div>
               <h2 className="font-display text-3xl font-bold text-slate-900">Request a quotation</h2>
               <p className="mt-3 text-slate-600 leading-relaxed">
-                Share quantity, destination, and control method. Sales replies with MOQ, lead time, and setup scope.
+                Share brand line, node count, shipping country, and connection mode. Sales replies with written BOM,
+                MOQ, QC scope, and proforma — reference prices only until you confirm payment.
               </p>
             </div>
             <div className="card-premium p-6">

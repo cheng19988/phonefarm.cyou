@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { cartSubtotal, clearCart, getCart, type CartItem } from "@/lib/cart";
 import { PAYMENT } from "@/lib/constants";
-import { formatReferencePrice } from "@/lib/pricing";
+import { FINAL_QUOTE_BEFORE_PAYMENT, formatReferencePrice, REFERENCE_PRICE_LABEL } from "@/lib/pricing";
 import { computeUsdtChargeAmount, formatUsdtAmount } from "@/lib/payment-status";
 
 export function CheckoutForm() {
@@ -76,16 +76,29 @@ export function CheckoutForm() {
   return (
     <form onSubmit={onSubmit} className="grid gap-10 lg:grid-cols-5">
       <div className="space-y-4 lg:col-span-3">
+        <div className="rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">
+          <p className="font-semibold">RFQ-first — configuration confirmed before payment</p>
+          <p className="mt-1 text-amber-800/90">
+            Catalog prices below are {REFERENCE_PRICE_LABEL.toLowerCase()} only. Bulk, mixed brand lines, and export
+            orders need a written BOM and proforma invoice —{" "}
+            <Link href="/contact" className="font-medium text-amber-900 underline">
+              request quotation
+            </Link>
+            . Do not pay until sales confirms your final quote.
+          </p>
+        </div>
+
         <div className="panel-highlight text-sm text-slate-700">
           <p className="font-semibold text-slate-900">Two ways to buy</p>
           <ul className="mt-2 space-y-1 list-disc pl-5">
             <li>
-              <strong>Quotation (recommended for bulk):</strong>{" "}
-              <Link href="/contact" className="link-accent">contact sales</Link> — proforma invoice before payment.
+              <strong>Quotation (recommended):</strong>{" "}
+              <Link href="/contact" className="link-accent">RFQ form</Link> — written BOM, MOQ, QC scope, proforma
+              before payment.
             </li>
             <li>
-              <strong>Online checkout (this form):</strong> place order → pay USDT within {PAYMENT.expiryMinutes} minutes
-              → team verifies on-chain.
+              <strong>Online checkout (this form):</strong> sales-confirmed standard SKUs only → USDT within{" "}
+              {PAYMENT.expiryMinutes} minutes → manual on-chain confirmation.
             </li>
           </ul>
           <p className="mt-2 text-slate-600">
@@ -157,8 +170,9 @@ export function CheckoutForm() {
             </li>
           ))}
         </ul>
-        <div className="mt-4 flex justify-between border-t border-slate-200 pt-4 font-semibold text-slate-900">
-          <span>Catalog subtotal</span>
+        <p className="mt-4 text-xs text-slate-500">{REFERENCE_PRICE_LABEL} · {FINAL_QUOTE_BEFORE_PAYMENT}</p>
+        <div className="mt-2 flex justify-between border-t border-slate-200 pt-4 font-semibold text-slate-900">
+          <span>Catalog subtotal (reference)</span>
           <span>{formatReferencePrice(subtotal)}</span>
         </div>
         <div className="mt-4 flex justify-between border-t border-slate-200 pt-4 font-semibold text-slate-900">
@@ -177,7 +191,8 @@ export function CheckoutForm() {
           </p>
         )}
         <p className="mt-2 text-xs text-slate-500">
-          Reference catalog prices. Export packing and remote setup are quoted separately when applicable.
+          Export packing, remote setup, and duties are quoted on your proforma when applicable — not included in catalog
+          reference subtotal.
         </p>
       </aside>
     </form>

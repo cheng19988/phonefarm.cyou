@@ -8,6 +8,7 @@ type ContactPayload = {
   phone?: string | null;
   deviceQuantity?: string | null;
   productInterest?: string | null;
+  budget?: string | null;
   message?: string | null;
   source?: string | null;
 };
@@ -23,8 +24,9 @@ function formatContactText(data: ContactPayload): string {
     data.country ? `Country: ${data.country}` : null,
     data.messaging ? `Messaging: ${data.messaging}` : null,
     data.phone ? `Phone: ${data.phone}` : null,
-    data.deviceQuantity ? `Quantity: ${data.deviceQuantity}` : null,
-    data.productInterest ? `Product: ${data.productInterest}` : null,
+    data.deviceQuantity ? `Quantity / nodes: ${data.deviceQuantity}` : null,
+    data.productInterest ? `Product interest: ${data.productInterest}` : null,
+    data.budget ? `Budget: ${data.budget}` : null,
     data.source ? `Referrer: ${data.source}` : null,
     data.message ? `\n${data.message}` : null,
   ].filter(Boolean);

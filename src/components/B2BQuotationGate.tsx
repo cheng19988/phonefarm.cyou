@@ -15,7 +15,7 @@ type Props = {
 export function B2BQuotationGate({
   title,
   children,
-  checkoutLabel = "Continue to standard online order (USDT checkout)",
+  checkoutLabel = "Sales already confirmed configuration? Continue to standard online order",
 }: Props) {
   const [showTools, setShowTools] = useState(false);
 
@@ -41,8 +41,9 @@ export function B2BQuotationGate({
       <div className="mx-auto max-w-2xl card-premium p-8 lg:p-10">
         <h1 className="page-title">{title}</h1>
         <p className="mt-4 text-slate-600 leading-relaxed">
-          Cyou Phone Farm sells real-device motherboard chassis from our Guangzhou factory. Most buyers start with a
-          quotation: we confirm model availability, MOQ, export lead time, and proforma invoice before payment.
+          Cyou Phone Farm ships brand-line motherboard farms from our Guangzhou factory — Samsung, Oppo, Xiaomi,
+          OnePlus, and Pixel reference SKUs. Most buyers start with an RFQ: written BOM, burn-in QC scope, export
+          packing, and proforma invoice before any payment. Shop prices are reference only.
         </p>
         <div className="mt-6 flex flex-wrap gap-3">
           <Link href="/contact" className="btn-primary">Request quotation</Link>
@@ -72,8 +73,7 @@ export function B2BQuotationGate({
           </a>
         </div>
         <p className="mt-6 text-sm text-slate-500 leading-relaxed">
-          Shop prices are USD reference points. Final invoice includes shipping destination, quantity, and any remote
-          setup scope you request.
+          Reference price · final quote confirmed before payment. Online checkout is not for unconfirmed configurations.
         </p>
         {PUBLIC_CHECKOUT_ENABLED && children && (
           <button

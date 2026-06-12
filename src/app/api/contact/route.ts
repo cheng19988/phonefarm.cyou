@@ -11,16 +11,21 @@ const schema = z.object({
   phone: z.string().optional(),
   deviceQuantity: z.string().optional(),
   productInterest: z.string().optional(),
+  productSlug: z.string().optional(),
+  platform: z.string().optional(),
   controlMethod: z.string().optional(),
   useCase: z.string().optional(),
   budget: z.string().optional(),
   message: z.string().optional(),
   source: z.string().optional(),
+  privacyConsent: z.literal("on").optional(),
 });
 
 function composeMessage(body: z.infer<typeof schema>) {
   const parts: string[] = [];
-  if (body.controlMethod) parts.push(`Preferred control method: ${body.controlMethod}`);
+  if (body.productSlug) parts.push(`Product slug: ${body.productSlug}`);
+  if (body.platform) parts.push(`Platform: ${body.platform}`);
+  if (body.controlMethod) parts.push(`Connection mode: ${body.controlMethod}`);
   if (body.useCase) parts.push(`Use case: ${body.useCase}`);
   if (body.message?.trim()) parts.push(body.message.trim());
   return parts.join("\n\n") || undefined;

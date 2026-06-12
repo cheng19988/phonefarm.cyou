@@ -108,9 +108,11 @@ export default async function ShopPage({
         <div className="site-container py-12 lg:py-16">
           <SectionHeading
             title="Phone farm shop"
-            subtitle="Browse reference configurations for real-device deployments. Final pricing depends on model availability, quantity, shipping destination, and setup requirements."
+            subtitle="Brand-line motherboard farm catalog — Samsung, Oppo, Xiaomi, OnePlus, Pixel. Reference price · final quote confirmed before payment."
           />
-          <p className="mt-4 text-sm text-slate-500">{products.length} catalog items · Bulk quote available</p>
+          <p className="mt-4 text-sm text-slate-500">
+            {products.length} reference SKUs · RFQ for written BOM, proforma, and export packing
+          </p>
         </div>
       </section>
 

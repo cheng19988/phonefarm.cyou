@@ -120,6 +120,18 @@ export const DELIVERY_SOP = [
   },
 ] as const;
 
+/** Brand-line / deployment target for RFQ forms (Samsung–Pixel motherboard farms). */
+export const RFQ_PLATFORM_OPTIONS = [
+  "Samsung Android line (S8–S22 tiers)",
+  "Oppo / ColorOS line",
+  "Xiaomi / MIUI line",
+  "OnePlus line",
+  "Google Pixel line",
+  "Mixed-brand deployment",
+  "Control software / remote setup only",
+  "Not sure — advise me",
+] as const;
+
 export const LEGAL_USE_CASES = [
   "App QA testing",
   "Mobile device lab",

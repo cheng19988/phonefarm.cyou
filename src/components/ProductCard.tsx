@@ -1,6 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
-import { formatReferencePrice, typicalUseCase } from "@/lib/pricing";
+import {
+  FINAL_QUOTE_BEFORE_PAYMENT,
+  formatReferencePrice,
+  REFERENCE_PRICE_LABEL,
+  typicalUseCase,
+} from "@/lib/pricing";
 import { isServiceCatalogItem, publicCategoryLabel } from "@/lib/catalog";
 import { resolveProductPurchase } from "@/lib/product-purchase";
 import { AddToCartButton } from "./AddToCartButton";
@@ -55,16 +60,13 @@ export function ProductCard({ product }: { product: Product }) {
           <p className="mt-2 text-xs text-slate-500 line-clamp-1">{useCase}</p>
         )}
         <div className="mt-4 border-t border-slate-100 pt-4">
+          <p className="text-xs uppercase tracking-wide text-slate-500">
+            {service && product.priceUsd <= 0 ? "Service quote" : REFERENCE_PRICE_LABEL}
+          </p>
           <p className="font-display text-2xl font-bold text-slate-900">
             {service && product.priceUsd <= 0 ? "Custom quote" : formatReferencePrice(product.priceUsd)}
           </p>
-          <p className="mt-0.5 text-xs text-slate-500">
-            {service
-              ? "Quote before invoice"
-              : canAddToCart
-                ? "Bulk quote available · Standard SKU online order optional"
-                : "Bulk quote available · Availability confirmed by sales"}
-          </p>
+          <p className="mt-0.5 text-xs text-slate-500">{FINAL_QUOTE_BEFORE_PAYMENT}</p>
         </div>
         <div className="mt-4 flex flex-col gap-2">
           {quoteFirst ? (
@@ -83,7 +85,7 @@ export function ProductCard({ product }: { product: Product }) {
                   priceUsd={product.priceUsd}
                   imageCard={product.imageCard}
                   variant="secondary"
-                  label="Add to standard order"
+                  label="Add sales-confirmed SKU"
                   fullWidth
                 />
               )}
@@ -98,7 +100,7 @@ export function ProductCard({ product }: { product: Product }) {
                   priceUsd={product.priceUsd}
                   imageCard={product.imageCard}
                   variant="primary"
-                  label="Add to standard order"
+                  label="Add sales-confirmed SKU"
                   fullWidth
                 />
               )}

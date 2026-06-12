@@ -58,7 +58,7 @@ export function ProductActions({
                 priceUsd={priceUsd}
                 imageCard={imageCard}
                 variant="secondary"
-                label="Add to standard order"
+                label="Add sales-confirmed SKU"
               />
             )}
           </>
@@ -72,7 +72,7 @@ export function ProductActions({
                 priceUsd={priceUsd}
                 imageCard={imageCard}
                 variant="primary"
-                label="Add to standard order"
+                label="Add sales-confirmed SKU"
               />
             )}
             <Link href={inquiry} className="btn-secondary">
@@ -90,8 +90,8 @@ export function ProductActions({
         )}
       </div>
       <p className="text-sm text-slate-500">
-        Reference price only. Sales confirms MOQ, lead time, shipping, and setup scope before bulk orders.
-        {canAddToCart ? " Standard configurations may be ordered online after sales confirms payment instructions." : ""}
+        Reference price · final quote confirmed before payment. Request quotation for bulk, mixed brand lines, or
+        export packing. Online checkout is for sales-confirmed standard SKUs only — not unconfirmed configurations.
       </p>
     </div>
   );
