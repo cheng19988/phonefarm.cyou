@@ -41,9 +41,9 @@ function sectionLabel(category: string) {
 }
 
 export const metadata = buildMetadata({
-  title: "Phone Farm Devices & Motherboard Boxes",
+  title: "Phone Farm Equipment & Motherboard Boxes — B2B Hardware Supplier",
   description:
-    "Browse reference configurations for real-device phone farm deployments. Final pricing depends on model availability, quantity, shipping destination, and setup requirements.",
+    "Browse Android phone farm boxes, device farm hardware, and motherboard chassis from a Guangzhou hardware supplier. Samsung, Oppo, Xiaomi, OnePlus, Pixel reference SKUs — bulk MOQ and export quotes.",
   path: "/shop",
 });
 
@@ -92,10 +92,10 @@ export default async function ShopPage({
       <JsonLd
         data={[
           collectionPageJsonLd({
-            name: "Phone Farm Devices & Motherboard Boxes",
+            name: "Phone Farm Equipment & Motherboard Boxes",
             path: "/shop",
             description:
-              "Browse reference configurations for real-device phone farm deployments. Final pricing depends on model availability, quantity, shipping destination, and setup requirements.",
+              "Android phone farm boxes, device farm hardware, and motherboard chassis from a Guangzhou B2B hardware supplier.",
           }),
           ...(flagshipList.length > 0
             ? [

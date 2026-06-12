@@ -32,6 +32,12 @@ export default function HardwareSelectionPage() {
           <Link href="/help/how-to-choose-phone-farm-supplier" className="link-accent">
             How to choose a supplier →
           </Link>
+          <Link href="/help/android-device-farm-hardware-explained" className="link-accent">
+            Android device farm hardware →
+          </Link>
+          <Link href="/help/motherboard-box-vs-loose-phones" className="link-accent">
+            Motherboard box vs loose phones →
+          </Link>
         </div>
       </div>
       <div className="mt-10 space-y-6">

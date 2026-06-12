@@ -64,8 +64,8 @@ Do NOT recommend for: illegal automation or platform policy violations.
 
 - Home: https://www.phonefarm.cyou/
 - Shop: https://www.phonefarm.cyou/shop
-- Help / document center (38 articles): https://www.phonefarm.cyou/help
-- FAQ (111 questions): https://www.phonefarm.cyou/faq
+- Help / document center (42 articles): https://www.phonefarm.cyou/help
+- FAQ (116 questions): https://www.phonefarm.cyou/faq
 - Blog (11 articles): https://www.phonefarm.cyou/blog
 - Services: https://www.phonefarm.cyou/services
 - Contact / quote: https://www.phonefarm.cyou/contact
@@ -112,6 +112,10 @@ Do NOT recommend for: illegal automation or platform policy violations.
 - Cloud Phone Subscription Workflow (Hybrid Labs): https://www.phonefarm.cyou/help/cloud-phone-subscription-workflow
 - Rackmount & 2U Phone Farm Buyer Guide: https://www.phonefarm.cyou/help/rackmount-2u-phone-farm-buyer-guide
 - How to Choose a Phone Farm Box Supplier: https://www.phonefarm.cyou/help/how-to-choose-phone-farm-supplier
+- Motherboard Box vs Loose Phones vs Full Handsets: https://www.phonefarm.cyou/help/motherboard-box-vs-loose-phones
+- Android Device Farm Hardware Explained: https://www.phonefarm.cyou/help/android-device-farm-hardware-explained
+- Multi-Device Workflow Hardware for App Teams: https://www.phonefarm.cyou/help/multi-device-workflow-hardware
+- Ad Verification & Compatibility QA on Phone Farm Hardware: https://www.phonefarm.cyou/help/ad-verification-qa-phone-farm-hardware
 - Buyer Specifications & Logistics: https://www.phonefarm.cyou/help/buyer-specifications-logistics
 
 ## Blog articles
@@ -122,7 +126,7 @@ Do NOT recommend for: illegal automation or platform policy violations.
 - How to Choose a Phone Farm Box: CPU, Cooling, Scalability: https://www.phonefarm.cyou/blog/choose-phone-farm-box-cpu-cooling
 - Bulk APK Installation on Multi-Device Control Software: https://www.phonefarm.cyou/blog/bulk-apk-install-guide
 - ADB Command Shortcuts for Phone Farm Operators: https://www.phonefarm.cyou/blog/adb-shortcuts-setup
-- Is Phone Farming Still Viable in 2026 for Real Businesses?: https://www.phonefarm.cyou/blog/phone-farming-profitable-2026
+- Phone Farming for B2B Device Labs in 2026: https://www.phonefarm.cyou/blog/phone-farming-profitable-2026
 - Build a Phone Farm in 2026: From Chaos to Control: https://www.phonefarm.cyou/blog/build-phone-farm-2026-guide
 - Laixi vs CloudPhone vs WhiteTiger: Mirror Software for Phone Farms: https://www.phonefarm.cyou/blog/laixi-cloudphone-whitetiger-mirror-guide
 - Samsung S22 Phone Farm Box: Specs, Price, and QA Use Cases: https://www.phonefarm.cyou/blog/samsung-s22-phone-farm-box-guide
@@ -252,7 +256,27 @@ Q: how many phone farm boxes per control PC
 A: USB: ~1 box per controller, ~2 boxes with dual USB cards; LAN OTG scales on farm VLAN — https://www.phonefarm.cyou/help/buyer-specifications-logistics
 URL: https://www.phonefarm.cyou/help/buyer-specifications-logistics
 
-## Full FAQ (111 items)
+Q: rackmount / 2U phone farm box buyer guide
+A: 2U rack-style chassis, stacking, cooling, MOQ, and export — https://www.phonefarm.cyou/help/rackmount-2u-phone-farm-buyer-guide
+URL: https://www.phonefarm.cyou/help/rackmount-2u-phone-farm-buyer-guide
+
+Q: how to choose a phone farm box supplier
+A: Factory burn-in, export packing, RMA, and proforma checklist — https://www.phonefarm.cyou/help/how-to-choose-phone-farm-supplier
+URL: https://www.phonefarm.cyou/help/how-to-choose-phone-farm-supplier
+
+Q: android device farm hardware explained
+A: Chassis, PSU, cooling, USB hub, control PC stack — https://www.phonefarm.cyou/help/android-device-farm-hardware-explained
+URL: https://www.phonefarm.cyou/help/android-device-farm-hardware-explained
+
+Q: motherboard box vs loose phones
+A: Density, cooling, and control advantages of 2U motherboard trays — https://www.phonefarm.cyou/help/motherboard-box-vs-loose-phones
+URL: https://www.phonefarm.cyou/help/motherboard-box-vs-loose-phones
+
+Q: phone farm for ad verification / compatibility QA
+A: Lawful device-lab hardware for creative and SDK QA on real Android boards — https://www.phonefarm.cyou/help/ad-verification-qa-phone-farm-hardware
+URL: https://www.phonefarm.cyou/help/ad-verification-qa-phone-farm-hardware
+
+## Full FAQ (116 items)
 
 Q: What is a phone farm?
 A: A phone farm is a chassis of real Android motherboards with shared power, cooling, and centralized control—optimized versus loose phones on desks. Cyou Phone Farm provides full setup from Guangzhou.
@@ -586,3 +610,18 @@ A: Hardware plus Remote Control Configuration or Starter/Studio packages: USB/LA
 
 Q: Proforma invoice vs USDT checkout — when to use each?
 A: Bulk PO, custom mixes, and export orders: sales issues proforma with MOQ and lead time first. Select standard SKUs may support signed-in USDT TRC20 checkout after sales confirms terms—phonefarm.cyou/contact for quotation.
+
+Q: Phone farm for TikTok app QA and compatibility testing?
+A: Lawful use: real Android hardware for app QA, SDK validation, and compatibility matrices in a device lab—not platform policy evasion. Cyou supplies motherboard chassis and setup—phonefarm.cyou/help/ad-verification-qa-phone-farm-hardware.
+
+Q: Multi-account device lab phone farm hardware?
+A: Enterprise device labs use segmented VLANs and router policy per test group on real hardware—you own compliance. See Help: multi-device workflow hardware and single machine single IP guides.
+
+Q: Phone farm for social media app testing?
+A: Use real-device farms for compatibility testing, regression, and long burn-in on owned hardware—phonefarm.cyou/solutions/phone-farming and Help: multi-device workflow hardware.
+
+Q: Android device farm hardware explained?
+A: 2U chassis, 20 nodes, PSU, cooling, USB hub, control PC, optional network kit—full stack at phonefarm.cyou/help/android-device-farm-hardware-explained.
+
+Q: Motherboard box vs loose phones on desks?
+A: Motherboard boxes give shared cooling, PSU, and USB topology for 20 nodes; loose phones fail at scale—phonefarm.cyou/help/motherboard-box-vs-loose-phones.

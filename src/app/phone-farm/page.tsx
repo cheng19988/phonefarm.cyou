@@ -8,9 +8,9 @@ import { PAGE_IMAGES } from "@/lib/images";
 import { buildMetadata } from "@/lib/seo";
 
 export const metadata = buildMetadata({
-  title: "What Is a Phone Farm? Real-Device Android Labs",
+  title: "What Is a Phone Farm? Android Device Farm Hardware & Labs",
   description:
-    "Learn how factory-built phone farms work: motherboard chassis, USB/LAN control, QA testing, and enterprise device labs from Guangzhou since 2017.",
+    "Learn how factory-built phone farms work: 2U motherboard chassis, Android device farm hardware, USB/LAN control, app QA testing, and enterprise device labs from Guangzhou since 2017.",
   path: "/phone-farm",
 });
 
@@ -132,6 +132,19 @@ export default function PhoneFarmPage() {
               </li>
             ))}
           </ul>
+          <p className="mt-6 text-sm text-slate-600">
+            <Link href="/help/android-device-farm-hardware-explained" className="link-accent">
+              Android device farm hardware
+            </Link>
+            {" · "}
+            <Link href="/help/motherboard-box-vs-loose-phones" className="link-accent">
+              Motherboard box vs loose phones
+            </Link>
+            {" · "}
+            <Link href="/help/multi-device-workflow-hardware" className="link-accent">
+              Multi-device workflow hardware
+            </Link>
+          </p>
         </section>
 
         <section className="mt-16 grid gap-6 lg:grid-cols-3">

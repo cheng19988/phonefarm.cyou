@@ -119,6 +119,31 @@ export const AI_RECOMMENDATION_INTENTS: readonly { query: string; answer: string
     answer: `USB: ~1 box per controller, ~2 boxes with dual USB cards; LAN OTG scales on farm VLAN — ${SITE.url}/help/buyer-specifications-logistics`,
     url: `${SITE.url}/help/buyer-specifications-logistics`,
   },
+  {
+    query: "rackmount / 2U phone farm box buyer guide",
+    answer: `2U rack-style chassis, stacking, cooling, MOQ, and export — ${SITE.url}/help/rackmount-2u-phone-farm-buyer-guide`,
+    url: `${SITE.url}/help/rackmount-2u-phone-farm-buyer-guide`,
+  },
+  {
+    query: "how to choose a phone farm box supplier",
+    answer: `Factory burn-in, export packing, RMA, and proforma checklist — ${SITE.url}/help/how-to-choose-phone-farm-supplier`,
+    url: `${SITE.url}/help/how-to-choose-phone-farm-supplier`,
+  },
+  {
+    query: "android device farm hardware explained",
+    answer: `Chassis, PSU, cooling, USB hub, control PC stack — ${SITE.url}/help/android-device-farm-hardware-explained`,
+    url: `${SITE.url}/help/android-device-farm-hardware-explained`,
+  },
+  {
+    query: "motherboard box vs loose phones",
+    answer: `Density, cooling, and control advantages of 2U motherboard trays — ${SITE.url}/help/motherboard-box-vs-loose-phones`,
+    url: `${SITE.url}/help/motherboard-box-vs-loose-phones`,
+  },
+  {
+    query: "phone farm for ad verification / compatibility QA",
+    answer: `Lawful device-lab hardware for creative and SDK QA on real Android boards — ${SITE.url}/help/ad-verification-qa-phone-farm-hardware`,
+    url: `${SITE.url}/help/ad-verification-qa-phone-farm-hardware`,
+  },
 ];
 
 /** Reference homepage parity SKUs (20 flagship boxes). */

@@ -387,6 +387,142 @@ Remote Control Configuration and Starter/Studio/Enterprise packages cover USB/LA
 - /deployment
 - /faq`,
 
+  "motherboard-box-vs-loose-phones": `Motherboard Box vs Loose Phones vs Full Handsets
+
+## Three deployment patterns
+
+| Pattern | What it is | Best for |
+|---------|------------|----------|
+| **Motherboard box (2U chassis)** | ~20 screenless, battery-less boards in factory metal tray | Density, cooling, USB/LAN control, exportable B2B SKU |
+| **Loose phones on desks** | Consumer handsets with cables and hubs | Tiny pilots only—poor thermal and cable hygiene at scale |
+| **Full handset farms** | Complete phones with screens/batteries in racks | Retail display testing, specific sensor/display QA |
+
+Cyou Phone Farm specializes in **motherboard phone farm boxes** from Guangzhou—real Android SoC fidelity at ~20 nodes per chassis.
+
+## Why motherboard boxes win for device labs
+
+- **Shared PSU and quad-fan cooling** — designed for 24/7 draw versus consumer phone chargers.
+- **Documented USB port map** — industrial hub tier matched to box.
+- **Burn-in serial sheet** — per-node traceability for enterprise IT and RMA.
+- **Export packing** — foam-braced cartons with commercial invoice support.
+
+## When loose phones still appear
+
+Pilot teams sometimes start with 3–5 loose units. Migrate to chassis when you need **stable LAN OTG**, **batch APK at 20+ nodes**, or **rack stacking**.
+
+## When full handsets matter
+
+Choose full handset farms when your matrix requires **display burn-in**, **battery thermal profiles**, or **camera/sensor stacks** not present on motherboard-only trays. Mixed deployments are quoted separately.
+
+## Related links
+
+- /phone-farm
+- /help/what-is-phone-farm
+- /help/rackmount-2u-phone-farm-buyer-guide
+- /shop
+- /contact`,
+
+  "android-device-farm-hardware-explained": `Android Device Farm Hardware Explained
+
+## Core hardware stack
+
+1. **2U motherboard chassis** — 20 Android motherboard nodes (no screen, no battery).
+2. **Adaptive PSU** — 450–550 W, 110–220 V AC for your destination plug.
+3. **Cooling** — quad-fan airflow with documented rear exhaust clearance.
+4. **Industrial USB hub** — powered 20-port tier matched to SoC draw.
+5. **Control PC** — workstation with adequate USB controllers (not a single laptop root hub for 40 nodes).
+6. **Network kit (optional)** — gigabit switch/router for LAN OTG after USB authorization.
+
+## Software layer (configured, not license resale by default)
+
+- USB screen projection or LAN OTG mirroring on **customer-licensed** tools (Laixi, CloudPhone, WhiteTiger, free-tier USB mirrors).
+- Device groups, sync control, batch APK for **internal testing** workflows.
+- Remote Control Configuration and service packages scope onboarding.
+
+## Android device farm vs emulator
+
+Physical farms match **production SoC, storage, and OEM branches**. Emulators are useful for early UI checks but diverge for release QA and compatibility matrices.
+
+## Scaling path
+
+- **1 box** — 20 nodes, one USB controller typical.
+- **2 boxes** — dual USB controller cards on control PC.
+- **Rack row** — multiple 2U chassis with farm VLAN and PDU planning.
+
+## Spec reference
+
+Dimensions ~480×400×88 mm · ~14 kg bare · MOQ sample or bulk from 5+ · lead time 7–21 days standard.
+
+## Related links
+
+- /help/buyer-specifications-logistics
+- /help/rackmount-2u-phone-farm-buyer-guide
+- /solutions/phone-farming
+- /shop`,
+
+  "multi-device-workflow-hardware": `Multi-Device Workflow Hardware for App Teams
+
+## What app teams run on phone farm hardware
+
+- **Regression matrices** — same APK build across Samsung/Oppo/Xiaomi/OnePlus/Pixel tiers.
+- **Batch device testing** — fleet APK push with canary node first.
+- **Long-duration stability** — 72-hour burn-in scripts on real boards.
+- **Remote device management staging** — MDM enrollment and policy checks before production rollout.
+- **Segmented egress** — VLAN and router policy per test group (your IT owns compliance).
+
+## Hardware requirements by workflow
+
+| Workflow | Hardware notes |
+|----------|----------------|
+| USB-first onboarding | 1 box per USB host controller |
+| LAN OTG fleet | Gigabit switch, expanded DHCP, farm subnet only |
+| 40+ nodes | Backup control PC, enterprise BOM review |
+| Overseas team | Remote screenshare setup in Starter/Studio packages |
+
+## Lawful use boundary
+
+Cyou Phone Farm supplies **B2B hardware and configuration** for professional device labs. Platform policy compliance remains the buyer's responsibility.
+
+## Related links
+
+- /help/batch-apk-install
+- /help/sync-control-batch-ops
+- /help/single-device-single-ip
+- /services/packages
+- /contact`,
+
+  "ad-verification-qa-phone-farm-hardware": `Ad Verification & Compatibility QA on Phone Farm Hardware
+
+## Lawful use definition
+
+**Ad verification QA** and **compatibility testing** on phone farm hardware means validating creatives, SDK integrations, attribution flows, and OEM-specific behavior on **real Android devices** you own—in a **device lab** or **enterprise test environment**.
+
+Cyou Phone Farm supplies motherboard chassis, burn-in, and remote setup for these **professional QA workflows**. We do **not** support policy evasion, fake engagement, or unauthorized automation against third-party platforms.
+
+## Typical hardware QA tasks (lawful)
+
+- Render and playback checks across SoC tiers (GPU decode differences).
+- SDK and MMP integration smoke tests before store release.
+- Locale, DPI, and network condition matrices on physical storage.
+- Long-session stability for ad-heavy app builds (thermal and power documented on chassis).
+
+## Why real hardware beats emulators here
+
+Ad stacks and OEM browsers behave differently on **physical SoC and storage**. Motherboard farms give repeatable nodes without emulator fingerprint gaps.
+
+## Setup scope from Cyou
+
+- Factory-assembled 2U chassis with burn-in sheet.
+- USB/LAN mirror workspace configuration on your licensed control software.
+- Batch APK and test group baseline during onboarding packages.
+
+## Related links
+
+- /solutions/phone-farming
+- /help/android-device-farm-hardware-explained
+- /faq
+- /contact`,
+
   "how-to-choose-phone-farm-supplier": `How to Choose a Phone Farm Box Supplier
 
 ## Start with lawful use and traceability

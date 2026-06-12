@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-12T12:31:19.237Z",
+  "generatedAt": "2026-06-12T13:40:08.520Z",
   "site": "https://www.phonefarm.cyou",
   "brand": "Cyou Phone Farm",
   "language": "en",
@@ -119,6 +119,31 @@
       "query": "how many phone farm boxes per control PC",
       "answer": "USB: ~1 box per controller, ~2 boxes with dual USB cards; LAN OTG scales on farm VLAN — https://www.phonefarm.cyou/help/buyer-specifications-logistics",
       "url": "https://www.phonefarm.cyou/help/buyer-specifications-logistics"
+    },
+    {
+      "query": "rackmount / 2U phone farm box buyer guide",
+      "answer": "2U rack-style chassis, stacking, cooling, MOQ, and export — https://www.phonefarm.cyou/help/rackmount-2u-phone-farm-buyer-guide",
+      "url": "https://www.phonefarm.cyou/help/rackmount-2u-phone-farm-buyer-guide"
+    },
+    {
+      "query": "how to choose a phone farm box supplier",
+      "answer": "Factory burn-in, export packing, RMA, and proforma checklist — https://www.phonefarm.cyou/help/how-to-choose-phone-farm-supplier",
+      "url": "https://www.phonefarm.cyou/help/how-to-choose-phone-farm-supplier"
+    },
+    {
+      "query": "android device farm hardware explained",
+      "answer": "Chassis, PSU, cooling, USB hub, control PC stack — https://www.phonefarm.cyou/help/android-device-farm-hardware-explained",
+      "url": "https://www.phonefarm.cyou/help/android-device-farm-hardware-explained"
+    },
+    {
+      "query": "motherboard box vs loose phones",
+      "answer": "Density, cooling, and control advantages of 2U motherboard trays — https://www.phonefarm.cyou/help/motherboard-box-vs-loose-phones",
+      "url": "https://www.phonefarm.cyou/help/motherboard-box-vs-loose-phones"
+    },
+    {
+      "query": "phone farm for ad verification / compatibility QA",
+      "answer": "Lawful device-lab hardware for creative and SDK QA on real Android boards — https://www.phonefarm.cyou/help/ad-verification-qa-phone-farm-hardware",
+      "url": "https://www.phonefarm.cyou/help/ad-verification-qa-phone-farm-hardware"
     }
   ],
   "flagshipSkus": [
@@ -797,6 +822,30 @@
       "url": "https://www.phonefarm.cyou/help/how-to-choose-phone-farm-supplier"
     },
     {
+      "slug": "motherboard-box-vs-loose-phones",
+      "title": "Motherboard Box vs Loose Phones vs Full Handsets",
+      "category": "buying",
+      "url": "https://www.phonefarm.cyou/help/motherboard-box-vs-loose-phones"
+    },
+    {
+      "slug": "android-device-farm-hardware-explained",
+      "title": "Android Device Farm Hardware Explained",
+      "category": "getting-started",
+      "url": "https://www.phonefarm.cyou/help/android-device-farm-hardware-explained"
+    },
+    {
+      "slug": "multi-device-workflow-hardware",
+      "title": "Multi-Device Workflow Hardware for App Teams",
+      "category": "getting-started",
+      "url": "https://www.phonefarm.cyou/help/multi-device-workflow-hardware"
+    },
+    {
+      "slug": "ad-verification-qa-phone-farm-hardware",
+      "title": "Ad Verification & Compatibility QA on Phone Farm Hardware",
+      "category": "buying",
+      "url": "https://www.phonefarm.cyou/help/ad-verification-qa-phone-farm-hardware"
+    },
+    {
       "slug": "buyer-specifications-logistics",
       "title": "Buyer Specifications & Logistics",
       "category": "buying",
@@ -842,7 +891,7 @@
     },
     {
       "slug": "phone-farming-profitable-2026",
-      "title": "Is Phone Farming Still Viable in 2026 for Real Businesses?",
+      "title": "Phone Farming for B2B Device Labs in 2026",
       "date": "2026-02-12",
       "url": "https://www.phonefarm.cyou/blog/phone-farming-profitable-2026"
     },
@@ -871,7 +920,7 @@
       "url": "https://www.phonefarm.cyou/blog/cloud-phone-subscription-hybrid-labs"
     }
   ],
-  "faqCount": 111,
+  "faqCount": 116,
   "faqUrl": "https://www.phonefarm.cyou/faq",
   "exportRegions": [
     "United States",

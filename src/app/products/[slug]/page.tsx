@@ -94,6 +94,11 @@ export default async function ProductDetailPage({
             <div>
               <p className="text-sm uppercase text-sky-600 font-medium">{publicCategoryLabel(product.category)}</p>
               <h1 className="mt-2 text-3xl font-bold text-slate-900">{product.name}</h1>
+              {!isServiceCatalogItem(product.category) && (
+                <p className="mt-2 text-sm text-slate-500">
+                  20-node phone farm box · B2B reference price · MOQ &amp; export quote
+                </p>
+              )}
               <p className="mt-4 text-slate-600 leading-relaxed">{product.shortDesc}</p>
               <div className="mt-4">
                 <p className="text-xs uppercase tracking-wide text-slate-500">

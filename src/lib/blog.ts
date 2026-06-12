@@ -51,7 +51,7 @@ export const BLOG_POSTS = [
   },
   {
     slug: "phone-farming-profitable-2026",
-    title: "Is Phone Farming Still Viable in 2026 for Real Businesses?",
+    title: "Phone Farming for B2B Device Labs in 2026",
     category: "Applications & Use Cases",
     date: "2026-02-12",
     excerpt:
