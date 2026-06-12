@@ -19,13 +19,19 @@ function needsHttps(request: NextRequest): boolean {
   return request.nextUrl.protocol === "http:";
 }
 
+function isPreviewHost(host: string | undefined): boolean {
+  const bare = host?.split(":")[0]?.toLowerCase();
+  return Boolean(bare?.endsWith(".vercel.app"));
+}
+
 export function middleware(request: NextRequest) {
   const host = requestHost(request);
   const apex = isApexHost(host);
   const siteHost = isSiteHost(host);
   const http = needsHttps(request);
+  const previewOnProduction = process.env.VERCEL_ENV === "production" && isPreviewHost(host);
 
-  if (apex || (siteHost && http)) {
+  if (apex || previewOnProduction || (siteHost && http)) {
     const destination = new URL(
       request.nextUrl.pathname + request.nextUrl.search,
       CANONICAL_ORIGIN

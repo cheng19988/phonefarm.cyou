@@ -1,3 +1,5 @@
+import { buildPurchaseSpecRows } from "./purchase-specs";
+
 export function formatReferencePrice(priceUsd: number): string {
   if (priceUsd <= 0) return "Bulk quote available";
   return `From $${priceUsd.toLocaleString("en-US")}`;
@@ -70,7 +72,8 @@ export function hasProductCardHardwareSpecs(product: { shortDesc: string; specs?
 export function buildPublicSpecTable(
   shortDesc: string,
   specsJson?: string,
-  overrides?: Record<string, string>
+  overrides?: Record<string, string>,
+  purchaseContext?: { category: string; productType?: string }
 ): Record<string, string> {
   const parsed = parseSpecs(specsJson);
   const hw = productCardHardwareSpecs({ shortDesc, specs: specsJson });
@@ -85,7 +88,12 @@ export function buildPublicSpecTable(
   }
   delete table.listPriceUsd;
 
-  return overrides ? { ...table, ...overrides } : table;
+  const merged = overrides ? { ...table, ...overrides } : table;
+  if (purchaseContext) {
+    const purchase = buildPurchaseSpecRows(purchaseContext.category, purchaseContext.productType);
+    return { ...merged, ...purchase };
+  }
+  return merged;
 }
 
 export function typicalUseCase(specs?: string): string {

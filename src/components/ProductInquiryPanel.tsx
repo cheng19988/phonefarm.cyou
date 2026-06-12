@@ -1,13 +1,16 @@
 import Link from "next/link";
 import { ContactForm } from "./ContactForm";
+import { ContactFormFeedback } from "./ContactFormFeedback";
 import { CONTACT } from "@/lib/constants";
 
 export function ProductInquiryPanel({
   productSlug,
   productName,
+  contactStatus,
 }: {
   productSlug: string;
   productName: string;
+  contactStatus?: string;
 }) {
   const wa = `${CONTACT.whatsappUrl}?text=${encodeURIComponent(
     `Hello, I need a quotation for ${productName}. Ship-to country: [your country]. Quantity: [boxes/nodes].`
@@ -38,6 +41,7 @@ export function ProductInquiryPanel({
           Open full quote form
         </Link>
       </div>
+      <ContactFormFeedback status={contactStatus} />
       <div className="mt-4">
         <ContactForm
           defaultProduct={productName}
@@ -45,6 +49,7 @@ export function ProductInquiryPanel({
           source={`product-${productSlug}`}
           variant="compact"
           showIntro={false}
+          returnPath={`/products/${productSlug}`}
         />
       </div>
     </aside>

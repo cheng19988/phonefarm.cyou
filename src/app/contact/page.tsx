@@ -1,4 +1,5 @@
 import { ContactForm } from "@/components/ContactForm";
+import { ContactFormFeedback } from "@/components/ContactFormFeedback";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { CONTACT, SITE } from "@/lib/constants";
 import { CONTACT_URLS } from "@/lib/contact-urls";
@@ -15,9 +16,9 @@ export const metadata = buildMetadata({
 export default async function ContactPage({
   searchParams,
 }: {
-  searchParams: Promise<{ product?: string; intent?: string }>;
+  searchParams: Promise<{ product?: string; intent?: string; contact?: string }>;
 }) {
-  const { product, intent } = await searchParams;
+  const { product, intent, contact } = await searchParams;
   const prefill = resolveProductPrefill(product);
   const formIntent = intent === "sample" ? "sample" : "quote";
 
@@ -65,6 +66,7 @@ export default async function ContactPage({
 
       <div className="site-container py-12 pb-24 lg:pb-12">
         <div className="max-w-xl card-premium p-6 lg:p-8">
+          <ContactFormFeedback status={contact} />
           <ContactForm
             defaultProduct={prefill.displayName}
             productSlug={prefill.slug}

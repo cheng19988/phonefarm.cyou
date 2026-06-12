@@ -1,62 +1,77 @@
 import type { MetadataRoute } from "next";
-import { SITE } from "@/lib/constants";
 import { PUBLISHED_BLOG_POSTS } from "@/lib/blog";
+import { SHOP_BRANDS } from "@/lib/constants";
+import { canonicalPageUrl } from "@/lib/canonical-url";
+import { SITE } from "@/lib/constants";
 import { HELP_ARTICLES } from "@/lib/help";
 import { prisma } from "@/lib/prisma";
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const base = SITE.url;
-  const staticRoutes = [
-    "",
-    "/shop",
-    "/services",
-    "/services/packages",
-    "/phone-farm",
-    "/deployment",
-    "/help",
-    "/solutions/phone-farming",
-    "/about",
-    "/faq",
-    "/contact",
-    "/blog",
-    "/guides/hardware-selection",
-    "/guides/phone-farm-guide",
-    "/ai",
-    "/privacy",
-    "/terms",
-  ];
+const INDEXABLE_STATIC_PATHS = [
+  "",
+  "/shop",
+  "/services",
+  "/services/packages",
+  "/phone-farm",
+  "/deployment",
+  "/help",
+  "/solutions/phone-farming",
+  "/about",
+  "/faq",
+  "/contact",
+  "/blog",
+  "/guides/hardware-selection",
+  "/guides/phone-farm-guide",
+  "/privacy",
+  "/terms",
+] as const;
 
-  let products: { slug: string; updatedAt: Date }[] = [];
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const origin = SITE.url;
+
+  let products: { slug: string; updatedAt: Date; published: boolean }[] = [];
   try {
-    products = await prisma.product.findMany({ select: { slug: true, updatedAt: true } });
+    products = await prisma.product.findMany({
+      where: { published: true },
+      select: { slug: true, updatedAt: true, published: true },
+    });
   } catch {
     // Static routes still ship if DB unavailable at build time.
   }
 
-  return [
-    ...staticRoutes.map((path) => ({
-      url: `${base}${path}`,
-      lastModified: new Date(),
-      changeFrequency: "weekly" as const,
-      priority: path === "" ? 1 : 0.8,
-    })),
-    ...products.map((p) => ({
-      url: `${base}/products/${p.slug}`,
-      lastModified: p.updatedAt,
-      changeFrequency: "weekly" as const,
-      priority: 0.7,
-    })),
-    ...PUBLISHED_BLOG_POSTS.map((p) => ({
-      url: `${base}/blog/${p.slug}`,
-      lastModified: new Date(p.date),
-      changeFrequency: "monthly" as const,
-      priority: 0.6,
-    })),
-    ...HELP_ARTICLES.map((a) => ({
-      url: `${base}/help/${a.slug}`,
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
-      priority: 0.65,
-    })),
-  ];
+  const staticEntries: MetadataRoute.Sitemap = INDEXABLE_STATIC_PATHS.map((path) => ({
+    url: canonicalPageUrl(path, origin),
+    lastModified: new Date(),
+    changeFrequency: path === "" ? "weekly" : "weekly",
+    priority: path === "" ? 1 : 0.8,
+  }));
+
+  const categoryEntries: MetadataRoute.Sitemap = SHOP_BRANDS.map((brand) => ({
+    url: canonicalPageUrl(`/shop?category=${brand.slug}`, origin),
+    lastModified: new Date(),
+    changeFrequency: "weekly",
+    priority: 0.75,
+  }));
+
+  const productEntries: MetadataRoute.Sitemap = products.map((p) => ({
+    url: canonicalPageUrl(`/products/${p.slug}`, origin),
+    lastModified: p.updatedAt,
+    changeFrequency: "weekly",
+    priority: 0.7,
+  }));
+
+  const blogEntries: MetadataRoute.Sitemap = PUBLISHED_BLOG_POSTS.map((p) => ({
+    url: canonicalPageUrl(`/blog/${p.slug}`, origin),
+    lastModified: new Date(p.date),
+    changeFrequency: "monthly",
+    priority: 0.6,
+  }));
+
+  const helpEntries: MetadataRoute.Sitemap = HELP_ARTICLES.map((a) => ({
+    url: canonicalPageUrl(`/help/${a.slug}`, origin),
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.65,
+  }));
+
+  return [...staticEntries, ...categoryEntries, ...productEntries, ...blogEntries, ...helpEntries];
 }

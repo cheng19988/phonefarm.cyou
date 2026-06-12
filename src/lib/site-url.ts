@@ -1,15 +1,18 @@
-import { CANONICAL_HOST, CANONICAL_ORIGIN, ROOT_HOST } from "./site-hosts";
+import { canonicalOriginFromSiteUrl } from "./canonical-url";
 
-/** Canonical public origin — always prefer www.phonefarm.cyou for SEO. */
+/** Canonical public origin — production always resolves to https://www.phonefarm.cyou */
 export function resolveCanonicalSiteUrl(): string {
-  const raw = process.env.SITE_URL || CANONICAL_ORIGIN;
-  try {
-    const url = new URL(raw);
-    if (url.hostname === ROOT_HOST) {
-      url.hostname = CANONICAL_HOST;
-    }
-    return url.origin;
-  } catch {
-    return CANONICAL_ORIGIN;
+  if (process.env.NODE_ENV === "production") {
+    return canonicalOriginFromSiteUrl(process.env.SITE_URL);
   }
+  const dev = process.env.SITE_URL || process.env.VERCEL_URL;
+  if (dev) {
+    try {
+      const url = new URL(dev.startsWith("http") ? dev : `https://${dev}`);
+      return url.origin;
+    } catch {
+      /* fall through */
+    }
+  }
+  return canonicalOriginFromSiteUrl(process.env.SITE_URL);
 }

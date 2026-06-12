@@ -38,10 +38,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function ProductDetailPage({
   params,
+  searchParams,
 }: {
   params: Promise<{ slug: string }>;
+  searchParams: Promise<{ contact?: string }>;
 }) {
   const { slug } = await params;
+  const { contact } = await searchParams;
   const product = await prisma.product.findUnique({ where: { slug } });
   if (!product) notFound();
 
@@ -50,7 +53,8 @@ export default async function ProductDetailPage({
   const specTable = buildPublicSpecTable(
     product.shortDesc,
     product.specs,
-    profile?.specOverrides
+    profile?.specOverrides,
+    { category: product.category, productType: product.productType }
   );
   const intro = profile?.intro ?? summary?.summary ?? product.description;
   const included = profile?.included ?? parseJson<string[]>(product.delivery, []);
@@ -129,7 +133,11 @@ export default async function ProductDetailPage({
                 <ul>{features.map((f) => <li key={f}>{f}</li>)}</ul>
               </>
             )}
-            <h2>Specification table</h2>
+            <h2>Specification &amp; procurement</h2>
+            <p className="text-sm text-slate-600 not-prose">
+              MOQ, lead time, packing, weight, voltage, warranty, shipping, and payment process are listed for B2B
+              buyers. Confirm final proforma with sales before payment.
+            </p>
             <div className="overflow-x-auto rounded-xl border border-slate-200 not-prose">
               <table className="w-full text-sm text-left">
                 <tbody>
@@ -170,7 +178,11 @@ export default async function ProductDetailPage({
           )}
         </div>
         <div className="lg:col-span-1">
-          <ProductInquiryPanel productSlug={product.slug} productName={product.name} />
+          <ProductInquiryPanel
+            productSlug={product.slug}
+            productName={product.name}
+            contactStatus={contact}
+          />
         </div>
       </div>
     </div>

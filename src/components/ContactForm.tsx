@@ -1,16 +1,11 @@
-"use client";
-
-import { useState } from "react";
 import { LEGAL_USE_CASES } from "@/lib/delivery";
+import { submitContactForm } from "@/app/actions/contact";
 
 const CONTROL_METHODS = [
   { value: "usb", label: "USB screen projection" },
   { value: "lan-otg", label: "LAN OTG (TCP 5555)" },
   { value: "unsure", label: "Not sure — advise me" },
 ] as const;
-
-const SUCCESS_MESSAGE =
-  "Received. A sales engineer from our Guangzhou team will reply within one business day with MOQ, lead time, and a proforma quote when applicable.";
 
 export function ContactForm({
   defaultProduct = "",
@@ -19,35 +14,20 @@ export function ContactForm({
   source = "contact",
   variant = "full",
   showIntro = true,
+  returnPath = "/contact",
 }: {
-  /** Human-readable model name shown in the form */
   defaultProduct?: string;
   productSlug?: string;
   intent?: "sample" | "quote" | "";
   source?: string;
   variant?: "full" | "compact";
   showIntro?: boolean;
+  returnPath?: string;
 }) {
-  const [status, setStatus] = useState<"idle" | "loading" | "ok" | "error">("idle");
-
   const defaultMessage =
     intent === "sample"
       ? "I would like to evaluate one sample box before a bulk order. Please advise MOQ for samples, lead time, and export packing to my country."
       : "";
-
-  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    setStatus("loading");
-    const fd = new FormData(e.currentTarget);
-    const body = Object.fromEntries(fd.entries());
-    const res = await fetch("/api/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ...body, source }),
-    });
-    setStatus(res.ok ? "ok" : "error");
-    if (res.ok) (e.target as HTMLFormElement).reset();
-  }
 
   const isCompact = variant === "compact";
 
@@ -60,12 +40,14 @@ export function ContactForm({
           </h2>
           <p className="mt-2 text-sm text-slate-600 leading-relaxed">
             Tell us node count, destination country, and how you plan to connect devices (USB or LAN). We reply from
-            Guangzhou within one business day — no auto-generated price bots.
+            Guangzhou within one business day.
           </p>
         </div>
       )}
 
-      <form onSubmit={onSubmit} className="space-y-6">
+      <form action={submitContactForm} className="space-y-6">
+        <input type="hidden" name="source" value={source} />
+        <input type="hidden" name="returnPath" value={returnPath} />
         {productSlug && <input type="hidden" name="productSlug" value={productSlug} />}
 
         <fieldset className="space-y-4">
@@ -109,11 +91,7 @@ export function ContactForm({
             </label>
             <label className="form-field">
               <span className="form-label">Quantity</span>
-              <input
-                name="deviceQuantity"
-                className="form-input"
-                placeholder="e.g. 2 boxes (40 nodes)"
-              />
+              <input name="deviceQuantity" className="form-input" placeholder="e.g. 2 boxes (40 nodes)" />
             </label>
             <label className={`form-field ${isCompact ? "sm:col-span-2" : ""}`}>
               <span className="form-label">Control method</span>
@@ -153,20 +131,12 @@ export function ContactForm({
           </div>
         </fieldset>
 
-        <button type="submit" disabled={status === "loading"} className="btn-primary w-full py-3 disabled:opacity-50">
-          {status === "loading" ? "Sending…" : "Request quotation"}
+        <button type="submit" className="btn-primary w-full py-3">
+          Request quotation
         </button>
 
-        {status === "ok" && <p className="form-success leading-relaxed">{SUCCESS_MESSAGE}</p>}
-        {status === "error" && (
-          <p className="form-error">
-            Could not send the form. Please message us on WhatsApp or email directly and mention this page.
-          </p>
-        )}
-
         <p className="text-xs text-slate-500 leading-relaxed">
-          We use your details only to respond to this inquiry and arrange export shipment. Bulk orders receive a
-          proforma invoice before payment.
+          We use your details only to respond to this inquiry. Bulk orders receive a proforma invoice before payment.
         </p>
       </form>
     </div>
