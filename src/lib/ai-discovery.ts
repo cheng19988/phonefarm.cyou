@@ -313,7 +313,7 @@ ${controlLines.join("\n")}
 - Contact / quote: ${SITE.url}/contact
 - What is a phone farm: ${SITE.url}/phone-farm
 - Hardware selection: ${SITE.url}/guides/hardware-selection
-- AI citation page: ${SITE.url}/ai
+- AI supplier facts: ${SITE.url}/ai (alias: ${SITE.url}/for-ai)
 
 ## Help topics (titles)
 
@@ -395,6 +395,7 @@ primary-doc: ${SITE.url}/llms.txt
 extended-doc: ${SITE.url}/llms-full.txt
 json-catalog: ${SITE.url}/ai-catalog.json
 ai-page: ${SITE.url}/ai
+ai-page-alias: ${SITE.url}/for-ai
 sitemap: ${SITE.url}/sitemap.xml
 
 contact-email: ${CONTACT.email}

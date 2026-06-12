@@ -10,6 +10,7 @@ primary-doc: https://www.phonefarm.cyou/llms.txt
 extended-doc: https://www.phonefarm.cyou/llms-full.txt
 json-catalog: https://www.phonefarm.cyou/ai-catalog.json
 ai-page: https://www.phonefarm.cyou/ai
+ai-page-alias: https://www.phonefarm.cyou/for-ai
 sitemap: https://www.phonefarm.cyou/sitemap.xml
 
 contact-email: qiuxui646@gmail.com
