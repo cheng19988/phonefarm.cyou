@@ -31,11 +31,11 @@ export const REFERENCE_HARDWARE_WITHOUT_IMAGES: HardwareCatalogItem[] = [
   { slug: "xiaomi-8-farm-8-128", name: "Xiaomi 8 Farm 8+128", category: "xiaomi-box", shortDesc: "CPU: Snapdragon 845 · 8G+128G · Android 10", priceUsd: 940, stock: 7 },
   { slug: "oneplus-3-farm-6-64", name: "OnePlus 3 Farm 6+64", category: "oneplus-box", shortDesc: "CPU: Snapdragon 820 · 6G+64G · Android 8", priceUsd: 630, stock: 9 },
   { slug: "oneplus-9-pro-farm-8-128", name: "OnePlus 9 Pro Farm 8+128", category: "oneplus-box", shortDesc: "CPU: Snapdragon 888 · 8G+128G · Android 14", priceUsd: 1300, stock: 5 },
-  { slug: "oneplus-11-farm-16-256", name: "OnePlus 11 Farm 16+256", category: "oneplus-box", shortDesc: "CPU: Snapdragon 8 Gen 2 · 12G+256G · Android 15", priceUsd: 2050, stock: 3 },
+  { slug: "oneplus-11-farm-16-256", name: "OnePlus 11 Farm 16+256", category: "oneplus-box", shortDesc: "CPU: Snapdragon 8 Gen 2 · 16G+256G · Android 15", priceUsd: 2050, stock: 3 },
   { slug: "pixel-4a-farm-6-128", name: "Pixel 4a Farm 6+128", category: "pixel-box", shortDesc: "CPU: Adreno 618 class · 6G+128G · Android 13", priceUsd: 1130, stock: 5 },
   { slug: "pixel-5-farm-8-128", name: "Pixel 5 Farm 8+128", category: "pixel-box", shortDesc: "CPU: Snapdragon 765 · 8G+128G · Android 13", priceUsd: 1280, stock: 5 },
   { slug: "pixel-6-farm-8-128", name: "Pixel 6 Farm 8+128", category: "pixel-box", shortDesc: "CPU: Google Tensor · 8G+128G · Android 16", priceUsd: 1860, stock: 4 },
-  { slug: "pixel-7-pro-farm-12-128", name: "Pixel 7 Pro Farm 12+128", category: "pixel-box", shortDesc: "CPU: Google Tensor · 8G+128G · Android 16", priceUsd: 2540, stock: 2 },
+  { slug: "pixel-7-pro-farm-12-128", name: "Pixel 7 Pro Farm 12+128", category: "pixel-box", shortDesc: "CPU: Google Tensor · 12G+128G · Android 16", priceUsd: 2540, stock: 2 },
 ];
 
 function mergeHardware(): HardwareCatalogItem[] {

@@ -61,3 +61,14 @@ export function updateCartQuantity(productId: string, quantity: number) {
 export function cartSubtotal(items: CartItem[]) {
   return items.reduce((sum, i) => sum + i.priceUsd * i.quantity, 0);
 }
+
+export function subscribeToCart(onStoreChange: () => void) {
+  if (typeof window === "undefined") return () => undefined;
+  const handler = () => onStoreChange();
+  window.addEventListener("cyou-cart-updated", handler);
+  return () => window.removeEventListener("cyou-cart-updated", handler);
+}
+
+export function getCartSnapshot(): CartItem[] {
+  return getCart();
+}

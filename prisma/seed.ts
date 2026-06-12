@@ -177,7 +177,6 @@ async function main() {
         category: p.category,
         shortDesc: p.shortDesc,
         priceUsd: p.priceUsd,
-        stock: p.stock,
         published: true,
         directPurchaseEnabled: purchase.directPurchaseEnabled,
         quoteOnly: purchase.quoteOnly,

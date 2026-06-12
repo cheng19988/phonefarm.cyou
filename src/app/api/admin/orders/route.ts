@@ -3,6 +3,7 @@ import { prisma } from "@/lib/prisma";
 import { getSession } from "@/lib/auth";
 import { z } from "zod";
 import { PAYMENT_STATUS } from "@/lib/payment-status";
+import { expireOrderWithStockRestore } from "@/lib/order-stock";
 
 export async function GET() {
   const session = await getSession();
@@ -50,7 +51,7 @@ export async function PATCH(req: Request) {
       paymentStatus === PAYMENT_STATUS.OVERPAID
     ) {
       data.paidAt = new Date();
-      data.verificationStatus = "confirmed";
+      data.verificationStatus = PAYMENT_STATUS.PAID;
     }
     if (paymentStatus === PAYMENT_STATUS.MANUAL_REVIEW) {
       data.verificationStatus = PAYMENT_STATUS.MANUAL_REVIEW;
@@ -61,6 +62,18 @@ export async function PATCH(req: Request) {
   }
   if (receivedAmount !== undefined) data.receivedAmount = receivedAmount;
   if (adminNote !== undefined) data.adminNote = adminNote;
+
+  if (paymentStatus === PAYMENT_STATUS.EXPIRED) {
+    await expireOrderWithStockRestore(id);
+    if (adminNote !== undefined) {
+      await prisma.order.update({ where: { id }, data: { adminNote } });
+    }
+    const updated = await prisma.order.findUnique({
+      where: { id },
+      include: { items: { include: { product: true } }, user: true },
+    });
+    return NextResponse.json(updated);
+  }
 
   const updated = await prisma.order.update({
     where: { id },

@@ -26,6 +26,6 @@ export function buildPurchaseSpecRows(category: string, productType?: string): R
     Warranty: "90-day hardware defect coverage from delivery date (manufacturing faults under normal farm use).",
     "Shipping method": "DHL / FedEx / UPS express export from Guangzhou with commercial invoice and packing list.",
     "Payment process":
-      "Sales confirms proforma invoice, MOQ, lead time, and destination before payment. Select SKUs support online USDT checkout after account sign-in.",
+      "RFQ-first: sales confirms written BOM, proforma invoice, MOQ, lead time, and destination before payment. Catalog SKUs marked for direct purchase support logged-in USDT checkout — bulk and custom configs require quotation first.",
   };
 }

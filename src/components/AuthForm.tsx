@@ -2,6 +2,7 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
+import { safeInternalPath } from "@/lib/safe-redirect";
 
 export function AuthForm({ mode }: { mode: "login" | "register" }) {
   const router = useRouter();
@@ -27,7 +28,7 @@ export function AuthForm({ mode }: { mode: "login" | "register" }) {
       setError(j.error || "Failed");
       return;
     }
-    router.push(search.get("redirect") || "/account/orders");
+    router.push(safeInternalPath(search.get("redirect"), "/account/orders"));
     router.refresh();
   }
 

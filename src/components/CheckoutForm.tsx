@@ -2,17 +2,20 @@
 
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
-import { cartSubtotal, clearCart, getCart, type CartItem } from "@/lib/cart";
+import { useEffect, useState, useSyncExternalStore } from "react";
+import {
+  cartSubtotal,
+  clearCart,
+  getCartSnapshot,
+  subscribeToCart,
+} from "@/lib/cart";
 import { PAYMENT } from "@/lib/constants";
 import { FINAL_QUOTE_BEFORE_PAYMENT, formatReferencePrice, REFERENCE_PRICE_LABEL } from "@/lib/pricing";
 import { computeUsdtChargeAmount, formatUsdtAmount } from "@/lib/payment-status";
 
 export function CheckoutForm() {
   const router = useRouter();
-  const [items] = useState<CartItem[]>(() =>
-    typeof window === "undefined" ? [] : getCart()
-  );
+  const items = useSyncExternalStore(subscribeToCart, getCartSnapshot, () => []);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -61,7 +64,7 @@ export function CheckoutForm() {
   if (items.length === 0) {
     return (
       <p className="text-slate-600">
-        Loading cart… or{" "}
+        Cart empty —{" "}
         <Link href="/cart" className="link-accent">
           return to cart
         </Link>

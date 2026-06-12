@@ -21,7 +21,7 @@ export default async function ContactPage({
   searchParams: Promise<{ product?: string; intent?: string; contact?: string }>;
 }) {
   const { product, intent, contact } = await searchParams;
-  const prefill = resolveProductPrefill(product);
+  const prefill = await resolveProductPrefill(product);
   const formIntent = intent === "sample" ? "sample" : "quote";
 
   return (

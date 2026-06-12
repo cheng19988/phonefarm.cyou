@@ -18,7 +18,7 @@ const schema = z.object({
   budget: z.string().optional(),
   message: z.string().optional(),
   source: z.string().optional(),
-  privacyConsent: z.literal("on").optional(),
+  privacyConsent: z.literal("on"),
 });
 
 function composeMessage(body: z.infer<typeof schema>) {
@@ -34,13 +34,18 @@ function composeMessage(body: z.infer<typeof schema>) {
 export async function POST(req: Request) {
   try {
     const parsed = schema.parse(await req.json());
-    const { controlMethod, useCase, ...body } = parsed;
-    void controlMethod;
-    void useCase;
     const message = composeMessage(parsed);
     const record = {
-      ...body,
+      name: parsed.name,
+      email: parsed.email,
+      country: parsed.country,
+      messaging: parsed.messaging,
+      phone: parsed.phone,
+      deviceQuantity: parsed.deviceQuantity,
+      productInterest: parsed.productInterest,
+      budget: parsed.budget,
       message,
+      source: parsed.source,
     };
     await prisma.contactSubmission.create({ data: record });
     void notifyContactSubmission(record);

@@ -4,6 +4,7 @@ import { z } from "zod";
 import { redirect } from "next/navigation";
 import { notifyContactSubmission } from "@/lib/contact-notify";
 import { prisma } from "@/lib/prisma";
+import { safeInternalPath } from "@/lib/safe-redirect";
 
 const schema = z.object({
   name: z.string().min(1),
@@ -50,7 +51,7 @@ export async function submitContactForm(formData: FormData) {
     privacyConsent: formData.get("privacyConsent"),
   });
 
-  const returnPath = String(formData.get("returnPath") || "/contact");
+  const returnPath = safeInternalPath(String(formData.get("returnPath") || "/contact"), "/contact");
 
   if (!parsed.success) {
     const qs = new URLSearchParams({ contact: "error" });
