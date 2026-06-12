@@ -1,6 +1,8 @@
 "use client";
 
 import { Fragment, useEffect, useState } from "react";
+import { ADMIN_PAYMENT_STATUSES, PAYMENT_STATUS, formatUsdtAmount } from "@/lib/payment-status";
+import { formatPaymentStatus } from "@/lib/order-labels";
 
 type Tab = "orders" | "products" | "users" | "contacts";
 
@@ -9,8 +11,11 @@ type OrderRow = {
   orderNumber: string;
   createdAt: string;
   expectedAmount: number;
+  receivedAmount: number | null;
   status: string;
   paymentStatus: string;
+  verificationStatus: string;
+  expiresAt: string;
   txHash: string | null;
   customerName: string | null;
   customerEmail: string | null;
@@ -28,15 +33,6 @@ const ORDER_STATUSES = [
   "pending payment",
   "processing",
   "shipped",
-  "cancelled",
-] as const;
-
-const PAYMENT_STATUSES = [
-  "unpaid",
-  "submitted",
-  "verifying",
-  "paid",
-  "failed",
   "cancelled",
 ] as const;
 
@@ -89,7 +85,10 @@ export function AdminDashboard() {
     setProducts((prev) => prev.map((p) => (p.id === id ? { ...p, [field]: value } : p)));
   }
 
-  async function patchOrder(id: string, patch: { status?: string; paymentStatus?: string; adminNote?: string }) {
+  async function patchOrder(
+    id: string,
+    patch: { status?: string; paymentStatus?: string; receivedAmount?: number; adminNote?: string }
+  ) {
     await fetch("/api/admin/orders", {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
@@ -129,9 +128,11 @@ export function AdminDashboard() {
                 <th className="p-2">Customer</th>
                 <th className="p-2">Contact</th>
                 <th className="p-2">Products</th>
-                <th className="p-2">Total</th>
+                <th className="p-2">USDT due</th>
+                <th className="p-2">Received</th>
                 <th className="p-2">TX</th>
                 <th className="p-2">Payment</th>
+                <th className="p-2">Verification</th>
                 <th className="p-2">Status</th>
                 <th className="p-2">Created</th>
                 <th className="p-2">Actions</th>
@@ -149,7 +150,10 @@ export function AdminDashboard() {
                     </td>
                     <td className="p-2 text-xs text-slate-600">{o.contactMessaging || "-"}</td>
                     <td className="p-2 max-w-[200px] text-xs">{productList(o)}</td>
-                    <td className="p-2">${o.expectedAmount}</td>
+                    <td className="p-2 font-mono">{formatUsdtAmount(o.expectedAmount)}</td>
+                    <td className="p-2 font-mono text-xs">
+                      {o.receivedAmount != null ? formatUsdtAmount(o.receivedAmount) : "—"}
+                    </td>
                     <td className="p-2 max-w-[120px] truncate font-mono text-xs">{o.txHash || "-"}</td>
                     <td className="p-2">
                       <select
@@ -157,11 +161,12 @@ export function AdminDashboard() {
                         value={o.paymentStatus}
                         onChange={(e) => patchOrder(o.id, { paymentStatus: e.target.value })}
                       >
-                        {PAYMENT_STATUSES.map((s) => (
-                          <option key={s} value={s}>{s}</option>
+                        {ADMIN_PAYMENT_STATUSES.map((s) => (
+                          <option key={s} value={s}>{formatPaymentStatus(s)}</option>
                         ))}
                       </select>
                     </td>
+                    <td className="p-2 text-xs text-slate-600">{formatPaymentStatus(o.verificationStatus)}</td>
                     <td className="p-2">
                       <select
                         className="rounded border border-slate-300 bg-white px-2 py-1 text-xs text-slate-800"
@@ -188,25 +193,55 @@ export function AdminDashboard() {
                   </tr>
                   {expandedOrder === o.id && (
                     <tr className="border-t border-slate-100 bg-slate-50/80">
-                      <td colSpan={10} className="p-4">
+                      <td colSpan={12} className="p-4">
                         {o.shippingAddress && (
                           <p className="text-xs text-slate-600 mb-2 whitespace-pre-wrap">Address: {o.shippingAddress}</p>
                         )}
                         {o.orderNotes && <p className="text-xs text-slate-600 mb-2">Customer notes: {o.orderNotes}</p>}
+                        <p className="text-xs text-slate-500 mb-2">
+                          Expires: {new Date(o.expiresAt).toLocaleString()}
+                        </p>
                         <div className="flex flex-wrap gap-2 mb-3">
                           <button
                             type="button"
-                            onClick={() => patchOrder(o.id, { paymentStatus: "paid", status: "processing" })}
+                            onClick={() =>
+                              patchOrder(o.id, {
+                                paymentStatus: PAYMENT_STATUS.PAID,
+                                receivedAmount: o.expectedAmount,
+                                status: "processing",
+                              })
+                            }
                             className="rounded border border-emerald-300 bg-emerald-50 px-2 py-1 text-xs font-medium text-emerald-800 hover:bg-emerald-100"
                           >
                             Mark paid
                           </button>
                           <button
                             type="button"
-                            onClick={() => patchOrder(o.id, { paymentStatus: "verifying" })}
+                            onClick={() => patchOrder(o.id, { paymentStatus: PAYMENT_STATUS.MANUAL_REVIEW })}
                             className="rounded border border-amber-300 bg-amber-50 px-2 py-1 text-xs font-medium text-amber-800 hover:bg-amber-100"
                           >
-                            Verifying
+                            Manual review
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => patchOrder(o.id, { paymentStatus: PAYMENT_STATUS.UNDERPAID })}
+                            className="rounded border border-orange-300 bg-orange-50 px-2 py-1 text-xs font-medium text-orange-800 hover:bg-orange-100"
+                          >
+                            Underpaid
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => patchOrder(o.id, { paymentStatus: PAYMENT_STATUS.OVERPAID })}
+                            className="rounded border border-sky-300 bg-sky-50 px-2 py-1 text-xs font-medium text-sky-800 hover:bg-sky-100"
+                          >
+                            Overpaid
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => patchOrder(o.id, { paymentStatus: PAYMENT_STATUS.EXPIRED, status: "Expired" })}
+                            className="rounded border border-slate-300 bg-white px-2 py-1 text-xs font-medium text-slate-700 hover:bg-slate-50"
+                          >
+                            Mark expired
                           </button>
                           <button
                             type="button"
@@ -224,7 +259,12 @@ export function AdminDashboard() {
                           </button>
                           <button
                             type="button"
-                            onClick={() => patchOrder(o.id, { status: "cancelled", paymentStatus: "cancelled" })}
+                            onClick={() =>
+                              patchOrder(o.id, {
+                                status: "cancelled",
+                                paymentStatus: PAYMENT_STATUS.CANCELLED,
+                              })
+                            }
                             className="rounded border border-red-300 bg-red-50 px-2 py-1 text-xs font-medium text-red-800 hover:bg-red-100"
                           >
                             Mark cancelled

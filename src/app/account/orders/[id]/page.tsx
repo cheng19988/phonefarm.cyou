@@ -31,12 +31,14 @@ export default async function OrderDetailPage({
         ? [
             {
               quantity: order.quantity,
-              unitPriceUsd: order.expectedAmount / Math.max(order.quantity, 1),
-              lineTotalUsd: order.expectedAmount,
+              unitPriceUsd: order.product.priceUsd,
+              lineTotalUsd: order.product.priceUsd * order.quantity,
               product: order.product,
             },
           ]
         : [];
+
+  const catalogSubtotalUsd = lines.reduce((sum, line) => sum + line.lineTotalUsd, 0);
 
   return (
     <div className="mx-auto max-w-3xl px-4 py-12">
@@ -58,9 +60,13 @@ export default async function OrderDetailPage({
             </li>
           ))}
         </ul>
-        <p className="mt-4 flex justify-between border-t border-slate-200 pt-4 font-semibold text-slate-900">
-          <span>Total (USD)</span>
-          <span>{formatReferencePrice(order.expectedAmount)}</span>
+        <p className="mt-4 flex justify-between border-t border-slate-200 pt-3 text-sm text-slate-600">
+          <span>Catalog subtotal</span>
+          <span>{formatReferencePrice(catalogSubtotalUsd)}</span>
+        </p>
+        <p className="mt-2 flex justify-between font-semibold text-slate-900">
+          <span>USDT amount due</span>
+          <span>{formatReferencePrice(order.expectedAmount)} USDT</span>
         </p>
       </div>
 
@@ -88,9 +94,12 @@ export default async function OrderDetailPage({
               id: order.id,
               orderNumber: order.orderNumber,
               status: order.status,
+              catalogSubtotalUsd,
               expectedAmount: order.expectedAmount,
+              receivedAmount: order.receivedAmount,
               paymentAddress: order.paymentAddress,
               paymentStatus: order.paymentStatus,
+              verificationStatus: order.verificationStatus,
               expiresAt: order.expiresAt.toISOString(),
               txHash: order.txHash,
             }}

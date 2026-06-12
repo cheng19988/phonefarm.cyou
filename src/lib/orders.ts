@@ -1,4 +1,5 @@
 import { PAYMENT } from "./constants";
+import { computeUsdtChargeAmount } from "./payment-status";
 
 export function generateOrderNumber() {
   return `CY${Date.now().toString(36).toUpperCase()}${Math.random().toString(36).slice(2, 6).toUpperCase()}`;
@@ -7,6 +8,8 @@ export function generateOrderNumber() {
 export function orderExpiryDate() {
   return new Date(Date.now() + PAYMENT.expiryMinutes * 60 * 1000);
 }
+
+export { computeUsdtChargeAmount };
 
 export type TronVerifyResult = {
   verified: boolean;
@@ -28,7 +31,7 @@ export async function verifyTronUsdtPayment(params: {
     return {
       verified: false,
       message:
-        "TRON_API_KEY not configured. Payment verification pending manual or future API integration.",
+        "Automated on-chain verification is not enabled. Payment requires manual confirmation after tx hash submission.",
     };
   }
   return {

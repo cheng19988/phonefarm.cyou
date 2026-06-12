@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { cartSubtotal, clearCart, getCart, type CartItem } from "@/lib/cart";
 import { PAYMENT } from "@/lib/constants";
 import { formatReferencePrice } from "@/lib/pricing";
+import { computeUsdtChargeAmount, formatUsdtAmount } from "@/lib/payment-status";
 
 export function CheckoutForm() {
   const router = useRouter();
@@ -70,7 +71,7 @@ export function CheckoutForm() {
   }
 
   const subtotal = cartSubtotal(items);
-  const chargeMin = Math.max(PAYMENT.minAmount, subtotal);
+  const usdtDue = computeUsdtChargeAmount(subtotal);
 
   return (
     <form onSubmit={onSubmit} className="grid gap-10 lg:grid-cols-5">
@@ -133,7 +134,7 @@ export function CheckoutForm() {
           <ul className="mt-2 space-y-1 text-sm text-slate-600 list-disc pl-5">
             <li>Wallet address and exact amount appear on the order page immediately after submission.</li>
             <li>Pay within {PAYMENT.expiryMinutes} minutes; minimum charge USD ${PAYMENT.minAmount} when subtotal is lower.</li>
-            <li>Paste your transaction hash on the order page — verification is manual (not instant).</li>
+            <li>Paste your transaction hash on the order page — <strong>manual confirmation</strong> (not instant on-chain auto-verify).</li>
             <li>Shipping and duties are not included in catalog subtotal; sales confirms final export total if needed.</li>
           </ul>
         </div>
@@ -160,9 +161,19 @@ export function CheckoutForm() {
           <span>Catalog subtotal</span>
           <span>{formatReferencePrice(subtotal)}</span>
         </div>
-        {chargeMin > subtotal && (
+        <div className="mt-4 flex justify-between border-t border-slate-200 pt-4 font-semibold text-slate-900">
+          <span>USDT amount due</span>
+          <span>{formatUsdtAmount(usdtDue)} USDT</span>
+        </div>
+        {usdtDue > subtotal && (
           <p className="mt-2 text-xs text-slate-500">
-            Online checkout minimum USD ${PAYMENT.minAmount} — amount due may be {formatReferencePrice(chargeMin)}.
+            Online checkout minimum USD ${PAYMENT.minAmount}. USDT due is {formatUsdtAmount(usdtDue)} USDT (matches order
+            total).
+          </p>
+        )}
+        {usdtDue === subtotal && (
+          <p className="mt-2 text-xs text-slate-500">
+            USDT amount due matches catalog subtotal (1:1 USD reference).
           </p>
         )}
         <p className="mt-2 text-xs text-slate-500">

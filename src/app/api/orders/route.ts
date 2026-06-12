@@ -4,7 +4,8 @@ import { prisma } from "@/lib/prisma";
 import { getSession } from "@/lib/auth";
 import { PAYMENT } from "@/lib/constants";
 import { getUsdtTrc20Address } from "@/lib/payment";
-import { generateOrderNumber, orderExpiryDate } from "@/lib/orders";
+import { computeUsdtChargeAmount, generateOrderNumber, orderExpiryDate } from "@/lib/orders";
+import { PAYMENT_STATUS } from "@/lib/payment-status";
 import { canAddToCart } from "@/lib/product-purchase";
 import { notifyOrderEvent } from "@/lib/order-notify";
 
@@ -84,7 +85,7 @@ export async function POST(req: Request) {
       });
 
       const subtotal = lines.reduce((sum, l) => sum + l.lineTotalUsd, 0);
-      const expectedAmount = Math.max(PAYMENT.minAmount, subtotal);
+      const expectedAmount = computeUsdtChargeAmount(subtotal);
       const paymentAddress = getUsdtTrc20Address();
       if (!paymentAddress) {
         return NextResponse.json({ error: "Payment address not configured" }, { status: 503 });
@@ -103,7 +104,8 @@ export async function POST(req: Request) {
           paymentAddress,
           paymentNetwork: PAYMENT.network,
           paymentCurrency: PAYMENT.currency,
-          paymentStatus: "unpaid",
+          paymentStatus: PAYMENT_STATUS.PENDING,
+          verificationStatus: PAYMENT_STATUS.PENDING,
           customerName: data.customerName,
           customerEmail: data.customerEmail,
           contactMessaging: data.contactMessaging,
@@ -142,7 +144,7 @@ export async function POST(req: Request) {
         shippingAddress: data.shippingAddress,
         orderNotes: data.orderNotes,
         expectedAmount,
-        paymentStatus: "unpaid",
+        paymentStatus: PAYMENT_STATUS.PENDING,
         items: order.items.map((i) => ({
           name: i.product.name,
           quantity: i.quantity,
@@ -162,8 +164,9 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: "Insufficient stock" }, { status: 400 });
     }
     const unitPrice = product.priceUsd > 0 ? product.priceUsd : 0;
+    const lineTotal = unitPrice * quantity;
     const expectedAmount =
-      orderType === "quote" ? 0 : Math.max(PAYMENT.minAmount, unitPrice * quantity);
+      orderType === "quote" ? 0 : computeUsdtChargeAmount(lineTotal);
     const paymentAddress = orderType === "purchase" ? getUsdtTrc20Address() : "";
     if (orderType === "purchase" && !paymentAddress) {
       return NextResponse.json({ error: "Payment address not configured" }, { status: 503 });
@@ -181,7 +184,8 @@ export async function POST(req: Request) {
         paymentAddress,
         paymentNetwork: PAYMENT.network,
         paymentCurrency: PAYMENT.currency,
-        paymentStatus: orderType === "quote" ? "quote" : "unpaid",
+        paymentStatus: orderType === "quote" ? PAYMENT_STATUS.QUOTE : PAYMENT_STATUS.PENDING,
+        verificationStatus: orderType === "quote" ? PAYMENT_STATUS.QUOTE : PAYMENT_STATUS.PENDING,
         expiresAt: orderExpiryDate(),
         items: {
           create: {

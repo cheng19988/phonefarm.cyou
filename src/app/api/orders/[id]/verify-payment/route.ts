@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { getSession } from "@/lib/auth";
 import { verifyTronUsdtPayment } from "@/lib/orders";
+import { PAYMENT_STATUS } from "@/lib/payment-status";
 
 export async function POST(
   _req: Request,
@@ -24,10 +25,14 @@ export async function POST(
     return NextResponse.json({ error: "Forbidden" }, { status: 403 });
   }
 
-  if (new Date() > order.expiresAt && order.paymentStatus !== "paid") {
+  if (new Date() > order.expiresAt && order.paymentStatus !== PAYMENT_STATUS.PAID) {
     await prisma.order.update({
       where: { id },
-      data: { status: "Expired", paymentStatus: "expired", verificationStatus: "expired" },
+      data: {
+        status: "Expired",
+        paymentStatus: PAYMENT_STATUS.EXPIRED,
+        verificationStatus: PAYMENT_STATUS.EXPIRED,
+      },
     });
     return NextResponse.json({ error: "Order expired", status: "Expired" }, { status: 410 });
   }
@@ -39,29 +44,47 @@ export async function POST(
     txHash: order.txHash,
   });
 
-  if (result.verified && result.receivedAmount && result.receivedAmount >= order.expectedAmount) {
+  if (result.verified && result.receivedAmount != null) {
+    const received = result.receivedAmount;
+    const expected = order.expectedAmount;
+    let paymentStatus: string = PAYMENT_STATUS.MANUAL_REVIEW;
+    let orderStatus = order.status;
+
+    if (received >= expected) {
+      paymentStatus =
+        received > expected ? PAYMENT_STATUS.OVERPAID : PAYMENT_STATUS.PAID;
+      orderStatus = "Paid";
+    } else {
+      paymentStatus = PAYMENT_STATUS.UNDERPAID;
+    }
+
     const updated = await prisma.order.update({
       where: { id },
       data: {
-        status: "Paid",
-        paymentStatus: "paid",
-        verificationStatus: "confirmed",
-        receivedAmount: result.receivedAmount,
+        status: orderStatus === "Paid" ? "Paid" : order.status,
+        paymentStatus,
+        verificationStatus: result.verified ? "confirmed" : PAYMENT_STATUS.MANUAL_REVIEW,
+        receivedAmount: received,
         txHash: result.txHash ?? order.txHash,
-        paidAt: new Date(),
+        paidAt: paymentStatus === PAYMENT_STATUS.PAID || paymentStatus === PAYMENT_STATUS.OVERPAID ? new Date() : order.paidAt,
       },
     });
     return NextResponse.json({ order: updated, verification: result });
   }
 
+  const manualReview =
+    order.txHash || order.paymentStatus === PAYMENT_STATUS.MANUAL_REVIEW;
   await prisma.order.update({
     where: { id },
-    data: { verificationStatus: "pending" },
+    data: {
+      verificationStatus: manualReview ? PAYMENT_STATUS.MANUAL_REVIEW : PAYMENT_STATUS.PENDING,
+    },
   });
 
   return NextResponse.json({
     order,
     verification: result,
-    pending: true,
+    manualConfirmation: true,
+    message: result.message,
   });
 }

@@ -3,6 +3,7 @@ import { z } from "zod";
 import { prisma } from "@/lib/prisma";
 import { getSession } from "@/lib/auth";
 import { notifyOrderEvent } from "@/lib/order-notify";
+import { PAYMENT_STATUS } from "@/lib/payment-status";
 
 const schema = z.object({ txHash: z.string().min(10) });
 
@@ -27,8 +28,8 @@ export async function PATCH(
     where: { id },
     data: {
       txHash,
-      paymentStatus: "submitted",
-      verificationStatus: "submitted",
+      paymentStatus: PAYMENT_STATUS.MANUAL_REVIEW,
+      verificationStatus: PAYMENT_STATUS.MANUAL_REVIEW,
     },
     include: { items: { include: { product: true } } },
   });
