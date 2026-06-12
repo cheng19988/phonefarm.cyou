@@ -18,6 +18,7 @@ const INDEXABLE_STATIC_PATHS = [
   "/about",
   "/faq",
   "/contact",
+  "/ai",
   "/blog",
   "/guides/hardware-selection",
   "/privacy",

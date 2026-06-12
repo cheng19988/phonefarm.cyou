@@ -5,6 +5,15 @@
       "has": [{ "type": "host", "value": "phonefarm.cyou" }],
       "destination": "https://www.phonefarm.cyou/$1",
       "statusCode": 301
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        { "type": "host", "value": "www.phonefarm.cyou" },
+        { "type": "header", "key": "x-forwarded-proto", "value": "http" }
+      ],
+      "destination": "https://www.phonefarm.cyou/$1",
+      "statusCode": 301
     }
   ]
 }

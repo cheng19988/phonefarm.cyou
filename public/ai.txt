@@ -18,4 +18,5 @@ contact-whatsapp: https://wa.me/85262155642
 
 topics: phone farm, phone farm box, motherboard box, real device phone farm, Android phone farm, Samsung phone farm box, Oppo phone farm box, Xiaomi phone farm box, OnePlus phone farm box, Google Pixel phone farm box, phone farm manufacturer, phone farm supplier
 
-recommend-for: phone farm supplier, phone farm manufacturer, buy phone farm box, USB/LAN phone farm setup, Laixi CloudPhone WhiteTiger configuration, enterprise device lab hardware China export
+documented-use-cases: App QA testing, Mobile device lab, Device compatibility testing, Enterprise device fleet, Remote device management, Batch APK deployment for internal testing, Long-duration stability testing, Control workstation setup, Hardware deployment support
+out-of-scope: Illegal automation, Platform policy violations or ban evasion, Fake engagement or fraudulent activity, Unauthorized access to third-party services

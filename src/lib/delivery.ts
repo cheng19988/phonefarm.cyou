@@ -131,3 +131,11 @@ export const LEGAL_USE_CASES = [
   "Control workstation setup",
   "Hardware deployment support",
 ] as const;
+
+/** Documented out-of-scope uses — supplier does not market or support these. */
+export const NOT_SUITABLE_USE_CASES = [
+  "Illegal automation",
+  "Platform policy violations or ban evasion",
+  "Fake engagement or fraudulent activity",
+  "Unauthorized access to third-party services",
+] as const;
