@@ -4,7 +4,8 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { CONTACT, SITE } from "@/lib/constants";
 import { CONTACT_URLS } from "@/lib/contact-urls";
 import { resolveProductPrefill } from "@/lib/product-prefill";
-import { buildMetadata } from "@/lib/seo";
+import { JsonLd } from "@/components/JsonLd";
+import { buildMetadata, contactPageJsonLd } from "@/lib/seo";
 
 export const metadata = buildMetadata({
   title: "Contact Sales — Request a Quotation",
@@ -24,6 +25,7 @@ export default async function ContactPage({
 
   return (
     <div className="bg-white">
+      <JsonLd data={contactPageJsonLd()} />
       <section className="border-b border-slate-200 bg-sky-50">
         <div className="site-container py-12 lg:py-16">
           <SectionHeading

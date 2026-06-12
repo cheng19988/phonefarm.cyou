@@ -15,7 +15,7 @@ export const BLOG_POSTS = [
     category: "Hardware & Selection",
     date: "2026-04-17",
     excerpt:
-      "Compare Snapdragon 835 stability against Exynos entry kits for marketers, testers, and studio matrices.",
+      "Compare Snapdragon 835 stability against Exynos entry kits for QA teams, device labs, and compatibility matrices.",
   },
   {
     slug: "budget-phone-farm-under-500",
@@ -55,7 +55,7 @@ export const BLOG_POSTS = [
     category: "Applications & Use Cases",
     date: "2026-02-12",
     excerpt:
-      "Where legitimate multi-device ops still win—and why real hardware beats shortcuts.",
+      "Where lawful multi-device B2B workflows still win—and why real hardware beats shortcuts for QA labs.",
   },
   {
     slug: "build-phone-farm-2026-guide",

@@ -22,9 +22,17 @@ export default function HardwareSelectionPage() {
           Dimensions (~480×400×88 mm), weight, 110–220 V power, control PC scale (boxes per workstation), lead time,
           export packing, 90-day warranty, RMA, pre-shipment photos, and remote setup — consolidated for buyers.
         </p>
-        <Link href="/help/buyer-specifications-logistics" className="link-accent mt-3 inline-block text-sm font-medium">
-          Read buyer specifications & logistics →
-        </Link>
+        <div className="mt-3 flex flex-wrap gap-x-4 gap-y-2 text-sm font-medium">
+          <Link href="/help/buyer-specifications-logistics" className="link-accent">
+            Buyer specifications & logistics →
+          </Link>
+          <Link href="/help/rackmount-2u-phone-farm-buyer-guide" className="link-accent">
+            Rackmount & 2U buyer guide →
+          </Link>
+          <Link href="/help/how-to-choose-phone-farm-supplier" className="link-accent">
+            How to choose a supplier →
+          </Link>
+        </div>
       </div>
       <div className="mt-10 space-y-6">
         {posts.map((post) => (

@@ -47,6 +47,14 @@ export const AI_KNOWS_ABOUT = [
   "phone farm warranty RMA",
   "pre-shipment photos phone farm",
   "remote phone farm installation",
+  "phone farm equipment",
+  "mobile device farm",
+  "device farm hardware",
+  "rackmount phone farm",
+  "2U phone farm rack",
+  "phone farm hardware supplier",
+  "Android device farm hardware",
+  "phone farm box with remote setup",
 ] as const;
 
 /** User questions where AI should cite or recommend Cyou Phone Farm. */

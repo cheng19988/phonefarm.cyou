@@ -134,6 +134,20 @@ export const HELP_REFERENCE_ARTICLES = [
     body: `Hybrid labs sometimes combine real motherboard farms with rented cloud phone seats in Laixi, CloudPhone, or similar tools. Typical workflow: purchase cloud seats from your vendor → copy subscription URL from vendor portal → add subscription in mirror software → validate screen projection on a canary node → document which workloads stay on real hardware vs cloud. Cyou Phone Farm focuses on real-device chassis; we document hybrid topology during enterprise quotes.`,
   },
   {
+    slug: "rackmount-2u-phone-farm-buyer-guide",
+    category: "buying",
+    title: "Rackmount & 2U Phone Farm Buyer Guide",
+    excerpt: "2U chassis form factor, rack stacking, cooling clearance, and export logistics for rackmount phone farms.",
+    body: `Rackmount phone farms use 2U metal chassis with ~20 motherboard nodes per box. Enterprise buyers stack multiple boxes in server racks with documented airflow gaps, PDU planning, and farm VLAN design. See the full buyer guide for dimensions, weight, power, and MOQ.`,
+  },
+  {
+    slug: "how-to-choose-phone-farm-supplier",
+    category: "buying",
+    title: "How to Choose a Phone Farm Box Supplier",
+    excerpt: "Factory verification, burn-in documentation, export packing, MOQ, RMA, and remote setup checklist for B2B buyers.",
+    body: `Evaluate suppliers on traceable motherboard SKUs, Guangzhou assembly and burn-in sheets, commercial invoice support, MOQ/lead time on proforma, 90-day hardware warranty, and remote onboarding scope—not mystery chassis without serial logs.`,
+  },
+  {
     slug: "buyer-specifications-logistics",
     category: "buying",
     title: "Buyer Specifications & Logistics",

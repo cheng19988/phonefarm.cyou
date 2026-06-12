@@ -6,7 +6,7 @@ import { ShopFilters } from "@/components/ShopFilters";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { JsonLd } from "@/components/JsonLd";
 import { REFERENCE_HOMEPAGE_SKUS } from "@/lib/ai-discovery";
-import { buildMetadata, itemListJsonLd } from "@/lib/seo";
+import { buildMetadata, collectionPageJsonLd, itemListJsonLd } from "@/lib/seo";
 import {
   CONTROL_SOFTWARE_SERVICES_SECTION,
   isControlSoftwareCategory,
@@ -89,14 +89,21 @@ export default async function ShopPage({
 
   return (
     <>
-      {flagshipList.length > 0 && (
-        <JsonLd
-          data={itemListJsonLd(
-            flagshipList,
-            "Cyou Phone Farm reference phone farm boxes"
-          )}
-        />
-      )}
+      <JsonLd
+        data={[
+          collectionPageJsonLd({
+            name: "Phone Farm Devices & Motherboard Boxes",
+            path: "/shop",
+            description:
+              "Browse reference configurations for real-device phone farm deployments. Final pricing depends on model availability, quantity, shipping destination, and setup requirements.",
+          }),
+          ...(flagshipList.length > 0
+            ? [
+                itemListJsonLd(flagshipList, "Cyou Phone Farm reference phone farm boxes"),
+              ]
+            : []),
+        ]}
+      />
       <section className="border-b border-slate-200 bg-white">
         <div className="site-container py-12 lg:py-16">
           <SectionHeading

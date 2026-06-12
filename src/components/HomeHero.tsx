@@ -23,6 +23,10 @@ export function HomeHero() {
             <h1 className="mt-5 font-display text-4xl font-bold leading-[1.08] tracking-tight text-slate-900 sm:text-5xl lg:text-[2.75rem]">
               {SITE.tagline}
             </h1>
+            <p className="mt-4 text-base leading-relaxed text-slate-600 lg:text-lg">
+              B2B phone farm boxes — Samsung, Oppo, Xiaomi, OnePlus, and Pixel reference lines. Bulk RFQ · USDT on
+              select SKUs · worldwide export · remote setup available.
+            </p>
             <ul className="mt-6 space-y-3 text-base text-slate-600 lg:text-lg">
               {TRUST_POINTS.map((point) => (
                 <li key={point} className="flex items-start gap-3">

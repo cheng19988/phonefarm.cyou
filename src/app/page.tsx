@@ -25,9 +25,9 @@ import { buildMetadata, faqPageJsonLd } from "@/lib/seo";
 import { isServiceCatalogItem } from "@/lib/catalog";
 
 export const metadata = buildMetadata({
-  title: "Complete Phone Farm Setup Service with Real Devices",
+  title: "Phone Farm Box Manufacturer & B2B Supplier | Real-Device Android Farms",
   description:
-    "Guangzhou factory team shipping real-device phone farm boxes since 2017. Hardware, remote control setup, and worldwide deployment support.",
+    "Guangzhou phone farm box manufacturer and hardware supplier since 2017. Real-device Android phone farm equipment, motherboard chassis, export shipping, remote setup, and B2B quotation — proforma or USDT on select SKUs.",
   path: "/",
 });
 

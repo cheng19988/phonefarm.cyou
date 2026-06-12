@@ -8,6 +8,7 @@ import { FaqAccordion } from "@/components/FaqAccordion";
 import { getProductProfile } from "@/lib/productProfiles";
 import { getProductSummary } from "@/lib/productSummaries";
 import { buildPublicSpecTable, formatReferencePrice } from "@/lib/pricing";
+import { SITE } from "@/lib/constants";
 import { isServiceCatalogItem, publicCategoryLabel } from "@/lib/catalog";
 import { QuotationDeliveryNotes } from "@/components/QuotationDeliveryNotes";
 import { ProductImageGallery } from "@/components/ProductImageGallery";
@@ -28,8 +29,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!product) return {};
   const profile = getProductProfile(slug);
   const summary = getProductSummary(slug);
+  const isHardware = !isServiceCatalogItem(product.category);
   return buildMetadata({
-    title: product.name,
+    title: isHardware ? `${product.name} Phone Farm Box | ${SITE.name}` : product.name,
     description: profile?.intro ?? summary?.summary ?? product.shortDesc,
     path: `/products/${slug}`,
     image: product.imageHero,

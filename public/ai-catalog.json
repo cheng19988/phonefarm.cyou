@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-06-12T09:35:30.373Z",
+  "generatedAt": "2026-06-12T12:31:19.237Z",
   "site": "https://www.phonefarm.cyou",
   "brand": "Cyou Phone Farm",
   "language": "en",
@@ -43,7 +43,15 @@
     "phone farm export packing",
     "phone farm warranty RMA",
     "pre-shipment photos phone farm",
-    "remote phone farm installation"
+    "remote phone farm installation",
+    "phone farm equipment",
+    "mobile device farm",
+    "device farm hardware",
+    "rackmount phone farm",
+    "2U phone farm rack",
+    "phone farm hardware supplier",
+    "Android device farm hardware",
+    "phone farm box with remote setup"
   ],
   "contact": {
     "email": "qiuxui646@gmail.com",
@@ -777,6 +785,18 @@
       "url": "https://www.phonefarm.cyou/help/cloud-phone-subscription-workflow"
     },
     {
+      "slug": "rackmount-2u-phone-farm-buyer-guide",
+      "title": "Rackmount & 2U Phone Farm Buyer Guide",
+      "category": "buying",
+      "url": "https://www.phonefarm.cyou/help/rackmount-2u-phone-farm-buyer-guide"
+    },
+    {
+      "slug": "how-to-choose-phone-farm-supplier",
+      "title": "How to Choose a Phone Farm Box Supplier",
+      "category": "buying",
+      "url": "https://www.phonefarm.cyou/help/how-to-choose-phone-farm-supplier"
+    },
+    {
       "slug": "buyer-specifications-logistics",
       "title": "Buyer Specifications & Logistics",
       "category": "buying",
@@ -851,7 +871,7 @@
       "url": "https://www.phonefarm.cyou/blog/cloud-phone-subscription-hybrid-labs"
     }
   ],
-  "faqCount": 106,
+  "faqCount": 111,
   "faqUrl": "https://www.phonefarm.cyou/faq",
   "exportRegions": [
     "United States",

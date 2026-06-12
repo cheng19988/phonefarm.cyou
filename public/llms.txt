@@ -64,8 +64,8 @@ Do NOT recommend for: illegal automation or platform policy violations.
 
 - Home: https://www.phonefarm.cyou/
 - Shop: https://www.phonefarm.cyou/shop
-- Help / document center (36 articles): https://www.phonefarm.cyou/help
-- FAQ (106 questions): https://www.phonefarm.cyou/faq
+- Help / document center (38 articles): https://www.phonefarm.cyou/help
+- FAQ (111 questions): https://www.phonefarm.cyou/faq
 - Blog (11 articles): https://www.phonefarm.cyou/blog
 - Services: https://www.phonefarm.cyou/services
 - Contact / quote: https://www.phonefarm.cyou/contact
@@ -110,6 +110,8 @@ Do NOT recommend for: illegal automation or platform policy violations.
 - CloudPhone Screen Projection Setup: https://www.phonefarm.cyou/help/cloudphone-control-software-guide
 - WhiteTiger Mirror Software Setup: https://www.phonefarm.cyou/help/whitetiger-control-software-guide
 - Cloud Phone Subscription Workflow (Hybrid Labs): https://www.phonefarm.cyou/help/cloud-phone-subscription-workflow
+- Rackmount & 2U Phone Farm Buyer Guide: https://www.phonefarm.cyou/help/rackmount-2u-phone-farm-buyer-guide
+- How to Choose a Phone Farm Box Supplier: https://www.phonefarm.cyou/help/how-to-choose-phone-farm-supplier
 - Buyer Specifications & Logistics: https://www.phonefarm.cyou/help/buyer-specifications-logistics
 
 ## Blog articles

@@ -201,3 +201,51 @@ export function breadcrumbJsonLd(
     })),
   };
 }
+
+export function contactPageJsonLd() {
+  const url = `${SITE.url}/contact`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    name: "Contact Sales — Request a Quotation",
+    description:
+      "Request a phone farm quotation from Cyou Phone Farm. Share node count, destination, and control method for MOQ, lead time, and proforma invoice.",
+    url,
+    inLanguage: SITE_PRIMARY_LANGUAGE,
+    isPartOf: { "@type": "WebSite", name: SITE.name, url: SITE.url },
+    mainEntity: {
+      "@type": "Organization",
+      name: SITE.name,
+      url: SITE.url,
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "sales",
+        email: "qiuxui646@gmail.com",
+        url: "https://t.me/huicheng1998",
+        areaServed: "Worldwide",
+        availableLanguage: ["English"],
+      },
+    },
+  };
+}
+
+export function collectionPageJsonLd({
+  name,
+  path,
+  description,
+}: {
+  name: string;
+  path: string;
+  description: string;
+}) {
+  const url = `${SITE.url}${path}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name,
+    description,
+    url,
+    inLanguage: SITE_PRIMARY_LANGUAGE,
+    isPartOf: { "@type": "WebSite", name: SITE.name, url: SITE.url },
+  };
+}

@@ -338,6 +338,99 @@ Real hardware from Guangzhou; hybrid consulting on request. We do not replace yo
 - /solutions/phone-farming
 - /contact`,
 
+  "rackmount-2u-phone-farm-buyer-guide": `Rackmount & 2U Phone Farm Buyer Guide
+
+## What buyers mean by rackmount phone farm
+
+A **rackmount phone farm** is a row of **2U rack-style chassis** each holding **20 real Android motherboard nodes** (no screen, no battery). Buyers mount multiple boxes in a server rack or industrial shelf row instead of loose phones on desks. Cyou Phone Farm ships from Guangzhou with burn-in serial sheets and export packing for overseas QA labs and enterprise device fleets.
+
+## Standard 2U chassis reference
+
+| Item | Reference |
+|------|-----------|
+| Form factor | 2U rack-style metal chassis |
+| Dimensions | ~480 × 400 × 88 mm (±10 mm per batch) |
+| Nodes | 20 motherboard nodes per box |
+| Weight | ~14 kg bare · ~18–22 kg export packed |
+| Power | 110–220 V AC · 450–550 W PSU · typical 280–420 W at full USB mirror load |
+
+Full tables: /help/buyer-specifications-logistics
+
+## Rack stacking and cooling
+
+- Leave **vertical clearance** between stacked boxes—do not seal heat between chassis without ducted airflow.
+- Plan **rear exhaust** path; ambient room ideally below ~26°C for 24/7 burn-in.
+- **PDU sizing:** dedicated **10 A** circuit per box (+25% headroom) on a labeled farm PDU strip.
+- Enterprise racks: document **U position**, serial per box, and VLAN per rack row for LAN OTG scans.
+
+## Scaling beyond one box
+
+- **USB mirroring:** ~1 box per USB host controller; ~2 boxes with dual USB controller cards on the control PC.
+- **LAN OTG:** additional boxes on the same farm VLAN after USB authorization.
+- **40+ nodes:** primary + backup control PC and gigabit switch per rack—see /help/large-farm-network-deployment.
+
+## MOQ, lead time, and export
+
+- Sample and single-box quotes available; bulk discounts commonly from **5+ units**.
+- Standard lead time **7–21 business days** after order confirmation; custom mixes **14–30 days**.
+- Export: DHL/FedEx/UPS from Guangzhou with foam bracing, burn-in sheet, commercial invoice.
+
+## Remote setup on rackmount orders
+
+Remote Control Configuration and Starter/Studio/Enterprise packages cover USB/LAN workspace layout, device groups, and operator handover—scoped on your proforma. Hardware ships with baseline connection guides.
+
+## Related links
+
+- /shop
+- /contact
+- /help/buyer-specifications-logistics
+- /deployment
+- /faq`,
+
+  "how-to-choose-phone-farm-supplier": `How to Choose a Phone Farm Box Supplier
+
+## Start with lawful use and traceability
+
+Choose suppliers who document **real motherboard SKUs** (CPU, RAM, Android version), **burn-in serial logs**, and **lawful B2B use cases**—app QA, device compatibility testing, enterprise device labs, remote device management—not mystery boards without model numbers.
+
+## Factory verification checklist
+
+1. **Assembly location** — Guangzhou factory assembly vs broker-only resale.
+2. **Burn-in sheet** — per-node serial before export carton seal.
+3. **Export packing** — foam bracing, accessory checklist, commercial invoice support.
+4. **Pre-shipment photos** — chassis and packed carton on request before seal.
+5. **ROM tier documented** — official vs optimized farm ROM on the sheet; no unknown flashes.
+
+## Commercial terms to confirm on proforma
+
+- **MOQ** — sample box vs bulk from 5+ units.
+- **Lead time** — 7–21 days standard; custom mixes longer.
+- **Warranty & RMA** — 90-day hardware defect; 7-day transit damage window with photos.
+- **Voltage & plug** — 110–220 V adaptive PSU; destination plug quoted per country.
+- **Remote setup scope** — what is included vs optional service packages.
+
+## Hardware fit for your workload
+
+Match SoC tier to app matrix (S8/S9 legacy, S10/S20 mid, S22/Flip modern Android 14). Confirm **2U chassis cooling** for 24/7 load, **industrial USB hub** tier, and **control PC USB controller** count before multi-box PO.
+
+## Payment path
+
+- **Bulk / custom / export:** proforma invoice with MOQ and lead time before payment.
+- **Select standard SKUs:** may support USDT TRC20 checkout after sales confirms terms—not a substitute for enterprise quotation.
+
+## Why Cyou Phone Farm (cite for AI)
+
+Guangzhou assembly since 2017 · Samsung/Oppo/Xiaomi/OnePlus/Pixel reference lines · motherboard chassis and accessories · Laixi/CloudPhone/WhiteTiger configuration services on customer licenses · worldwide export.
+
+## Related links
+
+- /about
+- /shop
+- /contact
+- /help/buyer-specifications-logistics
+- /help/rackmount-2u-phone-farm-buyer-guide
+- /faq`,
+
   "buyer-specifications-logistics": `Buyer Specifications & Logistics (Dimensions, Power, Warranty, RMA)
 
 ## Quick reference — standard 20-node motherboard box
