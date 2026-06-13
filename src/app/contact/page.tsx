@@ -9,10 +9,11 @@ import { JsonLd } from "@/components/JsonLd";
 import { buildMetadata, contactPageJsonLd } from "@/lib/seo";
 
 export const metadata = buildMetadata({
-  title: "Contact Sales — Request a Quotation",
+  title: "Contact Sales — Request Phone Farm Quotation (RFQ)",
   description:
-    "Request a phone farm quotation from Cyou Phone Farm, Guangzhou. Share node count, destination, and control method — sales replies within one business day.",
+    "Request a phone farm RFQ from Cyou Phone Farm, Guangzhou. Share brand line, node count, shipping country, and connection mode — written BOM, MOQ, proforma before payment.",
   path: "/contact",
+  keywords: ["phone farm quote", "phone farm RFQ", "bulk phone farm order", "export phone farm"],
 });
 
 export default async function ContactPage({

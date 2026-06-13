@@ -1,18 +1,43 @@
 import Link from "next/link";
 import { HELP_ARTICLES, HELP_CATEGORIES } from "@/lib/help";
-import { buildMetadata } from "@/lib/seo";
+import { buildMetadata, collectionPageJsonLd, itemListJsonLd } from "@/lib/seo";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { JsonLd } from "@/components/JsonLd";
 
 export const metadata = buildMetadata({
-  title: "Help Center & Document Center",
-    description:
-    "Cyou Phone Farm document center: buyer specs (dimensions, power, warranty), USB/LAN setup, batch APK, router, ROM flash, and troubleshooting.",
+  title: "Help Center & Phone Farm Documentation",
+  description:
+    "Cyou Phone Farm help center: buyer specs (2U chassis, power, warranty), USB/LAN OTG setup, batch APK, router DHCP, ROM flash, rackmount deployment, and troubleshooting for B2B device labs.",
   path: "/help",
+  keywords: [
+    "phone farm setup",
+    "USB screen projection",
+    "LAN OTG phone farm",
+    "rackmount phone farm",
+    "phone farm troubleshooting",
+  ],
 });
 
 export default function HelpPage() {
+  const articleList = HELP_ARTICLES.map((a) => ({
+    name: a.title,
+    url: `/help/${a.slug}`,
+    description: a.excerpt,
+  }));
+
   return (
     <div className="bg-white">
+      <JsonLd
+        data={[
+          collectionPageJsonLd({
+            name: "Phone Farm Help Center",
+            path: "/help",
+            description:
+              "Documentation for phone farm hardware buyers: connection, control software, network, firmware, and post-delivery operations.",
+          }),
+          itemListJsonLd(articleList, "Phone farm help articles"),
+        ]}
+      />
       <section className="border-b border-slate-200 bg-sky-50">
         <div className="site-container py-12 lg:py-16">
           <SectionHeading

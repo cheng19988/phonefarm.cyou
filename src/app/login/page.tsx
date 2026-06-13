@@ -2,6 +2,13 @@ import Link from "next/link";
 import { Suspense } from "react";
 import { AuthForm } from "@/components/AuthForm";
 import { B2BQuotationGate } from "@/components/B2BQuotationGate";
+import { buildNoIndexMetadata } from "@/lib/seo";
+
+export const metadata = buildNoIndexMetadata(
+  "Sign in",
+  "Sign in to view standard configuration orders placed online after sales confirmation.",
+  "/login"
+);
 
 export default function LoginPage() {
   return (

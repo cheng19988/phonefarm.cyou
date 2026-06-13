@@ -1,8 +1,7 @@
 import type { MetadataRoute } from "next";
 import { PUBLISHED_BLOG_POSTS } from "@/lib/blog";
-import { SHOP_BRANDS } from "@/lib/constants";
+import { PRODUCT_CATEGORIES, SHOP_BRANDS, SITE } from "@/lib/constants";
 import { canonicalPageUrl } from "@/lib/canonical-url";
-import { SITE } from "@/lib/constants";
 import { HELP_ARTICLES } from "@/lib/help";
 import { prisma } from "@/lib/prisma";
 
@@ -41,15 +40,22 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticEntries: MetadataRoute.Sitemap = INDEXABLE_STATIC_PATHS.map((path) => ({
     url: canonicalPageUrl(path, origin),
     lastModified: new Date(),
-    changeFrequency: path === "" ? "weekly" : "weekly",
-    priority: path === "" ? 1 : 0.8,
+    changeFrequency: path === "" ? "weekly" : path.startsWith("/help") ? "monthly" : "weekly",
+    priority:
+      path === ""
+        ? 1
+        : path === "/shop" || path === "/phone-farm" || path === "/contact"
+          ? 0.9
+          : path === "/ai"
+            ? 0.85
+            : 0.8,
   }));
 
-  const categoryEntries: MetadataRoute.Sitemap = SHOP_BRANDS.map((brand) => ({
-    url: canonicalPageUrl(`/shop?category=${brand.slug}`, origin),
+  const categoryEntries: MetadataRoute.Sitemap = PRODUCT_CATEGORIES.map((cat) => ({
+    url: canonicalPageUrl(`/shop?category=${cat.slug}`, origin),
     lastModified: new Date(),
     changeFrequency: "weekly",
-    priority: 0.75,
+    priority: SHOP_BRANDS.some((b) => b.slug === cat.slug) ? 0.78 : 0.72,
   }));
 
   const productEntries: MetadataRoute.Sitemap = products.map((p) => ({

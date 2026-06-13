@@ -2,6 +2,13 @@ import Link from "next/link";
 import { Suspense } from "react";
 import { AuthForm } from "@/components/AuthForm";
 import { B2BQuotationGate } from "@/components/B2BQuotationGate";
+import { buildNoIndexMetadata } from "@/lib/seo";
+
+export const metadata = buildNoIndexMetadata(
+  "Create account",
+  "Register to track standard SKU orders. Bulk and export orders start with RFQ at /contact.",
+  "/register"
+);
 
 export default function RegisterPage() {
   return (

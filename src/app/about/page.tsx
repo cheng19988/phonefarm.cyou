@@ -5,18 +5,31 @@ import { FacilityPhoto } from "@/components/FacilityPhoto";
 import { DeliverySopSection } from "@/components/DeliverySopSection";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { CONTACT_URLS } from "@/lib/contact-urls";
-import { buildMetadata } from "@/lib/seo";
+import { buildMetadata, breadcrumbJsonLd } from "@/lib/seo";
+import { JsonLd } from "@/components/JsonLd";
 
 export const metadata = buildMetadata({
   title: "About Cyou Phone Farm - Guangzhou Factory Since 2017",
   description:
-    "Guangzhou manufacturer of real-device phone farm boxes since 2017. Assembly, burn-in testing, export packing, remote control setup, and worldwide B2B shipping.",
+    "Guangzhou manufacturer of real-device phone farm boxes since 2017. Factory assembly, burn-in QC, export packing, Samsung–Pixel brand lines, remote control setup, and worldwide B2B shipping.",
   path: "/about",
+  keywords: [
+    "phone farm manufacturer",
+    "phone farm factory China",
+    "Guangzhou phone farm",
+    "motherboard box supplier",
+  ],
 });
 
 export default function AboutPage() {
   return (
     <div className="bg-white">
+      <JsonLd
+        data={breadcrumbJsonLd([
+          { name: "Home", path: "/" },
+          { name: "About", path: "/about" },
+        ])}
+      />
       <section className="border-b border-slate-200 bg-sky-50">
         <div className="site-container py-12 lg:py-16">
           <SectionHeading

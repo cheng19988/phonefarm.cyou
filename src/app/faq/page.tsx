@@ -9,8 +9,9 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 export const metadata = buildMetadata({
   title: "Phone Farm FAQ - Hardware, Setup, Shipping, Payment",
   description:
-    "70+ answers about phone farm boxes, motherboard boxes, USB/LAN control, real devices vs cloud, MOQ, samples, shipping, payment, and Guangzhou factory support.",
+    `${FAQ_ITEMS.length}+ answers about phone farm boxes, motherboard chassis, USB/LAN control, MOQ, samples, export shipping, USDT/proforma payment, and Guangzhou factory support.`,
   path: "/faq",
+  keywords: ["phone farm FAQ", "phone farm MOQ", "phone farm shipping", "USDT phone farm payment"],
 });
 
 export default function FaqPage() {

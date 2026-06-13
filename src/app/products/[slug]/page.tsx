@@ -84,6 +84,7 @@ export default async function ProductDetailPage({
             slug: product.slug,
             priceUsd: product.priceUsd,
             image: product.imageHero,
+            category: publicCategoryLabel(product.category),
           }),
           breadcrumbJsonLd([
             { name: "Home", path: "/" },

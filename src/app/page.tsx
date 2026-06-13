@@ -18,18 +18,27 @@ import {
   CONTROL_SETUP_SERVICES,
   PRODUCT_INFO_TOPICS,
   HOME_SECTIONS,
+  SITE,
 } from "@/lib/constants";
 import { FACILITY_GALLERY } from "@/lib/images";
 import { FacilityPhoto } from "@/components/FacilityPhoto";
-import { buildMetadata, faqPageJsonLd } from "@/lib/seo";
+import { buildMetadata, faqPageJsonLd, webPageJsonLd } from "@/lib/seo";
 import { isServiceCatalogItem } from "@/lib/catalog";
 import { FINAL_QUOTE_BEFORE_PAYMENT, REFERENCE_PRICE_LABEL } from "@/lib/pricing";
 
 export const metadata = buildMetadata({
   title: "Phone Farm Box Manufacturer & B2B Supplier | Real-Device Android Farms",
   description:
-    "Guangzhou phone farm box manufacturer and hardware supplier since 2017. Real-device Android phone farm equipment, motherboard chassis, export shipping, remote setup, and B2B quotation — proforma or USDT on select SKUs.",
+    "Guangzhou phone farm box manufacturer since 2017. Real-device Android farms — Samsung, Oppo, Xiaomi, OnePlus, Pixel motherboard chassis, export shipping, remote setup, RFQ/proforma B2B ordering.",
   path: "/",
+  keywords: [
+    "phone farm box",
+    "phone farm manufacturer",
+    "phone farm supplier",
+    "motherboard phone farm",
+    "Android device farm",
+    "Guangzhou phone farm",
+  ],
 });
 
 async function productsForSection(section: (typeof HOME_SECTIONS)[number]) {
@@ -59,7 +68,11 @@ export default async function HomePage() {
 
   return (
     <>
-      <JsonLd data={faqPageJsonLd(HOME_FAQ_ITEMS)} />
+      <JsonLd data={[faqPageJsonLd(HOME_FAQ_ITEMS), webPageJsonLd({
+        name: SITE.name,
+        description: SITE.intro,
+        path: "/",
+      })]} />
       <HomeHero />
       <TrustStatsBar />
 

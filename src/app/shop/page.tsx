@@ -6,6 +6,7 @@ import { ShopFilters } from "@/components/ShopFilters";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { JsonLd } from "@/components/JsonLd";
 import { REFERENCE_HOMEPAGE_SKUS } from "@/lib/ai-discovery";
+import { SITE } from "@/lib/constants";
 import { buildMetadata, collectionPageJsonLd, itemListJsonLd } from "@/lib/seo";
 import {
   CONTROL_SOFTWARE_SERVICES_SECTION,
@@ -40,12 +41,54 @@ function sectionLabel(category: string) {
   return SECTION_LABEL_OVERRIDES[slug] ?? publicCategoryLabel(slug);
 }
 
-export const metadata = buildMetadata({
-  title: "Phone Farm Equipment & Motherboard Boxes — B2B Hardware Supplier",
-  description:
-    "Browse Android phone farm boxes, device farm hardware, and motherboard chassis from a Guangzhou hardware supplier. Samsung, Oppo, Xiaomi, OnePlus, Pixel reference SKUs — bulk MOQ and export quotes.",
-  path: "/shop",
-});
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: Promise<{ category?: string; q?: string }>;
+}) {
+  const { category, q } = await searchParams;
+
+  if (q?.trim()) {
+    return buildMetadata({
+      title: `Shop search: ${q.trim()}`,
+      description: `Search results for phone farm hardware and motherboard boxes on ${SITE.name}. Request quotation for MOQ, export packing, and setup.`,
+      path: `/shop?q=${encodeURIComponent(q.trim())}`,
+      noIndex: true,
+    });
+  }
+
+  if (category) {
+    const label = sectionLabel(category);
+    const slug = normalizeCategorySlug(category);
+    return buildMetadata({
+      title: `${label} — Phone Farm Box Catalog`,
+      description: `Browse ${label.toLowerCase()} from Guangzhou factory-direct supplier Cyou Phone Farm. Reference USD prices, RFQ for MOQ, lead time, export packing, and remote setup.`,
+      path: `/shop?category=${slug}`,
+      keywords: [
+        "phone farm box",
+        label.toLowerCase(),
+        "motherboard chassis",
+        "B2B hardware supplier",
+        "Guangzhou phone farm",
+      ],
+    });
+  }
+
+  return buildMetadata({
+    title: "Phone Farm Equipment & Motherboard Boxes — B2B Hardware Supplier",
+    description:
+      "Browse Android phone farm boxes, device farm hardware, and motherboard chassis from a Guangzhou hardware supplier. Samsung, Oppo, Xiaomi, OnePlus, Pixel reference SKUs — RFQ for MOQ and export quotes.",
+    path: "/shop",
+    keywords: [
+      "phone farm box",
+      "phone farm equipment",
+      "motherboard box",
+      "Android device farm",
+      "Samsung phone farm",
+      "Guangzhou phone farm supplier",
+    ],
+  });
+}
 
 export default async function ShopPage({
   searchParams,

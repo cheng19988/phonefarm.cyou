@@ -1,5 +1,12 @@
 import Link from "next/link";
 import { CheckoutForm } from "@/components/CheckoutForm";
+import { buildNoIndexMetadata } from "@/lib/seo";
+
+export const metadata = buildNoIndexMetadata(
+  "Checkout",
+  "Complete shipping details for sales-confirmed standard SKUs. Bulk orders use RFQ and proforma first.",
+  "/checkout"
+);
 
 export default function CheckoutPage() {
   return (

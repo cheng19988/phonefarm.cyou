@@ -1,6 +1,8 @@
 import { AI_KNOWS_ABOUT } from "./ai-discovery";
-import { SITE } from "./constants";
+import { CONTACT, SITE } from "./constants";
 import { SITE_PRIMARY_LANGUAGE, SITE_PRIMARY_LOCALE } from "./site-language";
+
+const DEFAULT_OG_IMAGE = `${SITE.url}/images/hero_1600x900/phonefarm.cyou-product-box-2025-10-25-11-21-img-0547-4b35a-hero_1600x900.webp`;
 
 export function buildMetadata({
   title,
@@ -8,33 +10,45 @@ export function buildMetadata({
   path = "",
   image,
   noIndex = false,
+  keywords,
 }: {
   title: string;
   description: string;
   path?: string;
   image?: string;
   noIndex?: boolean;
+  keywords?: string[];
 }) {
   const url = `${SITE.url}${path}`;
-  const ogImage = image || `${SITE.url}/images/hero_1600x900/phonefarm.cyou-product-box-2025-10-25-11-21-img-0547-4b35a-hero_1600x900.webp`;
+  const ogImage = image || DEFAULT_OG_IMAGE;
+  const trimmedDescription =
+    description.length > 160 ? `${description.slice(0, 157).trimEnd()}…` : description;
+
   return {
     title,
-    description,
+    description: trimmedDescription,
+    keywords: keywords?.length ? keywords : undefined,
     alternates: {
       canonical: url,
       languages: { en: url, "x-default": url },
     },
-    robots: noIndex ? { index: false, follow: false } : { index: true, follow: true },
+    robots: noIndex
+      ? { index: false, follow: false, googleBot: { index: false, follow: false } }
+      : {
+          index: true,
+          follow: true,
+          googleBot: { index: true, follow: true, "max-image-preview": "large" as const },
+        },
     openGraph: {
       title,
-      description,
+      description: trimmedDescription,
       url,
       siteName: SITE.name,
       locale: SITE_PRIMARY_LOCALE.replace("-", "_"),
       type: "website" as const,
       images: [{ url: ogImage, width: 1600, height: 900, alt: title }],
     },
-    twitter: { card: "summary_large_image" as const, title, description, images: [ogImage] },
+    twitter: { card: "summary_large_image" as const, title, description: trimmedDescription, images: [ogImage] },
   };
 }
 
@@ -43,11 +57,14 @@ export function buildNoIndexMetadata(title: string, description: string, path: s
 }
 
 export function organizationJsonLd() {
+  const logo = `${SITE.url}/images/real-factory/box-shots/2025_10_25_11_21_IMG_0547.png`;
   return {
     "@context": "https://schema.org",
     "@type": ["Organization", "Manufacturer"],
     name: SITE.name,
     url: SITE.url,
+    logo: { "@type": "ImageObject", url: logo },
+    image: logo,
     inLanguage: SITE_PRIMARY_LANGUAGE,
     foundingDate: String(SITE.since),
     description:
@@ -62,12 +79,13 @@ export function organizationJsonLd() {
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "sales",
-      email: "qiuxui646@gmail.com",
-      url: "https://t.me/huicheng1998",
+      email: CONTACT.email,
+      telephone: CONTACT.phoneDisplay,
+      url: `${SITE.url}/contact`,
       areaServed: "Worldwide",
       availableLanguage: ["English"],
     },
-    sameAs: ["https://t.me/huicheng1998"],
+    sameAs: [CONTACT.telegramUrl, CONTACT.whatsappUrl],
   };
 }
 
@@ -96,7 +114,10 @@ export function productJsonLd(product: {
   slug: string;
   priceUsd: number;
   image: string;
+  category?: string;
 }) {
+  const productUrl = `${SITE.url}/products/${product.slug}`;
+  const offerUrl = `${SITE.url}/contact?product=${encodeURIComponent(product.slug)}`;
   return {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -104,23 +125,49 @@ export function productJsonLd(product: {
     description: product.description,
     image: `${SITE.url}${product.image}`,
     sku: product.slug,
+    url: productUrl,
+    category: product.category,
+    itemCondition: "https://schema.org/NewCondition",
     brand: { "@type": "Brand", name: SITE.name },
     offers: {
       "@type": "Offer",
-      url: `${SITE.url}/contact?product=${encodeURIComponent(product.slug)}`,
+      url: offerUrl,
       priceCurrency: "USD",
-      price: product.priceUsd || undefined,
+      price: product.priceUsd > 0 ? product.priceUsd : undefined,
       availability: "https://schema.org/LimitedAvailability",
+      itemCondition: "https://schema.org/NewCondition",
       description:
         "B2B reference price. Request quotation for MOQ, lead time, shipping, and setup scope.",
-      seller: { "@type": "Organization", name: SITE.name },
+      seller: { "@type": "Organization", name: SITE.name, url: SITE.url },
       priceSpecification: {
         "@type": "UnitPriceSpecification",
         priceCurrency: "USD",
-        price: product.priceUsd || undefined,
-        description: "Indicative reference price — final quote confirmed by sales",
+        price: product.priceUsd > 0 ? product.priceUsd : undefined,
+        description: "Reference price — final quote confirmed before payment",
       },
     },
+  };
+}
+
+export function webPageJsonLd({
+  name,
+  description,
+  path,
+}: {
+  name: string;
+  description: string;
+  path: string;
+}) {
+  const url = `${SITE.url}${path}`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name,
+    description,
+    url,
+    inLanguage: SITE_PRIMARY_LANGUAGE,
+    isPartOf: { "@type": "WebSite", name: SITE.name, url: SITE.url },
+    publisher: { "@type": "Organization", name: SITE.name, url: SITE.url },
   };
 }
 
@@ -171,6 +218,7 @@ export function articleJsonLd(article: {
 }
 
 export function websiteJsonLd() {
+  const logo = `${SITE.url}/images/real-factory/box-shots/2025_10_25_11_21_IMG_0547.png`;
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
@@ -178,10 +226,17 @@ export function websiteJsonLd() {
     url: SITE.url,
     description: SITE.intro,
     inLanguage: SITE_PRIMARY_LANGUAGE,
-    publisher: { "@type": "Organization", name: SITE.name },
+    publisher: {
+      "@type": "Organization",
+      name: SITE.name,
+      logo: { "@type": "ImageObject", url: logo },
+    },
     potentialAction: {
       "@type": "SearchAction",
-      target: `${SITE.url}/shop?q={search_term_string}`,
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: `${SITE.url}/shop?q={search_term_string}`,
+      },
       "query-input": "required name=search_term_string",
     },
   };
