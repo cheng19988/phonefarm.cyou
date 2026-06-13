@@ -18,6 +18,7 @@ const jakarta = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
+  applicationName: SITE.name,
   title: {
     default: `${SITE.name} | ${SITE.tagline}`,
     template: `%s | ${SITE.name}`,
@@ -25,6 +26,15 @@ export const metadata: Metadata = {
   description: SITE.intro,
   robots: { index: true, follow: true },
   other: { "content-language": SITE_PRIMARY_LANGUAGE },
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/icon", type: "image/png", sizes: "32x32" },
+    ],
+    apple: [{ url: "/apple-icon", type: "image/png", sizes: "180x180" }],
+    shortcut: "/favicon.svg",
+  },
+  themeColor: "#0284c7",
   ...(process.env.GOOGLE_SITE_VERIFICATION
     ? { verification: { google: process.env.GOOGLE_SITE_VERIFICATION } }
     : {}),
@@ -36,6 +46,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${jakarta.variable}`}>
       <head>
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM site guide" />
         <link rel="alternate" type="text/plain" href="/llms-full.txt" title="LLM extended catalog" />
         <link rel="alternate" type="text/plain" href="/ai.txt" title="AI crawler pointer" />

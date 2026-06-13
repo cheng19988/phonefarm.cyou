@@ -13,6 +13,11 @@ const nextConfig: NextConfig = {
         destination: "/products/motherboard-box-20-slot",
         statusCode: 301,
       },
+      {
+        source: "/favicon.ico",
+        destination: "/icon",
+        statusCode: 301,
+      },
     ];
   },
 };
