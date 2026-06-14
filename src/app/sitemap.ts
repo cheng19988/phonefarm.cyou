@@ -41,6 +41,29 @@ const ZH_INDEXABLE_STATIC_PATHS = [
 ] as const;
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  try {
+    return await buildSitemapEntries();
+  } catch (error) {
+    console.error("[sitemap] full generation failed — serving static fallback:", error);
+    const origin = SITE.url;
+    return [
+      ...INDEXABLE_STATIC_PATHS.map((path) => ({
+        url: canonicalPageUrl(path, origin),
+        lastModified: new Date(),
+        changeFrequency: "weekly" as const,
+        priority: path === "" ? 1 : 0.8,
+      })),
+      ...ZH_INDEXABLE_STATIC_PATHS.map((path) => ({
+        url: canonicalPageUrl(path, origin),
+        lastModified: new Date(),
+        changeFrequency: "weekly" as const,
+        priority: path === "/zh" ? 0.95 : 0.75,
+      })),
+    ];
+  }
+}
+
+async function buildSitemapEntries(): Promise<MetadataRoute.Sitemap> {
   const origin = SITE.url;
 
   let products: { slug: string; updatedAt: Date; published: boolean }[] = [];
