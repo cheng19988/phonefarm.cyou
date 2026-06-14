@@ -1,10 +1,4 @@
 {
-  "crons": [
-    {
-      "path": "/api/cron/expire-orders",
-      "schedule": "*/15 * * * *"
-    }
-  ],
   "redirects": [
     {
       "source": "/(.*)",
