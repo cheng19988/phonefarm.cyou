@@ -20,6 +20,7 @@ export default function ServicesPage() {
       <section className="border-b border-slate-200 bg-sky-50">
         <div className="site-container py-12 lg:py-16">
           <SectionHeading
+            as="h1"
             title="Setup Services"
             subtitle={`${SITE.name} delivers full phone farm projects in ${SITE.location} - hardware, control software configuration, and handover.`}
           />

@@ -21,6 +21,7 @@ export default function FaqPage() {
         <div className="site-container py-12 lg:py-16">
           <JsonLd data={faqPageJsonLd(FAQ_ITEMS)} />
           <SectionHeading
+            as="h1"
             title="Frequently Asked Questions"
             subtitle="Expanded FAQ for buyers, integrators, enterprise procurement, and phone farm reference."
           />

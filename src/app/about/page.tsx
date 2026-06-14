@@ -33,6 +33,7 @@ export default function AboutPage() {
       <section className="border-b border-slate-200 bg-sky-50">
         <div className="site-container py-12 lg:py-16">
           <SectionHeading
+            as="h1"
             title={`About ${SITE.name}`}
             subtitle={`Guangzhou factory | Real-device phone farms since ${SITE.since} | Assembly, burn-in, export, and remote setup support.`}
           />

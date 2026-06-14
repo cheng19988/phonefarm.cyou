@@ -121,6 +121,12 @@ export default async function ShopPage({
 
   const showGrouped = !category && !q;
 
+  const shopHeadingTitle = category
+    ? sectionLabel(category)
+    : q?.trim()
+      ? `Search: ${q.trim()}`
+      : "Phone farm shop";
+
   const flagshipSlugs = new Set<string>(REFERENCE_HOMEPAGE_SKUS);
   const flagshipList = products
     .filter((p) => flagshipSlugs.has(p.slug))
@@ -150,7 +156,8 @@ export default async function ShopPage({
       <section className="border-b border-slate-200 bg-white">
         <div className="site-container py-12 lg:py-16">
           <SectionHeading
-            title="Phone farm shop"
+            as="h1"
+            title={shopHeadingTitle}
             subtitle="Brand-line motherboard farm catalog — Samsung, Oppo, Xiaomi, OnePlus, Pixel. Reference price · final quote confirmed before payment."
           />
           <p className="mt-4 text-sm text-slate-500">

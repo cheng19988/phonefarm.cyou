@@ -31,6 +31,7 @@ export default async function ContactPage({
       <section className="border-b border-slate-200 bg-sky-50">
         <div className="site-container py-12 lg:py-16">
           <SectionHeading
+            as="h1"
             title="Contact sales"
             subtitle={`${SITE.name} · ${SITE.location} · factory assembly & export since ${SITE.since}`}
           />

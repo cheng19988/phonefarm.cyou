@@ -17,6 +17,7 @@ export default function ServicePackagesPage() {
       <section className="border-b border-slate-200 bg-sky-50">
         <div className="site-container py-12 lg:py-16">
           <SectionHeading
+            as="h1"
             title="Service packages"
             subtitle={`Implementation scope for ${SITE.name} —distinct from the hardware catalog. All packages are quoted in USD and confirmed by sales before work begins.`}
           />

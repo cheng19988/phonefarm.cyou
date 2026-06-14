@@ -16,6 +16,7 @@ export default function BlogPage() {
       <section className="border-b border-slate-200 bg-sky-50">
         <div className="site-container py-12 lg:py-16">
           <SectionHeading
+            as="h1"
             title="Insights"
             subtitle="Deployment guides for hardware selection, cooling, network planning, stability testing, and group control operations."
           />

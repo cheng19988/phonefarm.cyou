@@ -41,6 +41,7 @@ export default function HelpPage() {
       <section className="border-b border-slate-200 bg-sky-50">
         <div className="site-container py-12 lg:py-16">
           <SectionHeading
+            as="h1"
             title="Help Center"
             subtitle="Document center for connection, control, network, firmware, and post-delivery operations—aligned with professional phone farm workflows."
           />

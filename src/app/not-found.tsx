@@ -1,4 +1,11 @@
 import Link from "next/link";
+import { buildNoIndexMetadata } from "@/lib/seo";
+
+export const metadata = buildNoIndexMetadata(
+  "Page not found",
+  "This page does not exist on phonefarm.cyou.",
+  "/404"
+);
 
 export default function NotFound() {
   return (

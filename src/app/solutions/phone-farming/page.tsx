@@ -57,6 +57,7 @@ export default async function PhoneFarmingSolutionPage() {
       <section className="border-b border-slate-200 bg-sky-50">
         <div className="site-container py-12 lg:py-16">
           <SectionHeading
+            as="h1"
             title="Enterprise phone farm solution"
             subtitle={`${SITE.name} supplies real Android motherboard farms from Guangzhou for app QA testing, mobile device labs, compatibility testing, and enterprise device fleet programs.`}
           />

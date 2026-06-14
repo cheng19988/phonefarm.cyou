@@ -10,9 +10,15 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata = buildMetadata({
   title: "What Is a Phone Farm? Android Device Farm Hardware & Labs",
   description:
-    "How factory-built phone farms work: 2U motherboard chassis, ~20 Android nodes, USB/LAN control, app QA testing, and enterprise device labs from Guangzhou since 2017.",
+    "What is a phone farm (手机农场)? Factory-built 2U motherboard chassis, ~20 Android nodes, USB/LAN control, app QA labs — Guangzhou manufacturer since 2017.",
   path: "/phone-farm",
-  keywords: ["what is a phone farm", "phone farm box", "Android device farm", "mobile device lab"],
+  keywords: [
+    "what is a phone farm",
+    "手机农场",
+    "phone farm box",
+    "Android device farm",
+    "mobile device lab",
+  ],
 });
 
 const COMPARE_ROWS = [
@@ -48,6 +54,7 @@ export default function PhoneFarmPage() {
       <section className="border-b border-slate-200 bg-sky-50">
         <div className="site-container py-12 lg:py-16">
           <SectionHeading
+            as="h1"
             title="What is a phone farm?"
             subtitle="A factory-built chassis of real Android motherboards - not consumer phones on a desk. Designed for professional QA, device labs, and enterprise fleets."
           />

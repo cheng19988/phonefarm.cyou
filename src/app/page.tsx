@@ -29,11 +29,12 @@ import { FINAL_QUOTE_BEFORE_PAYMENT, REFERENCE_PRICE_LABEL } from "@/lib/pricing
 export const metadata = buildMetadata({
   title: "Phone Farm Box Manufacturer & B2B Supplier | Real-Device Android Farms",
   description:
-    "Guangzhou phone farm box manufacturer since 2017. Real-device Android farms — Samsung, Oppo, Xiaomi, OnePlus, Pixel motherboard chassis, export shipping, remote setup, RFQ/proforma B2B ordering.",
+    "Guangzhou phone farm box manufacturer since 2017 (phone farm / 手机农场 B2B hardware). Real-device Android farms — Samsung, Oppo, Xiaomi, OnePlus, Pixel chassis, export shipping, RFQ/proforma ordering.",
   path: "/",
   keywords: [
     "phone farm box",
     "phone farm manufacturer",
+    "手机农场",
     "phone farm supplier",
     "motherboard phone farm",
     "Android device farm",
