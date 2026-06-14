@@ -75,15 +75,18 @@ export default async function ZhContactPage({
         </div>
       </section>
 
-      <div className="site-container py-12">
-        <ContactFormFeedback contact={contact} />
+      <div className="site-container py-12 pb-24 lg:pb-12">
         <div className="grid gap-10 lg:grid-cols-5">
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-3 max-w-xl card-premium p-6 lg:p-8">
+            <ContactFormFeedback status={contact} />
             <ContactForm
+              defaultProduct={prefill.displayName}
+              productSlug={prefill.slug}
+              intent={formIntent}
               source="zh-contact"
               variant="full"
-              prefill={prefill}
-              intent={formIntent}
+              showIntro={!prefill.displayName}
+              returnPath="/zh/contact"
             />
           </div>
           <aside className="lg:col-span-2">

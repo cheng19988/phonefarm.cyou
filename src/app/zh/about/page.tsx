@@ -77,7 +77,7 @@ export default function ZhAboutPage() {
                 <span className="font-display text-lg font-bold text-sky-600">{i + 1}</span>
                 <div>
                   <h3 className="font-semibold text-slate-900">{step.title}</h3>
-                  <p className="mt-1 text-sm text-slate-600">{step.body}</p>
+                  <p className="mt-1 text-sm text-slate-600">{step.desc}</p>
                 </div>
               </li>
             ))}
