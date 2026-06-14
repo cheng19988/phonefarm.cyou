@@ -1,9 +1,14 @@
+"use client";
+
 import Link from "next/link";
+import { useLocale } from "./LocaleProvider";
 import { SITE } from "@/lib/constants";
 
 export function Logo({ compact = false, inverted = false }: { compact?: boolean; inverted?: boolean }) {
+  const { pathForLocale } = useLocale();
+
   return (
-    <Link href="/" className="group flex min-w-0 items-center gap-3">
+    <Link href={pathForLocale("/")} className="group flex min-w-0 items-center gap-3">
       <div
         className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-sky-600 to-blue-700 shadow-md transition group-hover:shadow-lg"
         aria-hidden

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ProductCard } from "./ProductCard";
 import { SHOP_BRANDS } from "@/lib/constants";
+import type { Locale } from "@/lib/i18n/config";
 
 type Product = {
   id: string;
@@ -21,13 +22,19 @@ export function BrandProductSection({
   name,
   products,
   categoryHref,
+  locale = "en",
 }: {
   slug: string;
   name: string;
   products: Product[];
   categoryHref: string;
+  locale?: Locale;
 }) {
   const brand = SHOP_BRANDS.find((b) => b.slug === slug);
+  const viewAllLabel =
+    locale === "zh" ? `查看全部 ${name}` : `View all ${name}`;
+  const subtitle =
+    locale === "zh" ? "参考价 · 付款前确认最终报价" : "Reference price · final quote confirmed before payment";
 
   return (
     <section className="section-alt py-14">
@@ -39,15 +46,16 @@ export function BrandProductSection({
             )}
             <div>
               <h2 className="font-display text-2xl font-bold text-slate-900 sm:text-3xl">{name}</h2>
-              <p className="mt-1 text-sm text-slate-600">Reference price · final quote confirmed before payment</p>
+              <p className="mt-1 text-sm text-slate-600">{subtitle}</p>
             </div>
           </div>
           <Link href={categoryHref} className="text-sm font-medium text-sky-700 hover:text-sky-600">
-            View all {name} —          </Link>
+            {viewAllLabel}
+          </Link>
         </div>
         <div className="product-grid mt-8">
           {products.map((p) => (
-            <ProductCard key={p.id} product={p} />
+            <ProductCard key={p.id} product={p} locale={locale} />
           ))}
         </div>
       </div>

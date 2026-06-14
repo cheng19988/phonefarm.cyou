@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Inter, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { MobileContactFab } from "@/components/MobileContactFab";
+import { LocaleProvider } from "@/components/LocaleProvider";
 import { JsonLd } from "@/components/JsonLd";
 import { SITE } from "@/lib/constants";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
@@ -53,11 +55,15 @@ export default function RootLayout({
         <link rel="alternate" type="application/json" href="/ai-catalog.json" title="AI product catalog" />
       </head>
       <body className="bg-site min-h-screen flex flex-col font-sans antialiased">
-        <JsonLd data={[organizationJsonLd(), websiteJsonLd()]} />
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
-        <MobileContactFab />
+        <Suspense fallback={null}>
+          <LocaleProvider>
+            <JsonLd data={[organizationJsonLd(), websiteJsonLd()]} />
+            <Header />
+            <main className="flex-1">{children}</main>
+            <Footer />
+            <MobileContactFab />
+          </LocaleProvider>
+        </Suspense>
       </body>
     </html>
   );

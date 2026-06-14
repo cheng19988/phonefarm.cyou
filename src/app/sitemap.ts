@@ -24,6 +24,22 @@ const INDEXABLE_STATIC_PATHS = [
   "/terms",
 ] as const;
 
+const ZH_INDEXABLE_STATIC_PATHS = [
+  "/zh",
+  "/zh/shop",
+  "/zh/services",
+  "/zh/services/packages",
+  "/zh/phone-farm",
+  "/zh/deployment",
+  "/zh/help",
+  "/zh/solutions/phone-farming",
+  "/zh/about",
+  "/zh/faq",
+  "/zh/contact",
+  "/zh/privacy",
+  "/zh/terms",
+] as const;
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const origin = SITE.url;
 
@@ -51,6 +67,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
             : 0.8,
   }));
 
+  const zhStaticEntries: MetadataRoute.Sitemap = ZH_INDEXABLE_STATIC_PATHS.map((path) => ({
+    url: canonicalPageUrl(path, origin),
+    lastModified: new Date(),
+    changeFrequency: "weekly",
+    priority:
+      path === "/zh"
+        ? 0.95
+        : path === "/zh/shop" || path === "/zh/phone-farm" || path === "/zh/contact"
+          ? 0.88
+          : 0.75,
+  }));
+
   const categoryEntries: MetadataRoute.Sitemap = PRODUCT_CATEGORIES.map((cat) => ({
     url: canonicalPageUrl(`/shop?category=${cat.slug}`, origin),
     lastModified: new Date(),
@@ -58,12 +86,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: SHOP_BRANDS.some((b) => b.slug === cat.slug) ? 0.78 : 0.72,
   }));
 
-  const productEntries: MetadataRoute.Sitemap = products.map((p) => ({
-    url: canonicalPageUrl(`/products/${p.slug}`, origin),
-    lastModified: p.updatedAt,
-    changeFrequency: "weekly",
-    priority: 0.7,
-  }));
+  const productEntries: MetadataRoute.Sitemap = products.flatMap((p) => [
+    {
+      url: canonicalPageUrl(`/products/${p.slug}`, origin),
+      lastModified: p.updatedAt,
+      changeFrequency: "weekly" as const,
+      priority: 0.7,
+    },
+    {
+      url: canonicalPageUrl(`/zh/products/${p.slug}`, origin),
+      lastModified: p.updatedAt,
+      changeFrequency: "weekly" as const,
+      priority: 0.68,
+    },
+  ]);
 
   const blogEntries: MetadataRoute.Sitemap = PUBLISHED_BLOG_POSTS.map((p) => ({
     url: canonicalPageUrl(`/blog/${p.slug}`, origin),
@@ -79,5 +115,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.65,
   }));
 
-  return [...staticEntries, ...categoryEntries, ...productEntries, ...blogEntries, ...helpEntries];
+  return [
+    ...staticEntries,
+    ...zhStaticEntries,
+    ...categoryEntries,
+    ...productEntries,
+    ...blogEntries,
+    ...helpEntries,
+  ];
 }

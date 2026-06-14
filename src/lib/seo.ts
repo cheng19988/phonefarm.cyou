@@ -1,6 +1,13 @@
 import { AI_KNOWS_ABOUT } from "./ai-discovery";
 import { CONTACT, SITE } from "./constants";
-import { SITE_PRIMARY_LANGUAGE, SITE_PRIMARY_LOCALE } from "./site-language";
+import type { Locale } from "./i18n/config";
+import { buildLanguageAlternates, localePath } from "./i18n/paths";
+import {
+  SITE_PRIMARY_LANGUAGE,
+  SITE_PRIMARY_LOCALE,
+  SITE_SECONDARY_LANGUAGE,
+  SITE_SECONDARY_LOCALE,
+} from "./site-language";
 
 const DEFAULT_OG_IMAGE = `${SITE.url}/images/hero_1600x900/phonefarm.cyou-product-box-2025-10-25-11-21-img-0547-4b35a-hero_1600x900.webp`;
 
@@ -11,6 +18,7 @@ export function buildMetadata({
   image,
   noIndex = false,
   keywords,
+  locale = "en",
 }: {
   title: string;
   description: string;
@@ -18,11 +26,19 @@ export function buildMetadata({
   image?: string;
   noIndex?: boolean;
   keywords?: string[];
+  locale?: Locale;
 }) {
-  const url = `${SITE.url}${path}`;
+  const sitePath = path === "/" ? "" : path;
+  const canonicalPath = localePath(locale, sitePath);
+  const url = `${SITE.url}${canonicalPath === "/" ? "" : canonicalPath}`;
   const ogImage = image || DEFAULT_OG_IMAGE;
   const trimmedDescription =
     description.length > 160 ? `${description.slice(0, 157).trimEnd()}…` : description;
+  const ogLocale = locale === "zh" ? SITE_SECONDARY_LOCALE.replace("-", "_") : SITE_PRIMARY_LOCALE.replace("-", "_");
+  const ogAlternate =
+    locale === "zh"
+      ? [SITE_PRIMARY_LOCALE.replace("-", "_")]
+      : [SITE_SECONDARY_LOCALE.replace("-", "_")];
 
   return {
     title,
@@ -30,7 +46,7 @@ export function buildMetadata({
     keywords: keywords?.length ? keywords : undefined,
     alternates: {
       canonical: url,
-      languages: { en: url, "x-default": url },
+      languages: buildLanguageAlternates(sitePath),
     },
     robots: noIndex
       ? { index: false, follow: false, googleBot: { index: false, follow: false } }
@@ -44,7 +60,8 @@ export function buildMetadata({
       description: trimmedDescription,
       url,
       siteName: SITE.name,
-      locale: SITE_PRIMARY_LOCALE.replace("-", "_"),
+      locale: ogLocale,
+      alternateLocale: ogAlternate,
       type: "website" as const,
       images: [{ url: ogImage, width: 1600, height: 900, alt: title }],
     },
@@ -83,7 +100,7 @@ export function organizationJsonLd() {
       telephone: CONTACT.phoneDisplay,
       url: `${SITE.url}/contact`,
       areaServed: "Worldwide",
-      availableLanguage: ["English"],
+      availableLanguage: ["English", "Chinese"],
     },
     sameAs: [CONTACT.telegramUrl, CONTACT.whatsappUrl],
   };
@@ -153,19 +170,23 @@ export function webPageJsonLd({
   name,
   description,
   path,
+  locale = "en",
 }: {
   name: string;
   description: string;
   path: string;
+  locale?: Locale;
 }) {
-  const url = `${SITE.url}${path}`;
+  const canonicalPath = localePath(locale, path === "/" ? "" : path);
+  const url = `${SITE.url}${canonicalPath === "/" ? "" : canonicalPath}`;
+  const inLanguage = locale === "zh" ? SITE_SECONDARY_LANGUAGE : SITE_PRIMARY_LANGUAGE;
   return {
     "@context": "https://schema.org",
     "@type": "WebPage",
     name,
     description,
     url,
-    inLanguage: SITE_PRIMARY_LANGUAGE,
+    inLanguage,
     isPartOf: { "@type": "WebSite", name: SITE.name, url: SITE.url },
     publisher: { "@type": "Organization", name: SITE.name, url: SITE.url },
   };
@@ -278,7 +299,7 @@ export function contactPageJsonLd() {
         email: "qiuxui646@gmail.com",
         url,
         areaServed: "Worldwide",
-        availableLanguage: ["English"],
+        availableLanguage: ["English", "Chinese"],
       },
     },
   };
