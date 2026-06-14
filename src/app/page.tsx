@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { prisma } from "@/lib/prisma";
+import { safeProductFindMany } from "@/lib/safe-prisma";
 import { ContactForm } from "@/components/ContactForm";
 import { FaqAccordion } from "@/components/FaqAccordion";
 import { JsonLd } from "@/components/JsonLd";
@@ -45,12 +45,12 @@ export const metadata = buildMetadata({
 async function productsForSection(section: (typeof HOME_SECTIONS)[number]) {
   const rows =
     "categories" in section && section.categories
-      ? await prisma.product.findMany({
+      ? await safeProductFindMany({
           where: { published: true, category: { in: [...section.categories] } },
           take: 16,
           orderBy: { priceUsd: "asc" },
         })
-      : await prisma.product.findMany({
+      : await safeProductFindMany({
           where: { published: true, category: section.slug },
           take: 16,
           orderBy: { priceUsd: "asc" },

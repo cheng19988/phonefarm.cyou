@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { prisma } from "@/lib/prisma";
+import { safeProductFindMany } from "@/lib/safe-prisma";
 import { ProductCard } from "@/components/ProductCard";
 import { ContactForm } from "@/components/ContactForm";
 import { DeliverySopSection } from "@/components/DeliverySopSection";
@@ -46,7 +46,7 @@ const LAYERS = [
 ];
 
 export default async function PhoneFarmingSolutionPage() {
-  const products = await prisma.product.findMany({
+  const products = await safeProductFindMany({
     where: { published: true, category: { in: [...SOLUTION_CATEGORIES] } },
     orderBy: [{ category: "asc" }, { priceUsd: "asc" }],
     take: 8,

@@ -8,6 +8,14 @@ const required = [
   "USDT_TRC20_ADDRESS",
 ];
 
+console.log(
+  `[build-env] VERCEL=${process.env.VERCEL ?? "0"} VERCEL_ENV=${process.env.VERCEL_ENV ?? "local"} NODE_VERSION=${process.version}`
+);
+console.log(
+  "[build-env] Required vars present:",
+  required.map((k) => `${k}=${Boolean(process.env[k]?.trim())}`).join(", ")
+);
+
 const missing = required.filter((k) => !process.env[k]?.trim());
 if (missing.length) {
   console.error("[build] Missing required environment variables:");

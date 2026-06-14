@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Suspense } from "react";
-import { prisma } from "@/lib/prisma";
+import { safeProductFindMany } from "@/lib/safe-prisma";
 import { ProductCard } from "@/components/ProductCard";
 import { ShopFilters } from "@/components/ShopFilters";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -92,7 +92,7 @@ export default async function ZhShopPage({
   searchParams: Promise<{ category?: string; q?: string }>;
 }) {
   const { category, q } = await searchParams;
-  const products = await prisma.product.findMany({
+  const products = await safeProductFindMany({
     where: {
       published: true,
       ...(category ? { category } : {}),
